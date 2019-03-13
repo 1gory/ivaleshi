@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import Header from './Header';
 import Navbar from './Navbar';
 
+const Wrapper = styled.div`
+  color: white;
+`;
+
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -10,8 +14,10 @@ export default class extends Component {
 
   render() {
     return (
-      <Header></Header>
-      <Navbar></Navbar>
+      <Wrapper>
+        <Navbar></Navbar>
+        <Header></Header>
+      </Wrapper>
     );
   }
 }
