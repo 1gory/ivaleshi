@@ -7,11 +7,13 @@ const Wrapper = styled.div`
   height: 572px;
   background-image: url(${bg});
   background-position: center right;
+  color: black;
 `;
 
 const Header = styled.h1`
   font-size: 60px;
   margin-top: 120px;
+  margin-bottom: 40px;
 `;
 
 const Text = styled.h2`
@@ -23,7 +25,7 @@ export default () => (
   <Wrapper>
     <Grid>
       <Row>
-        <Col xs={6}>
+        <Col xs={7}>
           <Header>
             Дизайнерские валеши ручной работы
           </Header>
