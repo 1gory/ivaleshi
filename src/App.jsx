@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Navbar from './Navbar';
 
 export default class extends Component {
   constructor(props) {
@@ -8,9 +9,7 @@ export default class extends Component {
 
   render() {
     return (
-      <div>
-        hello
-      </div>
+      <Navbar></Navbar>
     );
   }
 }
