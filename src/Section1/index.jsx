@@ -59,10 +59,10 @@ const ButtonWhite = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
-    &:hover {
-      background-color: #ff3300;
-      color: white;  
-    }
+  &:hover {
+    background-color: #ff3300;
+    color: white;  
+  }
 `;
 
 const Button = styled.button`
@@ -75,10 +75,10 @@ const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
-    &:hover {
-      background-color: white;
-      color: #ff3300;  
-    }
+  &:hover {
+    background-color: white;
+    color: #ff3300;  
+  }
 `;
 
 

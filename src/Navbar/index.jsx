@@ -40,9 +40,9 @@ const SocialLink = styled.a`
   font-weight: 600;
   color: #191619;
   transition: 0.2s;
-    &:hover {
-      color: #ff3300;  
-    }
+  &:hover {
+    color: #ff3300;  
+  }
 `;
 
 const SocialIcon = styled.img`
@@ -70,10 +70,10 @@ const NavButton = styled.button`
   padding: 20px 30px;
   cursor: pointer;
   transition: 0.2s;
-    &:hover {
-      background-color: #ff3300;
-      color: white;  
-    }
+  &:hover {
+    background-color: #ff3300;
+    color: white;  
+  }
 `;
 
 const BottomSection = styled.div`

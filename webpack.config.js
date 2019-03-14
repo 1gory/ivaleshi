@@ -1,7 +1,7 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const WEBPACK_DEV_SERVER_PORT = 8090;
+const WEBPACK_DEV_SERVER_PORT = 8080;
 const DEV_SERVER_PORT = 3000;
 
 module.exports = {
@@ -33,15 +33,6 @@ module.exports = {
         test: /\.css$/,
         loader: ['style-loader', 'css-loader'],
       },
-      {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-          }
-        }]
-      }
     ],
   },
   plugins: [
