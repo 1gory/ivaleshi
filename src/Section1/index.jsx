@@ -20,11 +20,19 @@ const Header = styled.h3`
   color: white;
   margin-top: 0;
   margin-bottom: 60px;
+  font-family: 'Museo-Regular', sans-serif;
+  font-weight: normal;
+  line-height: 1.47;
+  padding-right: 50px;
 `;
 
 const Text = styled.h2`
   font-size: 18px; 
   color: white;
+  line-height: 2;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: normal;
+  padding-right: 160px;
 `;
 
 const SideImg = styled.img`
@@ -47,6 +55,14 @@ const ButtonWhite = styled.button`
   color: #ff3300;
   text-transform: uppercase;
   margin-right: 30px;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+    &:hover {
+      background-color: #ff3300;
+      color: white;  
+    }
 `;
 
 const Button = styled.button`
@@ -55,6 +71,14 @@ const Button = styled.button`
   padding: 11px 15px;
   color: white;
   text-transform: uppercase;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+    &:hover {
+      background-color: white;
+      color: #ff3300;  
+    }
 `;
 
 
@@ -62,7 +86,7 @@ export default () => (
   <Wrapper>
     <Grid>
       <Row>
-        <Col xs={6}>
+        <Col xs={7}>
           <TextWrapper>
             <Header>
               Валеши — это современный взгляд на традиционную обувь

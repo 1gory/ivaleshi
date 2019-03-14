@@ -36,7 +36,13 @@ const Social = styled.div`
 const SocialLink = styled.a`
   margin-right: 40px;
   text-decoration: none;
-  color: black;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: 600;
+  color: #191619;
+  transition: 0.2s;
+    &:hover {
+      color: #ff3300;  
+    }
 `;
 
 const SocialIcon = styled.img`
@@ -58,7 +64,16 @@ const NavButton = styled.button`
   background: none;
   text-transform: uppercase;
   color: #ff3300;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
   padding: 20px 30px;
+  cursor: pointer;
+  transition: 0.2s;
+    &:hover {
+      background-color: #ff3300;
+      color: white;  
+    }
 `;
 
 const BottomSection = styled.div`
@@ -79,7 +94,15 @@ const BottomMenuItem = styled.li`
   text-transform: uppercase;
   a {
     text-decoration: none;
-    color: black;
+    letter-spacing: 0.3px;
+    font-family: 'MuseoSans-Regular', sans-serif;
+    font-weight: 600;
+    color: #191619;
+    transition: 0.2s;
+
+    &:hover {
+      color: #ff3300;  
+    }
   }
 `;
 

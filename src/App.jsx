@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import Section_1 from './Section_1';
+import Section1 from './Section1';
 import Header from './Header';
 import Navbar from './Navbar';
+// import Fonts from './Fonts';
 
 
 const Wrapper = styled.div`
@@ -18,11 +19,11 @@ export default class extends Component {
   render() {
     return (
       <Wrapper>
+        {/* <Fonts /> */}
         <Navbar></Navbar>
         <Header></Header>
-        <Section_1></Section_1>
+        <Section1></Section1>
       </Wrapper>
-
     );
   }
 }

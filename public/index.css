@@ -1,4 +1,13 @@
-/*@font-face {*/
-    /*font-family: '';*/
-    /*src: url(./fonts/) format('woff');*/
-/*}*/
+@font-face {
+  font-family: "MuseoSans-Regular";
+  src: url("./fonts/MuseoSans/MuseoSansRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}  
+
+@font-face {
+  font-family: "Museo-Regular";
+  src: url("./fonts/MuseoRegular/MuseoRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+} 
