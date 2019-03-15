@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-
 const CardHeader = styled.div`
-  width: 100%;
   margin-top: 60px;
   margin-bottom: 40px;
   font-size: 20px;
@@ -27,15 +25,10 @@ const CardIcon = styled.img`
   display: block;
 `;
 
-export default class extends Component {
-  render() {
-    const { icon, name, text } = this.props;
-    return (
-      <div>
-        <CardIcon src={icon} />
-        <CardHeader>{name}</CardHeader>
-        <CardText>{text}</CardText>
-      </div>
-    );
-  }
-}
+export default ({ icon, name, text }) => (
+  <div>
+    <CardIcon src={icon} />
+    <CardHeader>{name}</CardHeader>
+    <CardText>{text}</CardText>
+  </div>
+);
