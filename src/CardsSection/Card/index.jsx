@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const CardHeader = styled.div`
@@ -23,6 +23,7 @@ const CardText = styled.div`
 const CardIcon = styled.img`
   margin: auto;
   display: block;
+  height: 80px;
 `;
 
 export default ({ icon, name, text }) => (

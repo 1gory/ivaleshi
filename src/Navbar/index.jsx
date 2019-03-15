@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import logo from './logo.png';
 import phone from './phone.png';
+import socialVK from './social-vk.svg';
+import socialIG from './social-ig.svg';
+import socialWA from './social-wa.svg';
 
 const TopSection = styled.div`
   padding-top: 30px;
@@ -111,24 +114,25 @@ export default () => (
   <Grid>
     <TopSection>
       <Row>
-        <Col xs={4}>
+        <Col xs={5}>
           <Social>
             <SocialLink href="tel:+8 8888 123-45-67">
               <SocialIcon src={phone} />
               +8 8888 123-45-67
             </SocialLink>
-            <SocialLink href="/"><SocialIcon src={phone} /></SocialLink>
-            <SocialLink href="/"><SocialIcon src={phone} /></SocialLink>
+            <SocialLink href="/"><SocialIcon src={socialVK} /></SocialLink>
+            <SocialLink href="/"><SocialIcon src={socialIG} /></SocialLink>
+            <SocialLink href="/"><SocialIcon src={socialWA} /></SocialLink>
           </Social>
         </Col>
-        <Col xs={4}>
+        <Col xs={2}>
           <LogoWrapper>
             <a href="/">
               <Logo src={logo} />
             </a>
           </LogoWrapper>
         </Col>
-        <Col xs={4}>
+        <Col xs={5}>
           <NavButtonWrapper>
             <NavButton>Подобрать дизайн</NavButton>
           </NavButtonWrapper>
