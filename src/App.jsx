@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import InfoBlock1 from './InfoBlock1';
-import SectionCards from './SectionCards';
+import InfoBlock from './InfoBlock';
+import CardsSection from './CardsSection';
 import Header from './Header';
 import Navbar from './Navbar';
 
@@ -19,8 +19,8 @@ export default class extends Component {
       <Wrapper>
         <Navbar></Navbar>
         <Header></Header>
-        <InfoBlock1></InfoBlock1>
-        <SectionCards></SectionCards>
+        <InfoBlock></InfoBlock>
+        <CardsSection></CardsSection>
       </Wrapper>
     );
   }
