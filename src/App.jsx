@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import InfoBlock from './InfoBlock';
 import CardsSection from './CardsSection';
+import PricesSection from './PricesSection';
 import Header from './Header';
 import Navbar from './Navbar';
 
@@ -21,6 +22,7 @@ export default class extends Component {
         <Header></Header>
         <InfoBlock></InfoBlock>
         <CardsSection></CardsSection>
+        <PricesSection></PricesSection>
       </Wrapper>
     );
   }
