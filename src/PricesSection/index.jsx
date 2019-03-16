@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import arrow from './arrow-right.png';
+import arrow from './arrow.svg';
 import Item from './Item';
 import Gallery from './Gallery';
 import ItemsList from './ItemsList';
+import Arrow from './Arrow';
 
 const Wrapper = styled.div`
   padding-top: 160px;
@@ -18,24 +19,12 @@ const SliderWrapper = styled.div`
 const SliderButtonWrapper = styled.div`
   position: absolute;
   top: 0;
-  left: ${({ right }) => (right ? 'auto' : '-55px')};
-  right: ${({ right }) => (right ? '-55px' : 'auto')};
+  left: ${({ right }) => (right ? '-60px' : 'auto')};
+  right: ${({ right }) => (right ? 'auto' : '-60px')};
   height: 100%;
   display: flex;
   align-items: center;
   z-index: 10;
-`;
-
-const SliderButton = styled.button`
-  padding: 20px;
-  background-color: #ff3300;
-  border: 30px solid white;
-  cursor: pointer;
-  transform: ${({ right }) => (right ? 'rotate(180deg)' : 'none')}; 
-  transition: 0.2s;
-  &:hover {
-    background-color: white;
-  }
 `;
 
 export default () => (
@@ -57,10 +46,10 @@ export default () => (
           ))}
         </Row>
         <SliderButtonWrapper>
-          <SliderButton><img src={arrow} alt="" /></SliderButton>
+          <Arrow />
         </SliderButtonWrapper>
         <SliderButtonWrapper right>
-          <SliderButton right><img src={arrow} alt="" /></SliderButton>
+          <Arrow right />
         </SliderButtonWrapper>
       </SliderWrapper>
     </Grid>

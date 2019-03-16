@@ -37,13 +37,13 @@ const ItemButton = styled.button`
   font-weight: 500;
   cursor: pointer;
   transition: 0.2s;
-  span {
-    opacity: 0.5;
-  }
   &:hover {
     background-color: white;
     color: #ff3300;  
   }
+`;
+const ItemButtonPrice = styled.span`
+  opacity: 0.5;
 `;
 
 export default ({ name, price, text }) => (
@@ -51,7 +51,7 @@ export default ({ name, price, text }) => (
     <ItemHeader>{name}</ItemHeader>
     <ItemText>{text}</ItemText>
     <ItemButton>
-      Купить <span>{price} Р.</span>
+      Купить <ItemButtonPrice>{price} Р.</ItemButtonPrice>
     </ItemButton>
   </ItemWrapper>
 );
