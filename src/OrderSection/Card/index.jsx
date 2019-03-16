@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Card = styled.div`
-  padding-top: 140px;
-  padding-bottom: 140px;
+const Wrapper = styled.div`
+  padding: 140px 0px;
 `;
 
-const CardHeader = styled.div`
+const Header = styled.div`
   margin-top: 70px;
   margin-bottom: 40px;
   font-size: 20px;
@@ -15,7 +14,7 @@ const CardHeader = styled.div`
   text-align: center;
 `;
 
-const CardText = styled.div`
+const Text = styled.div`
   padding: 0 35px;
   margin-bottom: 50px;
   font-size: 14px; 
@@ -25,14 +24,14 @@ const CardText = styled.div`
   text-align: center;
 `;
 
-const CardIcon = styled.img`
+const Icon = styled.img`
   margin: auto;
   display: block;
   height: 60px;
 `;
 
-const CardButton = styled.button`
-  display: ${({ button }) => (button ? 'block' : 'none')}; 
+const Button = styled.button`
+  display: ${({ buttonVisible }) => (buttonVisible ? 'block' : 'none')}; 
   margin: auto;
   background: none;
   border: none;
@@ -50,11 +49,11 @@ const CardButton = styled.button`
   }
 `;
 
-export default ({ icon, name, text, button }) => (
-  <Card>
-    <CardIcon src={icon} />
-    <CardHeader>{name}</CardHeader>
-    <CardText>{text}</CardText>
-    <CardButton button={button}>Подобрать дизайн</CardButton>
-  </Card>
+export default ({ icon, name, text, buttonVisible }) => (
+  <Wrapper>
+    <Icon src={icon} />
+    <Header>{name}</Header>
+    <Text>{text}</Text>
+    <Button buttonVisible={buttonVisible}>Подобрать дизайн</Button>
+  </Wrapper>
 );

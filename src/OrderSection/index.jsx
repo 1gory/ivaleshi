@@ -19,7 +19,7 @@ export default () => (
               name={card.name}
               icon={card.icon}
               text={card.text}
-              button={card.button}
+              buttonVisible={card.buttonVisible}
             />
           </Col>
         ))}
