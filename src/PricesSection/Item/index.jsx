@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ItemWrapper = styled.div`
+const Wrapper = styled.div`
   border: solid 5px #ff3300;  
   padding-top: 110px;
   padding-left: 280px;
   padding-right: 160px;
 `;
 
-const ItemHeader = styled.div`
+const Header = styled.div`
   margin-bottom: 50px;
   font-family: 'Museo-Regular', sans-serif;
   font-size: 36px;
@@ -16,7 +16,7 @@ const ItemHeader = styled.div`
   color: #191619;  
 `;
 
-const ItemText = styled.div`
+const Text = styled.div`
   margin-bottom: 45px;
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 16px;
@@ -25,7 +25,7 @@ const ItemText = styled.div`
   color: #191619;  
 `;
 
-const ItemButton = styled.button`
+const Button = styled.button`
   margin-bottom: 140px;
   background-color: #ff3300;
   border: none;
@@ -42,16 +42,16 @@ const ItemButton = styled.button`
     color: #ff3300;  
   }
 `;
-const ItemButtonPrice = styled.span`
+const ButtonPrice = styled.span`
   opacity: 0.5;
 `;
 
 export default ({ name, price, text }) => (
-  <ItemWrapper>
-    <ItemHeader>{name}</ItemHeader>
-    <ItemText>{text}</ItemText>
-    <ItemButton>
-      Купить <ItemButtonPrice>{price} Р.</ItemButtonPrice>
-    </ItemButton>
-  </ItemWrapper>
+  <Wrapper>
+    <Header>{name}</Header>
+    <Text>{text}</Text>
+    <Button>
+      Купить <ButtonPrice>{price} Р.</ButtonPrice>
+    </Button>
+  </Wrapper>
 );
