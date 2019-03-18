@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import phone from './phone.png';
+import Map from './Map';
 import socialVK from './social-vk.svg';
 import socialIG from './social-ig.svg';
 import socialWA from './social-wa.svg';
@@ -31,6 +31,7 @@ const Menu = styled.ul`
   width: 340px;
   padding: 0;
   margin: 0 auto;
+  margin-bottom: 80px;
 `;
 
 const MenuItem = styled.li`
@@ -110,5 +111,9 @@ export default () => (
         </Col>
       </Row>
     </Grid>
+    <Map
+      width={'100%'}
+      height={'500px'}
+    />
   </Wrapper>
 );
