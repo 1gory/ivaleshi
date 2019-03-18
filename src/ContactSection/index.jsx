@@ -35,8 +35,24 @@ const EmailInput = styled.input`
   font-family: 'MuseoSans-Regular', sans-serif;
   color: rgba(25, 22, 25, 0.5);
   padding: 30px;
-  width: 440px;
+  width: 240px;
   font-weight: bold;
+  border: none;
+`;
+
+const EmailButton = styled.button`
+  background: white;
+  border: none;
+  padding: 30px;
+  color: #ff6633;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: rgb(255, 51, 0);
+    color: white;  
+  }
 `;
 
 const SideImg = styled.img`
@@ -57,7 +73,10 @@ export default () => (
           <Col xsOffset={5} xs={7}>
             <Header>Бесплатный буклет по уходу за валешами</Header>
             <Text>Введи свой Email чтобы получить бесплатный буклет на почту. Никакого спама.</Text>
-            <EmailInput type="text" placeholder="Email" />
+            <div>
+              <EmailInput type="text" placeholder="Email" />
+              <EmailButton>Отправить</EmailButton>
+            </div>
           </Col>
         </Row>
         <SideImg src={img} />
