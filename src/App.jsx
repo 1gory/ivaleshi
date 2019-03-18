@@ -6,6 +6,7 @@ import PricesSection from './PricesSection';
 import Header from './Header';
 import Navbar from './Navbar';
 import OrderSection from './OrderSection';
+import FeedbackSection from './FeedbackSection';
 
 const Wrapper = styled.div`
   color: white;
@@ -25,6 +26,7 @@ export default class extends Component {
         <CardsSection></CardsSection>
         <PricesSection></PricesSection>
         <OrderSection></OrderSection>
+        <FeedbackSection></FeedbackSection>
       </Wrapper>
     );
   }
