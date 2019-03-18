@@ -22,11 +22,21 @@ const Author = styled.div`
 
 const Text = styled.div`
   margin-bottom: 60px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Caveat-Regular', sans-serif;
   font-size: 26px;
   line-height: 1.31;
-  font-weight: 600;
   color: #191619;  
+  position: relative;
+
+  &::before {
+    content: "“";
+    color: rgba(25, 22, 25, 0.25);
+    font-family: 'Caveat-Regular', sans-serif;
+    font-size: 48px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+  }
 `;
 
 const PostDate = styled.div`
@@ -42,7 +52,7 @@ const LinkIcon = styled.img`
 
 const Thumb = styled.img`
   position: absolute;
-  top: -80px;
+  bottom: 40px;
   left: 50px;
   width: 270px;
   height: 330px;
