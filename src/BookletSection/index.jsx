@@ -18,7 +18,6 @@ const Header = styled.div`
   font-family: 'Museo-Regular', sans-serif;
   font-size: 36px;
   color: white;   
-  padding-right: 140px;
 `;
 
 const Text = styled.div`
@@ -28,7 +27,6 @@ const Text = styled.div`
   line-height: 1.5;
   opacity: 0.7;
   color: white;  
-  padding-right: 300px;
 `;
 
 const EmailInput = styled.input`
@@ -71,8 +69,8 @@ export default () => (
       <ImageWrapper>
         <Row>
           <Col xsOffset={5} xs={7}>
-            <Header>Бесплатный буклет по уходу за валешами</Header>
-            <Text>Введи свой Email чтобы получить бесплатный буклет на почту. Никакого спама.</Text>
+            <Header>Бесплатный буклет по уходу<br />за валешами</Header>
+            <Text>Введи свой Email чтобы получить бесплатный<br />буклет на почту. Никакого спама.</Text>
             <div>
               <EmailInput type="text" placeholder="Email" />
               <EmailButton>Отправить</EmailButton>

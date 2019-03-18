@@ -6,7 +6,7 @@ import PricesSection from './PricesSection';
 import Header from './Header';
 import Navbar from './Navbar';
 import OrderSection from './OrderSection';
-import ContactSection from './ContactSection';
+import BookletSection from './BookletSection';
 import FeedbackSection from './FeedbackSection';
 
 const Wrapper = styled.div`
@@ -28,7 +28,7 @@ export default class extends Component {
         <PricesSection></PricesSection>
         <OrderSection></OrderSection>
         <FeedbackSection></FeedbackSection>
-        <ContactSection></ContactSection>
+        <BookletSection></BookletSection>
       </Wrapper>
     );
   }
