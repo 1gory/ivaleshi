@@ -33,11 +33,13 @@ const Social = styled.div`
 
   & a:first-child img {
     margin-right: 15px;
+    background: none;
+    border: none;
   }
 `;
 
 const SocialLink = styled.a`
-  margin-right: 40px;
+  margin-right: 10px;
   text-decoration: none;
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: 600;
@@ -52,6 +54,12 @@ const SocialIcon = styled.img`
   height: 17px;
   width: 17px;
   vertical-align: top;
+  background-color: rgb(245, 244, 243);
+  border: 8px solid rgb(245, 244, 243);
+`;
+
+const SocialPhone = styled.span`
+  margin-right: 30px;
 `;
 
 const NavButtonWrapper = styled.div`
@@ -118,7 +126,7 @@ export default () => (
           <Social>
             <SocialLink href="tel:+8 8888 123-45-67">
               <SocialIcon src={phone} />
-              +8 8888 123-45-67
+              <SocialPhone>+8 8888 123-45-67</SocialPhone>
             </SocialLink>
             <SocialLink href="/"><SocialIcon src={socialVK} /></SocialLink>
             <SocialLink href="/"><SocialIcon src={socialIG} /></SocialLink>

@@ -8,6 +8,7 @@ import Navbar from './Navbar';
 import OrderSection from './OrderSection';
 import BookletSection from './BookletSection';
 import FeedbackSection from './FeedbackSection';
+import Footer from './Footer';
 
 const Wrapper = styled.div`
   color: white;
@@ -29,6 +30,7 @@ export default class extends Component {
         <OrderSection></OrderSection>
         <FeedbackSection></FeedbackSection>
         <BookletSection></BookletSection>
+        <Footer></Footer>
       </Wrapper>
     );
   }
