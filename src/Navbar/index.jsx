@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import logo from './logo.png';
-import phone from './phone.png';
-import socialVK from './social-vk.svg';
-import socialIG from './social-ig.svg';
-import socialWA from './social-wa.svg';
+import phone from '../icons/phone.png';
+import socialVK from '../icons/social-vk.svg';
+import socialIG from '../icons/social-ig.svg';
+import socialWA from '../icons/social-wa.svg';
 
 const TopSection = styled.div`
   padding-top: 30px;
@@ -25,7 +25,7 @@ const Logo = styled.img`
   object-fit: cover;
 `;
 
-const Social = styled.div`
+const ContactsWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -33,11 +33,13 @@ const Social = styled.div`
 
   & a:first-child img {
     margin-right: 15px;
+    background: none;
+    border: none;
   }
 `;
 
-const SocialLink = styled.a`
-  margin-right: 40px;
+const ContactLink = styled.a`
+  margin-right: 10px;
   text-decoration: none;
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: 600;
@@ -48,10 +50,16 @@ const SocialLink = styled.a`
   }
 `;
 
-const SocialIcon = styled.img`
+const ContactPhone = styled(ContactLink)`
+  margin-right: 30px;
+`;
+
+const ContactIcon = styled.img`
   height: 17px;
   width: 17px;
   vertical-align: top;
+  background-color: rgb(245, 244, 243);
+  border: 8px solid rgb(245, 244, 243);
 `;
 
 const NavButtonWrapper = styled.div`
@@ -115,15 +123,15 @@ export default () => (
     <TopSection>
       <Row>
         <Col xs={5}>
-          <Social>
-            <SocialLink href="tel:+8 8888 123-45-67">
-              <SocialIcon src={phone} />
+          <ContactsWrapper>
+            <ContactPhone href="tel:+8 8888 123-45-67">
+              <ContactIcon src={phone} />
               +8 8888 123-45-67
-            </SocialLink>
-            <SocialLink href="/"><SocialIcon src={socialVK} /></SocialLink>
-            <SocialLink href="/"><SocialIcon src={socialIG} /></SocialLink>
-            <SocialLink href="/"><SocialIcon src={socialWA} /></SocialLink>
-          </Social>
+            </ContactPhone>
+            <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
+            <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
+            <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
+          </ContactsWrapper>
         </Col>
         <Col xs={2}>
           <LogoWrapper>

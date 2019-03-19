@@ -6,6 +6,7 @@ import img from './gal-img.png';
 const Wrapper = styled.div`
   padding-top: 110px;
   background-color: rgb(255, 51, 0);
+  overflow: hidden;
 `;
 
 const ImageWrapper = styled.div`
