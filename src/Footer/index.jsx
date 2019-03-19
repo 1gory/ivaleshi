@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Map from './Map';
-import socialVK from '../Icons/social-vk.svg';
-import socialIG from '../Icons/social-ig.svg';
-import socialWA from '../Icons/social-wa.svg';
+import socialVK from '../icons/social-vk.svg';
+import socialIG from '../icons/social-ig.svg';
+import socialWA from '../icons/social-wa.svg';
 
 const Wrapper = styled.div`
   padding-top: 120px;
@@ -51,7 +51,7 @@ const MenuItem = styled.li`
   }
 `;
 
-const Contact = styled.div`
+const ContactsWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -99,14 +99,14 @@ export default () => (
           </Menu>
         </Col>
         <Col xs={7}>
-          <Contact>
+          <ContactsWrapper>
             <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
             <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
             <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
             <ContactPhone href="tel:+8 8888 123-45-67">
               +8 8888 123-45-67
             </ContactPhone>
-          </Contact>
+          </ContactsWrapper>
         </Col>
       </Row>
     </Grid>
