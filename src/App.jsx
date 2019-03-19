@@ -22,15 +22,15 @@ export default class extends Component {
   render() {
     return (
       <Wrapper>
-        <Navbar></Navbar>
-        <Header></Header>
-        <InfoBlock></InfoBlock>
-        <CardsSection></CardsSection>
-        <PricesSection></PricesSection>
-        <OrderSection></OrderSection>
-        <FeedbackSection></FeedbackSection>
-        <BookletSection></BookletSection>
-        <Footer></Footer>
+        <Navbar />
+        <Header />
+        <InfoBlock />
+        <CardsSection />
+        <PricesSection />
+        <OrderSection />
+        <FeedbackSection />
+        <BookletSection />
+        <Footer />
       </Wrapper>
     );
   }

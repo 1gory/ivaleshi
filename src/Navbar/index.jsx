@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import logo from './logo.png';
-import phone from './phone.png';
-import socialVK from './social-vk.svg';
-import socialIG from './social-ig.svg';
-import socialWA from './social-wa.svg';
+import phone from '../Icons/phone.png';
+import socialVK from '../Icons/social-vk.svg';
+import socialIG from '../Icons/social-ig.svg';
+import socialWA from '../Icons/social-wa.svg';
 
 const TopSection = styled.div`
   padding-top: 30px;
@@ -50,16 +50,16 @@ const SocialLink = styled.a`
   }
 `;
 
+const SocialPhone = styled(SocialLink)`
+  margin-right: 30px;
+`;
+
 const SocialIcon = styled.img`
   height: 17px;
   width: 17px;
   vertical-align: top;
   background-color: rgb(245, 244, 243);
   border: 8px solid rgb(245, 244, 243);
-`;
-
-const SocialPhone = styled.span`
-  margin-right: 30px;
 `;
 
 const NavButtonWrapper = styled.div`
@@ -124,10 +124,10 @@ export default () => (
       <Row>
         <Col xs={5}>
           <Social>
-            <SocialLink href="tel:+8 8888 123-45-67">
+            <SocialPhone href="tel:+8 8888 123-45-67">
               <SocialIcon src={phone} />
-              <SocialPhone>+8 8888 123-45-67</SocialPhone>
-            </SocialLink>
+              +8 8888 123-45-67
+            </SocialPhone>
             <SocialLink href="/"><SocialIcon src={socialVK} /></SocialLink>
             <SocialLink href="/"><SocialIcon src={socialIG} /></SocialLink>
             <SocialLink href="/"><SocialIcon src={socialWA} /></SocialLink>
