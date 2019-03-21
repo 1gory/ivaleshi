@@ -18,26 +18,36 @@ const SliderWrapper = styled.div`
 const SliderButtonWrapper = styled.div`
   position: absolute;
   top: 0;
-  left: ${({ right }) => (right ? '-60px' : 'auto')};
-  right: ${({ right }) => (right ? 'auto' : '-60px')};
+  left: auto;
+  right: -60px;
   height: 100%;
   display: flex;
   align-items: center;
   z-index: 10;
   @media screen and (max-width: 1300px) {
-    left: ${({ right }) => (right ? '10px' : 'auto')};
-    right: ${({ right }) => (right ? 'auto' : '10px')};
+    right: 10px;
   } 
   @media screen and (max-width: 991px) {
-    left: ${({ right }) => (right ? '100px' : 'auto')};
-    right: ${({ right }) => (right ? 'auto' : '100px')};    
+    right: 100px;  
     bottom: -35px;
     top: auto;
     height: auto;
   } 
   @media screen and (max-width: 600px) {
-    left: ${({ right }) => (right ? '50px' : 'auto')};
-    right: ${({ right }) => (right ? 'auto' : '50px')};    
+    right: 50px;   
+  } 
+`;
+const SliderButtonWrapperRight = styled(SliderButtonWrapper)`
+  left: -60px;
+  right: auto;
+  @media screen and (max-width: 1300px) {
+    left: 10px;
+  } 
+  @media screen and (max-width: 991px) {
+    left: 100px;
+  } 
+  @media screen and (max-width: 600px) {
+    left: 50px; 
   } 
 `;
 
@@ -62,9 +72,9 @@ export default () => (
         <SliderButtonWrapper>
           <Arrow />
         </SliderButtonWrapper>
-        <SliderButtonWrapper right>
+        <SliderButtonWrapperRight>
           <Arrow right />
-        </SliderButtonWrapper>
+        </SliderButtonWrapperRight>
       </SliderWrapper>
     </Grid>
   </Wrapper>

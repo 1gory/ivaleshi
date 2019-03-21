@@ -128,7 +128,6 @@ const Button = styled.button`
   } 
 `;
 
-
 export default () => (
   <Wrapper>
     <SideImg src={img} />

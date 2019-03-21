@@ -7,6 +7,9 @@ import Arrow from './Arrow';
 
 const Wrapper = styled.div`
   padding: 180px 0px;
+  @media screen and (max-width: 767px) {
+    padding: 30px 0px;
+  }
 `;
 
 const SliderWrapper = styled.div`
@@ -20,6 +23,7 @@ const SliderButtonWrapper = styled.div`
   z-index: 10; 
   @media screen and (max-width: 767px) {
     top: 5px;
+    right: 0;
   }
 `;
 

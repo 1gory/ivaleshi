@@ -40,6 +40,11 @@ const Text = styled.div`
   color: white;  
 `;
 
+const EmailWrapper = styled.div`
+  display: flex;
+  justify-content: center; 
+`;
+
 const EmailInput = styled.input`
   font-family: 'MuseoSans-Regular', sans-serif;
   color: rgba(25, 22, 25, 0.5);
@@ -49,6 +54,10 @@ const EmailInput = styled.input`
   border: none;
   @media screen and (max-width: 991px) {
     width: auto;
+  } 
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+    min-width: 0;
   } 
 `;
 
@@ -65,6 +74,9 @@ const EmailButton = styled.button`
     background-color: rgb(255, 51, 0);
     color: white;  
   }
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  } 
 `;
 
 const SideImg = styled.img`
@@ -102,10 +114,10 @@ export default () => (
           <Col lgOffset={5} lg={7} xs={12}>
             <Header>Бесплатный буклет по уходу <DesktopBr />за валешами</Header>
             <Text>Введи свой Email чтобы получить бесплатный <DesktopBr />буклет на почту. Никакого спама.</Text>
-            <div>
+            <EmailWrapper>
               <EmailInput type="text" placeholder="Email" />
               <EmailButton>Отправить</EmailButton>
-            </div>
+            </EmailWrapper>
           </Col>
         </Row>
         <SideImg src={img} />

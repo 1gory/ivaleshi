@@ -43,6 +43,7 @@ const Menu = styled.ul`
   margin-bottom: 80px;
   @media screen and (max-width: 991px) {
     margin-bottom: 40px;
+    width: auto;
   }
 `;
 
@@ -50,9 +51,6 @@ const MenuItem = styled.li`
   font-size: 12px;
   text-transform: uppercase;
   margin-bottom: 24px;
-  @media screen and (max-width: 991px) {
-    text-align: center;
-  }
   a {
     text-decoration: none;
     letter-spacing: 0.3px;
@@ -63,6 +61,9 @@ const MenuItem = styled.li`
     &:hover {
       color: #ff3300;  
     }
+  }
+  @media screen and (max-width: 991px) {
+    text-align: center;
   }
 `;
 

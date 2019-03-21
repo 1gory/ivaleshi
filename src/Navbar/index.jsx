@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import logo from './logo.png';
 import phone from '../icons/phone.png';
+import hamburger from './hamburger.png';
 import socialVK from '../icons/social-vk.svg';
 import socialIG from '../icons/social-ig.svg';
 import socialWA from '../icons/social-wa.svg';
@@ -65,6 +66,9 @@ const ContactLink = styled.a`
 
 const ContactPhone = styled(ContactLink)`
   margin-right: 30px;
+  @media screen and (max-width: 600px) {
+    margin-right: 10px;
+  } 
 `;
 
 const ContactIcon = styled.img`
@@ -156,8 +160,36 @@ const MobileContacts = styled.div`
   }   
 `;
 
+const MobileMenuButton = styled.div`
+  display: none;
+  font-size: 14px;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  color: #191616;
+  font-weight: 600;
+  @media screen and (max-width: 991px) {
+    display: block; 
+  }   
+  @media screen and (max-width: 600px) {
+    right: 20px;
+  }  
+`;
+
+const MobileMenuIcon = styled.img`
+  height: 14px; 
+  margin-left: 10px;
+  vertical-align: top;
+`;
+
 export default () => (
   <div>
+    <MobileMenuButton>
+      Меню
+      <MobileMenuIcon src={hamburger} />  
+    </MobileMenuButton>
     <MobileContacts>
       <ContactsWrapper>
         <ContactPhone href="tel:+8 8888 123-45-67">
