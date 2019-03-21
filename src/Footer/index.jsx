@@ -8,6 +8,9 @@ import socialWA from '../icons/social-wa.svg';
 
 const Wrapper = styled.div`
   padding-top: 120px;
+  @media screen and (max-width: 991px) {
+    padding-top: 60px;
+  }
 `;
 
 const NavButton = styled.button`
@@ -25,6 +28,12 @@ const NavButton = styled.button`
     background-color: #ff3300;
     color: white;  
   }
+  @media screen and (max-width: 991px) {
+    display: block;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 60px;
+  }
 `;
 
 const Menu = styled.ul`
@@ -32,12 +41,18 @@ const Menu = styled.ul`
   padding: 0;
   margin: 0 auto;
   margin-bottom: 80px;
+  @media screen and (max-width: 991px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const MenuItem = styled.li`
   font-size: 12px;
   text-transform: uppercase;
   margin-bottom: 24px;
+  @media screen and (max-width: 991px) {
+    text-align: center;
+  }
   a {
     text-decoration: none;
     letter-spacing: 0.3px;
@@ -56,6 +71,10 @@ const ContactsWrapper = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
   height: 100%;
+  @media screen and (max-width: 991px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `;
 
 const ContactLink = styled.a`
@@ -73,6 +92,13 @@ const ContactLink = styled.a`
 
 const ContactPhone = styled(ContactLink)`
   margin-left: 30px;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    margin-left: 0;
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
 `;
 
 const ContactIcon = styled.img`
@@ -87,10 +113,10 @@ export default () => (
   <Wrapper>
     <Grid>
       <Row>
-        <Col sm={3}>
+        <Col lg={3} xs={12}>
           <NavButton>Подобрать дизайн</NavButton>
         </Col>
-        <Col sm={2}>
+        <Col lg={2} xs={12}>
           <Menu>
             <MenuItem><a href="/">Преимущества</a></MenuItem>
             <MenuItem><a href="/">Каталог</a></MenuItem>
@@ -98,7 +124,7 @@ export default () => (
             <MenuItem><a href="/">Контакты</a></MenuItem>
           </Menu>
         </Col>
-        <Col sm={7}>
+        <Col lg={7} xs={12}>
           <ContactsWrapper>
             <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
             <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>

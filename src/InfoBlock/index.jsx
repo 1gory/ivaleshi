@@ -39,6 +39,7 @@ const Header = styled.h3`
   }
   @media screen and (max-width: 991px) {
     text-align: center;
+    padding-right: 0px;
   } 
 `;
 
