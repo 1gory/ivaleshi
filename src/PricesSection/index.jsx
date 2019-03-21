@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import arrow from './arrow.svg';
 import Item from './Item';
 import Gallery from './Gallery';
 import ItemsList from './ItemsList';
@@ -25,6 +24,21 @@ const SliderButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   z-index: 10;
+  @media screen and (max-width: 1300px) {
+    left: ${({ right }) => (right ? '10px' : 'auto')};
+    right: ${({ right }) => (right ? 'auto' : '10px')};
+  } 
+  @media screen and (max-width: 991px) {
+    left: ${({ right }) => (right ? '100px' : 'auto')};
+    right: ${({ right }) => (right ? 'auto' : '100px')};    
+    bottom: -35px;
+    top: auto;
+    height: auto;
+  } 
+  @media screen and (max-width: 600px) {
+    left: ${({ right }) => (right ? '50px' : 'auto')};
+    right: ${({ right }) => (right ? 'auto' : '50px')};    
+  } 
 `;
 
 export default () => (
@@ -33,7 +47,7 @@ export default () => (
       <SliderWrapper>
         <Row>
           {ItemsList.map(item => (
-            <Col smOffset={3} sm={9} key={item.name}>
+            <Col lgOffset={3} lg={9} xs={12} key={item.name}>
               <Item
                 name={item.name}  
                 price={item.price}

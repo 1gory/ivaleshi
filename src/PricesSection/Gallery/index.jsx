@@ -11,6 +11,12 @@ const GalleryWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   z-index: 10;
+  @media screen and (max-width: 991px) {
+    height: auto;
+    width: 100%;
+    left: 0;
+    top: -80px;
+  }
 `;
 
 const GalleryContent = styled.div`
@@ -22,6 +28,12 @@ const GalleryContent = styled.div`
   z-index: 10;
   border: 30px solid white;
   background: white;
+  @media screen and (max-width: 991px) {
+    border: none;
+  }
+  @media screen and (max-width: 600px) {
+    width: 280px;
+  }
 `;
 
 const ActiveImage = styled.img`
@@ -40,6 +52,10 @@ const Thumbnail = styled.img`
   width: 130px;
   object-fit: cover;
   opacity: ${({ active }) => (active ? '1' : '0.5')}; 
+  @media screen and (max-width: 600px) {
+    width: 90px;
+    height: 50px;
+  }
 `;
 
 export default ({images}) => (
