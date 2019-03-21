@@ -7,11 +7,18 @@ const Wrapper = styled.div`
   padding-top: 110px;
   background-color: rgb(255, 51, 0);
   overflow: hidden;
+  @media screen and (max-width: 991px) {
+    padding-top: 50px;
+  } 
 `;
 
 const ImageWrapper = styled.div`
   position: relative;
   padding-bottom: 110px;
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    padding-bottom: 0px;
+  } 
 `;
 
 const Header = styled.div`
@@ -19,6 +26,9 @@ const Header = styled.div`
   font-family: 'Museo-Regular', sans-serif;
   font-size: 36px;
   color: white;   
+  @media screen and (max-width: 991px) {
+    font-size: 30px;
+  } 
 `;
 
 const Text = styled.div`
@@ -30,6 +40,11 @@ const Text = styled.div`
   color: white;  
 `;
 
+const EmailWrapper = styled.div`
+  display: flex;
+  justify-content: center; 
+`;
+
 const EmailInput = styled.input`
   font-family: 'MuseoSans-Regular', sans-serif;
   color: rgba(25, 22, 25, 0.5);
@@ -37,6 +52,13 @@ const EmailInput = styled.input`
   width: 240px;
   font-weight: bold;
   border: none;
+  @media screen and (max-width: 991px) {
+    width: auto;
+  } 
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+    min-width: 0;
+  } 
 `;
 
 const EmailButton = styled.button`
@@ -52,6 +74,9 @@ const EmailButton = styled.button`
     background-color: rgb(255, 51, 0);
     color: white;  
   }
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  } 
 `;
 
 const SideImg = styled.img`
@@ -62,6 +87,23 @@ const SideImg = styled.img`
   bottom: 0px;
   left: 0px;
   box-shadow: 0px 30px 30px 0 rgba(0, 0, 0, 0.25);
+  @media screen and (max-width: 1199px) {
+    width: 350px;  
+  } 
+  @media screen and (max-width: 991px) {
+    position: static;
+    width: 100%;
+    height: 320px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+  } 
+`;
+
+const DesktopBr = styled.br`
+  @media screen and (max-width: 991px) {
+    display: none;
+  } 
 `;
 
 export default () => (
@@ -69,13 +111,13 @@ export default () => (
     <Grid>
       <ImageWrapper>
         <Row>
-          <Col xsOffset={5} xs={7}>
-            <Header>Бесплатный буклет по уходу<br />за валешами</Header>
-            <Text>Введи свой Email чтобы получить бесплатный<br />буклет на почту. Никакого спама.</Text>
-            <div>
+          <Col lgOffset={5} lg={7} xs={12}>
+            <Header>Бесплатный буклет по уходу <DesktopBr />за валешами</Header>
+            <Text>Введи свой Email чтобы получить бесплатный <DesktopBr />буклет на почту. Никакого спама.</Text>
+            <EmailWrapper>
               <EmailInput type="text" placeholder="Email" />
               <EmailButton>Отправить</EmailButton>
-            </div>
+            </EmailWrapper>
           </Col>
         </Row>
         <SideImg src={img} />

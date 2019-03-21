@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   padding: 140px 0px;
+  @media screen and (max-width: 991px) {
+    padding: 40px 0px;
+  } 
 `;
 
 const Header = styled.div`
@@ -12,6 +15,10 @@ const Header = styled.div`
   color: #191619;
   font-family: 'Museo-Regular', sans-serif;
   text-align: center;
+  @media screen and (max-width: 991px) {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  } 
 `;
 
 const Text = styled.div`

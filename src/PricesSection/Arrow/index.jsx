@@ -20,6 +20,13 @@ const Button = styled.button`
       cursor: pointer;
     }
   }
+  @media screen and (max-width: 1300px) {
+    padding: 10px;
+    border: 20px solid white;
+  } 
+  @media screen and (max-width: 991px) {
+    border: 15px solid white;
+  } 
 `;
 
 export default ({right}) => (

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import logo from './logo.png';
 import phone from '../icons/phone.png';
+import hamburger from './hamburger.png';
 import socialVK from '../icons/social-vk.svg';
 import socialIG from '../icons/social-ig.svg';
 import socialWA from '../icons/social-wa.svg';
@@ -10,6 +11,10 @@ import socialWA from '../icons/social-wa.svg';
 const TopSection = styled.div`
   padding-top: 30px;
   margin-bottom: 70px;
+  @media screen and (max-width: 991px) {
+    margin-bottom: 20px;
+    padding-top: 0px;
+  } 
 `;
 
 const LogoWrapper = styled.div`
@@ -23,6 +28,9 @@ const LogoWrapper = styled.div`
 const Logo = styled.img`
   height: 128px;
   object-fit: cover;
+  @media screen and (max-width: 991px) {
+    padding-bottom: 30px;
+  } 
 `;
 
 const ContactsWrapper = styled.div`
@@ -30,12 +38,18 @@ const ContactsWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-
   & a:first-child img {
     margin-right: 15px;
     background: none;
     border: none;
-  }
+  } 
+  @media screen and (max-width: 991px) {
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(249, 248, 248);
+    margin-bottom: 20px;
+  } 
 `;
 
 const ContactLink = styled.a`
@@ -52,6 +66,9 @@ const ContactLink = styled.a`
 
 const ContactPhone = styled(ContactLink)`
   margin-right: 30px;
+  @media screen and (max-width: 600px) {
+    margin-right: 10px;
+  } 
 `;
 
 const ContactIcon = styled.img`
@@ -68,6 +85,14 @@ const NavButtonWrapper = styled.div`
   justify-content: flex-end;
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 991px) {
+    justify-content: center;
+  }  
+  @media screen and (max-width: 600px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+  } 
 `;
 
 const NavButton = styled.button`
@@ -85,10 +110,16 @@ const NavButton = styled.button`
     background-color: #ff3300;
     color: white;  
   }
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  } 
 `;
 
 const BottomSection = styled.div`
   padding-bottom: 50px;
+  @media screen and (max-width: 991px) {
+    display: none
+  } 
 `;
 
 const BottomMenu = styled.ul`
@@ -110,54 +141,106 @@ const BottomMenuItem = styled.li`
     font-weight: 600;
     color: #191619;
     transition: 0.2s;
-
     &:hover {
       color: #ff3300;  
     }
   }
 `;
 
+const ColMobileHide = styled(Col)`
+  @media screen and (max-width: 991px) {
+    display: none
+  }   
+`;
+
+const MobileContacts = styled.div`
+  display: none;
+  @media screen and (max-width: 991px) {
+    display: block;
+  }   
+`;
+
+const MobileMenuButton = styled.div`
+  display: none;
+  font-size: 14px;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  color: #191616;
+  font-weight: 600;
+  @media screen and (max-width: 991px) {
+    display: block; 
+  }   
+  @media screen and (max-width: 600px) {
+    right: 20px;
+  }  
+`;
+
+const MobileMenuIcon = styled.img`
+  height: 14px; 
+  margin-left: 10px;
+  vertical-align: top;
+`;
 
 export default () => (
-  <Grid>
-    <TopSection>
-      <Row>
-        <Col xs={5}>
-          <ContactsWrapper>
-            <ContactPhone href="tel:+8 8888 123-45-67">
-              <ContactIcon src={phone} />
-              +8 8888 123-45-67
-            </ContactPhone>
-            <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-            <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-            <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-          </ContactsWrapper>
-        </Col>
-        <Col xs={2}>
-          <LogoWrapper>
-            <a href="/">
-              <Logo src={logo} />
-            </a>
-          </LogoWrapper>
-        </Col>
-        <Col xs={5}>
-          <NavButtonWrapper>
-            <NavButton>Подобрать дизайн</NavButton>
-          </NavButtonWrapper>
-        </Col>
-      </Row>
-    </TopSection>
-    <BottomSection>
-      <Row>
-        <Col xs={12}>
-          <BottomMenu>
-            <BottomMenuItem><a href="/">Преимущества</a></BottomMenuItem>
-            <BottomMenuItem><a href="/">Каталог</a></BottomMenuItem>
-            <BottomMenuItem><a href="/">Отзывы</a></BottomMenuItem>
-            <BottomMenuItem><a href="/">Контакты</a></BottomMenuItem>
-          </BottomMenu>
-        </Col>
-      </Row>
-    </BottomSection>
-  </Grid>
+  <div>
+    <MobileMenuButton>
+      Меню
+      <MobileMenuIcon src={hamburger} />  
+    </MobileMenuButton>
+    <MobileContacts>
+      <ContactsWrapper>
+        <ContactPhone href="tel:+8 8888 123-45-67">
+          <ContactIcon src={phone} />
+          +8 8888 123-45-67
+        </ContactPhone>
+        <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
+        <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
+        <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
+      </ContactsWrapper>  
+    </MobileContacts>
+    <Grid>
+      <TopSection>
+        <Row>
+          <ColMobileHide lg={5} xs={12}>
+            <ContactsWrapper>
+              <ContactPhone href="tel:+8 8888 123-45-67">
+                <ContactIcon src={phone} />
+                +8 8888 123-45-67
+              </ContactPhone>
+              <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
+              <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
+              <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
+            </ContactsWrapper>
+          </ColMobileHide>
+          <Col lg={2} xs={12}>
+            <LogoWrapper>
+              <a href="/">
+                <Logo src={logo} />
+              </a>
+            </LogoWrapper>
+          </Col>
+          <Col lg={5} xs={12}>
+            <NavButtonWrapper>
+              <NavButton>Подобрать дизайн</NavButton>
+            </NavButtonWrapper>
+          </Col>
+        </Row>
+      </TopSection>
+      <BottomSection>
+        <Row>
+          <Col sm={12}>
+            <BottomMenu>
+              <BottomMenuItem><a href="/">Преимущества</a></BottomMenuItem>
+              <BottomMenuItem><a href="/">Каталог</a></BottomMenuItem>
+              <BottomMenuItem><a href="/">Отзывы</a></BottomMenuItem>
+              <BottomMenuItem><a href="/">Контакты</a></BottomMenuItem>
+            </BottomMenu>
+          </Col>
+        </Row>
+      </BottomSection>
+    </Grid>
+  </div>
 );

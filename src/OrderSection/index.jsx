@@ -14,7 +14,7 @@ export default () => (
     <Grid>
       <Row>
         {CardList.map(card => (
-          <Col xs={3} key={card.name}>
+          <Col md={3} sm={12} key={card.name}>
             <Card
               name={card.name}
               icon={card.icon}

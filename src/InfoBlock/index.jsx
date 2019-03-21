@@ -7,11 +7,21 @@ const Wrapper = styled.div`
   background: #ff3300;
   position: relative;
   height: 730px;
+  @media screen and (max-width: 991px) {
+    height: auto;
+    padding-bottom: 40px;
+  } 
 `;
 
 const TextWrapper = styled.div`
   padding-top: 170px;
   padding-bottom: 70px;
+  @media screen and (max-width: 1200px) {
+    padding-top: 100px;
+  }
+  @media screen and (max-width: 991px) {
+    padding-bottom: 20px;
+  }
 `;
 
 const Header = styled.h3`
@@ -24,15 +34,26 @@ const Header = styled.h3`
   font-weight: normal;
   line-height: 1.47;
   padding-right: 50px;
+  @media screen and (max-width: 1200px) {
+    font-size: 22px;
+  }
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    padding-right: 0px;
+  } 
 `;
 
-const Text = styled.h2`
+const Text = styled.h4`
   font-size: 18px; 
   color: white;
   line-height: 2;
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: normal;
   padding-right: 160px;
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    padding-right: 0;
+  } 
 `;
 
 const SideImg = styled.img`
@@ -42,6 +63,23 @@ const SideImg = styled.img`
   position: absolute;
   top: 0;
   right: 0;
+  @media screen and (max-width: 1300px) {
+    width: 500px;
+  } 
+  @media screen and (max-width: 1200px) {
+    width: 470px;
+  } 
+  @media screen and (max-width: 991px) {
+    position: static;
+    width: 100%;
+    height: 880px;
+  } 
+  @media screen and (max-width: 700px) {
+    height: 730px;
+  } 
+  @media screen and (max-width: 550px) {
+    height: 360px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -63,6 +101,11 @@ const ButtonWhite = styled.button`
     background-color: #ff3300;
     color: white;  
   }
+  @media screen and (max-width: 1200px) {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+  } 
 `;
 
 const Button = styled.button`
@@ -79,14 +122,18 @@ const Button = styled.button`
     background-color: white;
     color: #ff3300;  
   }
+  @media screen and (max-width: 1200px) {
+    display: block;
+    margin: auto;
+  } 
 `;
-
 
 export default () => (
   <Wrapper>
+    <SideImg src={img} />
     <Grid>
       <Row>
-        <Col xs={7}>
+        <Col lg={7} xs={12}>
           <TextWrapper>
             <Header>
               Валеши — это современный взгляд на традиционную обувь
@@ -102,6 +149,5 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-    <SideImg src={img} />
   </Wrapper>
 );

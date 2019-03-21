@@ -7,6 +7,9 @@ import Arrow from './Arrow';
 
 const Wrapper = styled.div`
   padding: 180px 0px;
+  @media screen and (max-width: 767px) {
+    padding: 30px 0px;
+  }
 `;
 
 const SliderWrapper = styled.div`
@@ -17,7 +20,11 @@ const SliderButtonWrapper = styled.div`
   position: absolute;
   top: 15px;
   right: 100px;
-  z-index: 10;
+  z-index: 10; 
+  @media screen and (max-width: 767px) {
+    top: 5px;
+    right: 0;
+  }
 `;
 
 const Header = styled.h2`
@@ -26,6 +33,10 @@ const Header = styled.h2`
   font-family: 'Museo-Regular', sans-serif;
   text-transform: uppercase;
   text-align: center;
+  @media screen and (max-width: 767px) {
+    text-align: left;
+    font-size: 36px;
+  }
 `;
 
 export default () => (
@@ -35,7 +46,7 @@ export default () => (
         <Header>Отзывы</Header>
         <Row>
           {ItemsList.map(item => (
-            <Col xsOffset={1} xs={10} key={item.name + item.city}>
+            <Col mdOffset={1} md={10} xs={12} key={item.name + item.city}>
               <Item
                 name={item.name}  
                 city={item.city}  
