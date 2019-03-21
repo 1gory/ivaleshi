@@ -35,7 +35,7 @@ export default () => (
         <Header>Отзывы</Header>
         <Row>
           {ItemsList.map(item => (
-            <Col xsOffset={1} xs={10} key={item.name + item.city}>
+            <Col smOffset={1} sm={10} key={item.name + item.city}>
               <Item
                 name={item.name}  
                 city={item.city}  

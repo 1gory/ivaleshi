@@ -6,10 +6,17 @@ import bg from './bg.png';
 const Wrapper = styled.div`
   padding-top: 120px;
   padding-bottom: 200px;
+  background-color: rgb(227, 156, 186);
   background-image: url(${bg});
   background-position: center right;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   color: black;
+  @media screen and (max-width: 767px) {
+    background-position: center top;
+    padding-top: 240px;
+    padding-bottom: 40px;
+  } 
 `;
 
 const Header = styled.h1`
@@ -20,6 +27,10 @@ const Header = styled.h1`
   font-weight: 600;
   line-height: 1.2;
   color: #191616;
+  @media screen and (max-width: 1199px) {
+    font-size: 36px;
+    margin-bottom: 25px;
+  } 
 `;
 
 const Text = styled.h2`
@@ -27,13 +38,16 @@ const Text = styled.h2`
   font-family: 'Museo-Regular', sans-serif;
   color: rgba(25, 22, 22, 0.75);
   line-height: 1.56;
+  @media screen and (max-width: 1199px) {
+    font-size: 24px;
+  } 
 `;
 
 export default () => (
   <Wrapper>
     <Grid>
       <Row>
-        <Col xs={7}>
+        <Col sm={7}>
           <Header>
             Дизайнерские валеши ручной работы
           </Header>

@@ -6,6 +6,9 @@ import CardList from './CardList';
 
 const Wrapper = styled.div`
   padding-top: 160px;
+  @media screen and (max-width: 991px) {
+    padding-top: 50px;
+  } 
 `;
 
 export default () => (
@@ -13,7 +16,7 @@ export default () => (
     <Grid>
       <Row>
         {CardList.map(card => (
-          <Col xs={6} key={card.name}>
+          <Col md={6} sm={12} key={card.name}>
             <Card
               name={card.name}
               icon={card.icon}

@@ -87,10 +87,10 @@ export default () => (
   <Wrapper>
     <Grid>
       <Row>
-        <Col xs={3}>
+        <Col sm={3}>
           <NavButton>Подобрать дизайн</NavButton>
         </Col>
-        <Col xs={2}>
+        <Col sm={2}>
           <Menu>
             <MenuItem><a href="/">Преимущества</a></MenuItem>
             <MenuItem><a href="/">Каталог</a></MenuItem>
@@ -98,7 +98,7 @@ export default () => (
             <MenuItem><a href="/">Контакты</a></MenuItem>
           </Menu>
         </Col>
-        <Col xs={7}>
+        <Col sm={7}>
           <ContactsWrapper>
             <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
             <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>

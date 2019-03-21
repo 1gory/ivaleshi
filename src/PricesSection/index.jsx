@@ -33,7 +33,7 @@ export default () => (
       <SliderWrapper>
         <Row>
           {ItemsList.map(item => (
-            <Col xsOffset={3} xs={9} key={item.name}>
+            <Col smOffset={3} sm={9} key={item.name}>
               <Item
                 name={item.name}  
                 price={item.price}
