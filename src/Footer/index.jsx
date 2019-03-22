@@ -8,6 +8,7 @@ import socialWA from '../icons/social-wa.svg';
 
 const Wrapper = styled.div`
   padding-top: 120px;
+  position: relative;
   @media screen and (max-width: 991px) {
     padding-top: 60px;
   }
@@ -75,6 +76,7 @@ const ContactsWrapper = styled.div`
   @media screen and (max-width: 991px) {
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 50px;
   }
 `;
 
@@ -110,6 +112,33 @@ const ContactIcon = styled.img`
   border: 8px solid rgb(245, 244, 243);
 `;
 
+const MapOverlayWrapper = styled.div`
+  display: inline-block;
+  position: absolute;
+  bottom: 400px;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  @media screen and (max-width: 991px) {
+    bottom: 440px;
+  }
+`;
+const MapOverlay = styled.div`
+  padding: 30px;
+  background-color: white;
+  color: #191619;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 40px;
+  @media screen and (max-width: 991px) {
+    display: block;
+    margin: 0px 20px;
+    text-align: center;
+  }
+`;
+
 export default () => (
   <Wrapper>
     <Grid>
@@ -137,6 +166,11 @@ export default () => (
         </Col>
       </Row>
     </Grid>
+    <MapOverlayWrapper>
+      <MapOverlay>
+        Москва, ул. Строителей, Торговый дом, бутик 12
+      </MapOverlay>
+    </MapOverlayWrapper>
     <Map
       width={'100%'}
       height={'500px'}

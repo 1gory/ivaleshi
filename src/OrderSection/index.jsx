@@ -9,6 +9,24 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
+const RedLineWrapper = styled.div`
+  width: 100%;
+  position: absolute;
+  top: 170px;
+  left: 0;
+  @media screen and (max-width: 991px) {
+    top: 70px;
+  }
+`;
+const RedLine = styled.div`
+  border: 1px solid rgba(255, 0, 0, 0.05);
+  width: 67%;
+  margin: auto;
+  @media screen and (max-width: 767px) {
+    display: none;
+  } 
+`;
+
 export default () => (
   <Wrapper>
     <Grid>
@@ -25,5 +43,8 @@ export default () => (
         ))}
       </Row>
     </Grid>
+    <RedLineWrapper>
+      <RedLine />
+    </RedLineWrapper>
   </Wrapper>
 );

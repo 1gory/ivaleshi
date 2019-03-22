@@ -42,7 +42,10 @@ const Text = styled.div`
 
 const EmailWrapper = styled.div`
   display: flex;
-  justify-content: center; 
+  justify-content: flex-start; 
+  @media screen and (max-width: 991px) {
+    justify-content: center; 
+  } 
 `;
 
 const EmailInput = styled.input`
@@ -85,8 +88,11 @@ const SideImg = styled.img`
   object-fit: cover;
   position: absolute;
   bottom: 0px;
-  left: 0px;
+  left: -40px;
   box-shadow: 0px 30px 30px 0 rgba(0, 0, 0, 0.25);
+  @media screen and (max-width: 1300px) {
+    left: 0px;  
+  } 
   @media screen and (max-width: 1199px) {
     width: 350px;  
   } 
