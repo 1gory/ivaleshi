@@ -29,6 +29,9 @@ const Text = styled.div`
   line-height: 1.86;
   font-family: 'MuseoSans-Regular', sans-serif;
   text-align: center;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 10px;
+  } 
 `;
 
 const IconWrapper = styled.div`

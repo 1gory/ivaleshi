@@ -26,7 +26,7 @@ const Button = styled.button`
   } 
   @media screen and (max-width: 991px) {
     border: 15px solid white;
-  } 
+  }  
 `;
 
 export default ({right}) => (
