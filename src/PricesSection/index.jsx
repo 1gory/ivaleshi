@@ -9,6 +9,9 @@ import Arrow from './Arrow';
 const Wrapper = styled.div`
   padding-top: 160px;
   padding-bottom: 230px;
+  @media screen and (max-width: 991px) {
+    padding-bottom: 80px;
+  }
 `;
 
 const SliderWrapper = styled.div`
@@ -26,29 +29,52 @@ const SliderButtonWrapper = styled.div`
   z-index: 10;
   @media screen and (max-width: 1300px) {
     right: 10px;
+    left: auto;
   } 
   @media screen and (max-width: 991px) {
     right: 100px;  
     bottom: -35px;
     top: auto;
     height: auto;
+    left: auto;
   } 
-  @media screen and (max-width: 600px) {
-    right: 50px;   
+  @media screen and (max-width: 767px) {
+    position: static;
+    button {
+      border-left: 5px solid white;
+    }
   } 
 `;
+
 const SliderButtonWrapperRight = styled(SliderButtonWrapper)`
   left: -60px;
   right: auto;
   @media screen and (max-width: 1300px) {
     left: 10px;
+    right: auto;
   } 
   @media screen and (max-width: 991px) {
     left: 100px;
+    right: auto;
   } 
-  @media screen and (max-width: 600px) {
-    left: 50px; 
+  @media screen and (max-width: 767px) {
+    position: static;
+    button {
+      border: 15px solid white;
+      border-right: 5px solid white;
+    }
   } 
+`;
+
+const SliderControlsWrapper = styled.div`
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    bottom: -35px;
+    left: 0;
+    position: absolute;
+    display: flex; 
+    justify-content: center; 
+  }   
 `;
 
 export default () => (
@@ -69,12 +95,14 @@ export default () => (
             </Col>
           ))}
         </Row>
-        <SliderButtonWrapper>
-          <Arrow />
-        </SliderButtonWrapper>
-        <SliderButtonWrapperRight>
-          <Arrow right />
-        </SliderButtonWrapperRight>
+        <SliderControlsWrapper>
+          <SliderButtonWrapperRight>
+            <Arrow right />
+          </SliderButtonWrapperRight>
+          <SliderButtonWrapper>
+            <Arrow />
+          </SliderButtonWrapper>
+        </SliderControlsWrapper>
       </SliderWrapper>
     </Grid>
   </Wrapper>

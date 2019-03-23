@@ -29,12 +29,26 @@ const Text = styled.div`
   line-height: 1.86;
   font-family: 'MuseoSans-Regular', sans-serif;
   text-align: center;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 10px;
+  } 
+`;
+
+const IconWrapper = styled.div`
+  margin: auto; 
+  display: block;
+  height: 60px;
+  position: relative;
+  z-index: 30;
 `;
 
 const Icon = styled.img`
   margin: auto;
   display: block;
   height: 60px;
+  background-color: #f3f3f3;
+  border-left: 30px solid #f3f3f3;
+  border-right: 30px solid #f3f3f3;
 `;
 
 const Button = styled.button`
@@ -58,7 +72,9 @@ const Button = styled.button`
 
 export default ({ icon, name, text, buttonVisible }) => (
   <Wrapper>
-    <Icon src={icon} />
+    <IconWrapper>
+      <Icon src={icon} />
+    </IconWrapper>
     <Header>{name}</Header>
     <Text>{text}</Text>
     <Button buttonVisible={buttonVisible}>Подобрать дизайн</Button>
