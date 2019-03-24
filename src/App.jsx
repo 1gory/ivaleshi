@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import InfoBlock from './InfoBlock';
+import CalcSection from './CalcSection';
 import CardsSection from './CardsSection';
 import PricesSection from './PricesSection';
 import Header from './Header';
@@ -24,6 +25,7 @@ export default class extends Component {
       <Wrapper>
         <Navbar />
         <Header />
+        <CalcSection />
         <InfoBlock />
         <CardsSection />
         <PricesSection />
