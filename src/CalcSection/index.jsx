@@ -4,11 +4,13 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import colorSetMain from './colorSetMain';
 import colorSetSecondary from './colorSetSecondary';
 import cardsList from './CardsList';
+import footSizeList from './FootSizeList';
 import Colors from './Colors';
 import Card from './Card';
 
 const Wrapper = styled.div`
   padding-top: 110px;   
+  padding-bottom: 90px;
 `;
 
 const RightSection = styled.div`
@@ -27,6 +29,57 @@ const RightHeader = styled.div`
 const RightCards = styled.div`
   display: flex;
   flex-wrap: wrap;
+`;
+
+const RightForm = styled.div`
+  background-color: rgb(245, 244, 243);
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const RightFormHeader = styled.div`
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-size: 14px;
+  color: rgb(25, 22, 25);  
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+`;
+
+const RightFormButton = styled.div`
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-size: 14px;
+  color: white; 
+  text-transform: uppercase;
+  padding: 35px 65px;
+  background-color: rgb(255, 51, 0);
+  margin-left: auto;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: white;
+    color: #ff3300;  
+  }
+`;
+
+const RightSelect = styled.select`
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(25, 22, 25, 0.1);
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: rgb(25, 22, 25);
+  padding: 10px;
+`;
+
+const RightLink = styled.div`
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(255, 51, 0);
+  font-family: 'MuseoSans-Regular', sans-serif;
+  margin-top: 20px;
 `;
 
 export default () => (
@@ -55,6 +108,18 @@ export default () => (
                 />
               ))} 
             </RightCards>
+          </RightSection>
+          <RightSection>
+            <RightForm>
+              <RightFormHeader>Размер:</RightFormHeader>
+              <RightSelect>
+                {footSizeList.map(item => (
+                  <option key={item} value={item}>{item}</option>
+                ))} 
+              </RightSelect>
+              <RightFormButton>Готово</RightFormButton>
+            </RightForm>
+            <RightLink>Узнать свой размер</RightLink>
           </RightSection>
         </Col>
       </Row>
