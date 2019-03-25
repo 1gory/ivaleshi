@@ -5,7 +5,7 @@ import Item from './Item';
 import ItemsList from './ItemsList';
 import Arrow from './Arrow';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 180px 0px;
   @media screen and (max-width: 767px) {
     padding: 30px 0px;

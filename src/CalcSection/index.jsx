@@ -8,16 +8,16 @@ import footSizeList from './FootSizeList';
 import Colors from './Colors';
 import Card from './Card';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding-top: 110px;   
   padding-bottom: 90px;
 `;
 
-const RightSection = styled.div`
+const CalcSection = styled.div`
   margin-bottom: 45px;    
 `;
 
-const RightHeader = styled.div`
+const Header = styled.div`
   margin-bottom: 35px;   
   font-size: 14px;
   font-weight: 600; 
@@ -26,18 +26,18 @@ const RightHeader = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
 `;
 
-const RightCards = styled.div`
+const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
 
-const RightForm = styled.div`
+const Form = styled.div`
   background-color: rgb(245, 244, 243);
   display: flex;
   justify-content: flex-start;
 `;
 
-const RightFormHeader = styled.div`
+const FormHeader = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 14px;
   color: rgb(25, 22, 25);  
@@ -47,7 +47,7 @@ const RightFormHeader = styled.div`
   padding: 30px;
 `;
 
-const RightFormButton = styled.div`
+const FormButton = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 14px;
   color: white; 
@@ -63,7 +63,7 @@ const RightFormButton = styled.div`
   }
 `;
 
-const RightSelect = styled.select`
+const Select = styled.select`
   background: none;
   border: none;
   border-bottom: 1px solid rgba(25, 22, 25, 0.1);
@@ -74,7 +74,7 @@ const RightSelect = styled.select`
   padding: 10px;
 `;
 
-const RightLink = styled.div`
+const SizeLink = styled.div`
   font-size: 14px;
   font-weight: bold;
   color: rgb(255, 51, 0);
@@ -88,17 +88,17 @@ export default () => (
       <Row>
         <Col lg={7} xs={12}></Col>
         <Col lg={5} xs={12}>
-          <RightSection>
-            <RightHeader>Цвет валешей</RightHeader>
+          <CalcSection>
+            <Header>Цвет валешей</Header>
             <Colors set={colorSetMain} />
-          </RightSection>
-          <RightSection>
-            <RightHeader>Цвет помпона</RightHeader>
+          </CalcSection>
+          <CalcSection>
+            <Header>Цвет помпона</Header>
             <Colors set={colorSetSecondary} />
-          </RightSection>
-          <RightSection>
-            <RightHeader>Дизайн украшения</RightHeader>
-            <RightCards>
+          </CalcSection>
+          <CalcSection>
+            <Header>Дизайн украшения</Header>
+            <Cards>
               {cardsList.map((card, index) => (
                 <Card
                   key={card.name}
@@ -106,21 +106,21 @@ export default () => (
                   img={card.img}
                   active={index === 1}
                 />
-              ))} 
-            </RightCards>
-          </RightSection>
-          <RightSection>
-            <RightForm>
-              <RightFormHeader>Размер:</RightFormHeader>
-              <RightSelect>
+              ))}
+            </Cards>
+          </CalcSection>
+          <CalcSection>
+            <Form>
+              <FormHeader>Размер:</FormHeader>
+              <Select>
                 {footSizeList.map(item => (
                   <option key={item} value={item}>{item}</option>
-                ))} 
-              </RightSelect>
-              <RightFormButton>Готово</RightFormButton>
-            </RightForm>
-            <RightLink>Узнать свой размер</RightLink>
-          </RightSection>
+                ))}
+              </Select>
+              <FormButton>Готово</FormButton>
+            </Form>
+            <SizeLink>Узнать свой размер</SizeLink>
+          </CalcSection>
         </Col>
       </Row>
     </Grid>

@@ -9,10 +9,11 @@ import Navbar from './Navbar';
 import OrderSection from './OrderSection';
 import BookletSection from './BookletSection';
 import FeedbackSection from './FeedbackSection';
+import RouletteSection from './RouletteSection';
 import Footer from './Footer';
 
 const Wrapper = styled.div`
-  color: white;
+  color: rgb(25, 22, 25);
 `;
 
 export default class extends Component {
@@ -26,6 +27,7 @@ export default class extends Component {
         <Navbar />
         <Header />
         <CalcSection />
+        <RouletteSection />
         <InfoBlock />
         <CardsSection />
         <PricesSection />

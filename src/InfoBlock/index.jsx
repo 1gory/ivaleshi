@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import img from './img.png';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   background: #ff3300;
   position: relative;
   height: 730px;

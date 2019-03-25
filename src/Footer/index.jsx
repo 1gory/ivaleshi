@@ -6,7 +6,7 @@ import socialVK from '../icons/social-vk.svg';
 import socialIG from '../icons/social-ig.svg';
 import socialWA from '../icons/social-wa.svg';
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   padding-top: 120px;
   position: relative;
   @media screen and (max-width: 991px) {
