@@ -7,6 +7,9 @@ const Wrapper = styled.div`
   padding: 15px 0px;
   margin-bottom: 20px;
   background: ${({ active }) => (active ? 'rgb(245, 244, 243)' : 'none')};
+  @media screen and (max-width: 1200px) {
+    width: 130px;
+  } 
 `;
 
 const Image = styled.img`

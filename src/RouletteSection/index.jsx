@@ -7,6 +7,9 @@ import icon from './roll-bottom.svg';
 
 const Wrapper = styled.div`   
   padding-bottom: 100px;
+  @media screen and (max-width: 991px) {
+    padding-bottom: 40px;
+  }
 `;
 
 const BorderWrapper = styled.div`   
@@ -21,6 +24,10 @@ const Header = styled.h3`
   margin-bottom: 80px;
   margin-top: 60px;
   font-weight: normal;
+  @media screen and (max-width: 991px) {
+    margin-bottom: 50px;
+    margin-top: 30px;
+  } 
 `;
 
 const Button = styled.button`   
@@ -48,21 +55,36 @@ const ButtonText = styled.div`
   margin: 15px auto;
 `;
 
+const CardWrapper = styled(Row)`
+  @media screen and (max-width: 991px) {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    flex-wrap: nowrap
+  } 
+`;
+
+const MobileBr = styled.br`
+  display: none;
+  @media screen and (max-width: 991px) {
+    display: block;
+  } 
+`;
+
 export default () => (
   <Wrapper>
     <Grid>
       <BorderWrapper>
-        <Header>Узнай какой подарок ты получишь к заказу</Header>
-        <Row>
-          {cardsList.map(card => (
-            <Col md={3} xs={12} key={card.name}>
+        <Header>Узнай какой подарок <MobileBr /> ты получишь к заказу</Header>
+        <CardWrapper>
+          {cardsList.map((card, index) => (
+            <Col md={3} xs={6} key={card.name} xsOffset={index === 0 ? 3 : 0}>
               <Card
                 name={card.name}
                 img={card.img}
               />
             </Col>
           ))}
-        </Row>
+        </CardWrapper>
         <Button>
           <ButtonIcon src={icon} rotate />
           <ButtonText>Крутануть</ButtonText>
