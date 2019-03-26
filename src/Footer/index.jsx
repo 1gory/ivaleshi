@@ -52,6 +52,7 @@ const MenuItem = styled.li`
   font-size: 12px;
   text-transform: uppercase;
   margin-bottom: 24px;
+  list-style: none;
   a {
     text-decoration: none;
     letter-spacing: 0.3px;
@@ -172,8 +173,8 @@ export default () => (
       </MapOverlay>
     </MapOverlayWrapper>
     <Map
-      width={'100%'}
-      height={'500px'}
+      width='100%'
+      height='500px'
     />
   </Wrapper>
 );

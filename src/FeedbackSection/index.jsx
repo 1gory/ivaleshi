@@ -48,8 +48,8 @@ export default () => (
           {ItemsList.map(item => (
             <Col mdOffset={1} md={10} xs={12} key={item.name + item.city}>
               <Item
-                name={item.name}  
-                city={item.city}  
+                name={item.name}
+                city={item.city}
                 date={item.date}
                 text={item.text}
                 link={item.link}
