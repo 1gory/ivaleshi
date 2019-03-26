@@ -85,7 +85,7 @@ export default () => (
           {ItemsList.map(item => (
             <Col lgOffset={3} lg={9} xs={12} key={item.name}>
               <Item
-                name={item.name}  
+                name={item.name}
                 price={item.price}
                 text={item.text}
               />

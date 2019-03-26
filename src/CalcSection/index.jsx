@@ -7,7 +7,7 @@ import cardsList from './CardsList';
 import footSizeList from './FootSizeList';
 import Colors from './Colors';
 import Card from './Card';
-import headerIcon from './arrow.png';
+import headerIcon from './arrow.svg';
 
 const Wrapper = styled.section`
   padding-top: 110px;   
@@ -36,8 +36,6 @@ const Header = styled.div`
 
 const HeaderIcon = styled.img`
   display: none;
-  width: 10px;
-  height: 6px;
   @media screen and (max-width: 991px) {
     display: block; 
   } 
@@ -48,7 +46,7 @@ const Cards = styled.div`
   flex-wrap: wrap;
 `;
 
-const Form = styled.div`
+const SizeSelectWrapper = styled.div`
   background-color: rgb(245, 244, 243);
   display: flex;
   justify-content: flex-start;
@@ -56,7 +54,7 @@ const Form = styled.div`
   flex-wrap: wrap;
 `;
 
-const FormLeft = styled.div`
+const SizeSelectLeft = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -66,7 +64,7 @@ const FormLeft = styled.div`
   } 
 `;
 
-const FormHeader = styled.div`
+const SizeSelectHeader = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 14px;
   color: rgb(25, 22, 25);  
@@ -76,7 +74,7 @@ const FormHeader = styled.div`
   padding: 30px;
 `;
 
-const FormButton = styled.button`
+const SizeSelectButton = styled.button`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 14px;
   color: white; 
@@ -156,17 +154,17 @@ export default () => (
             </Cards>
           </CalcSection>
           <CalcSection>
-            <Form>
-              <FormLeft>
-                <FormHeader>Размер:</FormHeader>
+            <SizeSelectWrapper>
+              <SizeSelectLeft>
+                <SizeSelectHeader>Размер:</SizeSelectHeader>
                 <Select>
                   {footSizeList.map(item => (
                     <option key={item} value={item}>{item}</option>
                   ))}
                 </Select>
-              </FormLeft>
-              <FormButton>Готово</FormButton>
-            </Form>
+              </SizeSelectLeft>
+              <SizeSelectButton>Готово</SizeSelectButton>
+            </SizeSelectWrapper>
             <SizeLink>Узнать свой размер</SizeLink>
           </CalcSection>
         </Col>
