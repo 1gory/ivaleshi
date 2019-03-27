@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+// import { Grid, Row, Col } from 'react-flexbox-grid';
 import colorSetMain from './colorSetMain';
 import colorSetSecondary from './colorSetSecondary';
 import cardsList from './CardsList';
@@ -117,58 +117,113 @@ const SizeLink = styled.div`
   } 
 `;
 
-export default ({ container }) => (
-  <Wrapper>
-    <Grid>
-      <Row>
-        <Col lg={7} xs={12}></Col>
-        <Col lg={5} xs={12}>
-          <CalcSection>
-            <Header>
-              Цвет валешей
-              <HeaderIcon src={headerIcon} />
-            </Header>
-            <Colors set={colorSetMain} />
-          </CalcSection>
-          <CalcSection>
-            <Header>
-              Цвет помпона
-              <HeaderIcon src={headerIcon} />
-            </Header>
-            <Colors set={colorSetSecondary} />
-          </CalcSection>
-          <CalcSection>
-            <Header>
-              Дизайн украшения
-              <HeaderIcon src={headerIcon} />
-            </Header>
-            <Cards>
-              {cardsList.map((card, index) => (
-                <Card
-                  key={card.name}
-                  name={card.name}
-                  img={card.img}
-                  active={index === 1}
-                />
-              ))}
-            </Cards>
-          </CalcSection>
-          <CalcSection>
-            <SizeSelectWrapper>
-              <SizeSelectLeft>
-                <SizeSelectHeader>Размер:</SizeSelectHeader>
-                <Select>
-                  {footSizeList.map(item => (
-                    <option key={item} value={item}>{item}</option>
-                  ))}
-                </Select>
-              </SizeSelectLeft>
-              <SizeSelectButton onClick={container.changeName('a')}>Готово</SizeSelectButton>
-            </SizeSelectWrapper>
-            <SizeLink>Узнать свой размер</SizeLink>
-          </CalcSection>
-        </Col>
-      </Row>
-    </Grid>
-  </Wrapper>
-);
+export default class CalcSectionComponent extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      footSize: '40',
+    }
+  }
+
+
+  // const { container: {
+  //   state,
+  // },
+  //   changeMainColor,
+  //   changeSecondaryColor,
+  //   changeJewel,
+  //   changeFootSize,
+  //   changeGift,
+  //   changeName,
+  //   changePhone,
+  // } = props;
+
+  handleSelectFootSizeChange = (e) => {
+    const value = e.target.value;
+    const { container: {
+      changeName,
+    } } = this.props;
+    changeName(value);
+    console.log(value);
+  }
+
+  render() {
+
+    console.log('Компонент перерендерился');
+    // console.log(props.container);
+    // console.log(props.container.state);
+    // console.log(props.container.changeName);
+
+    const { container: {
+      state: {
+        mainColor,
+        secondaryColor,
+        jewel,
+        footSize,
+        gift,
+        name,
+        phone,
+      },
+      changeMainColor,
+      changeSecondaryColor,
+      changeJewel,
+      changeFootSize,
+      changeGift,
+      changeName,
+      changePhone,
+    } } = this.props;
+
+    console.log(name);
+
+    return (
+      <Wrapper>
+        <CalcSection>
+          <Header>
+            Цвет валешей
+            <HeaderIcon src={headerIcon}/>
+          </Header>
+          <Colors set={colorSetMain}/>
+        </CalcSection>
+        <CalcSection>
+          <Header>
+            Цвет помпона
+            <HeaderIcon src={headerIcon}/>
+          </Header>
+          <Colors set={colorSetSecondary}/>
+        </CalcSection>
+        <CalcSection>
+          <Header>
+            Дизайн украшения
+            <HeaderIcon src={headerIcon}/>
+          </Header>
+          <Cards>
+            {cardsList.map((card, index) => (
+              <Card
+                key={card.name}
+                name={card.name}
+                img={card.img}
+                active={index === 1}
+              />
+            ))}
+          </Cards>
+        </CalcSection>
+        <CalcSection>
+          <SizeSelectWrapper>
+            <SizeSelectLeft>
+              <SizeSelectHeader>Размер:</SizeSelectHeader>
+              <Select onChange={this.handleSelectFootSizeChange}>
+                {footSizeList.map(item => (
+                  <option key={item} value={item}>{item}</option>
+                ))}
+              </Select>
+            </SizeSelectLeft>
+            <SizeSelectButton onClick={changeName}>Готово</SizeSelectButton>
+          </SizeSelectWrapper>
+          <SizeLink>Узнать свой размер</SizeLink>
+        </CalcSection>
+      </Wrapper>
+    )
+  }
+};

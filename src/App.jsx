@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { render } from 'react-dom';
 import { Provider, Subscribe, Container } from 'unstated';
 import styled from 'styled-components';
 import InfoBlock from './InfoBlock';
-import CalcSection from './CalcSection';
+import CalcSectionComponent from './CalcSection';
 import CardsSection from './CardsSection';
 import PricesSection from './PricesSection';
 import Header from './Header';
@@ -24,31 +25,31 @@ class ConstructorContainer extends Container {
     phone: '',
   };
 
-  changeMainColor(newVal) {
+  changeMainColor = (newVal) => {
     this.setState({ mainColor: newVal });
   }
 
-  changeSecondaryColor(newVal) {
+  changeSecondaryColor = (newVal) => {
     this.setState({ secondaryColor: newVal });
   }
 
-  changeJewel(newVal) {
+  changeJewel = (newVal) => {
     this.setState({ jewel: newVal });
   }
 
-  changeFootSize(newVal) {
+  changeFootSize = (newVal) => {
     this.setState({ footSize: newVal });
   }
 
-  changeGift(newVal) {
+  changeGift = (newVal) => {
     this.setState({ gift: newVal });
   }
 
-  changeName(newVal) {
+  changeName = (newVal) => {
     this.setState({ name: newVal });
   }
 
-  changePhone(newVal) {
+  changePhone = (newVal) => {
     this.setState({ phone: newVal });
   }
 }
@@ -70,8 +71,8 @@ export default class extends Component {
           <Header />
           <Subscribe to={[ConstructorContainer]}>
             {container => (
-              <CalcSection container={container} />
-            )} 
+              <CalcSectionComponent container={container}/>
+            )}
           </Subscribe>
           <RouletteSection />
           <InfoBlock />
