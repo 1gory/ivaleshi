@@ -10,11 +10,11 @@ export default [
     img: img,
   },
   {
-    name: 'Спиннер',
+    name: 'Спиннер 2',
     img: img,
   },
   {
-    name: 'Селфи-палка',
+    name: 'Селфи-палка 2',
     img: img,
   },
 ];

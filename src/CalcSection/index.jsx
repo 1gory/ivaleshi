@@ -117,7 +117,7 @@ const SizeLink = styled.div`
   } 
 `;
 
-export default () => (
+export default ({ container }) => (
   <Wrapper>
     <Grid>
       <Row>
@@ -163,7 +163,7 @@ export default () => (
                   ))}
                 </Select>
               </SizeSelectLeft>
-              <SizeSelectButton>Готово</SizeSelectButton>
+              <SizeSelectButton onClick={container.changeName('a')}>Готово</SizeSelectButton>
             </SizeSelectWrapper>
             <SizeLink>Узнать свой размер</SizeLink>
           </CalcSection>
