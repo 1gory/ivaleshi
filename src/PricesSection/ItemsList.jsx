@@ -8,8 +8,8 @@ export default [
     img: [
       img,
       img,
-      img
-    ]
+      img,
+    ],
   },
 
 ];

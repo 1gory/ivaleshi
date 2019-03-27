@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Card from './Card';
 import CardList from './CardList';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding-top: 160px;
   @media screen and (max-width: 991px) {
     padding-top: 50px;

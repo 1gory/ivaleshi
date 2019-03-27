@@ -5,7 +5,7 @@ import Item from './Item';
 import ItemsList from './ItemsList';
 import Arrow from './Arrow';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding: 180px 0px;
   @media screen and (max-width: 767px) {
     padding: 30px 0px;
@@ -48,8 +48,8 @@ export default () => (
           {ItemsList.map(item => (
             <Col mdOffset={1} md={10} xs={12} key={item.name + item.city}>
               <Item
-                name={item.name}  
-                city={item.city}  
+                name={item.name}
+                city={item.city}
                 date={item.date}
                 text={item.text}
                 link={item.link}

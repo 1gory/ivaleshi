@@ -6,7 +6,7 @@ import Gallery from './Gallery';
 import ItemsList from './ItemsList';
 import Arrow from './Arrow';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   padding-top: 160px;
   padding-bottom: 230px;
   @media screen and (max-width: 991px) {
@@ -85,7 +85,7 @@ export default () => (
           {ItemsList.map(item => (
             <Col lgOffset={3} lg={9} xs={12} key={item.name}>
               <Item
-                name={item.name}  
+                name={item.name}
                 price={item.price}
                 text={item.text}
               />

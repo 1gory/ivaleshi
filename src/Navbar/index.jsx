@@ -188,7 +188,7 @@ export default () => (
   <div>
     <MobileMenuButton>
       Меню
-      <MobileMenuIcon src={hamburger} />  
+      <MobileMenuIcon src={hamburger} />
     </MobileMenuButton>
     <MobileContacts>
       <ContactsWrapper>
@@ -199,7 +199,7 @@ export default () => (
         <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
         <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
         <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-      </ContactsWrapper>  
+      </ContactsWrapper>
     </MobileContacts>
     <Grid>
       <TopSection>

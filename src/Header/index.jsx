@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import bg from './bg.png';
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   padding-top: 120px;
   padding-bottom: 200px;
   background-color: rgb(227, 156, 186);
