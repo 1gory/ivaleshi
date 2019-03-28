@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Row = styled.div`
@@ -36,59 +36,14 @@ const Color = styled.div`
   } 
 `;
 
-export default class Colors extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeColor: 0,
-      colorSet: props.set,
-      main: props.main,
-    };
-  }
-
-  handleColorChange = (index, main) => {
-    const {
-      container: {
-        changeMainColor,
-        changeSecondaryColor,
-      },
-    } = this.props;
-    main ? changeMainColor(index) : changeSecondaryColor(index);
-  }
-
-  render() {
-    const {
-      container: {
-        state: {
-          mainColor,
-          secondaryColor,
-          jewel,
-          footSize,
-          gift,
-          name,
-          phone,
-        },
-        changeMainColor,
-        changeSecondaryColor,
-        changeJewel,
-        changeFootSize,
-        changeGift,
-        changeName,
-        changePhone,
-      },
-    } = this.props;
-
-    return (
-      <div>
-        <Row>
-          {this.state.colorSet.map((color, index) => (
-            <ColorWrapper active={index === this.state.activeColor} color={color} onClick={this.handleColorChange(index, this.state.main)}>
-              <Color color={color} />
-            </ColorWrapper>
-          ))}
-        </Row>
-      </div>
-    );
-  }
-}
+export default ({ activeColor, set, handler }) => (
+  <div>
+    <Row>
+      {set.map((color, index) => (
+        <ColorWrapper key={color} active={index === activeColor} color={color} onClick={() => handler(index)}>
+          <Color color={color} />
+        </ColorWrapper>
+      ))}
+    </Row>
+  </div>
+);

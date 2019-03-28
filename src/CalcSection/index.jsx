@@ -6,7 +6,7 @@ import colorSetSecondary from './colorSetSecondary';
 import cardsList from './CardsList';
 import footSizeList from './FootSizeList';
 import Colors from './Colors';
-import Card from './Card';
+import Cards from './Cards';
 import headerIcon from './arrow.svg';
 
 const Wrapper = styled.section`
@@ -39,11 +39,6 @@ const HeaderIcon = styled.img`
   @media screen and (max-width: 991px) {
     display: block; 
   } 
-`;
-
-const Cards = styled.div`
-  display: flex;
-  flex-wrap: wrap;
 `;
 
 const SizeSelectWrapper = styled.div`
@@ -129,9 +124,11 @@ export default class CalcSectionComponent extends Component {
 
   handleSelectFootSizeChange = (e) => {
     const value = e.target.value;
-    const { container: {
-      changeFootSize,
-    } } = this.props;
+    const {
+      container: {
+        changeFootSize,
+      },
+    } = this.props;
     changeFootSize(value);
   }
 
@@ -142,10 +139,58 @@ export default class CalcSectionComponent extends Component {
     changeMainColor(index);
   }
 
+  getMainColor = () => {
+    const {
+      container: {
+        state: {
+          mainColor,
+        },
+      },
+    } = this.props;
+    return mainColor;
+  }
+
+  handleSecondaryColorChange = (index) => {
+    const {
+      container: {
+        changeSecondaryColor,
+      },
+    } = this.props;
+    changeSecondaryColor(index);
+  }
+
+  getSecondaryColor = () => {
+    const {
+      container: {
+        state: {
+          secondaryColor,
+        },
+      },
+    } = this.props;
+    return secondaryColor;
+  }
+
+  handleJewelChange = (index) => {
+    const {
+      container: {
+        changeJewel,
+      },
+    } = this.props;
+    changeJewel(index);
+  }
+
+  getJewel = () => {
+    const {
+      container: {
+        state: {
+          jewel,
+        },
+      },
+    } = this.props;
+    return jewel;
+  }
+
   render() {
-
-    console.log('Компонент перерендерился');
-
     const { container: {
       state: {
         mainColor,
@@ -166,6 +211,9 @@ export default class CalcSectionComponent extends Component {
     } } = this.props;
 
     console.log(`Размер ноги в стейте, после использования метода: ${footSize}`);
+    console.log(`Основной цвет, после использования метода: ${mainColor}`);
+    console.log(`Вторичный цвет, после использования метода: ${secondaryColor}`);
+    console.log(`Украшение, после использования метода: ${jewel}`);
 
     return (
       <Wrapper>
@@ -178,34 +226,35 @@ export default class CalcSectionComponent extends Component {
                   Цвет валешей
                   <HeaderIcon src={headerIcon} />
                 </Header>
-                {container => (
-                  <Colors set={colorSetMain} main container={container} />
-                )}
+                <Colors
+                  set={colorSetMain}
+                  activeColor={this.getMainColor()}
+                  main
+                  handler={this.handleMainColorChange}
+                />
               </CalcSection>
               <CalcSection>
                 <Header>
                   Цвет помпона
                   <HeaderIcon src={headerIcon} />
                 </Header>
-                {container => (
-                  <Colors set={colorSetSecondary} container={container} />
-                )}
+                <Colors
+                  set={colorSetSecondary}
+                  activeColor={this.getSecondaryColor()}
+                  main
+                  handler={this.handleSecondaryColorChange}
+                />
               </CalcSection>
               <CalcSection>
                 <Header>
                   Дизайн украшения
                   <HeaderIcon src={headerIcon} />
                 </Header>
-                <Cards>
-                  {cardsList.map((card, index) => (
-                    <Card
-                      key={card.name}
-                      name={card.name}
-                      img={card.img}
-                      active={index === 1}
-                    />
-                  ))}
-                </Cards>
+                <Cards
+                  list={cardsList}
+                  active={this.getJewel()}
+                  handler={this.handleJewelChange}
+                />
               </CalcSection>
               <CalcSection>
                 <SizeSelectWrapper>

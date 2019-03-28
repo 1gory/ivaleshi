@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`  
+const Cards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Card = styled.div`  
   width: 150px;
   text-align: center;
   padding: 15px 0px;
   margin-bottom: 20px;
   background: ${({ active }) => (active ? 'rgb(245, 244, 243)' : 'none')};
+  cursor: pointer;
   @media screen and (max-width: 1200px) {
     width: 130px;
   } 
@@ -25,9 +31,13 @@ const Text = styled.div`
   padding: 0px 30px;  
 `;
 
-export default ({ name, img, active }) => (
-  <Wrapper active={active}>
-    <Image src={img} />
-    <Text>{name}</Text>
-  </Wrapper>
+export default ({ list, active, handler }) => (
+  <Cards>
+    {list.map((card, index) => (
+      <Card active={index === active} key={card.name} onClick={() => handler(index)}>
+        <Image src={card.img} />
+        <Text>{card.name}</Text>
+      </Card>
+    ))}
+  </Cards>
 );
