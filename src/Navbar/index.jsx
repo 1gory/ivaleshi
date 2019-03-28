@@ -185,7 +185,7 @@ const MobileMenuIcon = styled.img`
 `;
 
 export default () => (
-  <navbar>
+  <nav>
     <MobileMenuButton>
       Меню
       <MobileMenuIcon src={hamburger} />
@@ -242,5 +242,5 @@ export default () => (
         </Row>
       </BottomSection>
     </Grid>
-  </navbar>
+  </nav>
 );
