@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Row = styled.div`
   margin-bottom: 10px;  
   display: flex;
-  justify-content: flex-start;  
+  justify-content: flex-start; 
+  flex-wrap: wrap; 
   @media screen and (max-width: 991px) {
     justify-content: center;   
   } 
 `;
 
 const ColorWrapper = styled.div`  
-  border: ${({ active, color }) => (active ? `1px solid ${color}` : 'none')};
+  outline: ${({ active, color }) => (active ? `1px solid ${color}` : 'none')};
+  /* padding: ${({ active }) => (active ? '1px' : '2px')}; */
   padding: 2px;
   margin-right: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
   @media screen and (max-width: 1200px) {
     margin-right: 10px; 
   }
@@ -32,16 +36,63 @@ const Color = styled.div`
   } 
 `;
 
-export default ({ set }) => (
-  <div>
-    {set.map(row => (
-      <Row key={row[0]}>
-        {row.map((color, index) => (
-          <ColorWrapper active={index === 2} color={color}>
-            <Color color={color} />
-          </ColorWrapper>
-        ))}
-      </Row>
-    ))}
-  </div>
-);
+// export default ({ set, activeIndex }) => (
+  
+// );
+
+export default class Colors extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeColor: 0,
+      colorSet: this.props.set,
+      main: this.props.main,
+    };
+  }
+
+  handleColorChange = (index) => {
+    const {
+      container: {
+        changeMainColor,
+        changeSecondaryColor,
+      },
+    } = this.props;
+    this.state.main ? changeMainColor(index) : changeSecondaryColor(index);
+  }
+
+  render() {
+    const {
+      container: {
+        state: {
+          mainColor,
+          secondaryColor,
+          jewel,
+          footSize,
+          gift,
+          name,
+          phone,
+        },
+        changeMainColor,
+        changeSecondaryColor,
+        changeJewel,
+        changeFootSize,
+        changeGift,
+        changeName,
+        changePhone,
+      },
+    } = this.props;
+
+    return (
+      <div>
+        <Row>
+          {this.state.colorSet.map((color, index) => (
+            <ColorWrapper active={index === this.state.activeColor} color={color} onClick={handleColorChange(index)}>
+              <Color color={color} />
+            </ColorWrapper>
+          ))}
+        </Row>
+      </div>
+    );
+  }
+}

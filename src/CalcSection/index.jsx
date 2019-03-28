@@ -124,9 +124,10 @@ export default class CalcSectionComponent extends Component {
 
     this.state = {
       footSize: '40',
-    }
+      activeMainColor: 0,
+      activeSecondaryColor: 0,
+    };
   }
-
 
   handleSelectFootSizeChange = (e) => {
     const value = e.target.value;
@@ -134,6 +135,13 @@ export default class CalcSectionComponent extends Component {
       changeFootSize,
     } } = this.props;
     changeFootSize(value);
+  }
+
+  handleMainColorChange = (index) => {
+    const { container: {
+      changeMainColor,
+    } } = this.props;
+    changeMainColor(index);
   }
 
   render() {
@@ -159,60 +167,60 @@ export default class CalcSectionComponent extends Component {
       changePhone,
     } } = this.props;
 
-    console.log("Размер ноги в стейте, после использования метода: " + footSize);
+    console.log(`Размер ноги в стейте, после использования метода: ${footSize}`);
 
     return (
       <Wrapper>
         <Grid>
-        <Row>
-          <Col lg={7} xs={12}></Col>
-          <Col lg={5} xs={12}>
-            <CalcSection>
-              <Header>
-                Цвет валешей
-                <HeaderIcon src={headerIcon}/>
-              </Header>
-              <Colors set={colorSetMain}/>
-            </CalcSection>
-            <CalcSection>
-              <Header>
-                Цвет помпона
-                <HeaderIcon src={headerIcon}/>
-              </Header>
-              <Colors set={colorSetSecondary}/>
-            </CalcSection>
-            <CalcSection>
-              <Header>
-                Дизайн украшения
-                <HeaderIcon src={headerIcon}/>
-              </Header>
-              <Cards>
-                {cardsList.map((card, index) => (
-                  <Card
-                    key={card.name}
-                    name={card.name}
-                    img={card.img}
-                    active={index === 1}
-                  />
-                ))}
-              </Cards>
-            </CalcSection>
-            <CalcSection>
-              <SizeSelectWrapper>
-                <SizeSelectLeft>
-                  <SizeSelectHeader>Размер:</SizeSelectHeader>
-                  <Select onChange={this.handleSelectFootSizeChange}>
-                    {footSizeList.map(item => (
-                      <option key={item} value={item}>{item}</option>
-                    ))}
-                  </Select>
-                </SizeSelectLeft>
-                <SizeSelectButton onClick={changeName}>Готово</SizeSelectButton>
-              </SizeSelectWrapper>
-              <SizeLink>Узнать свой размер</SizeLink>
-            </CalcSection>
+          <Row>
+            <Col lg={7} xs={12}></Col>
+            <Col lg={5} xs={12}>
+              <CalcSection>
+                <Header>
+                  Цвет валешей
+                  <HeaderIcon src={headerIcon} />
+                </Header>
+                <Colors set={colorSetMain} main />
+              </CalcSection>
+              <CalcSection>
+                <Header>
+                  Цвет помпона
+                  <HeaderIcon src={headerIcon} />
+                </Header>
+                <Colors set={colorSetSecondary} />
+              </CalcSection>
+              <CalcSection>
+                <Header>
+                  Дизайн украшения
+                  <HeaderIcon src={headerIcon} />
+                </Header>
+                <Cards>
+                  {cardsList.map((card, index) => (
+                    <Card
+                      key={card.name}
+                      name={card.name}
+                      img={card.img}
+                      active={index === 1}
+                    />
+                  ))}
+                </Cards>
+              </CalcSection>
+              <CalcSection>
+                <SizeSelectWrapper>
+                  <SizeSelectLeft>
+                    <SizeSelectHeader>Размер:</SizeSelectHeader>
+                    <Select onChange={this.handleSelectFootSizeChange}>
+                      {footSizeList.map(item => (
+                        <option key={item} value={item}>{item}</option>
+                      ))}
+                    </Select>
+                  </SizeSelectLeft>
+                  <SizeSelectButton>Готово</SizeSelectButton>
+                </SizeSelectWrapper>
+                <SizeLink>Узнать свой размер</SizeLink>
+              </CalcSection>
             </Col>
-            </Row>
+          </Row>
         </Grid>
       </Wrapper>
     )
