@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import logo from './logo.png';
 import phone from '../icons/phone.png';
 import hamburger from './hamburger.png';
@@ -185,7 +185,7 @@ const MobileMenuIcon = styled.img`
 `;
 
 export default () => (
-  <div>
+  <navbar>
     <MobileMenuButton>
       Меню
       <MobileMenuIcon src={hamburger} />
@@ -242,5 +242,5 @@ export default () => (
         </Row>
       </BottomSection>
     </Grid>
-  </div>
+  </navbar>
 );

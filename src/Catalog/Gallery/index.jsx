@@ -34,6 +34,9 @@ const GalleryContent = styled.div`
   @media screen and (max-width: 600px) {
     width: 280px;
   }
+  @media screen and (max-width: 359px) {
+    width: 250px;
+  }
 `;
 
 const ActiveImage = styled.img`
@@ -55,6 +58,9 @@ const Thumbnail = styled.img`
   @media screen and (max-width: 600px) {
     width: 90px;
     height: 50px;
+  }
+  @media screen and (max-width: 359px) {
+    width: 80px;
   }
 `;
 

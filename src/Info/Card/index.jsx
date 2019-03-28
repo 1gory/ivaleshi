@@ -23,7 +23,7 @@ const CardText = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   text-align: center;
   @media screen and (max-width: 991px) {
-    padding: 0 50px;
+    padding: 0 30px;
     margin-bottom: 50px;
   } 
 `;
