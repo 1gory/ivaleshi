@@ -36,29 +36,25 @@ const Color = styled.div`
   } 
 `;
 
-// export default ({ set, activeIndex }) => (
-  
-// );
-
 export default class Colors extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       activeColor: 0,
-      colorSet: this.props.set,
-      main: this.props.main,
+      colorSet: props.set,
+      main: props.main,
     };
   }
 
-  handleColorChange = (index) => {
+  handleColorChange = (index, main) => {
     const {
       container: {
         changeMainColor,
         changeSecondaryColor,
       },
     } = this.props;
-    this.state.main ? changeMainColor(index) : changeSecondaryColor(index);
+    main ? changeMainColor(index) : changeSecondaryColor(index);
   }
 
   render() {
@@ -87,7 +83,7 @@ export default class Colors extends Component {
       <div>
         <Row>
           {this.state.colorSet.map((color, index) => (
-            <ColorWrapper active={index === this.state.activeColor} color={color} onClick={handleColorChange(index)}>
+            <ColorWrapper active={index === this.state.activeColor} color={color} onClick={this.handleColorChange(index, this.state.main)}>
               <Color color={color} />
             </ColorWrapper>
           ))}

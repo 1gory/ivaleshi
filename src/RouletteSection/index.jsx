@@ -77,7 +77,7 @@ export default () => (
         <Header>Узнай какой подарок <MobileBr /> ты получишь к заказу</Header>
         <CardWrapper>
           {cardsList.map((card, index) => (
-            <Col md={3} xs={6} key={card.name} xsOffset={index === 0 ? 3 : 0}>
+            <Col md={3} xs={6} key={card.name} xsOffset={index === 0 ? 3 : 0} smOffset={0}>
               <Card
                 name={card.name}
                 img={card.img}

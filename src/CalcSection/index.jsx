@@ -123,9 +123,7 @@ export default class CalcSectionComponent extends Component {
     super(props);
 
     this.state = {
-      footSize: '40',
-      activeMainColor: 0,
-      activeSecondaryColor: 0,
+      footSize: 0,
     };
   }
 
@@ -180,14 +178,18 @@ export default class CalcSectionComponent extends Component {
                   Цвет валешей
                   <HeaderIcon src={headerIcon} />
                 </Header>
-                <Colors set={colorSetMain} main />
+                {container => (
+                  <Colors set={colorSetMain} main container={container} />
+                )}
               </CalcSection>
               <CalcSection>
                 <Header>
                   Цвет помпона
                   <HeaderIcon src={headerIcon} />
                 </Header>
-                <Colors set={colorSetSecondary} />
+                {container => (
+                  <Colors set={colorSetSecondary} container={container} />
+                )}
               </CalcSection>
               <CalcSection>
                 <Header>
