@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Provider, Subscribe, Container } from 'unstated';
-import styled from 'styled-components';
-import InfoBlock from './InfoBlock';
-import CalcSectionComponent from './CalcSection';
-import CardsSection from './CardsSection';
-import PricesSection from './PricesSection';
+import Description from './Description';
+import Constructor from './Constructor';
+import Info from './Info';
+import Catalog from './Catalog';
 import Header from './Header';
 import Navbar from './Navbar';
-import OrderSection from './OrderSection';
-import BookletSection from './BookletSection';
-import FeedbackSection from './FeedbackSection';
-import RouletteSection from './RouletteSection';
+import OrderSteps from './OrderSteps';
+import Booklet from './Booklet';
+import Feedback from './Feedback';
+import Roulette from './Roulette';
 import Footer from './Footer';
 
 class ConstructorContainer extends Container {
@@ -54,10 +53,6 @@ class ConstructorContainer extends Container {
   }
 }
 
-const Wrapper = styled.div`
-  color: rgb(25, 22, 25);
-`;
-
 export default class extends Component {
   constructor(props) {
     super(props);
@@ -66,23 +61,23 @@ export default class extends Component {
   render() {
     return (
       <Provider>
-        <Wrapper>
+        <div>
           <Navbar />
           <Header />
           <Subscribe to={[ConstructorContainer]}>
             {container => (
-              <CalcSectionComponent container={container}/>
+              <Constructor container={container}/>
             )}
           </Subscribe>
-          <RouletteSection />
-          <InfoBlock />
-          <CardsSection />
-          <PricesSection />
-          <OrderSection />
-          <FeedbackSection />
-          <BookletSection />
+          <Roulette />
+          <Description />
+          <Info />
+          <Catalog />
+          <OrderSteps />
+          <Feedback />
+          <Booklet />
           <Footer />
-        </Wrapper>
+        </div>
       </Provider>
     );
   }
