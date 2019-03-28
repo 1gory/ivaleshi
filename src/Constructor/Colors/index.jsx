@@ -6,9 +6,6 @@ const Row = styled.div`
   display: flex;
   justify-content: flex-start; 
   flex-wrap: wrap; 
-  @media screen and (max-width: 991px) {
-    justify-content: center;   
-  } 
 `;
 
 const ColorWrapper = styled.div`  

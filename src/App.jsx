@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { Provider, Subscribe, Container } from 'unstated';
 import Description from './Description';
 import Constructor from './Constructor';
