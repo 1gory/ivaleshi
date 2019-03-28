@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import img from './gal-img.png';
+import img from './booklet.png';
 
 const Wrapper = styled.section`
   padding-top: 110px;
