@@ -13,7 +13,6 @@ const Row = styled.div`
 
 const ColorWrapper = styled.div`  
   outline: ${({ active, color }) => (active ? `1px solid ${color}` : 'none')};
-  /* padding: ${({ active }) => (active ? '1px' : '2px')}; */
   padding: 2px;
   margin-right: 15px;
   margin-bottom: 15px;
@@ -40,7 +39,12 @@ export default ({ activeColor, set, handler }) => (
   <div>
     <Row>
       {set.map((color, index) => (
-        <ColorWrapper key={color} active={index === activeColor} color={color} onClick={() => handler(index)}>
+        <ColorWrapper
+          key={color}
+          active={index === activeColor}
+          color={color}
+          onClick={() => { if (index !== activeColor) handler(index); }}
+        >
           <Color color={color} />
         </ColorWrapper>
       ))}

@@ -34,7 +34,11 @@ const Text = styled.div`
 export default ({ list, active, handler }) => (
   <Cards>
     {list.map((card, index) => (
-      <Card active={index === active} key={card.name} onClick={() => handler(index)}>
+      <Card
+        active={index === active}
+        key={card.name}
+        onClick={() => { if (index !== active) handler(index); }}
+      >
         <Image src={card.img} />
         <Text>{card.name}</Text>
       </Card>
