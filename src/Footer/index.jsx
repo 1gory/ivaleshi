@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Map from './Map';
 import socialVK from '../icons/social-vk.svg';
 import socialIG from '../icons/social-ig.svg';

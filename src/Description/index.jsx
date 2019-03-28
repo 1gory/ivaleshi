@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './img.png';
 
 const Wrapper = styled.section`
@@ -21,8 +21,6 @@ const TextWrapper = styled.div`
   padding-bottom: 60px;
   @media screen and (max-width: 991px) {
     padding-bottom: 35px;
-    padding-right: 20px;
-    padding-left: 20px;
   }
 `;
 
