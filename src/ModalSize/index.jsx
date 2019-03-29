@@ -14,6 +14,10 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   z-index: 100;
+  @media screen and (max-width: 991px) {
+    display: block;
+    padding-top: 20px;
+  }
 `;
 
 const Background = styled.div`
@@ -25,13 +29,16 @@ const Background = styled.div`
   background: rgba(0, 0, 0, 0.25);
 `;
 
-const Content = styled.section`
+const Content = styled.div`
   background-color: white;
   padding: 30px;
   display: flex;
   flex-wrap: wrap;
   position: relative;
   z-index: 120;
+  @media screen and (max-width: 991px) {
+    padding: 15px;  
+  }
 `;
 
 const Header = styled.h2`
@@ -41,10 +48,17 @@ const Header = styled.h2`
   text-transform: uppercase;
   margin-bottom: 70px;
   width: 100%;
+  @media screen and (max-width: 991px) {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
 `;
 
 const ListWrapper = styled.div`
   width: 50%;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  }
 `;
 
 const List = styled.ol`
@@ -65,6 +79,10 @@ const Image = styled.img`
 
 const Sizes = styled.div`
   width: 50%;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    margin-top: 50px;
+  }
 `;
 
 const SizesHeaders = styled.div`
@@ -75,6 +93,10 @@ const SizesHeaders = styled.div`
   color: rgb(25, 22, 25);
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: bold;
+  @media screen and (max-width: 991px) {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
 `;
 
 const SizesHeaderLeft = styled.div`
@@ -89,6 +111,10 @@ const Size = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: bold;
   margin-bottom: 30px;
+  @media screen and (max-width: 991px) {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
 `;
 
 const SizeLeft = styled.div`
@@ -101,6 +127,18 @@ const CloseButton = styled.img`
   width: 30px;
   position: absolute;
   opacity: 0.25;
+  @media screen and (max-width: 991px) {
+    top: 15px;
+    right: 15px;
+    width: 15px;
+  }
+`;
+
+const MobileBr = styled.br`
+  display: none;
+  @media screen and (max-width: 991px) {
+    display: block;
+  }
 `;
 
 export default () => (
@@ -109,7 +147,7 @@ export default () => (
       <Row>
         <Col mdOffset={2} md={8} xs={12}>
           <Content>
-            <Header>Как узнать свой размер</Header>
+            <Header>Как узнать свой <MobileBr />размер</Header>
             <ListWrapper>
               <List>
                 <ListItem>Измерьте длину ступни<br />как показано на рисунке</ListItem>
@@ -119,7 +157,7 @@ export default () => (
             </ListWrapper>
             <Sizes>
               <SizesHeaders>
-                <SizesHeaderLeft>Длина ступни, см</SizesHeaderLeft>
+                <SizesHeaderLeft>Длина ступни, <MobileBr />см</SizesHeaderLeft>
                 Размер
               </SizesHeaders>
               {SizesList.map(size => (

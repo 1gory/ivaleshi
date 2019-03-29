@@ -7,6 +7,7 @@ import cardsList from './CardsList';
 import footSizeList from './FootSizeList';
 import Colors from './Colors';
 import Card from './Card';
+import ModalSize from '../ModalSize';
 import headerIcon from './arrow.svg';
 
 const Wrapper = styled.section`
@@ -170,5 +171,6 @@ export default () => (
         </Col>
       </Row>
     </Grid>
+    <ModalSize />
   </Wrapper>
 );

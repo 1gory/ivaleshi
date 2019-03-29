@@ -10,7 +10,6 @@ import Booklet from './Booklet';
 import Feedback from './Feedback';
 import RouletteSection from './RouletteSection';
 import Footer from './Footer';
-import ModalSize from './ModalSize';
 
 export default class extends Component {
   constructor(props) {
@@ -31,7 +30,6 @@ export default class extends Component {
         <Feedback />
         <Booklet />
         <Footer />
-        <ModalSize />
       </div>
     );
   }
