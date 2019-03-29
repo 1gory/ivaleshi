@@ -171,6 +171,6 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-    <ModalSize />
+    {/* <ModalSize /> */}
   </Wrapper>
 );
