@@ -28,6 +28,7 @@ const Content = styled.div`
   background-color: white;
   padding: 30px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   position: relative;
   z-index: 120;
