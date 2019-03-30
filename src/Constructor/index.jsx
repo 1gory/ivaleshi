@@ -132,83 +132,27 @@ export default class CalcSectionComponent extends Component {
     changeFootSize(value);
   }
 
-  handleMainColorChange = (index) => {
-    const { container: {
-      changeMainColor,
-    } } = this.props;
-    changeMainColor(index);
-  }
-
-  getMainColor = () => {
+  render() {
     const {
       container: {
         state: {
           mainColor,
-        },
-      },
-    } = this.props;
-    return mainColor;
-  }
-
-  handleSecondaryColorChange = (index) => {
-    const {
-      container: {
-        changeSecondaryColor,
-      },
-    } = this.props;
-    changeSecondaryColor(index);
-  }
-
-  getSecondaryColor = () => {
-    const {
-      container: {
-        state: {
           secondaryColor,
-        },
-      },
-    } = this.props;
-    return secondaryColor;
-  }
-
-  handleJewelChange = (index) => {
-    const {
-      container: {
-        changeJewel,
-      },
-    } = this.props;
-    changeJewel(index);
-  }
-
-  getJewel = () => {
-    const {
-      container: {
-        state: {
           jewel,
+          footSize,
+          gift,
+          name,
+          phone,
         },
+        changeMainColor,
+        changeSecondaryColor,
+        changeJewel,
+        changeFootSize,
+        changeGift,
+        changeName,
+        changePhone,
       },
     } = this.props;
-    return jewel;
-  }
-
-  render() {
-    const { container: {
-      state: {
-        mainColor,
-        secondaryColor,
-        jewel,
-        footSize,
-        gift,
-        name,
-        phone,
-      },
-      changeMainColor,
-      changeSecondaryColor,
-      changeJewel,
-      changeFootSize,
-      changeGift,
-      changeName,
-      changePhone,
-    } } = this.props;
 
     console.log(`Размер ноги в стейте, после использования метода: ${footSize}`);
     console.log(`Основной цвет, после использования метода: ${mainColor}`);
@@ -228,9 +172,9 @@ export default class CalcSectionComponent extends Component {
                 </Header>
                 <Colors
                   set={colorSetMain}
-                  activeColor={this.getMainColor()}
+                  activeColor={mainColor}
                   main
-                  handler={this.handleMainColorChange}
+                  handler={changeMainColor}
                 />
               </CalcSection>
               <CalcSection>
@@ -240,9 +184,9 @@ export default class CalcSectionComponent extends Component {
                 </Header>
                 <Colors
                   set={colorSetSecondary}
-                  activeColor={this.getSecondaryColor()}
+                  activeColor={secondaryColor}
                   main
-                  handler={this.handleSecondaryColorChange}
+                  handler={changeSecondaryColor}
                 />
               </CalcSection>
               <CalcSection>
@@ -252,8 +196,8 @@ export default class CalcSectionComponent extends Component {
                 </Header>
                 <Cards
                   list={cardsList}
-                  active={this.getJewel()}
-                  handler={this.handleJewelChange}
+                  active={jewel}
+                  handler={changeJewel}
                 />
               </CalcSection>
               <CalcSection>
