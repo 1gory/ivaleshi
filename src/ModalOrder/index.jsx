@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
-import { Header, CloseButton, MobileBr, Content, Background, Wrapper } from '../modal';
+import { Header, CloseButton, Content, Background, Wrapper } from '../modal';
 import img from './img.png';
 import close from './close.svg';
 import SizesList from './SizesList';
@@ -25,9 +25,6 @@ const SizeLink = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   margin-top: 20px;
   width: 100%;
-  @media screen and (max-width: 991px) {
-    text-align: center;
-  } 
 `;
 
 const SizeSelectHeader = styled.div`
@@ -42,6 +39,9 @@ const SizeSelectHeader = styled.div`
 const Product = styled.div`
   display: flex;
   flex-wrap: wrap;  
+  @media screen and (max-width: 991px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 const ProductImage = styled.img`
@@ -49,6 +49,11 @@ const ProductImage = styled.img`
   width: 190px;
   object-fit: cover;
   margin-right: 40px;
+  @media screen and (max-width: 991px) {
+    height: 90px;
+    width: 90px;
+    margin-right: 20px;
+  }
 `;
 
 const DescriptionHeader = styled.div`
@@ -60,6 +65,11 @@ const DescriptionHeader = styled.div`
   font-weight: bold;
   margin-bottom: 40px;
   width: 100%;
+  @media screen and (max-width: 991px) {
+    width: auto;
+    flex-wrap: wrap;
+    font-size: 18px;
+  }
 `;
 
 const Price = styled.div`
@@ -69,6 +79,10 @@ const Price = styled.div`
   font-size: 16px;
   padding: 10px 15px;
   margin-left: 30px;
+  @media screen and (max-width: 991px) {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
 `;
 
 const Size = styled.div`
@@ -81,10 +95,25 @@ const Line = styled.div`
   width: 100%;
   margin-top: 40px;
   margin-bottom: 60px;
+  @media screen and (max-width: 991px) {
+    margin-bottom: 30px;
+  }
+`;
+
+const BottomWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  @media screen and (max-width: 991px) {
+    flex-direction: column-reverse;
+  }
 `;
 
 const Form = styled.div`
   width: 50%;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  }
 `;
 
 const FormHeader = styled.div`
@@ -94,6 +123,9 @@ const FormHeader = styled.div`
   color: #1e2229;  
   text-align: center;
   margin-bottom: 40px;
+  @media screen and (max-width: 991px) {
+    margin-top: 40px;
+  }
 `;
 
 const FormItem = styled.div`
@@ -131,6 +163,9 @@ const Input = styled.input`
   &::placeholder {
     color: rgba(30, 34, 41, 0.3);
   }
+  @media screen and (max-width: 991px) {
+    height: 50px;
+  }
 `;
 
 const Button = styled.button`
@@ -138,7 +173,7 @@ const Button = styled.button`
   font-size: 14px;
   color: white; 
   text-transform: uppercase;
-  padding: 35px 65px;
+  padding: 35px 0px;
   background-color: rgb(255, 51, 0);
   cursor: pointer;
   transition: 0.2s;
@@ -154,6 +189,11 @@ const Gift = styled.div`
   width: 40%;
   border: solid 6px rgba(255,51,0,0.25);
   text-align: center;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    border: none;
+    outline: solid 6px rgba(255,51,0,0.25);
+  }
 `;
 
 const GiftHeader = styled.div`
@@ -207,25 +247,27 @@ export default () => (
               </div>
             </Product>
             <Line />
-            <Form>
-              <FormHeader>
-                Оставьте свой номер и мы свяжемся с вами для оформления заказа
-              </FormHeader>
-              <FormItem>
-                <Label>Имя</Label>
-                <Input />
-              </FormItem>
-              <FormItem>
-                <Label>Телефон</Label>
-                <Input />
-              </FormItem>
-              <Button>Отправить заказ</Button>
-            </Form>
-            <Gift>
-              <GiftHeader>Аромат для обуви</GiftHeader>
-              <GiftImg src={img} />
-              <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>        
-            </Gift>
+            <BottomWrapper>
+              <Form>
+                <FormHeader>
+                  Оставьте свой номер и мы свяжемся с вами для оформления заказа
+                </FormHeader>
+                <FormItem>
+                  <Label>Имя</Label>
+                  <Input />
+                </FormItem>
+                <FormItem>
+                  <Label>Телефон</Label>
+                  <Input />
+                </FormItem>
+                <Button>Отправить заказ</Button>
+              </Form>
+              <Gift>
+                <GiftHeader>Аромат для обуви</GiftHeader>
+                <GiftImg src={img} />
+                <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>        
+              </Gift>
+            </BottomWrapper>
             <CloseButton src={close} />
           </Content>
         </Col>

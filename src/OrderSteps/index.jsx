@@ -47,6 +47,6 @@ export default () => (
     <RedLineWrapper>
       <RedLine />
     </RedLineWrapper>
-    <ModalOrder />
+    {/* <ModalOrder /> */}
   </Wrapper>
 );
