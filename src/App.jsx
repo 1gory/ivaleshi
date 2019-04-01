@@ -11,6 +11,7 @@ import Booklet from './Booklet';
 import Feedback from './Feedback';
 import Roulette from './Roulette';
 import Footer from './Footer';
+import Modal from './Modal';
 import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
 
@@ -32,11 +33,23 @@ export default class extends Component {
         <Roulette />
         <Description />
         <Info />
-        <Catalog />
+        <Subscribe to={[ModalContainer]}>
+          {(modalContainer) => (
+            <Catalog modalContainer={modalContainer} />
+          )}
+        </Subscribe>
         <OrderSteps />
         <Feedback />
         <Booklet />
         <Footer />
+        <Subscribe to={[ModalContainer]}>
+          {modalContainer => (
+            <Modal
+              container={modalContainer}
+            />
+          )}
+        </Subscribe>
+        
       </div>
     );
   }

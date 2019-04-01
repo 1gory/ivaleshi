@@ -1,10 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
-import { Header, CloseButton, Content, Background, Wrapper } from '../modal';
 import img from './img.png';
-import close from './close.svg';
 import SizesList from './SizesList';
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: ${({ display }) => (display ? 'flex' : 'none')}; 
+  flex-wrap: wrap;
+`;
+
+const Header = styled.h2`
+  font-size: 30px;
+  color: rgb(25, 22, 25);
+  font-family: 'Museo-Regular', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 70px;
+  width: 100%;
+  @media screen and (max-width: 991px) {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+`;
 
 const Select = styled.select`
   background: none;
@@ -218,61 +234,50 @@ const GiftImg = styled.img`
   object-fit: cover;
 `;
 
-
-export default () => (
-  <Wrapper>
-    <Grid>
-      <Row>
-        <Col mdOffset={1} md={10} xs={12}>
-          <Content>
-            <Header>Оформить заказ</Header>
-            <Product>
-              <ProductImage src={img} />
-              <div>
-                <DescriptionHeader>
-                  Валеши с помпоном
-                  <Price>
-                    990 Р.
-                  </Price>
-                </DescriptionHeader>
-                <Size>
-                  <SizeSelectHeader>Размер:</SizeSelectHeader>
-                  <Select>
-                    {SizesList.map(item => (
-                      <option key={item} value={item}>{item}</option>
-                    ))}
-                  </Select>
-                  <SizeLink>Узнать свой размер</SizeLink>
-                </Size>
-              </div>
-            </Product>
-            <Line />
-            <BottomWrapper>
-              <Form>
-                <FormHeader>
-                  Оставьте свой номер и мы свяжемся с вами для оформления заказа
-                </FormHeader>
-                <FormItem>
-                  <Label>Имя</Label>
-                  <Input />
-                </FormItem>
-                <FormItem>
-                  <Label>Телефон</Label>
-                  <Input />
-                </FormItem>
-                <Button>Отправить заказ</Button>
-              </Form>
-              <Gift>
-                <GiftHeader>Аромат для обуви</GiftHeader>
-                <GiftImg src={img} />
-                <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>        
-              </Gift>
-            </BottomWrapper>
-            <CloseButton src={close} />
-          </Content>
-        </Col>
-      </Row>
-    </Grid>
-    <Background />
+export default ({ visible }) => (
+  <Wrapper display={visible}>
+    <Header>Оформить заказ</Header>
+    <Product>
+      <ProductImage src={img} />
+      <div>
+        <DescriptionHeader>
+          Валеши с помпоном
+          <Price>
+            990 Р.
+          </Price>
+        </DescriptionHeader>
+        <Size>
+          <SizeSelectHeader>Размер:</SizeSelectHeader>
+          <Select>
+            {SizesList.map(item => (
+              <option key={item} value={item}>{item}</option>
+            ))}
+          </Select>
+          <SizeLink>Узнать свой размер</SizeLink>
+        </Size>
+      </div>
+    </Product>
+    <Line />
+    <BottomWrapper>
+      <Form>
+        <FormHeader>
+          Оставьте свой номер и мы свяжемся с вами для оформления заказа
+        </FormHeader>
+        <FormItem>
+          <Label>Имя</Label>
+          <Input />
+        </FormItem>
+        <FormItem>
+          <Label>Телефон</Label>
+          <Input />
+        </FormItem>
+        <Button>Отправить заказ</Button>
+      </Form>
+      <Gift>
+        <GiftHeader>Аромат для обуви</GiftHeader>
+        <GiftImg src={img} />
+        <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>        
+      </Gift>
+    </BottomWrapper>
   </Wrapper>
 );

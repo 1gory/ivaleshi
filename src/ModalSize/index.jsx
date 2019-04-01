@@ -1,10 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
-import { Header, CloseButton, MobileBr, Content, Background, Wrapper } from '../modal';
 import img from './img.png';
-import close from './close.svg';
 import SizesList from './SizesList';
+
+const Header = styled.h2`
+  font-size: 30px;
+  color: rgb(25, 22, 25);
+  font-family: 'Museo-Regular', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 70px;
+  width: 100%;
+  @media screen and (max-width: 991px) {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: ${({ display }) => (display ? 'flex' : 'none')}; 
+  flex-wrap: wrap;
+`;
 
 const ListWrapper = styled.div`
   width: 50%;
@@ -73,37 +89,34 @@ const SizeLeft = styled.div`
   width: 60%;
 `;
 
-export default () => (
-  <Wrapper>
-    <Grid>
-      <Row>
-        <Col mdOffset={2} md={8} xs={12}>
-          <Content>
-            <Header>Как узнать свой <MobileBr />размер</Header>
-            <ListWrapper>
-              <List>
-                <ListItem>Измерьте длину ступни<br />как показано на рисунке</ListItem>
-                <ListItem>Определите свой размер<br />по таблице</ListItem>
-              </List>
-              <Image src={img} />
-            </ListWrapper>
-            <Sizes>
-              <SizesHeaders>
-                <SizesHeaderLeft>Длина ступни, <MobileBr />см</SizesHeaderLeft>
-                Размер
-              </SizesHeaders>
-              {SizesList.map(size => (
-                <Size>
-                  <SizeLeft>{size[0]}</SizeLeft>
-                  {size[1]}
-                </Size>
-              ))}
-            </Sizes>
-            <CloseButton src={close} />
-          </Content>
-        </Col>
-      </Row>
-    </Grid>
-    <Background />
+const MobileBr = styled.br`
+  display: none;
+  @media screen and (max-width: 991px) {
+    display: block;
+  } 
+`;
+
+export default ({ visible }) => (
+  <Wrapper display={visible}>
+    <Header>Как узнать свой <MobileBr />размер</Header>
+    <ListWrapper>
+      <List>
+        <ListItem>Измерьте длину ступни<br />как показано на рисунке</ListItem>
+        <ListItem>Определите свой размер<br />по таблице</ListItem>
+      </List>
+      <Image src={img} />
+    </ListWrapper>
+    <Sizes>
+      <SizesHeaders>
+        <SizesHeaderLeft>Длина ступни, <MobileBr />см</SizesHeaderLeft>
+        Размер
+      </SizesHeaders>
+      {SizesList.map(size => (
+        <Size>
+          <SizeLeft>{size[0]}</SizeLeft>
+          {size[1]}
+        </Size>
+      ))}
+    </Sizes>
   </Wrapper>
 );

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Card from './Card';
 import CardList from './CardList';
-import ModalOrder from '../ModalOrder';
 
 const Wrapper = styled.section`
   background-color: rgba(25, 22, 22, 0.05);
@@ -47,6 +46,5 @@ export default () => (
     <RedLineWrapper>
       <RedLine />
     </RedLineWrapper>
-    {/* <ModalOrder /> */}
   </Wrapper>
 );

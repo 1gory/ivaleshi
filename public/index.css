@@ -25,3 +25,7 @@
   font-style: normal;
   font-weight: normal;
 } 
+
+.modal-open {
+  overflow: hidden;
+}

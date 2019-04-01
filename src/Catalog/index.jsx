@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
@@ -77,33 +77,49 @@ const SliderControlsWrapper = styled.div`
   }   
 `;
 
-export default () => (
-  <Wrapper>
-    <Grid>
-      <SliderWrapper>
-        <Row>
-          {ItemsList.map(item => (
-            <Col lgOffset={3} lg={9} xs={12} key={item.name}>
-              <Item
-                name={item.name}
-                price={item.price}
-                text={item.text}
-              />
-              <Gallery
-                images={item.img}
-              />
-            </Col>
-          ))}
-        </Row>
-        <SliderControlsWrapper>
-          <SliderButtonWrapperRight>
-            <Arrow right />
-          </SliderButtonWrapperRight>
-          <SliderButtonWrapper>
-            <Arrow />
-          </SliderButtonWrapper>
-        </SliderControlsWrapper>
-      </SliderWrapper>
-    </Grid>
-  </Wrapper>
-);
+export default class Catalog extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {
+      modalContainer: {
+        openModal,
+      },
+    } = this.props;
+
+    return (
+      <Wrapper>
+        <Grid>
+          <SliderWrapper>
+            <Row>
+              {ItemsList.map(item => (
+                <Col lgOffset={3} lg={9} xs={12} key={item.name}>
+                  <Item
+                    name={item.name}
+                    price={item.price}
+                    text={item.text}
+                    handler={openModal}
+                  />
+                  <Gallery
+                    images={item.img}
+                  />
+                </Col>
+              ))}
+            </Row>
+            <SliderControlsWrapper>
+              <SliderButtonWrapperRight>
+                <Arrow right />
+              </SliderButtonWrapperRight>
+              <SliderButtonWrapper>
+                <Arrow />
+              </SliderButtonWrapper>
+            </SliderControlsWrapper>
+          </SliderWrapper>
+        </Grid>
+      </Wrapper>
+    );
+  }
+};

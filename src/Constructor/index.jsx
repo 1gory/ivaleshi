@@ -107,6 +107,7 @@ const SizeLink = styled.div`
   color: rgb(255, 51, 0);
   font-family: 'MuseoSans-Regular', sans-serif;
   margin-top: 20px;
+  cursor: pointer;
   @media screen and (max-width: 991px) {
     text-align: center;
   } 
@@ -125,7 +126,7 @@ export default class CalcSectionComponent extends Component {
   handleSelectFootSizeChange = (e) => {
     const value = e.target.value;
     const {
-      container: {
+      constructorContainer: {
         changeFootSize,
       },
     } = this.props;
@@ -153,10 +154,7 @@ export default class CalcSectionComponent extends Component {
         changePhone, 
       },
       modalContainer: {
-        state: {
-          modalOpen,
-        },
-        toggleModal,
+        openModal,
       },
     } = this.props;
 
@@ -218,7 +216,7 @@ export default class CalcSectionComponent extends Component {
                   </SizeSelectLeft>
                   <SizeSelectButton>Готово</SizeSelectButton>
                 </SizeSelectWrapper>
-                <SizeLink>Узнать свой размер</SizeLink>
+                <SizeLink onClick={() => openModal('size', 8)}>Узнать свой размер</SizeLink>
               </CalcSection>
             </Col>
           </Row>
