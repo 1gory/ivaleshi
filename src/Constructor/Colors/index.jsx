@@ -4,16 +4,16 @@ import styled from 'styled-components';
 const Row = styled.div`
   margin-bottom: 10px;  
   display: flex;
-  justify-content: flex-start;  
-  @media screen and (max-width: 991px) {
-    justify-content: center;   
-  } 
+  justify-content: flex-start; 
+  flex-wrap: wrap; 
 `;
 
 const ColorWrapper = styled.div`  
-  border: ${({ active, color }) => (active ? `1px solid ${color}` : 'none')};
+  outline: ${({ active, color }) => (active ? `1px solid ${color}` : 'none')};
   padding: 2px;
   margin-right: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
   @media screen and (max-width: 1200px) {
     margin-right: 10px; 
   }
@@ -32,16 +32,19 @@ const Color = styled.div`
   } 
 `;
 
-export default ({ set }) => (
+export default ({ activeColor, set, handler }) => (
   <div>
-    {set.map(row => (
-      <Row key={row[0]}>
-        {row.map((color, index) => (
-          <ColorWrapper active={index === 2} color={color}>
-            <Color color={color} />
-          </ColorWrapper>
-        ))}
-      </Row>
-    ))}
+    <Row>
+      {set.map((color, index) => (
+        <ColorWrapper
+          key={color}
+          active={index === activeColor}
+          color={color}
+          onClick={() => { if (index !== activeColor) handler(index); }}
+        >
+          <Color color={color} />
+        </ColorWrapper>
+      ))}
+    </Row>
   </div>
 );

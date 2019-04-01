@@ -1,4 +1,4 @@
-import img from './Card/img.png';
+import img from './Cards/img.png';
 
 export default [
   {
