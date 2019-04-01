@@ -134,7 +134,7 @@ export default class CalcSectionComponent extends Component {
 
   render() {
     const {
-      container: {
+      constructorContainer: {
         state: {
           mainColor,
           secondaryColor,
@@ -150,7 +150,13 @@ export default class CalcSectionComponent extends Component {
         changeFootSize,
         changeGift,
         changeName,
-        changePhone,
+        changePhone, 
+      },
+      modalContainer: {
+        state: {
+          modalOpen,
+        },
+        toggleModal,
       },
     } = this.props;
 
