@@ -83,25 +83,41 @@ export default class Catalog extends Component {
     super(props);
   }
 
-  render() {
+  handleOpenModal = (index) => {
     const {
+      constructorContainer: {
+        changeMainColor,
+        changeSecondaryColor,
+        changeJewel,
+        changePrice,
+        changeTitle,
+      },
       modalContainer: {
         openModal,
       },
     } = this.props;
+    changeMainColor(ItemsList[index].mainColor);
+    changeSecondaryColor(ItemsList[index].secondaryColor);
+    changeJewel(ItemsList[index].jewel);
+    changePrice(ItemsList[index].price);
+    changeTitle(ItemsList[index].name);
+    openModal('order', 10);
+  }
 
+  render() {
     return (
       <Wrapper>
         <Grid>
           <SliderWrapper>
             <Row>
-              {ItemsList.map(item => (
+              {ItemsList.map((item, index) => (
                 <Col lgOffset={3} lg={9} xs={12} key={item.name}>
                   <Item
                     name={item.name}
                     price={item.price}
                     text={item.text}
-                    handler={openModal}
+                    handler={this.handleOpenModal}
+                    index={index}
                   />
                   <Gallery
                     images={item.img}

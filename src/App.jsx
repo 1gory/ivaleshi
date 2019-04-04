@@ -33,23 +33,22 @@ export default class extends Component {
         <Roulette />
         <Description />
         <Info />
-        <Subscribe to={[ModalContainer]}>
-          {(modalContainer) => (
-            <Catalog modalContainer={modalContainer} />
+        <Subscribe to={[ConstructorContainer, ModalContainer]}>
+          {(constructorContainer, modalContainer) => (
+            <Catalog constructorContainer={constructorContainer} modalContainer={modalContainer} />
           )}
         </Subscribe>
         <OrderSteps />
         <Feedback />
         <Booklet />
         <Footer />
-        <Subscribe to={[ModalContainer]}>
-          {modalContainer => (
+        <Subscribe to={[ConstructorContainer, ModalContainer]}>
+        {(constructorContainer, modalContainer) => (
             <Modal
-              container={modalContainer}
+              constructorContainer={constructorContainer} modalContainer={modalContainer}
             />
           )}
         </Subscribe>
-        
       </div>
     );
   }

@@ -15,10 +15,14 @@ const Wrapper = styled.div`
   align-items: center;
   z-index: 100;
   overflow: scroll;
-  padding: 20px;
   @media screen and (max-width: 991px) {
     display: ${({ display }) => (display ? 'block' : 'none')}; 
   }
+`;
+
+const ModalGrid = styled(Grid)`
+  padding-top: 80px;
+  padding-bottom: 60px;
 `;
 
 const Background = styled.div`
@@ -63,9 +67,37 @@ export default class Modal extends Component {
     super(props);
   }
 
+  handleSelectFootSizeChange = (e) => {
+    const value = e.target.value;
+    const {
+      constructorContainer: {
+        changeFootSize,
+      },
+    } = this.props;
+    changeFootSize(value);
+  }
+
+  handleNameChange = (e) => {
+    const value = e.target.value;
+    const {
+      constructorContainer: {
+        changeName,
+      },
+    } = this.props;
+    changeName(value);
+  }
+
   render() {
     const {
-      container: {
+      constructorContainer: {
+        state: {
+          gift,
+          title,
+          price,
+        },
+        changePhone,
+      },
+      modalContainer: {
         state: {
           modalOpen,
           type,
@@ -77,17 +109,25 @@ export default class Modal extends Component {
 
     return (
       <Wrapper display={modalOpen}>
-        <Grid>
+        <ModalGrid>
           <Row>
             <Col mdOffset={(12 - size) / 2} md={size} xs={12}>
               <ContentWrapper>
                 <ModalSize visible={type === 'size'} />
-                <ModalOrder visible={type === 'order'} />
+                <ModalOrder
+                  visible={type === 'order'}
+                  title={title}
+                  gift={gift}
+                  price={price}
+                  footSizeHandler={this.handleSelectFootSizeChange}
+                  nameHandler={this.handleNameChange}
+                  phoneHandler={changePhone}
+                />
                 <CloseButton src={close} onClick={closeModal} />
               </ContentWrapper>
             </Col>
           </Row>
-        </Grid>
+        </ModalGrid>
         <Background onClick={closeModal} />
       </Wrapper>
     )

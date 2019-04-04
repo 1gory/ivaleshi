@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import MaskedInput from 'react-text-mask';
 import img from './img.png';
 import SizesList from './SizesList';
+import giftList from '../giftList';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -234,50 +236,95 @@ const GiftImg = styled.img`
   object-fit: cover;
 `;
 
-export default ({ visible }) => (
-  <Wrapper display={visible}>
-    <Header>Оформить заказ</Header>
-    <Product>
-      <ProductImage src={img} />
-      <div>
-        <DescriptionHeader>
-          Валеши с помпоном
-          <Price>
-            990 Р.
-          </Price>
-        </DescriptionHeader>
-        <Size>
-          <SizeSelectHeader>Размер:</SizeSelectHeader>
-          <Select>
-            {SizesList.map(item => (
-              <option key={item} value={item}>{item}</option>
-            ))}
-          </Select>
-          <SizeLink>Узнать свой размер</SizeLink>
-        </Size>
-      </div>
-    </Product>
-    <Line />
-    <BottomWrapper>
-      <Form>
-        <FormHeader>
-          Оставьте свой номер и мы свяжемся с вами для оформления заказа
-        </FormHeader>
-        <FormItem>
-          <Label>Имя</Label>
-          <Input />
-        </FormItem>
-        <FormItem>
-          <Label>Телефон</Label>
-          <Input />
-        </FormItem>
-        <Button>Отправить заказ</Button>
-      </Form>
-      <Gift>
-        <GiftHeader>Аромат для обуви</GiftHeader>
-        <GiftImg src={img} />
-        <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>        
-      </Gift>
-    </BottomWrapper>
-  </Wrapper>
-);
+export default class ModalOrder extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handlePhoneChange = (e) => {
+    if (!e.target.value) {
+      this.props.phoneHandler('');
+      return;
+    }
+
+    const number = e.target.value;
+    // const regExpr = /\d+/g;
+    // const editedNumber = number.match(regExpr).join('');
+
+    // if (editedNumber.length === 11) {
+
+    // } else {
+      
+    // }
+    this.props.phoneHandler(number);
+  };
+
+  render() {
+    const {
+      visible,
+      gift,
+      title,
+      price,
+      footSizeHandler,
+      nameHandler,
+    } = this.props;
+
+    return (
+      <Wrapper display={visible}>
+        <Header>Оформить заказ</Header>
+        <Product>
+          <ProductImage src={img} />
+          <div>
+            <DescriptionHeader>
+              {title}
+              <Price>
+                {price} Р.
+              </Price>
+            </DescriptionHeader>
+            <Size>
+              <SizeSelectHeader>Размер:</SizeSelectHeader>
+              <Select onSelect={() => footSizeHandler}>
+                {SizesList.map(item => (
+                  <option key={item} value={item}>{item}</option>
+                ))}
+              </Select>
+              <SizeLink>Узнать свой размер</SizeLink>
+            </Size>
+          </div>
+        </Product>
+        <Line />
+        <BottomWrapper>
+          <Form>
+            <FormHeader>
+              Оставьте свой номер и мы свяжемся с вами для оформления заказа
+            </FormHeader>
+            <FormItem>
+              <Label>Имя</Label>
+              <Input onInput={nameHandler} />
+            </FormItem>
+            <FormItem>
+              <Label>Телефон</Label>
+              <MaskedInput
+                mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+                guide
+                onChange={this.handlePhoneChange}
+                keepCharPositions
+                value={this.inputPhone}
+                render={(ref, props) => (
+                  <Input ref={ref} {...props} />
+                )}
+              />
+            </FormItem>
+            <Button>Отправить заказ</Button>
+          </Form>
+          <Gift>
+            <GiftHeader>{giftList[gift].name}</GiftHeader>
+            <GiftImg src={giftList[gift].img} />
+            <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>        
+          </Gift>
+        </BottomWrapper>
+      </Wrapper>
+    )
+  }
+};
+

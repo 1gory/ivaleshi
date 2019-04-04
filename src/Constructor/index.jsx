@@ -117,10 +117,6 @@ export default class CalcSectionComponent extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      footSize: 0,
-    };
   }
 
   handleSelectFootSizeChange = (e) => {
@@ -157,11 +153,6 @@ export default class CalcSectionComponent extends Component {
         openModal,
       },
     } = this.props;
-
-    console.log(`Размер ноги в стейте, после использования метода: ${footSize}`);
-    console.log(`Основной цвет, после использования метода: ${mainColor}`);
-    console.log(`Вторичный цвет, после использования метода: ${secondaryColor}`);
-    console.log(`Украшение, после использования метода: ${jewel}`);
 
     return (
       <Wrapper>

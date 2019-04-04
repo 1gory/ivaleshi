@@ -85,11 +85,11 @@ const ButtonPrice = styled.span`
   opacity: 0.5;
 `;
 
-export default ({ name, price, text, handler }) => (
+export default ({ name, price, text, handler, index }) => (
   <Wrapper>
     <Header>{name}</Header>
     <Text>{text}</Text>
-    <Button onClick={() => handler('order', 10)}>
+    <Button onClick={() => handler(index)}>
       Купить <ButtonPrice>{price} Р.</ButtonPrice>
     </Button>
   </Wrapper>
