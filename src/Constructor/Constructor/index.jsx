@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
-// import colorSetMain from './colorSetMain';
-// import colorSetSecondary from './colorSetSecondary';
-// import cardsList from './CardsList';
-// import footSizeList from './FootSizeList';
-// import Colors from './Colors';
-// import Cards from './Cards';
-// import headerIcon from './arrow.svg';
-import Constructor from './Constructor';
+import colorSetMain from '../colorSetMain';
+import colorSetSecondary from '../colorSetSecondary';
+import cardsList from '../CardsList';
+import footSizeList from '../FootSizeList';
+import Colors from '../Colors';
+import Cards from '../Cards';
+import headerIcon from '../arrow.svg';
 
 const Wrapper = styled.section`
   padding-top: 110px;   
@@ -114,53 +112,48 @@ const SizeLink = styled.div`
   } 
 `;
 
-export default class CalcSectionComponent extends Component {
-
+export default class Constructor extends Component {
   constructor(props) {
     super(props);
   }
 
-  // handleSelectFootSizeChange = (e) => {
-  //   const value = e.target.value;
-  //   const {
-  //     constructorContainer: {
-  //       changeFootSize,
-  //     },
-  //   } = this.props;
-  //   changeFootSize(value);
-  // }
+  handleSelectFootSizeChange = (e) => {
+    const value = e.target.value;
+    const {
+      constructorContainer: {
+        changeFootSize,
+      },
+    } = this.props;
+    changeFootSize(value);
+  }
 
   render() {
-    // const {
-    //   constructorContainer: {
-    //     state: {
-    //       mainColor,
-    //       secondaryColor,
-    //       jewel,
-    //       footSize,
-    //       gift,
-    //       name,
-    //       phone,
-    //     },
-    //     changeMainColor,
-    //     changeSecondaryColor,
-    //     changeJewel,
-    //     changeFootSize,
-    //     changeGift,
-    //     changeName,
-    //     changePhone, 
-    //   },
-    //   modalContainer: {
-    //     openModal,
-    //   },
-    // } = this.props;
+    const {
+      constructorContainer: {
+        state: {
+          mainColor,
+          secondaryColor,
+          jewel,
+          footSize,
+          gift,
+          name,
+          phone,
+        },
+        changeMainColor,
+        changeSecondaryColor,
+        changeJewel,
+        changeFootSize,
+        changeGift,
+        changeName,
+        changePhone, 
+      },
+      modalContainer: {
+        openModal,
+      },
+    } = this.props;
 
     return (
       <Wrapper>
-        <Grid>
-          <Row>
-            <Col lg={7} xs={12}></Col>
-            {/* <Col lg={5} xs={12}>
               <CalcSection>
                 <Header>
                   Цвет валешей
@@ -210,12 +203,6 @@ export default class CalcSectionComponent extends Component {
                 </SizeSelectWrapper>
                 <SizeLink onClick={() => openModal('size', 8)}>Узнать свой размер</SizeLink>
               </CalcSection>
-            </Col> */}
-            <Col lg={5} xs={12}>
-              <Constructor {...this.props} />
-            </Col>
-          </Row>
-        </Grid>
       </Wrapper>
     )
   }

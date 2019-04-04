@@ -62,7 +62,6 @@ const CloseButton = styled.img`
 `;
 
 export default class Modal extends Component {
-
   constructor(props) {
     super(props);
   }

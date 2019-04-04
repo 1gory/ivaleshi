@@ -11,6 +11,7 @@ class ConstructorContainer extends Container {
     phone: '',
     price: '',
     title: '',
+    constructorState: 'constructor',
   };
 
   changeMainColor = (newVal) => {
@@ -47,6 +48,10 @@ class ConstructorContainer extends Container {
 
   changeTitle = (newVal) => {
     this.setState({ title: newVal });
+  }
+
+  changeConstructorState = (newVal) => {
+    this.setState({ constructorState: newVal });
   }
 }
 
