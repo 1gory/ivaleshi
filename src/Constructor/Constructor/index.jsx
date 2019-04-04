@@ -9,12 +9,7 @@ import Cards from '../Cards';
 import headerIcon from '../arrow.svg';
 
 const Wrapper = styled.section`
-  padding-top: 110px;   
-  padding-bottom: 90px;
-  @media screen and (max-width: 991px) {
-    padding-top: 30px;   
-    padding-bottom: 30px;
-  } 
+  display: ${({ display }) => (display ? 'block' : 'none')}; 
 `;
 
 const CalcSection = styled.div`
@@ -153,57 +148,57 @@ export default class Constructor extends Component {
     } = this.props;
 
     return (
-      <Wrapper>
-              <CalcSection>
-                <Header>
-                  Цвет валешей
-                  <HeaderIcon src={headerIcon} />
-                </Header>
-                <Colors
-                  set={colorSetMain}
-                  activeColor={mainColor}
-                  main
-                  handler={changeMainColor}
-                />
-              </CalcSection>
-              <CalcSection>
-                <Header>
-                  Цвет помпона
-                  <HeaderIcon src={headerIcon} />
-                </Header>
-                <Colors
-                  set={colorSetSecondary}
-                  activeColor={secondaryColor}
-                  main
-                  handler={changeSecondaryColor}
-                />
-              </CalcSection>
-              <CalcSection>
-                <Header>
-                  Дизайн украшения
-                  <HeaderIcon src={headerIcon} />
-                </Header>
-                <Cards
-                  list={cardsList}
-                  active={jewel}
-                  handler={changeJewel}
-                />
-              </CalcSection>
-              <CalcSection>
-                <SizeSelectWrapper>
-                  <SizeSelectLeft>
-                    <SizeSelectHeader>Размер:</SizeSelectHeader>
-                    <Select onChange={this.handleSelectFootSizeChange}>
-                      {footSizeList.map(item => (
-                        <option key={item} value={item}>{item}</option>
-                      ))}
-                    </Select>
-                  </SizeSelectLeft>
-                  <SizeSelectButton>Готово</SizeSelectButton>
-                </SizeSelectWrapper>
-                <SizeLink onClick={() => openModal('size', 8)}>Узнать свой размер</SizeLink>
-              </CalcSection>
+      <Wrapper display={this.props.display}>
+        <CalcSection>
+          <Header>
+            Цвет валешей
+            <HeaderIcon src={headerIcon} />
+          </Header>
+          <Colors
+            set={colorSetMain}
+            activeColor={mainColor}
+            main
+            handler={changeMainColor}
+          />
+        </CalcSection>
+        <CalcSection>
+          <Header>
+            Цвет помпона
+            <HeaderIcon src={headerIcon} />
+          </Header>
+          <Colors
+            set={colorSetSecondary}
+            activeColor={secondaryColor}
+            main
+            handler={changeSecondaryColor}
+          />
+        </CalcSection>
+        <CalcSection>
+          <Header>
+            Дизайн украшения
+            <HeaderIcon src={headerIcon} />
+          </Header>
+          <Cards
+            list={cardsList}
+            active={jewel}
+            handler={changeJewel}
+          />
+        </CalcSection>
+        <CalcSection>
+          <SizeSelectWrapper>
+            <SizeSelectLeft>
+              <SizeSelectHeader>Размер:</SizeSelectHeader>
+              <Select onChange={this.handleSelectFootSizeChange}>
+                {footSizeList.map(item => (
+                  <option key={item} value={item}>{item}</option>
+                ))}
+              </Select>
+            </SizeSelectLeft>
+            <SizeSelectButton onClick={() => this.props.toggleStage()}>Готово</SizeSelectButton>
+          </SizeSelectWrapper>
+          <SizeLink onClick={() => openModal('size', 8)}>Узнать свой размер</SizeLink>
+        </CalcSection>
       </Wrapper>
-    )
+    );
   }
-};
+}

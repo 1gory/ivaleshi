@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import MaskedInput from 'react-text-mask';
+import Form from '../Form';
 import img from './img.png';
 import SizesList from './SizesList';
 import giftList from '../giftList';
@@ -34,15 +34,6 @@ const Select = styled.select`
   color: rgb(25, 22, 25);
   padding: 5px;
   margin-left: 20px;
-`;
-
-const SizeLink = styled.div`
-  font-size: 14px;
-  font-weight: bold;
-  color: rgb(255, 51, 0);
-  font-family: 'MuseoSans-Regular', sans-serif;
-  margin-top: 20px;
-  width: 100%;
 `;
 
 const SizeSelectHeader = styled.div`
@@ -127,80 +118,11 @@ const BottomWrapper = styled.div`
   }
 `;
 
-const Form = styled.div`
+const FormWrapper = styled.div`
   width: 50%;
   @media screen and (max-width: 991px) {
     width: 100%;
-  }
-`;
-
-const FormHeader = styled.div`
-  font-size: 16px;
-  font-family: 'MuseoSans-Regular', sans-serif;
-  font-weight: bold;
-  color: #1e2229;  
-  text-align: center;
-  margin-bottom: 40px;
-  @media screen and (max-width: 991px) {
-    margin-top: 40px;
-  }
-`;
-
-const FormItem = styled.div`
-  border: 1px solid rgba(30, 35, 42, 0.15);
-  position: relative;
-  margin-bottom: 20px;
-  overflow: hidden;
-`;
-
-const Label = styled.label`
-  display: block;
-  font-size: 14px;
-  font-family: 'MuseoSans-Regular', sans-serif;
-  font-weight: bold;
-  color: #1e2229;
-  position: absolute;
-  padding-left: 20px;
-  top: 15px;
-  z-index: 3;
-`;
-
-const Input = styled.input`
-  color: rgb(30, 34, 41);
-  border: none;
-  background: white;
-  width: 100%;
-  height: 70px;
-  padding-top: 15px;
-  font-family: 'MuseoSans-Regular', sans-serif;
-  font-size: 16px;
-  padding-left: 20px;
-  padding-right: 20px;
-  resize: none;
-  border-radius: 0;
-  &::placeholder {
-    color: rgba(30, 34, 41, 0.3);
-  }
-  @media screen and (max-width: 991px) {
-    height: 50px;
-  }
-`;
-
-const Button = styled.button`
-  font-family: 'MuseoSans-Regular', sans-serif;
-  font-size: 14px;
-  color: white; 
-  text-transform: uppercase;
-  padding: 35px 0px;
-  background-color: rgb(255, 51, 0);
-  cursor: pointer;
-  transition: 0.2s;
-  border: none;
-  width: 100%;
-  &:hover {
-    background-color: white;
-    color: #ff3300;  
-  }
+  } 
 `;
 
 const Gift = styled.div`
@@ -241,24 +163,6 @@ export default class ModalOrder extends Component {
     super(props);
   }
 
-  handlePhoneChange = (e) => {
-    if (!e.target.value) {
-      this.props.phoneHandler('');
-      return;
-    }
-
-    const number = e.target.value;
-    // const regExpr = /\d+/g;
-    // const editedNumber = number.match(regExpr).join('');
-
-    // if (editedNumber.length === 11) {
-
-    // } else {
-      
-    // }
-    this.props.phoneHandler(number);
-  };
-
   render() {
     const {
       visible,
@@ -288,35 +192,19 @@ export default class ModalOrder extends Component {
                   <option key={item} value={item}>{item}</option>
                 ))}
               </Select>
-              <SizeLink>Узнать свой размер</SizeLink>
             </Size>
           </div>
         </Product>
         <Line />
         <BottomWrapper>
-          <Form>
-            <FormHeader>
-              Оставьте свой номер и мы свяжемся с вами для оформления заказа
-            </FormHeader>
-            <FormItem>
-              <Label>Имя</Label>
-              <Input onInput={nameHandler} />
-            </FormItem>
-            <FormItem>
-              <Label>Телефон</Label>
-              <MaskedInput
-                mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
-                guide
-                onChange={this.handlePhoneChange}
-                keepCharPositions
-                value={this.inputPhone}
-                render={(ref, props) => (
-                  <Input ref={ref} {...props} />
-                )}
-              />
-            </FormItem>
-            <Button>Отправить заказ</Button>
-          </Form>
+          <FormWrapper>
+            <Form
+              nameHandler={nameHandler}
+              phoneHandler={this.props.phoneHandler}
+              display={true}
+            />
+          </FormWrapper>
+          
           <Gift>
             <GiftHeader>{giftList[gift].name}</GiftHeader>
             <GiftImg src={giftList[gift].img} />
@@ -324,7 +212,6 @@ export default class ModalOrder extends Component {
           </Gift>
         </BottomWrapper>
       </Wrapper>
-    )
+    );
   }
-};
-
+}
