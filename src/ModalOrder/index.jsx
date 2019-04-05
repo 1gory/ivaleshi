@@ -174,6 +174,9 @@ export default class ModalOrder extends Component {
       validateHandler,
       nameValid,
       phoneValid,
+      formState,
+      formStateHandler,
+      setDefaultFormState,
     } = this.props;
 
     return (
@@ -208,9 +211,11 @@ export default class ModalOrder extends Component {
               display={true}
               nameValid={nameValid}
               phoneValid={phoneValid}
+              formState={formState}
+              formStateHandler={formStateHandler}
+              setDefaultFormState={setDefaultFormState}
             />
           </FormWrapper>
-          
           <Gift>
             <GiftHeader>{giftList[gift].name}</GiftHeader>
             <GiftImg src={giftList[gift].img} />

@@ -14,6 +14,7 @@ class ConstructorContainer extends Container {
     constructorState: 'constructor',
     nameValid: true,
     phoneValid: true,
+    formState: 'main',
   };
 
   changeMainColor = (newVal) => {
@@ -57,6 +58,14 @@ class ConstructorContainer extends Container {
     this.setState({ constructorState: newVal });
   }
 
+  changeFormState = (newVal) => {
+    this.setState({ formState: newVal });
+  }
+
+  setDefaultFormState = () => {
+    this.setState({ formState: 'main' });
+  }
+
   validateConstructor = () => {
     this.setState({ nameValid: true });
     this.setState({ phoneValid: true });
@@ -74,6 +83,14 @@ class ConstructorContainer extends Container {
         this.setState({ phoneValid: false });
       }
     }
+    if (this.state.phone && this.state.name) {
+      this.sendOrder();
+    }
+  }
+
+  sendOrder = () => {
+    // this.setState({ formState: 'success' });
+    this.setState({ formState: 'fail' });
   }
 }
 

@@ -85,10 +85,13 @@ export default class Modal extends Component {
           price,
           nameValid,
           phoneValid,
+          formState,
         },
         changeName,
         changePhone,
         validateConstructor,
+        changeFormState,
+        setDefaultFormState,
       },
       modalContainer: {
         state: {
@@ -112,12 +115,15 @@ export default class Modal extends Component {
                   title={title}
                   gift={gift}
                   price={price}
+                  formState={formState}
                   footSizeHandler={this.handleSelectFootSizeChange}
                   nameHandler={changeName}
                   phoneHandler={changePhone}
                   nameValid={nameValid}
                   phoneValid={phoneValid}
                   validateHandler={validateConstructor}
+                  formStateHandler={changeFormState}
+                  setDefaultFormState={setDefaultFormState}
                 />
                 <CloseButton src={close} onClick={closeModal} />
               </ContentWrapper>

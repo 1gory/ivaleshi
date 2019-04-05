@@ -25,6 +25,12 @@ export default class CalcSectionComponent extends Component {
   toggleStage = () => {
     const temp = this.state.stage1;
     this.setState({ stage1: !temp });
+    const {
+      constructorContainer: {
+        setDefaultFormState,
+      },
+    } = this.props;
+    setDefaultFormState();
   }
 
   render() {
@@ -33,9 +39,11 @@ export default class CalcSectionComponent extends Component {
         changeName,
         changePhone,
         validateConstructor,
+        changeFormState,
         state: {
           nameValid,
           phoneValid,
+          formState,
         },
       },
     } = this.props;
@@ -54,6 +62,9 @@ export default class CalcSectionComponent extends Component {
                 display={!this.state.stage1}
                 nameValid={nameValid}
                 phoneValid={phoneValid}
+                formState={formState}
+                formStateHandler={changeFormState}
+                setDefaultFormState={this.toggleStage}
               />
             </Col>
           </Row>
