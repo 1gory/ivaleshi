@@ -32,6 +32,11 @@ export default class CalcSectionComponent extends Component {
       constructorContainer: {
         changeName,
         changePhone,
+        validateConstructor,
+        state: {
+          nameValid,
+          phoneValid,
+        },
       },
     } = this.props;
 
@@ -45,7 +50,10 @@ export default class CalcSectionComponent extends Component {
               <Form
                 nameHandler={changeName}
                 phoneHandler={changePhone}
+                validateHandler={validateConstructor}
                 display={!this.state.stage1}
+                nameValid={nameValid}
+                phoneValid={phoneValid}
               />
             </Col>
           </Row>

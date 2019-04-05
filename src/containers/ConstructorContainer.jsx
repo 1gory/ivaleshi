@@ -12,6 +12,8 @@ class ConstructorContainer extends Container {
     price: '',
     title: '',
     constructorState: 'constructor',
+    nameValid: true,
+    phoneValid: true,
   };
 
   changeMainColor = (newVal) => {
@@ -34,8 +36,9 @@ class ConstructorContainer extends Container {
     this.setState({ gift: newVal });
   }
 
-  changeName = (newVal) => {
-    this.setState({ name: newVal });
+  changeName = (e) => {
+    const val = e.target.value;
+    this.setState({ name: val });
   }
 
   changePhone = (newVal) => {
@@ -52,6 +55,25 @@ class ConstructorContainer extends Container {
 
   changeConstructorState = (newVal) => {
     this.setState({ constructorState: newVal });
+  }
+
+  validateConstructor = () => {
+    this.setState({ nameValid: true });
+    this.setState({ phoneValid: true });
+
+    if (this.state.name.length <= 0) {
+      this.setState({ nameValid: false });
+    }
+
+    if (this.state.phone.length <= 0) {
+      this.setState({ phoneValid: false });
+    } else {
+      const regExpr = /\d+/g;
+      const editedNumber = this.state.phone.match(regExpr).join('');
+      if (editedNumber.length !== 11) {
+        this.setState({ phoneValid: false });
+      }
+    }
   }
 }
 

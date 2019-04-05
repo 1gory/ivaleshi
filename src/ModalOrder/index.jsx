@@ -171,6 +171,9 @@ export default class ModalOrder extends Component {
       price,
       footSizeHandler,
       nameHandler,
+      validateHandler,
+      nameValid,
+      phoneValid,
     } = this.props;
 
     return (
@@ -201,7 +204,10 @@ export default class ModalOrder extends Component {
             <Form
               nameHandler={nameHandler}
               phoneHandler={this.props.phoneHandler}
+              validateHandler={validateHandler}
               display={true}
+              nameValid={nameValid}
+              phoneValid={phoneValid}
             />
           </FormWrapper>
           

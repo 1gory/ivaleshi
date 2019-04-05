@@ -19,7 +19,7 @@ const FormHeader = styled.div`
 `;
 
 const FormItem = styled.div`
-  border: 1px solid rgba(30, 35, 42, 0.15);
+  border: ${({ valid }) => (valid ? '1px solid rgba(30, 35, 42, 0.15)' : '1px solid rgb(255,51,0)')}; 
   position: relative;
   margin-bottom: 20px;
   overflow: hidden;
@@ -96,16 +96,24 @@ export default class Form extends Component {
   };
 
   render() {
+    const {
+      display,
+      nameHandler,
+      validateHandler,
+      nameValid,
+      phoneValid,
+    } = this.props;
+
     return (
-      <Wrapper display={this.props.display}>
+      <Wrapper display={display}>
         <FormHeader>
           Оставьте свой номер и мы свяжемся с вами для оформления заказа
         </FormHeader>
-        <FormItem>
+        <FormItem valid={nameValid}>
           <Label>Имя</Label>
-          <Input onInput={this.props.nameHandler} />
+          <Input onInput={nameHandler} />
         </FormItem>
-        <FormItem>
+        <FormItem valid={phoneValid}>
           <Label>Телефон</Label>
           <MaskedInput
             mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
@@ -118,7 +126,7 @@ export default class Form extends Component {
             )}
           />
         </FormItem>
-        <Button>Отправить заказ</Button>
+        <Button onClick={() => validateHandler()}>Отправить заказ</Button>
       </Wrapper>
     );
   }

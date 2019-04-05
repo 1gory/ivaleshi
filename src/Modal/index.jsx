@@ -76,16 +76,6 @@ export default class Modal extends Component {
     changeFootSize(value);
   }
 
-  handleNameChange = (e) => {
-    const value = e.target.value;
-    const {
-      constructorContainer: {
-        changeName,
-      },
-    } = this.props;
-    changeName(value);
-  }
-
   render() {
     const {
       constructorContainer: {
@@ -93,8 +83,12 @@ export default class Modal extends Component {
           gift,
           title,
           price,
+          nameValid,
+          phoneValid,
         },
+        changeName,
         changePhone,
+        validateConstructor,
       },
       modalContainer: {
         state: {
@@ -119,8 +113,11 @@ export default class Modal extends Component {
                   gift={gift}
                   price={price}
                   footSizeHandler={this.handleSelectFootSizeChange}
-                  nameHandler={this.handleNameChange}
+                  nameHandler={changeName}
                   phoneHandler={changePhone}
+                  nameValid={nameValid}
+                  phoneValid={phoneValid}
+                  validateHandler={validateConstructor}
                 />
                 <CloseButton src={close} onClick={closeModal} />
               </ContentWrapper>
