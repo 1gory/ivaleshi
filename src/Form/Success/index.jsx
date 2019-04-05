@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import icon from './thumbs-up.png';
+import icon from './thumbs-up.svg';
 
 const Wrapper = styled.div`
   display: ${({ display }) => (display ? 'block' : 'none')}; 

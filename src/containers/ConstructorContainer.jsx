@@ -69,21 +69,24 @@ class ConstructorContainer extends Container {
   validateConstructor = () => {
     this.setState({ nameValid: true });
     this.setState({ phoneValid: true });
+    let validationStatus = true;
 
     if (this.state.name.length <= 0) {
       this.setState({ nameValid: false });
+      validationStatus = false;
     }
-
     if (this.state.phone.length <= 0) {
       this.setState({ phoneValid: false });
+      validationStatus = false;
     } else {
       const regExpr = /\d+/g;
       const editedNumber = this.state.phone.match(regExpr).join('');
       if (editedNumber.length !== 11) {
         this.setState({ phoneValid: false });
+        validationStatus = false;
       }
     }
-    if (this.state.phone && this.state.name) {
+    if (validationStatus) {
       this.sendOrder();
     }
   }
