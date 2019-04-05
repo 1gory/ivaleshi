@@ -14,7 +14,8 @@ const Wrapper = styled.div`
   display: ${({ display }) => (display ? 'flex' : 'none')}; 
   align-items: center;
   z-index: 100;
-  overflow: scroll;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.25);
   @media screen and (max-width: 991px) {
     display: ${({ display }) => (display ? 'block' : 'none')}; 
   }
@@ -130,7 +131,7 @@ export default class Modal extends Component {
             </Col>
           </Row>
         </ModalGrid>
-        <Background onClick={closeModal} />
+        {/* <Background onClick={closeModal} /> */}
       </Wrapper>
     )
   }
