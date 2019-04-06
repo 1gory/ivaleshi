@@ -10,6 +10,9 @@ export default [
       img,
       img,
     ],
+    mainColor: 0,
+    secondaryColor: 0,
+    jewel: 0,
   },
 
 ];
