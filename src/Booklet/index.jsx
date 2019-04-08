@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import MaskedInput from 'react-text-mask';
 import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './booklet.png';
+import success from './success.svg';
+import error from './error.svg';
 
 const Wrapper = styled.section`
   padding-top: 110px;
@@ -43,16 +44,46 @@ const Text = styled.div`
 `;
 
 const EmailWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
+  display: ${({ active }) => (active ? 'flex' : 'none')};
   @media screen and (max-width: 991px) {
     justify-content: center; 
   } 
 `;
 
+const FormStateWrapper = styled.div`
+  background: #ff481a;
+  padding: 30px;
+  color: white;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-size: 16px;
+  width: 380px;
+  position: relative;
+  display: ${({ active }) => (active ? 'block' : 'none')}; 
+`;
+
+const FormStateHeader = styled.div`
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+const FormStateIconWrapper = styled.div`
+  height: 100%;
+  right: 30px;
+  top: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+`;
+
+const FormStateIcon = styled.img`
+  height: 35px;
+  opacity: 0.25;
+`;
+
 const EmailInput = styled.input`
   font-family: 'MuseoSans-Regular', sans-serif;
-  color: rgba(25, 22, 25, 0.5);
+  color: ${({ valid }) => (valid ? 'rgba(25, 22, 25, 0.5)' : 'rgb(255,51,0)')};  
   padding: 30px;
   width: 240px;
   font-weight: bold;
@@ -136,9 +167,15 @@ export default class Booklet extends Component {
   render() {
     const {
       container: {
+        state: {
+          formState,
+          emailValid,
+        },
         validateEmail,
       },
     } = this.props;
+
+    console.log(formState)
 
     return (
       <Wrapper>
@@ -149,10 +186,24 @@ export default class Booklet extends Component {
               <Col lgOffset={5} lg={7} xs={12}>
                 <Header>Бесплатный буклет по уходу <DesktopBr />за валешами</Header>
                 <Text>Введи свой Email чтобы получить бесплатный <DesktopBr />буклет на почту. Никакого спама.</Text>
-                <EmailWrapper>
-                  <EmailInput placeholder="Email" onChange={this.handleEmailChange} />
+                <EmailWrapper active={formState === 'main'}>
+                  <EmailInput placeholder="Email" onChange={this.handleEmailChange} valid={emailValid} />
                   <EmailButton onClick={() => validateEmail()}>Отправить</EmailButton>
                 </EmailWrapper>
+                <FormStateWrapper active={formState === 'success'}>
+                  <FormStateHeader>Готово!</FormStateHeader>
+                  Буклет отправлен на ваш Email
+                  <FormStateIconWrapper>
+                    <FormStateIcon src={success} />
+                  </FormStateIconWrapper>
+                </FormStateWrapper>
+                <FormStateWrapper active={formState === 'fail'}>
+                  <FormStateHeader>Ошибка!</FormStateHeader>
+                  Напишите на адрес mail@ivaleshi.ru,<br />чтобы получить буклет
+                  <FormStateIconWrapper>
+                    <FormStateIcon src={error} />
+                  </FormStateIconWrapper>
+                </FormStateWrapper>
               </Col>
             </Row>
             <SideImg src={img} />

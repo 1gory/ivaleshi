@@ -4,7 +4,7 @@ class BookletContainer extends Container {
   state = {
     formState: 'main',
     email: '',
-    emailValid: '',
+    emailValid: true,
   };
 
   changeFormState = (newVal) => {
@@ -17,6 +17,7 @@ class BookletContainer extends Container {
 
   changeEmail = (newVal) => {
     this.setState({ email: newVal });
+    this.setState({ emailValid: true });
   }
 
   validateEmail = () => {
