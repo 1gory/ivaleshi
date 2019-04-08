@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
@@ -78,34 +78,65 @@ const SliderControlsWrapper = styled.div`
   }   
 `;
 
-export default () => (
-  <Wrapper>
-    <Element name="catalog" />
-    <Grid>
-      <SliderWrapper>
-        <Row>
-          {ItemsList.map(item => (
-            <Col lgOffset={3} lg={9} xs={12} key={item.name}>
-              <Item
-                name={item.name}
-                price={item.price}
-                text={item.text}
-              />
-              <Gallery
-                images={item.img}
-              />
-            </Col>
-          ))}
-        </Row>
-        <SliderControlsWrapper>
-          <SliderButtonWrapperRight>
-            <Arrow right />
-          </SliderButtonWrapperRight>
-          <SliderButtonWrapper>
-            <Arrow />
-          </SliderButtonWrapper>
-        </SliderControlsWrapper>
-      </SliderWrapper>
-    </Grid>
-  </Wrapper>
-);
+export default class Catalog extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  handleOpenModal = (index) => {
+    const {
+      constructorContainer: {
+        changeMainColor,
+        changeSecondaryColor,
+        changeJewel,
+        changePrice,
+        changeTitle,
+      },
+      modalContainer: {
+        openModal,
+      },
+    } = this.props;
+    changeMainColor(ItemsList[index].mainColor);
+    changeSecondaryColor(ItemsList[index].secondaryColor);
+    changeJewel(ItemsList[index].jewel);
+    changePrice(ItemsList[index].price);
+    changeTitle(ItemsList[index].name);
+    openModal('order', 10);
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <Grid>
+          <SliderWrapper>
+            <Row>
+              {ItemsList.map((item, index) => (
+                <Col lgOffset={3} lg={9} xs={12} key={item.name}>
+                  <Item
+                    name={item.name}
+                    price={item.price}
+                    text={item.text}
+                    handler={this.handleOpenModal}
+                    index={index}
+                  />
+                  <Gallery
+                    images={item.img}
+                  />
+                </Col>
+              ))}
+            </Row>
+            <SliderControlsWrapper>
+              <SliderButtonWrapperRight>
+                <Arrow right />
+              </SliderButtonWrapperRight>
+              <SliderButtonWrapper>
+                <Arrow />
+              </SliderButtonWrapper>
+            </SliderControlsWrapper>
+          </SliderWrapper>
+        </Grid>
+      </Wrapper>
+    );
+  }
+};

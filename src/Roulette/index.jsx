@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
-import cardsList from './CardsList';
+import cardsList from '../giftList';
 import Card from './Card';
 import icon from './roll-bottom.svg';
 
