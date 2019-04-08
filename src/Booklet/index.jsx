@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import MaskedInput from 'react-text-mask';
 import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './booklet.png';
@@ -113,23 +114,51 @@ const DesktopBr = styled.br`
   } 
 `;
 
-export default () => (
-  <Wrapper>
-    <Element name="booklet" />
-    <Grid>
-      <ImageWrapper>
-        <Row>
-          <Col lgOffset={5} lg={7} xs={12}>
-            <Header>Бесплатный буклет по уходу <DesktopBr />за валешами</Header>
-            <Text>Введи свой Email чтобы получить бесплатный <DesktopBr />буклет на почту. Никакого спама.</Text>
-            <EmailWrapper>
-              <EmailInput type="text" placeholder="Email" />
-              <EmailButton>Отправить</EmailButton>
-            </EmailWrapper>
-          </Col>
-        </Row>
-        <SideImg src={img} />
-      </ImageWrapper>
-    </Grid>
-  </Wrapper>
-);
+export default class Booklet extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleEmailChange = (e) => {
+    const {
+      container: {
+        changeEmail,
+      },
+    } = this.props;
+
+    if (!e.target.value) {
+      changeEmail('');
+      return;
+    }
+    changeEmail(e.target.value);
+  };
+
+  render() {
+    const {
+      container: {
+        validateEmail,
+      },
+    } = this.props;
+
+    return (
+      <Wrapper>
+        <Element name="booklet" />
+        <Grid>
+          <ImageWrapper>
+            <Row>
+              <Col lgOffset={5} lg={7} xs={12}>
+                <Header>Бесплатный буклет по уходу <DesktopBr />за валешами</Header>
+                <Text>Введи свой Email чтобы получить бесплатный <DesktopBr />буклет на почту. Никакого спама.</Text>
+                <EmailWrapper>
+                  <EmailInput placeholder="Email" onChange={this.handleEmailChange} />
+                  <EmailButton onClick={() => validateEmail()}>Отправить</EmailButton>
+                </EmailWrapper>
+              </Col>
+            </Row>
+            <SideImg src={img} />
+          </ImageWrapper>
+        </Grid>
+      </Wrapper>  
+    );
+  }
+}

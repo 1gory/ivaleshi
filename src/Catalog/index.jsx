@@ -87,21 +87,20 @@ export default class Catalog extends Component {
   handleOpenModal = (index) => {
     const {
       constructorContainer: {
-        changeMainColor,
-        changeSecondaryColor,
-        changeJewel,
-        changePrice,
-        changeTitle,
+        getCatalogItemData,
       },
       modalContainer: {
         openModal,
       },
     } = this.props;
-    changeMainColor(ItemsList[index].mainColor);
-    changeSecondaryColor(ItemsList[index].secondaryColor);
-    changeJewel(ItemsList[index].jewel);
-    changePrice(ItemsList[index].price);
-    changeTitle(ItemsList[index].name);
+
+    getCatalogItemData(
+      ItemsList[index].mainColor,
+      ItemsList[index].secondaryColor,
+      ItemsList[index].jewel,
+      ItemsList[index].price,
+      ItemsList[index].name,
+    );
     openModal('order', 10);
   }
 
