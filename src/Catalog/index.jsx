@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
 import Gallery from './Gallery';
@@ -79,6 +80,7 @@ const SliderControlsWrapper = styled.div`
 
 export default () => (
   <Wrapper>
+    <Element name="catalog" />
     <Grid>
       <SliderWrapper>
         <Row>

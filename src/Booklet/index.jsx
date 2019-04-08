@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './booklet.png';
 
@@ -114,6 +115,7 @@ const DesktopBr = styled.br`
 
 export default () => (
   <Wrapper>
+    <Element name="booklet" />
     <Grid>
       <ImageWrapper>
         <Row>

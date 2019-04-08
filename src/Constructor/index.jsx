@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import colorSetMain from './colorSetMain';
 import colorSetSecondary from './colorSetSecondary';
@@ -161,6 +162,7 @@ export default class CalcSectionComponent extends Component {
 
     return (
       <Wrapper>
+        <Element name="constructor" />
         <Grid>
           <Row>
             <Col lg={7} xs={12}></Col>

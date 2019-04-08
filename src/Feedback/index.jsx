@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
 import ItemsList from './ItemsList';
@@ -41,6 +42,7 @@ const Header = styled.h2`
 
 export default () => (
   <Wrapper>
+    <Element name="feedback" />
     <Grid>
       <SliderWrapper>
         <Header>Отзывы</Header>

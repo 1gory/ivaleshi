@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Map from './Map';
 import socialVK from '../icons/social-vk.svg';
@@ -22,9 +23,12 @@ const NavButton = styled.button`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: 600;
   font-size: 14px;
-  padding: 20px 30px;
   cursor: pointer;
   transition: 0.2s;
+  a {
+    display: block;
+    padding: 20px 30px;
+  }
   &:hover {
     background-color: #ff3300;
     color: white;  
@@ -60,6 +64,7 @@ const MenuItem = styled.li`
     font-weight: 600;
     color: #191619;
     transition: 0.2s;
+    cursor: pointer;
     &:hover {
       color: #ff3300;  
     }
@@ -142,17 +147,88 @@ const MapOverlay = styled.div`
 
 export default () => (
   <Wrapper>
+    <Element name="footer" />
     <Grid>
       <Row>
         <Col lg={3} xs={12}>
-          <NavButton>Подобрать дизайн</NavButton>
+          <NavButton>
+            <Link
+              to="constructor"
+              spy={false}
+              smooth={true}
+              hashSpy={false}
+              offset={-100}
+              duration={500}
+              delay={50}
+              isDynamic={true}
+              ignoreCancelEvents={false}
+            >
+              Подобрать дизайн
+            </Link>
+          </NavButton>
         </Col>
         <Col lg={2} xs={12}>
           <Menu>
-            <MenuItem><a href="/">Преимущества</a></MenuItem>
-            <MenuItem><a href="/">Каталог</a></MenuItem>
-            <MenuItem><a href="/">Отзывы</a></MenuItem>
-            <MenuItem><a href="/">Контакты</a></MenuItem>
+            <MenuItem>
+              <Link
+                to="description"
+                spy={false}
+                smooth={true}
+                hashSpy={false}
+                offset={-100}
+                duration={500}
+                delay={50}
+                isDynamic={true}
+                ignoreCancelEvents={false}
+              >
+                Преимущества
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                to="catalog"
+                spy={false}
+                smooth={true}
+                hashSpy={false}
+                offset={-100}
+                duration={500}
+                delay={50}
+                isDynamic={true}
+                ignoreCancelEvents={false}
+              >
+                Каталог
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                to="feedback"
+                spy={false}
+                smooth={true}
+                hashSpy={false}
+                offset={-100}
+                duration={500}
+                delay={50}
+                isDynamic={true}
+                ignoreCancelEvents={false}
+              >
+                Отзывы
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                to="footer"
+                spy={false}
+                smooth={true}
+                hashSpy={false}
+                offset={-100}
+                duration={500}
+                delay={50}
+                isDynamic={true}
+                ignoreCancelEvents={false}
+              >
+                Контакты
+              </Link>
+            </MenuItem>
           </Menu>
         </Col>
         <Col lg={7} xs={12}>
