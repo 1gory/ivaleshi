@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  line-height: 0 
+`;
+
 const Row = styled.div`
   margin-bottom: 10px;  
   display: flex;
@@ -9,7 +13,7 @@ const Row = styled.div`
 `;
 
 const ColorWrapper = styled.div`  
-  outline: ${({ active, color }) => (active ? `1px solid ${color}` : 'none')};
+  outline: ${({ isActive, color }) => (isActive ? `1px solid ${color}` : 'none')};
   padding: 2px;
   margin-right: 15px;
   margin-bottom: 15px;
@@ -19,10 +23,10 @@ const ColorWrapper = styled.div`
   }
   @media screen and (max-width: 991px) {
     margin-right: 2px; 
-  } 
+  }
 `;
 
-const Color = styled.div`
+const Color = styled.img`
   background-color: ${({ color }) => color};
   width: 35px;
   height: 35px;
@@ -33,18 +37,18 @@ const Color = styled.div`
 `;
 
 export default ({ activeColor, set, handler }) => (
-  <div>
+  <Wrapper>
     <Row>
       {set.map((color, index) => (
         <ColorWrapper
-          key={color}
-          active={index === activeColor}
-          color={color}
+          key={color[0]}
+          color={color[0]}
+          isActive={index === activeColor}
           onClick={() => { if (index !== activeColor) handler(index); }}
         >
-          <Color color={color} />
+          <Color src={color[1]} color={color[0]} />
         </ColorWrapper>
       ))}
     </Row>
-  </div>
+  </Wrapper>
 );

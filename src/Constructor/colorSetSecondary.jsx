@@ -1,12 +1,23 @@
+import black from './pompons/black.jpg';
+import blue from './pompons/blue.jpg';
+import darkGray from './pompons/dark-gray.jpg';
+import lightBlue from './pompons/light-blue.jpg';
+import lightBrown from './pompons/light-brown.jpg';
+import orange from './pompons/orange.jpg';
+import red from './pompons/red.jpg';
+import turquoise from './pompons/turquoise.jpg';
+import violet from './pompons/violet.jpg';
+import yellow from './pompons/yellow.jpg';
+
 export default [
-  'rgb(241, 244, 245)',
-  'rgb(198, 156, 109)',
-  'rgb(242, 101, 34)',
-  'rgb(237, 28, 36)',
-  'rgb(160, 65, 13)',
-  'rgb(241, 244, 243)',
-  'rgb(198, 156, 103)',
-  'rgb(242, 101, 33)',
-  'rgb(237, 28, 33)',
-  'rgb(160, 65, 15)',
+  ['black', black],
+  ['yellow', yellow],
+  ['blue', blue],
+  ['turquoise', turquoise],
+  ['darkgray', darkGray],
+  ['violet', violet],
+  ['lightblue', lightBlue],
+  ['brown', lightBrown],
+  ['orange', orange],
+  ['red', red],
 ];
