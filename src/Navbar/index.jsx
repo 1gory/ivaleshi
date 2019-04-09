@@ -189,99 +189,7 @@ const MobileMenuIcon = styled.img`
   vertical-align: top;
 `;
 
-// export default () => (
-//   <nav>
-//     <MobileMenuButton>
-//       Меню
-//       <MobileMenuIcon src={hamburger} />
-//     </MobileMenuButton>
-//     <MobileContacts>
-//       <ContactsWrapper>
-//         <ContactPhone href="tel:+8 8888 123-45-67">
-//           <ContactIcon src={phone} />
-//           +8 8888 123-45-67
-//         </ContactPhone>
-//         <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-//         <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-//         <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-//       </ContactsWrapper>
-//     </MobileContacts>
-//     <Grid>
-//       <TopSection>
-//         <Row>
-//           <ColMobileHide lg={5} xs={12}>
-//             <ContactsWrapper>
-//               <ContactPhone href="tel:+8 8888 123-45-67">
-//                 <ContactIcon src={phone} />
-//                 +8 8888 123-45-67
-//               </ContactPhone>
-//               <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-//               <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-//               <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-//             </ContactsWrapper>
-//           </ColMobileHide>
-//           <Col lg={2} xs={12}>
-//             <LogoWrapper>
-//               <a href="/">
-//                 <Logo src={logo} />
-//               </a>
-//             </LogoWrapper>
-//           </Col>
-//           <Col lg={5} xs={12}>
-//             <NavButtonWrapper>
-//               <NavButton>Подобрать дизайн</NavButton>
-//             </NavButtonWrapper>
-//           </Col>
-//         </Row>
-//       </TopSection>
-//       <BottomSection>
-//         <Row>
-//           <Col sm={12}>
-//             <BottomMenu>
-//               <BottomMenuItem><a href="/">Преимущества</a></BottomMenuItem>
-//               <BottomMenuItem><a href="/">Каталог</a></BottomMenuItem>
-//               <BottomMenuItem><a href="/">Отзывы</a></BottomMenuItem>
-//               <BottomMenuItem><a href="/">Контакты</a></BottomMenuItem>
-//             </BottomMenu>
-//           </Col>
-//         </Row>
-//       </BottomSection>
-//     </Grid>
-//   </nav>
-// );
-
 export default class Navbar extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  // }
-
-  // handleSelectFootSizeChange = () => {
-  //   const value = e.target.value;
-  //   const {
-  //     container: {
-  //       changeFootSize,
-  //     },
-  //   } = this.props;
-  //   changeFootSize(value);
-  // }
-
-//   <Link activeClass="active"
-//       to="target"
-//       spy={true}
-//       smooth={true}
-//       hashSpy={true}
-//       offset={50}
-//       duration={500}
-//       delay={1000}
-//       isDynamic={true}
-//       onSetActive={this.handleSetActive}
-//       onSetInactive={this.handleSetInactive}
-//       ignoreCancelEvents={false}
-// >
-//   Your name
-// </Link>
-
   render() {
     return (
       <nav>
@@ -323,7 +231,6 @@ export default class Navbar extends Component {
               </Col>
               <Col lg={5} xs={12}>
                 <NavButtonWrapper>
-                  {/* <NavButton>Подобрать дизайн</NavButton> */}
                   <NavButton>
                     <Link
                       to="constructor"

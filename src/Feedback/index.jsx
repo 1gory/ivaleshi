@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
@@ -40,31 +40,48 @@ const Header = styled.h2`
   }
 `;
 
-export default () => (
-  <Wrapper>
-    <Element name="feedback" />
-    <Grid>
-      <SliderWrapper>
-        <Header>Отзывы</Header>
-        <Row>
-          {ItemsList.map(item => (
-            <Col mdOffset={1} md={10} xs={12} key={item.name + item.city}>
-              <Item
-                name={item.name}
-                city={item.city}
-                date={item.date}
-                text={item.text}
-                link={item.link}
-                img={item.img}
-              />
-            </Col>
-          ))}
-        </Row>
-        <SliderButtonWrapper>
-          <Arrow right />
-          <Arrow />
-        </SliderButtonWrapper>
-      </SliderWrapper>
-    </Grid>
-  </Wrapper>
-);
+export default class Feedback extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      index: 0,
+    };
+  }
+
+  changeActiveItem = (dif) => {
+    const temp = this.state.index;
+    if (temp + dif >= 0 && temp + dif < ItemsList.length) this.setState({ index: temp + dif });
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <Element name="feedback" />
+        <Grid>
+          <SliderWrapper>
+            <Header>Отзывы</Header>
+            <Row>
+              <Col mdOffset={1} md={10} xs={12} key={ItemsList[this.state.index].name + ItemsList[this.state.index].city}>
+                <Item
+                  name={ItemsList[this.state.index].name}
+                  city={ItemsList[this.state.index].city}
+                  date={ItemsList[this.state.index].date}
+                  text={ItemsList[this.state.index].text}
+                  link={ItemsList[this.state.index].link}
+                  img={ItemsList[this.state.index].img}
+                />
+              </Col>
+            </Row>
+            <SliderButtonWrapper>
+              <Arrow right handler={this.changeActiveItem} />
+              <Arrow handler={this.changeActiveItem} />
+            </SliderButtonWrapper>
+          </SliderWrapper>
+        </Grid>
+      </Wrapper>
+    )
+
+  }
+};

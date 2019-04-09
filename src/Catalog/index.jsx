@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
 import Gallery from './Gallery';
 import ItemsList from './ItemsList';
 import Arrow from './Arrow';
+import styles from './styles.css';
 
 const Wrapper = styled.section`
   padding-top: 160px;
@@ -82,6 +84,10 @@ export default class Catalog extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      index: 0,
+    };
   }
 
   handleOpenModal = (index) => {
@@ -104,33 +110,44 @@ export default class Catalog extends Component {
     openModal('order', 10);
   }
 
+  changeActiveItem = (dif) => {
+    const temp = this.state.index;
+    if (temp + dif >= 0 && temp + dif < ItemsList.length) this.setState({ index: temp + dif });
+  }
+
   render() {
     return (
       <Wrapper>
+        <Element name="catalog" />
         <Grid>
           <SliderWrapper>
             <Row>
-              {ItemsList.map((item, index) => (
-                <Col lgOffset={3} lg={9} xs={12} key={item.name}>
+              {/* <CSSTransition
+                timeout={500}
+                classNames="item"
+                onEnter={() => console.log('enter')}
+                onExited={() => console.log('exit')}
+              > */}
+                <Col lgOffset={3} lg={9} xs={12} key={ItemsList[this.state.index].name}>
                   <Item
-                    name={item.name}
-                    price={item.price}
-                    text={item.text}
+                    name={ItemsList[this.state.index].name}
+                    price={ItemsList[this.state.index].price}
+                    text={ItemsList[this.state.index].text}
                     handler={this.handleOpenModal}
-                    index={index}
+                    index={this.state.index}
                   />
                   <Gallery
-                    images={item.img}
+                    images={ItemsList[this.state.index].img}
                   />
                 </Col>
-              ))}
+              {/* </CSSTransition> */}
             </Row>
             <SliderControlsWrapper>
               <SliderButtonWrapperRight>
-                <Arrow right />
+                <Arrow right handler={this.changeActiveItem} />
               </SliderButtonWrapperRight>
               <SliderButtonWrapper>
-                <Arrow />
+                <Arrow handler={this.changeActiveItem} />
               </SliderButtonWrapper>
             </SliderControlsWrapper>
           </SliderWrapper>
