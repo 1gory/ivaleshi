@@ -1,5 +1,5 @@
-import beads from './decorations/beads.png';
-import rhinestones from './decorations/rhinestones.png';
+import beads from './icons/decorations/beads.png';
+import rhinestones from './icons/decorations/rhinestones.png';
 
 export default [
   {
