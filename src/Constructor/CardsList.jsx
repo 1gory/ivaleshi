@@ -1,24 +1,13 @@
-import img from './Cards/img.png';
+import beads from './decorations/beads.png';
+import rhinestones from './decorations/rhinestones.png';
 
 export default [
   {
-    name: 'Большой камень',
-    img: img,
-  },
-  {
     name: 'Бусины',
-    img: img,
+    img: beads,
   },
   {
-    name: 'Черный камень',
-    img: img,
-  },
-  {
-    name: 'Изумруд',
-    img: img,
-  },
-  {
-    name: 'Жемчужина',
-    img: img,
+    name: 'Стразы',
+    img: rhinestones,
   },
 ];

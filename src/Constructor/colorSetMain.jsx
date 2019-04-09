@@ -1,26 +1,51 @@
+import black from './materials/black.jpg';
+import blue from './materials/blue.jpg';
+import brown from './materials/brown.jpg';
+import burgundy from './materials/burgundy.jpg';
+import chocolate from './materials/chocolate.jpg';
+import darkBlue from './materials/dark-blue.jpg';
+import darkGreen from './materials/dark-green.jpg';
+import darkOrange from './materials/dark-orange.jpg';
+import darkViolet from './materials/dark-violet.jpg';
+import darkYellow from './materials/dark-yellow.jpg';
+import fuchsia from './materials/fuchsia.jpg';
+import gray from './materials/gray.jpg';
+import green from './materials/green.jpg';
+import lightLilac from './materials/light-lilac.jpg';
+import mustard from './materials/mustard.jpg';
+import naturalBlack from './materials/natural-black.jpg';
+import orange from './materials/orange.jpg';
+import pink from './materials/pink.jpg';
+import purple from './materials/purple.jpg';
+import red from './materials/red.jpg';
+import turquoise from './materials/turquoise.jpg';
+import violet from './materials/violet.jpg';
+import white from './materials/white.jpg';
+import yellow from './materials/yellow.jpg';
+
 export default [
-  'rgb(241, 244, 245)',
-  'rgb(198, 156, 109)',
-  'rgb(242, 89, 34)',
-  'rgb(237, 28, 36)',
-  'rgb(160, 65, 13)',
-  'rgb(96, 28, 19)',
-  'rgb(54, 47, 45)',
-  'rgb(37, 37, 37)',
-  'rgb(241, 244, 244)',
-  'rgb(198, 156, 108)',
-  'rgb(242, 101, 35)',
-  'rgb(237, 28, 33)',
-  'rgb(160, 65, 12)',
-  'rgb(96, 57, 17)',
-  'rgb(54, 47, 46)',
-  'rgb(37, 37, 39)',
-  'rgb(241, 244, 155)',
-  'rgb(198, 156, 102)',
-  'rgb(242, 150, 32)',
-  'rgb(237, 28, 32)',
-  'rgb(160, 65, 15)',
-  'rgb(96, 57, 12)',
-  'rgb(54, 47, 42)',
-  'rgb(37, 37, 32)',
+  ['black', black],
+  ['blue', blue],
+  ['brown', brown],
+  ['darkred', burgundy],
+  ['chocolate', chocolate],
+  ['darkblue', darkBlue],
+  ['darkgreen', darkGreen],
+  ['darkorange', darkOrange],
+  ['darkviolet', darkViolet],
+  ['olive', darkYellow],
+  ['fuchsia', fuchsia],
+  ['gray', gray],
+  ['green', green],
+  ['mediumorchid', lightLilac],
+  ['darkkhaki', mustard],
+  ['black', naturalBlack],
+  ['orange', orange],
+  ['pink', pink],
+  ['purple', purple],
+  ['red', red],
+  ['turquoise', turquoise],
+  ['violet', violet],
+  ['white', white],
+  ['yellow', yellow],
 ];
