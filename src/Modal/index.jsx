@@ -8,11 +8,10 @@ import ModalOrder from '../ModalOrder';
 const Wrapper = styled.div`
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100%; 
   top: 0;
   left: 0;
   display: ${({ display }) => (display ? 'flex' : 'none')}; 
-  align-items: center;
   z-index: 100;
   overflow-y: scroll;
   background: rgba(0, 0, 0, 0.25);
@@ -21,18 +20,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const ModalGrid = styled(Grid)`
+const ModalRow = styled(Row)`
   padding-top: 80px;
   padding-bottom: 60px;
-`;
-
-const Background = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.25);
 `;
 
 const ContentWrapper = styled.div`
@@ -63,12 +53,12 @@ const CloseButton = styled.img`
 `;
 
 export default class Modal extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleSelectFootSizeChange = (e) => {
-    const value = e.target.value;
+    const {
+      target: {
+        value,
+      },
+    } = e;
     const {
       constructorContainer: {
         changeFootSize,
@@ -106,8 +96,8 @@ export default class Modal extends Component {
 
     return (
       <Wrapper display={modalOpen}>
-        <ModalGrid>
-          <Row>
+        <Grid>
+          <ModalRow>
             <Col mdOffset={(12 - size) / 2} md={size} xs={12}>
               <ContentWrapper>
                 <ModalSize visible={type === 'size'} />
@@ -129,10 +119,9 @@ export default class Modal extends Component {
                 <CloseButton src={close} onClick={closeModal} />
               </ContentWrapper>
             </Col>
-          </Row>
-        </ModalGrid>
-        {/* <Background onClick={closeModal} /> */}
+          </ModalRow>
+        </Grid>
       </Wrapper>
-    )
+    );
   }
-};
+}

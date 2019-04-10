@@ -41,32 +41,33 @@ const Button = styled.div`
 `;
 
 export default class Fail extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handlePhoneChange = (e) => {
+    const {
+      phoneHandler,
+    } = this.props;
     if (!e.target.value) {
-      this.props.phoneHandler('');
+      phoneHandler('');
       return;
     }
     const number = e.target.value;
-    this.props.phoneHandler(number);
+    phoneHandler(number);
   };
 
   render() {
     const {
       active,
-      setDefaultFormState
+      setDefaultFormState,
     } = this.props;
 
     return (
       <Wrapper display={active}>
         <Icon src={icon} />
         <Text>
-          Ошибка! Заказ не отправлен.<br />
-          Оформите заказ по телефону<br />
-          +8 (8888) 123-45-67<br />
+          Ошибка! Заказ не отправлен.
+          <br />
+          Оформите заказ по телефону
+          <br />
+          +8 (8888) 123-45-67
         </Text>
         <Button onClick={() => setDefaultFormState()}>Назад</Button>
       </Wrapper>

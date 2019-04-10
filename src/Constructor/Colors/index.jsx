@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  line-height: 0 
+  line-height: 0;
 `;
 
 const Row = styled.div`

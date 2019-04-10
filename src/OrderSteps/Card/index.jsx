@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 
 const Wrapper = styled.div`
   padding: 140px 0px;
@@ -56,7 +59,6 @@ const Button = styled.button`
   margin: auto;
   background: none;
   border: none;
-  padding: 11px 15px;
   color: #ff2300;
   text-transform: uppercase;
   font-family: 'MuseoSans-Regular', sans-serif;
@@ -64,19 +66,42 @@ const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  a {
+    display: block;
+    padding: 11px 15px;
+  }
   &:hover {
     background-color: #ff3300;
     color: white;  
   }
 `;
 
-export default ({ icon, name, text, buttonVisible }) => (
+export default ({
+  icon,
+  name,
+  text,
+  buttonVisible,
+}) => (
   <Wrapper>
     <IconWrapper>
       <Icon src={icon} />
     </IconWrapper>
     <Header>{name}</Header>
     <Text>{text}</Text>
-    <Button buttonVisible={buttonVisible}>Подобрать дизайн</Button>
+    <Button buttonVisible={buttonVisible}>
+      <Link
+        to="constructor"
+        spy={false}
+        smooth
+        hashSpy={false}
+        offset={-100}
+        duration={500}
+        delay={50}
+        isDynamic
+        ignoreCancelEvents={false}
+      >
+        Подобрать дизайн
+      </Link>
+    </Button>
   </Wrapper>
 );
