@@ -85,7 +85,13 @@ const ButtonPrice = styled.span`
   opacity: 0.5;
 `;
 
-export default ({ name, price, text, handler, index }) => (
+export default ({
+  name,
+  price,
+  text,
+  handler,
+  index,
+}) => (
   <Wrapper>
     <Header>{name}</Header>
     <Text>{text}</Text>

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 
 const Wrapper = styled.div`
   padding: 140px 0px;
@@ -74,7 +76,12 @@ const Button = styled.button`
   }
 `;
 
-export default ({ icon, name, text, buttonVisible }) => (
+export default ({
+  icon,
+  name,
+  text,
+  buttonVisible,
+}) => (
   <Wrapper>
     <IconWrapper>
       <Icon src={icon} />
@@ -85,12 +92,12 @@ export default ({ icon, name, text, buttonVisible }) => (
       <Link
         to="constructor"
         spy={false}
-        smooth={true}
+        smooth
         hashSpy={false}
         offset={-100}
         duration={500}
         delay={50}
-        isDynamic={true}
+        isDynamic
         ignoreCancelEvents={false}
       >
         Подобрать дизайн

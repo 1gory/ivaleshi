@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
+// import {CSSTransition, TransitionGroup} from 'react-transition-group';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
 import Gallery from './Gallery';
 import ItemsList from './ItemsList';
 import Arrow from './Arrow';
-import styles from './styles.css';
+// import styles from './styles.css';
 
 const Wrapper = styled.section`
   padding-top: 160px;
@@ -81,7 +83,6 @@ const SliderControlsWrapper = styled.div`
 `;
 
 export default class Catalog extends Component {
-
   constructor(props) {
     super(props);
 
@@ -111,11 +112,16 @@ export default class Catalog extends Component {
   }
 
   changeActiveItem = (dif) => {
-    const temp = this.state.index;
-    if (temp + dif >= 0 && temp + dif < ItemsList.length) this.setState({ index: temp + dif });
+    const {
+      index,
+    } = this.state;
+    if (index + dif >= 0 && index + dif < ItemsList.length) this.setState({ index: index + dif });
   }
 
   render() {
+    const {
+      index,
+    } = this.state;
     return (
       <Wrapper>
         <Element name="catalog" />
@@ -128,18 +134,18 @@ export default class Catalog extends Component {
                 onEnter={() => console.log('enter')}
                 onExited={() => console.log('exit')}
               > */}
-                <Col lgOffset={3} lg={9} xs={12} key={ItemsList[this.state.index].name}>
-                  <Item
-                    name={ItemsList[this.state.index].name}
-                    price={ItemsList[this.state.index].price}
-                    text={ItemsList[this.state.index].text}
-                    handler={this.handleOpenModal}
-                    index={this.state.index}
-                  />
-                  <Gallery
-                    images={ItemsList[this.state.index].img}
-                  />
-                </Col>
+              <Col lgOffset={3} lg={9} xs={12} key={ItemsList[index].name}>
+                <Item
+                  name={ItemsList[index].name}
+                  price={ItemsList[index].price}
+                  text={ItemsList[index].text}
+                  handler={this.handleOpenModal}
+                  index={index}
+                />
+                <Gallery
+                  images={ItemsList[index].img}
+                />
+              </Col>
               {/* </CSSTransition> */}
             </Row>
             <SliderControlsWrapper>
@@ -155,4 +161,4 @@ export default class Catalog extends Component {
       </Wrapper>
     );
   }
-};
+}

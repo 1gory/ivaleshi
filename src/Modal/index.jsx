@@ -25,15 +25,6 @@ const ModalRow = styled(Row)`
   padding-bottom: 60px;
 `;
 
-const Background = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.25);
-`;
-
 const ContentWrapper = styled.div`
   background-color: white;
   padding: 30px;
@@ -62,12 +53,12 @@ const CloseButton = styled.img`
 `;
 
 export default class Modal extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleSelectFootSizeChange = (e) => {
-    const value = e.target.value;
+    const {
+      target: {
+        value,
+      },
+    } = e;
     const {
       constructorContainer: {
         changeFootSize,
@@ -130,8 +121,7 @@ export default class Modal extends Component {
             </Col>
           </ModalRow>
         </Grid>
-        {/* <Background onClick={closeModal} /> */}
       </Wrapper>
-    )
+    );
   }
-};
+}

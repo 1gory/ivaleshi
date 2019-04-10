@@ -108,12 +108,12 @@ const SizeLink = styled.div`
 `;
 
 export default class Constructor extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleSelectFootSizeChange = (e) => {
-    const value = e.target.value;
+    const {
+      target: {
+        value,
+      },
+    } = e;
     const {
       constructorContainer: {
         changeFootSize,
@@ -129,26 +129,20 @@ export default class Constructor extends Component {
           mainColor,
           secondaryColor,
           jewel,
-          footSize,
-          gift,
-          name,
-          phone,
         },
         changeMainColor,
         changeSecondaryColor,
         changeJewel,
-        changeFootSize,
-        changeGift,
-        changeName,
-        changePhone, 
       },
       modalContainer: {
         openModal,
       },
+      display,
+      toggleStage,
     } = this.props;
 
     return (
-      <Wrapper display={this.props.display}>
+      <Wrapper display={display}>
         <CalcSection>
           <Header>
             Цвет валешей
@@ -194,7 +188,7 @@ export default class Constructor extends Component {
                 ))}
               </Select>
             </SizeSelectLeft>
-            <SizeSelectButton onClick={() => this.props.toggleStage()}>Готово</SizeSelectButton>
+            <SizeSelectButton onClick={() => toggleStage()}>Готово</SizeSelectButton>
           </SizeSelectWrapper>
           <SizeLink onClick={() => openModal('size', 8)}>Узнать свой размер</SizeLink>
         </CalcSection>

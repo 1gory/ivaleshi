@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Map from './Map';
 import socialVK from '../icons/social-vk.svg';
@@ -155,12 +157,12 @@ export default () => (
             <Link
               to="constructor"
               spy={false}
-              smooth={true}
+              smooth
               hashSpy={false}
               offset={-100}
               duration={500}
               delay={50}
-              isDynamic={true}
+              isDynamic
               ignoreCancelEvents={false}
             >
               Подобрать дизайн
@@ -173,12 +175,12 @@ export default () => (
               <Link
                 to="description"
                 spy={false}
-                smooth={true}
+                smooth
                 hashSpy={false}
                 offset={-100}
                 duration={500}
                 delay={50}
-                isDynamic={true}
+                isDynamic
                 ignoreCancelEvents={false}
               >
                 Преимущества
@@ -188,12 +190,12 @@ export default () => (
               <Link
                 to="catalog"
                 spy={false}
-                smooth={true}
+                smooth
                 hashSpy={false}
                 offset={-100}
                 duration={500}
                 delay={50}
-                isDynamic={true}
+                isDynamic
                 ignoreCancelEvents={false}
               >
                 Каталог
@@ -203,12 +205,12 @@ export default () => (
               <Link
                 to="feedback"
                 spy={false}
-                smooth={true}
+                smooth
                 hashSpy={false}
                 offset={-100}
                 duration={500}
                 delay={50}
-                isDynamic={true}
+                isDynamic
                 ignoreCancelEvents={false}
               >
                 Отзывы
@@ -218,12 +220,12 @@ export default () => (
               <Link
                 to="footer"
                 spy={false}
-                smooth={true}
+                smooth
                 hashSpy={false}
                 offset={-100}
                 duration={500}
                 delay={50}
-                isDynamic={true}
+                isDynamic
                 ignoreCancelEvents={false}
               >
                 Контакты
@@ -249,8 +251,8 @@ export default () => (
       </MapOverlay>
     </MapOverlayWrapper>
     <Map
-      width='100%'
-      height='500px'
+      width="100%"
+      height="500px"
     />
   </Wrapper>
 );

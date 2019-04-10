@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './booklet.png';
 import success from './success.svg';
@@ -146,10 +148,6 @@ const DesktopBr = styled.br`
 `;
 
 export default class Booklet extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleEmailChange = (e) => {
     const {
       container: {
@@ -175,8 +173,6 @@ export default class Booklet extends Component {
       },
     } = this.props;
 
-    console.log(formState)
-
     return (
       <Wrapper>
         <Element name="booklet" />
@@ -199,7 +195,9 @@ export default class Booklet extends Component {
                 </FormStateWrapper>
                 <FormStateWrapper active={formState === 'fail'}>
                   <FormStateHeader>Ошибка!</FormStateHeader>
-                  Напишите на адрес mail@ivaleshi.ru,<br />чтобы получить буклет
+                  Напишите на адрес mail@ivaleshi.ru,
+                  <br />
+                  чтобы получить буклет
                   <FormStateIconWrapper>
                     <FormStateIcon src={error} />
                   </FormStateIconWrapper>
@@ -209,7 +207,7 @@ export default class Booklet extends Component {
             <SideImg src={img} />
           </ImageWrapper>
         </Grid>
-      </Wrapper>  
+      </Wrapper>
     );
   }
 }

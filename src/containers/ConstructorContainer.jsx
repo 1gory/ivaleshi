@@ -54,14 +54,14 @@ class ConstructorContainer extends Container {
     this.setState({ title: newVal });
   }
 
-  getCatalogItemData = (mainColor, secondaryColor, jewel, price, name) => {
+  getCatalogItemData = (mainColor, secondaryColor, jewel, price, title) => {
     this.setState(
       {
-        mainColor: mainColor,
-        secondaryColor: secondaryColor,
-        jewel: jewel,
-        price: price,
-        title: name,
+        mainColor,
+        secondaryColor,
+        jewel,
+        price,
+        title,
       },
     );
   }

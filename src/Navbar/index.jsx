@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import logo from './logo.png';
 import phone from '../icons/phone.png';
@@ -189,138 +191,133 @@ const MobileMenuIcon = styled.img`
   vertical-align: top;
 `;
 
-export default class Navbar extends Component {
-  render() {
-    return (
-      <nav>
-        <MobileMenuButton>
-          Меню
-          <MobileMenuIcon src={hamburger} />
-        </MobileMenuButton>
-        <MobileContacts>
-          <ContactsWrapper>
-            <ContactPhone href="tel:+8 8888 123-45-67">
-              <ContactIcon src={phone} />
-              +8 8888 123-45-67
-            </ContactPhone>
-            <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-            <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-            <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-          </ContactsWrapper>
-        </MobileContacts>
-        <Grid>
-          <TopSection>
-            <Row>
-              <ColMobileHide lg={5} xs={12}>
-                <ContactsWrapper>
-                  <ContactPhone href="tel:+8 8888 123-45-67">
-                    <ContactIcon src={phone} />
-                    +8 8888 123-45-67
-                  </ContactPhone>
-                  <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-                  <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-                  <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-                </ContactsWrapper>
-              </ColMobileHide>
-              <Col lg={2} xs={12}>
-                <LogoWrapper>
-                  <a href="/">
-                    <Logo src={logo} />
-                  </a>
-                </LogoWrapper>
-              </Col>
-              <Col lg={5} xs={12}>
-                <NavButtonWrapper>
-                  <NavButton>
-                    <Link
-                      to="constructor"
-                      spy={false}
-                      smooth={true}
-                      hashSpy={false}
-                      offset={-100}
-                      duration={500}
-                      delay={50}
-                      isDynamic={true}
-                      ignoreCancelEvents={false}
-                    >
-                      Подобрать дизайн
-                    </Link>
-                  </NavButton>
-                </NavButtonWrapper>
-              </Col>
-            </Row>
-          </TopSection>
-          <BottomSection>
-            <Row>
-              <Col sm={12}>
-                <BottomMenu>
-                  <BottomMenuItem>
-                    <Link
-                      to="description"
-                      spy={false}
-                      smooth={true}
-                      hashSpy={false}
-                      offset={-100}
-                      duration={500}
-                      delay={50}
-                      isDynamic={true}
-                      ignoreCancelEvents={false}
-                    >
-                      Преимущества
-                    </Link>
-                    </BottomMenuItem>
-                  <BottomMenuItem>
-                    <Link
-                      to="catalog"
-                      spy={false}
-                      smooth={true}
-                      hashSpy={false}
-                      offset={-100}
-                      duration={500}
-                      delay={50}
-                      isDynamic={true}
-                      ignoreCancelEvents={false}
-                    >
-                      Каталог
-                    </Link>
-                  </BottomMenuItem>
-                  <BottomMenuItem>
-                    <Link
-                      to="feedback"
-                      spy={false}
-                      smooth={true}
-                      hashSpy={false}
-                      offset={-100}
-                      duration={500}
-                      delay={50}
-                      isDynamic={true}
-                      ignoreCancelEvents={false}
-                    >
-                      Отзывы
-                    </Link>
-                  </BottomMenuItem>
-                  <BottomMenuItem>
-                    <Link
-                      to="footer"
-                      spy={false}
-                      smooth={true}
-                      hashSpy={false}
-                      offset={-100}
-                      duration={500}
-                      delay={50}
-                      isDynamic={true}
-                      ignoreCancelEvents={false}
-                    >
-                      Контакты
-                    </Link>
-                  </BottomMenuItem>
-                </BottomMenu>
-              </Col>
-            </Row>
-          </BottomSection>
-        </Grid>
-      </nav>
-    )
-  }
-};
-
+export default () => (
+  <nav>
+    <MobileMenuButton>
+      Меню
+      <MobileMenuIcon src={hamburger} />
+    </MobileMenuButton>
+    <MobileContacts>
+      <ContactsWrapper>
+        <ContactPhone href="tel:+8 8888 123-45-67">
+          <ContactIcon src={phone} />
+          +8 8888 123-45-67
+        </ContactPhone>
+        <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
+        <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
+        <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
+      </ContactsWrapper>
+    </MobileContacts>
+    <Grid>
+      <TopSection>
+        <Row>
+          <ColMobileHide lg={5} xs={12}>
+            <ContactsWrapper>
+              <ContactPhone href="tel:+8 8888 123-45-67">
+                <ContactIcon src={phone} />
+                +8 8888 123-45-67
+              </ContactPhone>
+              <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
+              <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
+              <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
+            </ContactsWrapper>
+          </ColMobileHide>
+          <Col lg={2} xs={12}>
+            <LogoWrapper>
+              <a href="/">
+                <Logo src={logo} />
+              </a>
+            </LogoWrapper>
+          </Col>
+          <Col lg={5} xs={12}>
+            <NavButtonWrapper>
+              <NavButton>
+                <Link
+                  to="constructor"
+                  spy={false}
+                  smooth
+                  hashSpy={false}
+                  offset={-100}
+                  duration={500}
+                  delay={50}
+                  isDynamic
+                  ignoreCancelEvents={false}
+                >
+                  Подобрать дизайн
+                </Link>
+              </NavButton>
+            </NavButtonWrapper>
+          </Col>
+        </Row>
+      </TopSection>
+      <BottomSection>
+        <Row>
+          <Col sm={12}>
+            <BottomMenu>
+              <BottomMenuItem>
+                <Link
+                  to="description"
+                  spy={false}
+                  smooth
+                  hashSpy={false}
+                  offset={-100}
+                  duration={500}
+                  delay={50}
+                  isDynamic
+                  ignoreCancelEvents={false}
+                >
+                  Преимущества
+                </Link>
+              </BottomMenuItem>
+              <BottomMenuItem>
+                <Link
+                  to="catalog"
+                  spy={false}
+                  smooth
+                  hashSpy={false}
+                  offset={-100}
+                  duration={500}
+                  delay={50}
+                  isDynamic
+                  ignoreCancelEvents={false}
+                >
+                  Каталог
+                </Link>
+              </BottomMenuItem>
+              <BottomMenuItem>
+                <Link
+                  to="feedback"
+                  spy={false}
+                  smooth
+                  hashSpy={false}
+                  offset={-100}
+                  duration={500}
+                  delay={50}
+                  isDynamic
+                  ignoreCancelEvents={false}
+                >
+                  Отзывы
+                </Link>
+              </BottomMenuItem>
+              <BottomMenuItem>
+                <Link
+                  to="footer"
+                  spy={false}
+                  smooth
+                  hashSpy={false}
+                  offset={-100}
+                  duration={500}
+                  delay={50}
+                  isDynamic
+                  ignoreCancelEvents={false}
+                >
+                  Контакты
+                </Link>
+              </BottomMenuItem>
+            </BottomMenu>
+          </Col>
+        </Row>
+      </BottomSection>
+    </Grid>
+  </nav>
+);

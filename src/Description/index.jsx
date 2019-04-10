@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './img.png';
 
@@ -164,12 +166,12 @@ export default () => (
               <Link
                 to="constructor"
                 spy={false}
-                smooth={true}
+                smooth
                 hashSpy={false}
                 offset={-100}
                 duration={500}
                 delay={50}
-                isDynamic={true}
+                isDynamic
                 ignoreCancelEvents={false}
               >
                 Подобрать дизайн
@@ -179,12 +181,12 @@ export default () => (
               <Link
                 to="booklet"
                 spy={false}
-                smooth={true}
+                smooth
                 hashSpy={false}
                 offset={-100}
                 duration={500}
                 delay={50}
-                isDynamic={true}
+                isDynamic
                 ignoreCancelEvents={false}
               >
                 буклет по уходу за валешами

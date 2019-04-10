@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
 import ItemsList from './ItemsList';
@@ -41,7 +43,6 @@ const Header = styled.h2`
 `;
 
 export default class Feedback extends Component {
-
   constructor(props) {
     super(props);
 
@@ -51,11 +52,17 @@ export default class Feedback extends Component {
   }
 
   changeActiveItem = (dif) => {
-    const temp = this.state.index;
-    if (temp + dif >= 0 && temp + dif < ItemsList.length) this.setState({ index: temp + dif });
+    const {
+      index,
+    } = this.state;
+    if (index + dif >= 0 && index + dif < ItemsList.length) this.setState({ index: index + dif });
   }
 
   render() {
+    const {
+      index,
+    } = this.state;
+
     return (
       <Wrapper>
         <Element name="feedback" />
@@ -63,14 +70,14 @@ export default class Feedback extends Component {
           <SliderWrapper>
             <Header>Отзывы</Header>
             <Row>
-              <Col mdOffset={1} md={10} xs={12} key={ItemsList[this.state.index].name + ItemsList[this.state.index].city}>
+              <Col mdOffset={1} md={10} xs={12} key={ItemsList[index].name + ItemsList[index].city}>
                 <Item
-                  name={ItemsList[this.state.index].name}
-                  city={ItemsList[this.state.index].city}
-                  date={ItemsList[this.state.index].date}
-                  text={ItemsList[this.state.index].text}
-                  link={ItemsList[this.state.index].link}
-                  img={ItemsList[this.state.index].img}
+                  name={ItemsList[index].name}
+                  city={ItemsList[index].city}
+                  date={ItemsList[index].date}
+                  text={ItemsList[index].text}
+                  link={ItemsList[index].link}
+                  img={ItemsList[index].img}
                 />
               </Col>
             </Row>
@@ -81,7 +88,6 @@ export default class Feedback extends Component {
           </SliderWrapper>
         </Grid>
       </Wrapper>
-    )
-
+    );
   }
-};
+}
