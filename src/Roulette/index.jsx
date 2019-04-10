@@ -75,8 +75,9 @@ export default class extends Component {
     super(props);
 
     this.state = {
-      isAnimationActive: true,
+      isAnimationActive: false,
       chosenPresent: null,
+      duration: 10000,
     };
   }
 
@@ -87,11 +88,11 @@ export default class extends Component {
     this.setState({ isAnimationActive: true });
     setTimeout(() => {
       this.setState({ isAnimationActive: false });
-    }, 4000);
+    }, 10000);
   };
 
   render() {
-    const { isAnimationActive } = this.state;
+    const { isAnimationActive, duration } = this.state;
 
     return (
       <Wrapper>
@@ -105,7 +106,9 @@ export default class extends Component {
                     name={card.name}
                     img={card.img}
                     animationActive={isAnimationActive}
-                    shift={index === 0 ? 1 : (index * 200)}
+                    shift={index === 0 ? 100 : ((index * 100) + 100)}
+                    duration={duration}
+                    number={index + 1}
                   />
                 </Col>
               ))}
@@ -113,7 +116,7 @@ export default class extends Component {
             <Button onClick={this.startRoulette}>
               <ButtonIcon src={icon} rotate/>
               <ButtonText>Крутануть</ButtonText>
-              <ButtonIcon src={icon}/>
+              <ButtonIcon src={icon} />
             </Button>
           </BorderWrapper>
         </Grid>
