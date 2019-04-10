@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import cardsList from '../giftList';
@@ -70,27 +70,54 @@ const MobileBr = styled.br`
   } 
 `;
 
-export default () => (
-  <Wrapper>
-    <Grid>
-      <BorderWrapper>
-        <Header>Узнай какой подарок <MobileBr /> ты получишь к заказу</Header>
-        <CardWrapper>
-          {cardsList.map((card, index) => (
-            <Col xsOffset={index === 0 ? 3 : 0} xs={6} md={3} key={card.name} mdOffset={0}>
-              <Card
-                name={card.name}
-                img={card.img}
-              />
-            </Col>
-          ))}
-        </CardWrapper>
-        <Button>
-          <ButtonIcon src={icon} rotate />
-          <ButtonText>Крутануть</ButtonText>
-          <ButtonIcon src={icon} />
-        </Button>
-      </BorderWrapper>
-    </Grid>
-  </Wrapper>
-);
+export default class extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isAnimationActive: true,
+      chosenPresent: null,
+    };
+  }
+
+  getRandomInt = (min, max) => (Math.floor(Math.random() * (max - min)) + min);
+
+  startRoulette = () => {
+    // const chosenPresentNumber = getRandomInt(0, 4);
+    this.setState({ isAnimationActive: true });
+    setTimeout(() => {
+      this.setState({ isAnimationActive: false });
+    }, 4000);
+  };
+
+  render() {
+    const { isAnimationActive } = this.state;
+
+    return (
+      <Wrapper>
+        <Grid>
+          <BorderWrapper>
+            <Header>Узнай какой подарок <MobileBr/> ты получишь к заказу</Header>
+            <CardWrapper>
+              {cardsList.map((card, index) => (
+                <Col xsOffset={index === 0 ? 3 : 0} xs={6} md={3} key={card.name} mdOffset={0}>
+                  <Card
+                    name={card.name}
+                    img={card.img}
+                    animationActive={isAnimationActive}
+                    shift={index === 0 ? 1 : (index * 200)}
+                  />
+                </Col>
+              ))}
+            </CardWrapper>
+            <Button onClick={this.startRoulette}>
+              <ButtonIcon src={icon} rotate/>
+              <ButtonText>Крутануть</ButtonText>
+              <ButtonIcon src={icon}/>
+            </Button>
+          </BorderWrapper>
+        </Grid>
+      </Wrapper>
+    )
+  }
+};
