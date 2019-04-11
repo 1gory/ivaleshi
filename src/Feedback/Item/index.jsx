@@ -78,13 +78,22 @@ const Thumb = styled.img`
   }
 `;
 
-export default ({ name, text, date, link, city, img }) => (
+export default ({
+  name,
+  text,
+  date,
+  link,
+  city,
+  img,
+}) => (
   <Wrapper>
     <Thumb src={img} />
     <Text>{text}</Text>
     <Description>
-      <Author>{name}, {city}</Author>
-      <a href={link}><LinkIcon src={icon} /></a>
+      <Author>{`${name}, ${city}`}</Author>
+      <a href={link}>
+        <LinkIcon src={icon} />
+      </a>
       <PostDate>{date}</PostDate>
     </Description>
   </Wrapper>

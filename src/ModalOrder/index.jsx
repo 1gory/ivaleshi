@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Form from '../Form';
 import img from './img.png';
@@ -157,72 +157,62 @@ const GiftImg = styled.img`
   height: 200px;
   object-fit: cover;
 `;
-
-export default class ModalOrder extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const {
-      visible,
-      gift,
-      title,
-      price,
-      footSizeHandler,
-      nameHandler,
-      validateHandler,
-      nameValid,
-      phoneValid,
-      formState,
-      formStateHandler,
-      setDefaultFormState,
-    } = this.props;
-
-    return (
-      <Wrapper display={visible}>
-        <Header>Оформить заказ</Header>
-        <Product>
-          <ProductImage src={img} />
-          <div>
-            <DescriptionHeader>
-              {title}
-              <Price>
-                {price} Р.
-              </Price>
-            </DescriptionHeader>
-            <Size>
-              <SizeSelectHeader>Размер:</SizeSelectHeader>
-              <Select onSelect={() => footSizeHandler}>
-                {SizesList.map(item => (
-                  <option key={item} value={item}>{item}</option>
-                ))}
-              </Select>
-            </Size>
-          </div>
-        </Product>
-        <Line />
-        <BottomWrapper>
-          <FormWrapper>
-            <Form
-              nameHandler={nameHandler}
-              phoneHandler={this.props.phoneHandler}
-              validateHandler={validateHandler}
-              display={true}
-              nameValid={nameValid}
-              phoneValid={phoneValid}
-              formState={formState}
-              formStateHandler={formStateHandler}
-              setDefaultFormState={setDefaultFormState}
-            />
-          </FormWrapper>
-          <Gift>
-            <GiftHeader>{giftList[gift].name}</GiftHeader>
-            <GiftImg src={giftList[gift].img} />
-            <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>        
-          </Gift>
-        </BottomWrapper>
-      </Wrapper>
-    );
-  }
-}
+export default ({
+  visible,
+  gift,
+  title,
+  price,
+  footSizeHandler,
+  nameHandler,
+  validateHandler,
+  nameValid,
+  phoneValid,
+  formState,
+  formStateHandler,
+  setDefaultFormState,
+  phoneHandler,
+}) => (
+  <Wrapper display={visible}>
+    <Header>Оформить заказ</Header>
+    <Product>
+      <ProductImage src={img} />
+      <div>
+        <DescriptionHeader>
+          {title}
+          <Price>
+            {price} Р.
+          </Price>
+        </DescriptionHeader>
+        <Size>
+          <SizeSelectHeader>Размер:</SizeSelectHeader>
+          <Select onSelect={() => footSizeHandler}>
+            {SizesList.map(item => (
+              <option key={item} value={item}>{item}</option>
+            ))}
+          </Select>
+        </Size>
+      </div>
+    </Product>
+    <Line />
+    <BottomWrapper>
+      <FormWrapper>
+        <Form
+          nameHandler={nameHandler}
+          phoneHandler={phoneHandler}
+          validateHandler={validateHandler}
+          display
+          nameValid={nameValid}
+          phoneValid={phoneValid}
+          formState={formState}
+          formStateHandler={formStateHandler}
+          setDefaultFormState={setDefaultFormState}
+        />
+      </FormWrapper>
+      <Gift>
+        <GiftHeader>{giftList[gift].name}</GiftHeader>
+        <GiftImg src={giftList[gift].img} />
+        <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>
+      </Gift>
+    </BottomWrapper>
+  </Wrapper>
+);

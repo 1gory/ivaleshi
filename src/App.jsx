@@ -14,6 +14,7 @@ import Footer from './Footer';
 import Modal from './Modal';
 import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
+import BookletContainer from './containers/BookletContainer';
 
 export default class extends Component {
   constructor(props) {
@@ -40,10 +41,14 @@ export default class extends Component {
         </Subscribe>
         <OrderSteps />
         <Feedback />
-        <Booklet />
+        <Subscribe to={[BookletContainer]}>
+          {(bookletContainer) => (
+            <Booklet container={bookletContainer} />
+          )}
+        </Subscribe>
         <Footer />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
-        {(constructorContainer, modalContainer) => (
+          {(constructorContainer, modalContainer) => (
             <Modal
               constructorContainer={constructorContainer} modalContainer={modalContainer}
             />

@@ -64,7 +64,7 @@ const Thumbnail = styled.img`
   }
 `;
 
-export default ({images}) => (
+export default ({ images }) => (
   <GalleryWrapper>
     <GalleryContent>
       <ActiveImage src={images[1]} alt="" />

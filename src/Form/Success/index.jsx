@@ -41,23 +41,22 @@ const Button = styled.div`
 `;
 
 export default class Success extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handlePhoneChange = (e) => {
+    const {
+      phoneHandler,
+    } = this.props;
     if (!e.target.value) {
-      this.props.phoneHandler('');
+      phoneHandler('');
       return;
     }
     const number = e.target.value;
-    this.props.phoneHandler(number);
+    phoneHandler(number);
   };
 
   render() {
     const {
       active,
-      setDefaultFormState
+      setDefaultFormState,
     } = this.props;
 
     return (
