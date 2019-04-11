@@ -6,6 +6,7 @@ import {
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Constructor from './Constructor';
 import Form from '../Form';
+import { mainImages, pompons } from './imageSets';
 
 const Wrapper = styled.section`
   padding-top: 110px;   
@@ -15,6 +16,31 @@ const Wrapper = styled.section`
     padding-bottom: 30px;
   } 
 `;
+
+const ImageWrapper = styled.div`
+  position: relative;
+`;
+
+const Header = styled.h2`
+  font-size: 48px;
+  color: rgb(25, 22, 25);
+  font-family: 'Museo-Regular', sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+`;
+
+const MainImage = styled.img`
+  width: 520px;
+  margin-top: 100px;
+`;
+
+const Pompon = styled.img`
+  position: absolute;
+  width: 520px;
+  left: 0;
+  top: 80px;
+`;
+
 
 export default class CalcSectionComponent extends Component {
   constructor(props) {
@@ -49,6 +75,8 @@ export default class CalcSectionComponent extends Component {
           nameValid,
           phoneValid,
           formState,
+          mainColor,
+          secondaryColor,
         },
       },
     } = this.props;
@@ -61,7 +89,17 @@ export default class CalcSectionComponent extends Component {
         <Element name="constructor" />
         <Grid>
           <Row>
-            <Col lg={7} xs={12}></Col>
+            <Col lg={7} xs={12}>
+              <Header>
+                Подбери
+                <br />
+                свой дизайн
+              </Header>
+              <ImageWrapper>
+                <MainImage src={mainImages[mainColor][1]} />
+                <Pompon src={pompons[secondaryColor][1]} />
+              </ImageWrapper>
+            </Col>
             <Col lg={5} xs={12}>
               <Constructor {...this.props} display={stage1} toggleStage={this.toggleStage} />
               <Form
