@@ -53,6 +53,7 @@ const ButtonIcon = styled.img`
 
 const ButtonText = styled.div`
   margin: 15px auto;
+  cursor: pointer;
 `;
 
 const CardWrapper = styled(Row)`
@@ -76,43 +77,57 @@ export default class extends Component {
 
     this.state = {
       isAnimationActive: false,
-      chosenPresent: null,
+      chosenPresent: false,
       duration: 10000,
+      chosenPresentNumber: null,
     };
   }
 
   getRandomInt = (min, max) => (Math.floor(Math.random() * (max - min)) + min);
 
   startRoulette = () => {
-    const { duration } = this.state;
+    const { isAnimationActive, duration } = this.state;
     // const chosenPresentNumber = getRandomInt(0, 4);
-    this.setState({ isAnimationActive: true });
-    setTimeout(() => {
-      this.setState({ isAnimationActive: false });
-    }, duration);
+    if (!isAnimationActive) {
+      this.setState({ isAnimationActive: true, chosenPresent: false });
+      setTimeout(() => {
+        const chosenPresent = this.getRandomInt(0, 4);
+        console.log("++++++++++++++ chosen present in roulette: " + chosenPresent)
+        this.setState({
+          isAnimationActive: false,
+          chosenPresentNumber: chosenPresent,
+        });
+      }, duration);
+    }
   };
 
   render() {
-    const { isAnimationActive, duration } = this.state;
+    const { isAnimationActive, duration, chosenPresentNumber } = this.state;
 
     return (
       <Wrapper>
         <Grid>
           <BorderWrapper>
-            <Header>Узнай какой подарок <MobileBr/> ты получишь к заказу</Header>
+            <Header>Узнай какой подарок <MobileBr /> ты получишь к заказу</Header>
             <CardWrapper>
-              {cardsList.map((card, index) => (
-                <Col xsOffset={index === 0 ? 3 : 0} xs={6} md={3} key={card.name} mdOffset={0}>
-                  <Card
-                    name={card.name}
-                    img={card.img}
-                    animationActive={isAnimationActive}
-                    shift={index === 0 ? 100 : ((index * 100) + 100)}
-                    duration={duration}
-                    number={index + 1}
-                  />
-                </Col>
-              ))}
+              {cardsList.map((card, index) => {
+                console.log('=========== index: ' + index);
+                console.log('=========== chosenPresent: ' + chosenPresentNumber);
+                console.log(index === chosenPresentNumber);
+                return (
+                  <Col xsOffset={index === 0 ? 3 : 0} xs={6} md={3} key={card.name} mdOffset={0}>
+                    <Card
+                      name={card.name}
+                      img={card.img}
+                      animationActive={isAnimationActive}
+                      shift={index === 0 ? 100 : ((index * 100) + 100)}
+                      duration={duration}
+                      number={index + 1}
+                      chosen={chosenPresentNumber === index}
+                    />
+                  </Col>
+                );
+              })}
             </CardWrapper>
             <Button onClick={this.startRoulette}>
               <ButtonIcon src={icon} rotate/>

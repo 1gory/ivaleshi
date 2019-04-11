@@ -8,7 +8,7 @@ const Wrap = styled.div`
   0% {opacity: 0}
 	85% {opacity: 0}
 	100% {opacity: 1}
-}
+  }
 ${
   (props) => {
     if (props.isAnimationActive) {
@@ -34,6 +34,31 @@ ${
          animation-delay: ${props.shift}s;
          }
        `);
+    }
+  }
+}
+${
+  (props) => {
+    if (props.chosen) {
+      return (
+        `
+        &:after {
+        position: absolute;
+        content: '';
+        left: 0px;
+        right: 0px;
+        bottom: 0px;        
+        margin: auto;
+        margin-bottom: -120px;
+        width: 50px;
+        height: 100px;
+        background-image: url(${selected});
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        }
+        `
+      );
     }
   }
 }
@@ -99,7 +124,7 @@ export default class extends Component {
   }
 
   render() {
-    const { name, img, animationActive, shift } = this.props;
+    const { name, img, animationActive, shift, chosen } = this.props;
     const { period, stageOfAnimation } = this.state;
     const newPeriod = period * stageOfAnimation;
     const newShift = shift * stageOfAnimation * 0.001;
@@ -107,8 +132,9 @@ export default class extends Component {
     console.log("stage " + stageOfAnimation);
     console.log("shift: " + newShift);
     console.log("period: " + newPeriod);
+    console.log("chosen present: " + chosen);
     return (
-      <Wrap isAnimationActive={animationActive} shift={newShift} period={newPeriod}>
+      <Wrap isAnimationActive={animationActive} shift={newShift} period={newPeriod} chosen={chosen}>
         <CardImage src={img} />
         <CardHeader>{name}</CardHeader>
       </Wrap>
