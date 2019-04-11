@@ -6,7 +6,7 @@ import {
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Constructor from './Constructor';
 import Form from '../Form';
-import { mainImages, pompons } from './imageSets';
+import { mainImages, pompons, beads, rhinestones } from './imageSets';
 
 const Wrapper = styled.section`
   padding-top: 110px;   
@@ -39,6 +39,15 @@ const Pompon = styled.img`
   width: 520px;
   left: 0;
   top: 80px;
+  z-index: 10;
+`;
+
+const Jewel = styled.img`
+  position: absolute;
+  width: 520px;
+  left: 0;
+  top: ${({ isBead }) => (isBead ? '120px' : '100px')}; 
+  z-index: 9;
 `;
 
 
@@ -77,6 +86,7 @@ export default class CalcSectionComponent extends Component {
           formState,
           mainColor,
           secondaryColor,
+          jewel,
         },
       },
     } = this.props;
@@ -98,6 +108,7 @@ export default class CalcSectionComponent extends Component {
               <ImageWrapper>
                 <MainImage src={mainImages[mainColor][1]} />
                 <Pompon src={pompons[secondaryColor][1]} />
+                <Jewel src={jewel === 0 ? beads[mainColor] : rhinestones[mainColor]} isBead={jewel === 0} />
               </ImageWrapper>
             </Col>
             <Col lg={5} xs={12}>

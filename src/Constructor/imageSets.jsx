@@ -34,6 +34,28 @@ import turquoiseP from './images/pompons/turquoise.png';
 import violetP from './images/pompons/violet.png';
 import yellowP from './images/pompons/yellow.png';
 
+import bead1 from './images/beads/1.png';
+import bead2 from './images/beads/2.png';
+import bead3 from './images/beads/3.png';
+import bead4 from './images/beads/4.png';
+import bead5 from './images/beads/5.png';
+import bead6 from './images/beads/6.png';
+import bead7 from './images/beads/7.png';
+import bead8 from './images/beads/8.png';
+import bead9 from './images/beads/9.png';
+import bead10 from './images/beads/10.png';
+import bead11 from './images/beads/11.png';
+import bead12 from './images/beads/12.png';
+
+import stone1 from './images/rhinestones/black.png';
+import stone2 from './images/rhinestones/blue.png';
+import stone3 from './images/rhinestones/gold.png';
+import stone4 from './images/rhinestones/green.png';
+import stone5 from './images/rhinestones/pink.png';
+import stone6 from './images/rhinestones/purple.png';
+import stone7 from './images/rhinestones/red.png';
+import stone8 from './images/rhinestones/silver.png';
+
 const mainImages = [
   ['black', black],
   ['blue', blue],
@@ -74,4 +96,63 @@ const pompons = [
   ['red', redP],
 ];
 
-export { mainImages, pompons };
+const beads = [
+  bead1,
+  bead2,
+  bead3,
+  bead4,
+  bead5,
+  bead6,
+  bead7,
+  bead8,
+  bead9,
+  bead10,
+  bead11,
+  bead12,
+  bead1,
+  bead2,
+  bead3,
+  bead4,
+  bead5,
+  bead6,
+  bead7,
+  bead8,
+  bead9,
+  bead10,
+  bead11,
+  bead12,
+];
+
+const rhinestones = [
+  stone1,
+  stone2,
+  stone3,
+  stone4,
+  stone5,
+  stone6,
+  stone7,
+  stone8,
+  stone1,
+  stone2,
+  stone3,
+  stone4,
+  stone5,
+  stone6,
+  stone7,
+  stone8,
+  stone1,
+  stone2,
+  stone3,
+  stone4,
+  stone5,
+  stone6,
+  stone7,
+  stone8,
+];
+
+export {
+  mainImages,
+  pompons,
+  beads,
+  rhinestones,
+};
