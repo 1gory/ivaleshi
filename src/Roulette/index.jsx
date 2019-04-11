@@ -88,7 +88,7 @@ export default class extends Component {
     this.setState({ isAnimationActive: true });
     setTimeout(() => {
       this.setState({ isAnimationActive: false });
-    }, 10000);
+    }, 20000);
   };
 
   render() {

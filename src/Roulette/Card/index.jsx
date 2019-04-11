@@ -67,16 +67,16 @@ export default class extends Component {
   }
 
   componentDidUpdate = () => {
-    const {duration} = this.props;
-    const { shift, isAnimationActive } = this.state;
+    const { duration, animationActive, shift } = this.props;
+    const { isAnimationActive } = this.state;
     const halfOfDuration = duration / 2;
     const fourthOfDuration = halfOfDuration + duration / 4;
 
-    if (isAnimationActive) {
+    if (animationActive && !isAnimationActive) {
       setTimeout(() => {
         this.setState({
           stageOfAnimation: 2,
-          isAnimationActive: false,
+          isAnimationActive: true,
         });
       }, halfOfDuration);
       setTimeout(() => {
@@ -84,26 +84,24 @@ export default class extends Component {
           stageOfAnimation: 3,
         });
       }, fourthOfDuration);
+      setTimeout(() => {
+        this.setState({
+          stageOfAnimation: 1,
+          isAnimationActive: false,
+        });
+      }, duration);
     }
   }
 
-  componentDidMount = () => {
-    const { shift, number } = this.props;
-    const newShift = shift * 0.001;
-
-    this.setState({
-      shift: newShift,
-      isAnimationActive: true,
-    });
-  }
-
   render() {
-    const { name, img, animationActive } = this.props;
-    const { shift, period, stageOfAnimation } = this.state;
+    const { name, img, animationActive, shift } = this.props;
+    const { period, stageOfAnimation } = this.state;
     const newPeriod = period * stageOfAnimation;
-    const newShift = shift + stageOfAnimation;
-    // console.log(shift);
-    // console.log(newShift);
+    const newShift = shift * stageOfAnimation * 0.001;
+    console.log("------------------------");
+    console.log("stage " + stageOfAnimation);
+    console.log("shift: " + newShift);
+    console.log("period: " + newPeriod);
     return (
       <Wrap isAnimationActive={animationActive} shift={newShift} period={newPeriod}>
         <CardImage src={img} />
