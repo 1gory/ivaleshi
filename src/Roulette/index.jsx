@@ -84,11 +84,12 @@ export default class extends Component {
   getRandomInt = (min, max) => (Math.floor(Math.random() * (max - min)) + min);
 
   startRoulette = () => {
+    const { duration } = this.state;
     // const chosenPresentNumber = getRandomInt(0, 4);
     this.setState({ isAnimationActive: true });
     setTimeout(() => {
       this.setState({ isAnimationActive: false });
-    }, 20000);
+    }, duration);
   };
 
   render() {

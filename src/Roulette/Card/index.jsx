@@ -6,8 +6,8 @@ const Wrap = styled.div`
   position: relative;
   @keyframes blink {
   0% {opacity: 0}
-	49% {opacity: 0}
-	50% {opacity: 1}
+	85% {opacity: 0}
+	100% {opacity: 1}
 }
 ${
   (props) => {
@@ -71,6 +71,11 @@ export default class extends Component {
     const { isAnimationActive } = this.state;
     const halfOfDuration = duration / 2;
     const fourthOfDuration = halfOfDuration + duration / 4;
+    console.log("---------- component updated ----------");
+    console.log("animation time: " + duration);
+    console.log("animation time half: " + halfOfDuration);
+    console.log("animation time last fourth: " + fourthOfDuration);
+
 
     if (animationActive && !isAnimationActive) {
       setTimeout(() => {
