@@ -120,7 +120,7 @@ export default class extends Component {
                       name={card.name}
                       img={card.img}
                       animationActive={isAnimationActive}
-                      shift={index === 0 ? 100 : ((index * 100) + 100)}
+                      shift={index === 0 ? 200 : ((index * 200) + 200)}
                       duration={duration}
                       number={index + 1}
                       chosen={chosenPresentNumber === index}

@@ -6,7 +6,7 @@ const Wrap = styled.div`
   position: relative;
   @keyframes blink {
   0% {opacity: 0}
-	85% {opacity: 0}
+	99% {opacity: 0}
 	100% {opacity: 1}
   }
 ${
@@ -86,7 +86,7 @@ export default class extends Component {
     this.state = {
       isAnimationActive: false,
       shift: null,
-      period: 0.4,
+      period: 0.8,
       stageOfAnimation: 1,
     };
   }
