@@ -6,7 +6,7 @@ const Wrap = styled.div`
   position: relative;
   @keyframes blink {
   0% {opacity: 0}
-	99% {opacity: 0}
+	97% {opacity: 0}
 	100% {opacity: 1}
   }
 ${
@@ -24,6 +24,7 @@ ${
          margin-bottom: -120px;
          width: 50px;
          height: 100px;
+         opacity: 0;
          background-image: url(${selected});
          background-repeat: no-repeat;
          background-size: contain;
