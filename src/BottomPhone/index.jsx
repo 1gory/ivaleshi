@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     bottom: 0px;
     background-color: #6aaf0c;
     line-height: 48px;
-    z-index: 999;
+    z-index: 998;
   }
 `;
 
