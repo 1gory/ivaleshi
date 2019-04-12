@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import bg from './bg.jpg';
-import videoPreview from './bg.png';
-import playIcon from './icon.svg';
+import videoPreview from './videoPreview.png';
+import playIcon from './play-icon.svg';
 
 const Background = styled.header`
   padding-bottom: 560px;
@@ -98,7 +98,10 @@ const PlayIcon = styled.img`
   width: 25px;
   position: absolute;
   margin: auto;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0; 
+  left: 0; 
+  bottom: 0; 
+  right: 0;
 `;
 
 const Description = styled.div`
