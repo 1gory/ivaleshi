@@ -2,17 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  display: none;
-  justify-content: center;
-  width: 100%;
-  height: 48px;
-  position: fixed;
-  bottom: 0px;
-  background-color: #6aaf0c;
-  line-height: 48px;
-  z-index: 999;
   @media screen and (max-width: 991px) {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    position: fixed;
+    bottom: 0px;
+    background-color: #6aaf0c;
+    line-height: 48px;
+    z-index: 999;
   }
 `;
 

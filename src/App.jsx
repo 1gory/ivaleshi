@@ -15,7 +15,7 @@ import Modal from './Modal';
 import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
 import BookletContainer from './containers/BookletContainer';
-import BottPhone from './BottPhone';
+import BottomPhone from './BottomPhone';
 
 export default class extends Component {
   constructor(props) {
@@ -60,7 +60,7 @@ export default class extends Component {
             />
           )}
         </Subscribe>
-        <BottPhone />
+        <BottomPhone />
       </div>
     );
   }
