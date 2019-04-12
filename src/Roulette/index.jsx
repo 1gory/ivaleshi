@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import { Media } from 'react-breakpoints';
 import cardsList from '../giftList';
 import Card from './Card';
 import icon from './roll-bottom.svg';
@@ -79,7 +80,7 @@ export default class extends Component {
       isAnimationActive: false,
       chosenPresent: false,
       duration: 10000,
-      chosenPresentNumber: null,
+      chosenPresentName: null,
     };
   }
 
@@ -87,22 +88,32 @@ export default class extends Component {
 
   startRoulette = () => {
     const { isAnimationActive, duration } = this.state;
-    // const chosenPresentNumber = getRandomInt(0, 4);
+
+
     if (!isAnimationActive) {
       this.setState({ isAnimationActive: true, chosenPresent: false });
       setTimeout(() => {
-        const chosenPresent = this.getRandomInt(0, 4);
+        let chosenPresent = this.getRandomInt(0, 2);
+
+        switch (chosenPresent) {
+          case 0:
+            chosenPresent = 'Средство по уходу';
+          case 1:
+            chosenPresent = 'Шерстяные носки';
+          default:
+            break;
+        }
         console.log("++++++++++++++ chosen present in roulette: " + chosenPresent)
         this.setState({
           isAnimationActive: false,
-          chosenPresentNumber: chosenPresent,
+          chosenPresentName: chosenPresent,
         });
       }, duration);
     }
   };
 
   render() {
-    const { isAnimationActive, duration, chosenPresentNumber } = this.state;
+    const { isAnimationActive, duration, chosenPresentName } = this.state;
 
     return (
       <Wrapper>
@@ -112,8 +123,8 @@ export default class extends Component {
             <CardWrapper>
               {cardsList.map((card, index) => {
                 console.log('=========== index: ' + index);
-                console.log('=========== chosenPresent: ' + chosenPresentNumber);
-                console.log(index === chosenPresentNumber);
+                console.log('=========== chosenPresent: ' + chosenPresentName);
+                console.log(index === chosenPresentName);
                 return (
                   <Col xsOffset={index === 0 ? 3 : 0} xs={6} md={3} key={card.name} mdOffset={0}>
                     <Card
@@ -123,7 +134,7 @@ export default class extends Component {
                       shift={index === 0 ? 200 : ((index * 200) + 200)}
                       duration={duration}
                       number={index + 1}
-                      chosen={chosenPresentNumber === index}
+                      chosen={chosenPresentName === card.name}
                     />
                   </Col>
                 );

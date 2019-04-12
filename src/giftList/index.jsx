@@ -2,19 +2,19 @@ import img from './img.png';
 
 export default [
   {
-    name: 'Спиннер',
+    name: 'Средство по уходу',
     img: img,
   },
   {
-    name: 'Селфи-палка',
+    name: 'Перчатки',
     img: img,
   },
   {
-    name: 'Спиннер 2',
+    name: 'Шерстяные носки',
     img: img,
   },
   {
-    name: 'Селфи-палка 2',
+    name: 'Шапка',
     img: img,
   },
 ];
