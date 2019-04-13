@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import {
+  PaddingGrid as Grid,
+  PaddingRow as Row,
+  PaddingCol as Col,
+} from '../grid';
 import bg from './bg.jpg';
 import videoPreview from './bg.png';
 import playIcon from './icon.svg';
@@ -16,16 +20,16 @@ const Background = styled.header`
   color: black;
   @media screen and (max-width: 1299px) {
     background-position-y: 0;
-  } 
+  }
   @media screen and (max-width: 767px) {
     padding-bottom: 350px;
-  } 
+  }
 `;
 
 const Offer = styled.div`
   background-color: #ff3300;
   @media (max-width: 992px) {
-   margin-bottom: 190px;
+    margin-bottom: 190px;
   }
 `;
 
@@ -34,7 +38,7 @@ const Header = styled.h1`
   margin-top: 120px;
   margin-bottom: 40px;
   color: #fff;
-  font-family: 'Museo-Regular',sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1.4;
@@ -61,7 +65,7 @@ const Text = styled.h2`
   }
 `;
 
-const PositionWrapper = styled.div` 
+const PositionWrapper = styled.div`
   @media (max-width: 992px) {
     position: relative;
   }
@@ -76,7 +80,7 @@ const VideoWrapper = styled.div`
     left: 0;
     right: 0;
     padding: 0;
-    margin: auto
+    margin: auto;
   }
 `;
 
@@ -92,13 +96,17 @@ const Preview = styled.img`
 
 const PreviewWrapper = styled.div`
   position: relative;
+  cursor: pointer;
 `;
 
 const PlayIcon = styled.img`
   width: 25px;
   position: absolute;
   margin: auto;
-  top: 0; left: 0; bottom: 0; right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 `;
 
 const Description = styled.div`
@@ -113,7 +121,7 @@ const Description = styled.div`
   }
 `;
 
-export default () => (
+export default ({ modalContainer: { openModal } }) => (
   <>
     <Background />
     <Offer>
@@ -134,15 +142,15 @@ export default () => (
           <Col lg={3}>
             <PositionWrapper>
               <VideoWrapper>
-                <PreviewWrapper>
+                <PreviewWrapper onClick={() => openModal('video', 10)}>
                   <PlayIcon src={playIcon} />
                   <Preview src={videoPreview} />
                 </PreviewWrapper>
                 <Description>
                   Посмотрите, как валенки заботяться
                   <br />
-                  о вашем здоровье
-                </Description>
+о вашем здоровье
+</Description>
               </VideoWrapper>
             </PositionWrapper>
           </Col>

@@ -25,10 +25,21 @@ export default class extends Component {
     return (
       <div>
         <Navbar />
-        <Header />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
           {(constructorContainer, modalContainer) => (
-            <Constructor constructorContainer={constructorContainer} modalContainer={modalContainer} />
+            <Header
+              constructorContainer={constructorContainer}
+              modalContainer={modalContainer}
+            />
+          )}
+        </Subscribe>
+
+        <Subscribe to={[ConstructorContainer, ModalContainer]}>
+          {(constructorContainer, modalContainer) => (
+            <Constructor
+              constructorContainer={constructorContainer}
+              modalContainer={modalContainer}
+            />
           )}
         </Subscribe>
         <Roulette />
@@ -36,21 +47,23 @@ export default class extends Component {
         <Info />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
           {(constructorContainer, modalContainer) => (
-            <Catalog constructorContainer={constructorContainer} modalContainer={modalContainer} />
+            <Catalog
+              constructorContainer={constructorContainer}
+              modalContainer={modalContainer}
+            />
           )}
         </Subscribe>
         <OrderSteps />
         <Feedback />
         <Subscribe to={[BookletContainer]}>
-          {(bookletContainer) => (
-            <Booklet container={bookletContainer} />
-          )}
+          {bookletContainer => <Booklet container={bookletContainer} />}
         </Subscribe>
         <Footer />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
           {(constructorContainer, modalContainer) => (
             <Modal
-              constructorContainer={constructorContainer} modalContainer={modalContainer}
+              constructorContainer={constructorContainer}
+              modalContainer={modalContainer}
             />
           )}
         </Subscribe>
