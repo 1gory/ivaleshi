@@ -121,7 +121,7 @@ const Description = styled.div`
   }
 `;
 
-export default ({ modalContainer: { openModal } }) => (
+export default ({ modalContainer: { openModalVideo } }) => (
   <>
     <Background />
     <Offer>
@@ -142,7 +142,7 @@ export default ({ modalContainer: { openModal } }) => (
           <Col lg={3}>
             <PositionWrapper>
               <VideoWrapper>
-                <PreviewWrapper onClick={() => openModal('video', 10)}>
+                <PreviewWrapper onClick={() => openModalVideo()}>
                   <PlayIcon src={playIcon} />
                   <Preview src={videoPreview} />
                 </PreviewWrapper>

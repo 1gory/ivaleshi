@@ -8,7 +8,6 @@ import {
 import close from './close.svg';
 import ModalSize from '../ModalSize';
 import ModalOrder from '../ModalOrder';
-import ModalVideo from '../ModalVideo';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -93,7 +92,7 @@ export default class Modal extends Component {
             <Col mdOffset={(12 - size) / 2} md={size} xs={12}>
               <ContentWrapper>
                 <ModalSize visible={type === 'size'} />
-                <ModalVideo visible={type === 'video'} modalOpen={modalOpen} />
+
                 <ModalOrder
                   visible={type === 'order'}
                   title={title}
