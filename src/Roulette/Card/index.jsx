@@ -4,6 +4,9 @@ import selected from '../roll-selected.svg';
 
 const Wrap = styled.div`
   position: relative;
+  @media screen and (max-width: 992px) {
+    width: 175px;
+  }
   @keyframes blink {
   0% {opacity: 0}
 	97% {opacity: 0}
@@ -97,10 +100,10 @@ export default class extends Component {
     const { isAnimationActive } = this.state;
     const halfOfDuration = duration / 2;
     const fourthOfDuration = halfOfDuration + duration / 4;
-    console.log("---------- component updated ----------");
-    console.log("animation time: " + duration);
-    console.log("animation time half: " + halfOfDuration);
-    console.log("animation time last fourth: " + fourthOfDuration);
+    // console.log("---------- component updated ----------");
+    // console.log("animation time: " + duration);
+    // console.log("animation time half: " + halfOfDuration);
+    // console.log("animation time last fourth: " + fourthOfDuration);
 
 
     if (animationActive && !isAnimationActive) {
@@ -129,11 +132,11 @@ export default class extends Component {
     const { period, stageOfAnimation } = this.state;
     const newPeriod = period * stageOfAnimation;
     const newShift = shift * stageOfAnimation * 0.001;
-    console.log("------------------------");
-    console.log("stage " + stageOfAnimation);
-    console.log("shift: " + newShift);
-    console.log("period: " + newPeriod);
-    console.log("chosen present: " + chosen);
+    // console.log("------------------------");
+    // console.log("stage " + stageOfAnimation);
+    // console.log("shift: " + newShift);
+    // console.log("period: " + newPeriod);
+    // console.log("chosen present: " + chosen);
     return (
       <Wrap isAnimationActive={animationActive} shift={newShift} period={newPeriod} chosen={chosen}>
         <CardImage src={img} />
