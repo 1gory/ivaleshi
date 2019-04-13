@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import { Media, withBreakpoints } from 'react-breakpoints';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import cardsList from '../giftList';
 import Card from './Card';
 import icon from './roll-bottom.svg';
@@ -103,6 +103,7 @@ ${
         `
       );
     }
+    return true;
   }
 }
 `;
@@ -113,7 +114,6 @@ class Roulette extends Component {
 
     this.state = {
       isAnimationActive: false,
-      chosenPresent: false,
       duration: 3000,
       chosenPresentName: null,
       chosenPresentForMobileVersion: null,
@@ -134,9 +134,7 @@ class Roulette extends Component {
 
   setAnimationDuration = () => {
     const { currentBreakpoint } = this.props;
-    const { duration } = this.state;
-    console.log(currentBreakpoint);
-    console.log(typeof currentBreakpoint);
+
     switch (currentBreakpoint) {
       case 'mobile':
         this.setState({ duration: 3000 });
@@ -176,21 +174,18 @@ class Roulette extends Component {
     }
 
     if (!isAnimationActive) {
-      console.log("++++++++++++++ chosen present for mobile: ++++++++++++++++++++++++++++++++++++++");
-      console.log("++++++++++++++" + chosenPresentName + "++++++++++++++++++++++++++++++++++++++");
       this.setState({
         isAnimationActive: true,
-        chosenPresent: false,
         chosenPresentForMobileVersion: chosenPresentName,
       });
 
       setTimeout(() => {
-        console.log("++++++++++++++ chosen present in roulette: " + chosenPresentName);
         changeGift(chosenPresent);
+
         this.setState({
           isAnimationActive: false,
           /* Сдвиг для колеса на последующие раскручивания рулетки */
-          leftShift: leftShift,
+          leftShift,
           chosenPresentName,
         });
       }, duration);
@@ -209,8 +204,8 @@ class Roulette extends Component {
     } = this.state;
     const presentsTemplate = [];
     const mobileWheelDuration = duration * 0.001;
+    const newLeftShift = left - leftShift;
     let shift = 700;
-    let newLeftShift = left - leftShift;
 
     switch (chosenPresentForMobileVersion) {
       case 'Средство по уходу':
@@ -223,34 +218,21 @@ class Roulette extends Component {
         break;
     }
 
-    console.log(chosenPresentForMobileVersion);
-    console.log("speed of roulette: " + speedOfRoulette);
-    console.log("shift of roulette: " + shift);
-    console.log("leftShift: " + leftShift);
-    console.log(shift * speedOfRoulette);
-    console.log("new leftshift: " + newLeftShift);
-
     for (let i = 0; i < 50; i += 1) {
       presentsTemplate.push(
-        cardsList.map((card, index) => {
-          // console.log('=========== index: ' + index);
-          // console.log('=========== chosenPresent: ' + chosenPresentName);
-          // console.log(index === chosenPresentName);
-          return (
-            <Card
-              name={card.name}
-              img={card.img}
-            />
-          );
-        })
-      )
+        cardsList.map(card => (<Card name={card.name} img={card.img} />)),
+      );
     }
 
     return (
       <Wrapper>
         <Grid>
           <BorderWrapper>
-            <Header>Узнай какой подарок <MobileBr /> ты получишь к заказу</Header>
+            <Header>
+              Узнай какой подарок
+              <MobileBr />
+              ты получишь к заказу
+            </Header>
             <CardWrapper>
               <MobileCardsContainerWrap>
                 <MobileCardsContainerInner
@@ -261,47 +243,44 @@ class Roulette extends Component {
                 >
                   <Media>
                     {
-                      ({ breakpoints, currentBreakpoint }) => {
-                        console.log(breakpoints[currentBreakpoint]);
-                        console.log(breakpoints.mobile);
-                        return (
-                          breakpoints[currentBreakpoint] > breakpoints.mobile ? (
-                            cardsList.map((card, index) => {
-                              console.log('=========== index: ' + index);
-                              console.log('=========== chosenPresent: ' + chosenPresentName);
-                              console.log(index === chosenPresentName);
-                              return (
-                                <Col xsOffset={index === 0 ? 3 : 0} xs={6} md={3} key={card.name} mdOffset={0}>
-                                  <Card
-                                    name={card.name}
-                                    img={card.img}
-                                    animationActive={isAnimationActive}
-                                    shift={index === 0 ? 200 : ((index * 200) + 200)}
-                                    duration={duration}
-                                    number={index + 1}
-                                    chosen={chosenPresentName === card.name}
-                                  />
-                                </Col>
-                              );
-                            })
-                          ) : (presentsTemplate)
-                        )
-                      }
+                      ({ breakpoints, currentBreakpoint }) => (
+                        breakpoints[currentBreakpoint] > breakpoints.mobile ? (
+                          cardsList.map((card, index) => (
+                            <Col
+                              xsOffset={index === 0 ? 3 : 0}
+                              xs={6}
+                              md={3}
+                              key={card.name}
+                              mdOffset={0}
+                            >
+                              <Card
+                                name={card.name}
+                                img={card.img}
+                                animationActive={isAnimationActive}
+                                shift={index === 0 ? 200 : ((index * 200) + 200)}
+                                duration={duration}
+                                number={index + 1}
+                                chosen={chosenPresentName === card.name}
+                              />
+                            </Col>
+                          ))
+                        ) : (presentsTemplate)
+                      )
                     }
                   </Media>
                 </MobileCardsContainerInner>
               </MobileCardsContainerWrap>
             </CardWrapper>
             <Button onClick={this.startRoulette}>
-              <ButtonIcon src={icon} rotate/>
+              <ButtonIcon src={icon} rotate />
               <ButtonText>Крутануть</ButtonText>
               <ButtonIcon src={icon} />
             </Button>
           </BorderWrapper>
         </Grid>
       </Wrapper>
-    )
+    );
   }
-};
+}
 
 export default withBreakpoints(Roulette);
