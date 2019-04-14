@@ -3,42 +3,49 @@ import styled from 'styled-components';
 import {
   Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
 } from 'react-scroll';
-// import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import ReactSwipe from 'react-swipe';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
 import Gallery from './Gallery';
 import ItemsList from './ItemsList';
 import Arrow from './Arrow';
-// import styles from './styles.css';
 
 const Wrapper = styled.section`
-  padding-top: 160px;
-  padding-bottom: 230px;
+  margin-top: 160px;
+  margin-bottom: 230px;
   @media screen and (max-width: 991px) {
-    padding-bottom: 80px;
+    margin-bottom: 80px;
+    margin-top: 60px;
   }
 `;
 
-const SliderWrapper = styled.div`
+const NoPaddingGrid = styled(Grid)`
+  padding: 0!important;
   position: relative;
+`;
+
+const PaddingRow = styled(Row)`
+  @media screen and (max-width: 991px) {
+    padding-top: 100px;
+  } 
 `;
 
 const SliderButtonWrapper = styled.div`
   position: absolute;
   top: 0;
   left: auto;
-  right: -60px;
+  right: -40px;
   height: 100%;
   display: flex;
   align-items: center;
   z-index: 10;
   @media screen and (max-width: 1300px) {
-    right: 10px;
+    right: 30px;
     left: auto;
   } 
   @media screen and (max-width: 991px) {
     right: 100px;  
-    bottom: -35px;
+    bottom: -5px;
     top: auto;
     height: auto;
     left: auto;
@@ -52,10 +59,10 @@ const SliderButtonWrapper = styled.div`
 `;
 
 const SliderButtonWrapperRight = styled(SliderButtonWrapper)`
-  left: -60px;
+  left: -40px;
   right: auto;
   @media screen and (max-width: 1300px) {
-    left: 10px;
+    left: 30px;
     right: auto;
   } 
   @media screen and (max-width: 991px) {
@@ -74,23 +81,18 @@ const SliderButtonWrapperRight = styled(SliderButtonWrapper)`
 const SliderControlsWrapper = styled.div`
   @media screen and (max-width: 767px) {
     width: 100%;
-    bottom: -35px;
+    bottom: -5px;
     left: 0;
     position: absolute;
     display: flex; 
     justify-content: center; 
   }   
+  @media screen and (max-width: 600px) {
+    bottom: -35px;
+  }   
 `;
 
 export default class Catalog extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      index: 0,
-    };
-  }
-
   handleOpenModal = (index) => {
     const {
       constructorContainer: {
@@ -111,53 +113,55 @@ export default class Catalog extends Component {
     openModal('order', 10);
   }
 
-  changeActiveItem = (dif) => {
-    const {
-      index,
-    } = this.state;
-    if (index + dif >= 0 && index + dif < ItemsList.length) this.setState({ index: index + dif });
+  initReactSwipe = (el) => {
+    this.reactSwipe = el;
+  }
+
+  prevPage = () => {
+    this.reactSwipe.prev();
+  }
+
+  nextPage = () => {
+    this.reactSwipe.next();
   }
 
   render() {
-    const {
-      index,
-    } = this.state;
     return (
       <Wrapper>
         <Element name="catalog" />
-        <Grid>
-          <SliderWrapper>
-            <Row>
-              {/* <CSSTransition
-                timeout={500}
-                classNames="item"
-                onEnter={() => console.log('enter')}
-                onExited={() => console.log('exit')}
-              > */}
-              <Col lgOffset={3} lg={9} xs={12} key={ItemsList[index].name}>
-                <Item
-                  name={ItemsList[index].name}
-                  price={ItemsList[index].price}
-                  text={ItemsList[index].text}
-                  handler={this.handleOpenModal}
-                  index={index}
-                />
-                <Gallery
-                  images={ItemsList[index].img}
-                />
-              </Col>
-              {/* </CSSTransition> */}
-            </Row>
-            <SliderControlsWrapper>
-              <SliderButtonWrapperRight>
-                <Arrow right handler={this.changeActiveItem} />
-              </SliderButtonWrapperRight>
-              <SliderButtonWrapper>
-                <Arrow handler={this.changeActiveItem} />
-              </SliderButtonWrapper>
-            </SliderControlsWrapper>
-          </SliderWrapper>
-        </Grid>
+        <NoPaddingGrid>
+          <ReactSwipe
+            swipeOptions={{ continuous: false }}
+            ref={el => this.initReactSwipe(el)}
+          >
+            {ItemsList.map((item, index) => (
+              <Grid key={item.name}>
+                <PaddingRow>
+                  <Col lgOffset={3} lg={9} xs={12}>
+                    <Item
+                      name={item.name}
+                      price={item.price}
+                      text={item.text}
+                      handler={this.handleOpenModal}
+                      index={index}
+                    />
+                    <Gallery
+                      images={item.img}
+                    />
+                  </Col>
+                </PaddingRow>
+              </Grid>
+            ))}
+          </ReactSwipe>
+          <SliderControlsWrapper>
+            <SliderButtonWrapperRight>
+              <Arrow right handler={this.prevPage} />
+            </SliderButtonWrapperRight>
+            <SliderButtonWrapper>
+              <Arrow handler={this.nextPage} />
+            </SliderButtonWrapper>
+          </SliderControlsWrapper>
+        </NoPaddingGrid>
       </Wrapper>
     );
   }

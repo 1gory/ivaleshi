@@ -11,11 +11,14 @@ const GalleryWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   z-index: 10;
+  @media screen and (max-width: 1300px) {
+    left: 100px;
+  }
   @media screen and (max-width: 991px) {
     height: auto;
     width: 100%;
     left: 0;
-    top: -80px;
+    top: 10px;
   }
 `;
 
@@ -28,8 +31,12 @@ const GalleryContent = styled.div`
   z-index: 10;
   border: 30px solid white;
   background: white;
+  @media screen and (max-width: 1200px) {
+    width: 350px;
+  }
   @media screen and (max-width: 991px) {
     border: none;
+    width: 400px;
   }
   @media screen and (max-width: 600px) {
     width: 280px;
@@ -55,6 +62,12 @@ const Thumbnail = styled.img`
   width: 130px;
   object-fit: cover;
   opacity: ${({ active }) => (active ? '1' : '0.5')}; 
+  @media screen and (max-width: 1200px) {
+    width: 110px;
+  }
+  @media screen and (max-width: 991px) {
+    width: 130px;
+  }
   @media screen and (max-width: 600px) {
     width: 90px;
     height: 50px;
