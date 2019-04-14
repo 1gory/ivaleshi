@@ -113,6 +113,10 @@ export default class Catalog extends Component {
     openModal('order', 10);
   }
 
+  initReactSwipe = (el) => {
+    this.reactSwipe = el;
+  }
+
   prevPage = () => {
     this.reactSwipe.prev();
   }
@@ -128,7 +132,7 @@ export default class Catalog extends Component {
         <NoPaddingGrid>
           <ReactSwipe
             swipeOptions={{ continuous: false }}
-            ref={el => (this.reactSwipe = el)}
+            ref={el => this.initReactSwipe(el)}
           >
             {ItemsList.map((item, index) => (
               <Grid key={item.name}>

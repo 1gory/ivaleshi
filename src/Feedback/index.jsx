@@ -72,6 +72,10 @@ export default class Feedback extends Component {
     if (index + dif >= 0 && index + dif < ItemsList.length) this.setState({ index: index + dif });
   }
 
+  initReactSwipe = (el) => {
+    this.reactSwipe = el;
+  }
+
   prevPage = () => {
     this.reactSwipe.prev();
   }
@@ -88,7 +92,7 @@ export default class Feedback extends Component {
           <Header>Отзывы</Header>
           <ReactSwipe
             swipeOptions={{ continuous: false }}
-            ref={el => (this.reactSwipe = el)}
+            ref={el => this.initReactSwipe(el)}
           >
             {ItemsList.map(item => (
               <Grid key={item.name}>
