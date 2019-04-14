@@ -131,7 +131,7 @@ export default class Catalog extends Component {
             ref={el => (this.reactSwipe = el)}
           >
             {ItemsList.map((item, index) => (
-              <Grid key={ItemsList[index].name}>
+              <Grid key={item.name}>
                 <PaddingRow>
                   <Col lgOffset={3} lg={9} xs={12}>
                     <Item
