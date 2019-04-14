@@ -65,14 +65,6 @@ const Header = styled.h2`
 `;
 
 export default class Feedback extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      index: 0,
-    };
-  }
-
   changeActiveItem = (dif) => {
     const {
       index,
@@ -89,34 +81,9 @@ export default class Feedback extends Component {
   }
 
   render() {
-    const {
-      index,
-    } = this.state;
-
     return (
       <Wrapper>
         <Element name="feedback" />
-        {/* <Grid>
-          <SliderWrapper>
-            <Header>Отзывы</Header>
-            <Row>
-              <Col mdOffset={1} md={10} xs={12} key={ItemsList[index].name + ItemsList[index].city}>
-                <Item
-                  name={ItemsList[index].name}
-                  city={ItemsList[index].city}
-                  date={ItemsList[index].date}
-                  text={ItemsList[index].text}
-                  link={ItemsList[index].link}
-                  img={ItemsList[index].img}
-                />
-              </Col>
-            </Row>
-            <SliderButtonWrapper>
-              <Arrow right handler={this.changeActiveItem} />
-              <Arrow handler={this.changeActiveItem} />
-            </SliderButtonWrapper>
-          </SliderWrapper>
-        </Grid> */}
         <NoPaddingGrid>
           <Header>Отзывы</Header>
           <ReactSwipe
