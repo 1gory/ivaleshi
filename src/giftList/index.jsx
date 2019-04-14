@@ -1,20 +1,23 @@
-import img from './img.png';
+import gloves from './images/gloves.jpg';
+import hat from './images/hat.jpg';
+import socks from './images/socks.jpg';
+import spray from './images/spray.jpg';
 
 export default [
   {
     name: 'Средство по уходу',
-    img: img,
+    img: spray,
   },
   {
     name: 'Перчатки',
-    img: img,
+    img: gloves,
   },
   {
     name: 'Шерстяные носки',
-    img: img,
+    img: socks,
   },
   {
     name: 'Шапка',
-    img: img,
+    img: hat,
   },
 ];

@@ -9,7 +9,8 @@ const Wrap = styled.div`
   }
   @keyframes blink {
     0% {opacity: 0}
-    97% {opacity: 0}
+    70% {opacity: 0}
+    71% {opacity: 1}
     100% {opacity: 1}
   }
 ${
@@ -27,6 +28,7 @@ ${
          margin-bottom: -120px;
          width: 50px;
          height: 100px;
+         display: block;
          opacity: 0;
          background-image: url(${selected});
          background-repeat: no-repeat;
@@ -40,7 +42,7 @@ ${
        `);
     }
 
-    return true;
+    return false;
   }
 }
 ${
@@ -62,12 +64,13 @@ ${
         background-repeat: no-repeat;
         background-size: contain;
         display: block;
+        opacity: 1;
         }
         `
       );
     }
 
-    return true;
+    return false;
   }
 }
 `;
@@ -100,9 +103,11 @@ export default class extends Component {
 
   componentDidUpdate = () => {
     const { duration, animationActive } = this.props;
-    const { isAnimationActive } = this.state;
+    const { isAnimationActive, period } = this.state;
     const halfOfDuration = duration / 2;
+    const periodsInHalfOfAnimation = Math.floor(halfOfDuration / period) * period;
     const fourthOfDuration = halfOfDuration + duration / 4;
+    const periodsInFourthOfAnimation = Math.floor(fourthOfDuration / period * 2) * (period * 2);
 
     if (animationActive && !isAnimationActive) {
       setTimeout(() => {
@@ -110,12 +115,12 @@ export default class extends Component {
           stageOfAnimation: 2,
           isAnimationActive: true,
         });
-      }, halfOfDuration);
+      }, periodsInHalfOfAnimation);
       setTimeout(() => {
         this.setState({
           stageOfAnimation: 3,
         });
-      }, fourthOfDuration);
+      }, periodsInFourthOfAnimation);
       setTimeout(() => {
         this.setState({
           stageOfAnimation: 1,
