@@ -36,9 +36,11 @@ const Header = styled.h2`
   font-family: 'Museo-Regular', sans-serif;
   text-transform: uppercase;
   text-align: center;
+  @media screen and (max-width: 1200px) {
+    font-size: 36px;
+  }
   @media screen and (max-width: 767px) {
     text-align: left;
-    font-size: 36px;
   }
 `;
 

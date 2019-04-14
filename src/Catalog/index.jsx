@@ -81,23 +81,18 @@ const SliderButtonWrapperRight = styled(SliderButtonWrapper)`
 const SliderControlsWrapper = styled.div`
   @media screen and (max-width: 767px) {
     width: 100%;
-    bottom: -35px;
+    bottom: -5px;
     left: 0;
     position: absolute;
     display: flex; 
     justify-content: center; 
   }   
+  @media screen and (max-width: 600px) {
+    bottom: -35px;
+  }   
 `;
 
 export default class Catalog extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      index: 0,
-    };
-  }
-
   handleOpenModal = (index) => {
     const {
       constructorContainer: {
@@ -116,13 +111,6 @@ export default class Catalog extends Component {
       ItemsList[index].name,
     );
     openModal('order', 10);
-  }
-
-  changeActiveItem = (dif) => {
-    const {
-      index,
-    } = this.state;
-    if (index + dif >= 0 && index + dif < ItemsList.length) this.setState({ index: index + dif });
   }
 
   prevPage = () => {
