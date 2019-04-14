@@ -6,8 +6,8 @@ import {
   PaddingCol as Col,
 } from '../grid';
 import bg from './bg.jpg';
-import videoPreview from './bg.png';
-import playIcon from './icon.svg';
+import videoPreview from './videoPreview.png';
+import playIcon from './play-icon.svg';
 
 const Background = styled.header`
   padding-bottom: 560px;

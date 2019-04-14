@@ -39,7 +39,7 @@ export default [
   ['green', green],
   ['mediumorchid', lightLilac],
   ['darkkhaki', mustard],
-  ['black', naturalBlack],
+  ['natblack', naturalBlack],
   ['orange', orange],
   ['pink', pink],
   ['purple', purple],

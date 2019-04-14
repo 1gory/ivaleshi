@@ -16,6 +16,12 @@ const CalcSection = styled.div`
   margin-bottom: 45px;    
 `;
 
+const Dropdown = styled.div`
+  @media screen and (max-width: 991px) {
+    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')}; 
+  }    
+`;
+
 const Header = styled.div`
   margin-bottom: 35px;   
   font-size: 14px;
@@ -108,6 +114,18 @@ const SizeLink = styled.div`
 `;
 
 export default class Constructor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dropdownOpen: [
+        true,
+        true,
+        true,
+      ],
+    };
+  }
+
   handleSelectFootSizeChange = (e) => {
     const {
       target: {
@@ -120,6 +138,15 @@ export default class Constructor extends Component {
       },
     } = this.props;
     changeFootSize(value);
+  }
+
+  toggleDropdown = (index) => {
+    const {
+      dropdownOpen,
+    } = this.state;
+    const temp = dropdownOpen;
+    temp[index] = !dropdownOpen[index];
+    this.setState({ dropdownOpen: temp });
   }
 
   render() {
@@ -141,42 +168,51 @@ export default class Constructor extends Component {
       toggleStage,
     } = this.props;
 
+    const {
+      dropdownOpen,
+    } = this.state;
     return (
       <Wrapper display={display}>
         <CalcSection>
-          <Header>
+          <Header onClick={() => this.toggleDropdown(0)}>
             Цвет валешей
             <HeaderIcon src={headerIcon} />
           </Header>
-          <Colors
-            set={colorSetMain}
-            activeColor={mainColor}
-            main
-            handler={changeMainColor}
-          />
+          <Dropdown isOpen={dropdownOpen[0]}>
+            <Colors
+              set={colorSetMain}
+              activeColor={mainColor}
+              main
+              handler={changeMainColor}
+            />
+          </Dropdown>
         </CalcSection>
         <CalcSection>
-          <Header>
+          <Header onClick={() => this.toggleDropdown(1)}>
             Цвет помпона
             <HeaderIcon src={headerIcon} />
           </Header>
-          <Colors
-            set={colorSetSecondary}
-            activeColor={secondaryColor}
-            main
-            handler={changeSecondaryColor}
-          />
+          <Dropdown isOpen={dropdownOpen[1]}>
+            <Colors
+              set={colorSetSecondary}
+              activeColor={secondaryColor}
+              main
+              handler={changeSecondaryColor}
+            />
+          </Dropdown>
         </CalcSection>
         <CalcSection>
-          <Header>
+          <Header onClick={() => this.toggleDropdown(2)}>
             Дизайн украшения
             <HeaderIcon src={headerIcon} />
           </Header>
-          <Cards
-            list={cardsList}
-            active={jewel}
-            handler={changeJewel}
-          />
+          <Dropdown isOpen={dropdownOpen[2]}>
+            <Cards
+              list={cardsList}
+              active={jewel}
+              handler={changeJewel}
+            />
+          </Dropdown>
         </CalcSection>
         <CalcSection>
           <SizeSelectWrapper>

@@ -16,6 +16,7 @@ import ModalVideo from './ModalVideo';
 import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
 import BookletContainer from './containers/BookletContainer';
+import BottomPhone from './BottomPhone';
 
 export default class extends Component {
   constructor(props) {
@@ -66,6 +67,7 @@ export default class extends Component {
         <Subscribe to={[ModalContainer]}>
           {modalContainer => <ModalVideo modalContainer={modalContainer} />}
         </Subscribe>
+        <BottomPhone />
       </div>
     );
   }
