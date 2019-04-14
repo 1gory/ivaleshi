@@ -1,5 +1,17 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  0% {
+    height: 0;
+  }
+  99% {
+    height: 0;
+  }
+  100% {
+    height: 48px;
+  }
+`;
 
 const Wrapper = styled.div`
   @media screen and (max-width: 991px) {
@@ -11,7 +23,8 @@ const Wrapper = styled.div`
     bottom: 0px;
     background-color: #6aaf0c;
     line-height: 48px;
-    z-index: 998;
+    z-index: 99;
+    animation: ${fadeIn} 3s forwards;
   }
 `;
 
