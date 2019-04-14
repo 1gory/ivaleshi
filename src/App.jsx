@@ -13,8 +13,11 @@ import Feedback from './Feedback';
 import Roulette from './Roulette';
 import Footer from './Footer';
 import Modal from './Modal';
+import ModalVideo from './ModalVideo';
 import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
+import BookletContainer from './containers/BookletContainer';
+import BottomPhone from './BottomPhone';
 
 const breakpoints = {
   mobile: 992,
@@ -30,10 +33,16 @@ export default class extends Component {
     return (
       <div>
         <Navbar />
-        <Header />
+        <Subscribe to={[ModalContainer]}>
+          {modalContainer => <Header modalContainer={modalContainer} />}
+        </Subscribe>
+
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
           {(constructorContainer, modalContainer) => (
-            <Constructor constructorContainer={constructorContainer} modalContainer={modalContainer} />
+            <Constructor
+              constructorContainer={constructorContainer}
+              modalContainer={modalContainer}
+            />
           )}
         </Subscribe>
         <Subscribe to={[ConstructorContainer]}>
@@ -47,20 +56,30 @@ export default class extends Component {
         <Info />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
           {(constructorContainer, modalContainer) => (
-            <Catalog constructorContainer={constructorContainer} modalContainer={modalContainer} />
+            <Catalog
+              constructorContainer={constructorContainer}
+              modalContainer={modalContainer}
+            />
           )}
         </Subscribe>
         <OrderSteps />
         <Feedback />
-        <Booklet />
+        <Subscribe to={[BookletContainer]}>
+          {bookletContainer => <Booklet container={bookletContainer} />}
+        </Subscribe>
         <Footer />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
-        {(constructorContainer, modalContainer) => (
+          {(constructorContainer, modalContainer) => (
             <Modal
-              constructorContainer={constructorContainer} modalContainer={modalContainer}
+              constructorContainer={constructorContainer}
+              modalContainer={modalContainer}
             />
           )}
         </Subscribe>
+        <Subscribe to={[ModalContainer]}>
+          {modalContainer => <ModalVideo modalContainer={modalContainer} />}
+        </Subscribe>
+        <BottomPhone />
       </div>
     );
   }

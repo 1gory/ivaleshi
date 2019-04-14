@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './img.png';
 
@@ -93,7 +96,6 @@ const ButtonWrapper = styled.div`
 const ButtonWhite = styled.button`
   background: white;
   border: none;
-  padding: 11px 15px;
   color: #ff3300;
   text-transform: uppercase;
   margin-right: 30px;
@@ -101,6 +103,10 @@ const ButtonWhite = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  a {
+    display: block;
+    padding: 11px 15px;
+  }
   &:hover {
     background-color: #ff3300;
     color: white;  
@@ -115,13 +121,16 @@ const ButtonWhite = styled.button`
 const Button = styled.button`
   background: none;
   border: none;
-  padding: 11px 15px;
   color: white;
   text-transform: uppercase;
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  a {
+    display: block;
+    padding: 11px 15px;
+  }
   &:hover {
     background-color: white;
     color: #ff3300;  
@@ -134,6 +143,7 @@ const Button = styled.button`
 
 export default () => (
   <Wrapper>
+    <Element name="description" />
     <SideImg src={img} />
     <Grid>
       <Row>
@@ -152,8 +162,36 @@ export default () => (
             </Text>
           </TextWrapper>
           <ButtonWrapper>
-            <ButtonWhite>Подобрать дизайн</ButtonWhite>
-            <Button>буклет по уходу за валешами</Button>
+            <ButtonWhite>
+              <Link
+                to="constructor"
+                spy={false}
+                smooth
+                hashSpy={false}
+                offset={-100}
+                duration={500}
+                delay={50}
+                isDynamic
+                ignoreCancelEvents={false}
+              >
+                Подобрать дизайн
+              </Link>
+            </ButtonWhite>
+            <Button>
+              <Link
+                to="booklet"
+                spy={false}
+                smooth
+                hashSpy={false}
+                offset={-100}
+                duration={500}
+                delay={50}
+                isDynamic
+                ignoreCancelEvents={false}
+              >
+                буклет по уходу за валешами
+              </Link>
+            </Button>
           </ButtonWrapper>
         </Col>
       </Row>

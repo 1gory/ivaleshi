@@ -1,19 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
-import logo from './logo.png';
-import phone from '../icons/phone.png';
-import hamburger from './hamburger.png';
-import socialVK from '../icons/social-vk.svg';
-import socialIG from '../icons/social-ig.svg';
-import socialWA from '../icons/social-wa.svg';
+import logoBlock from './logo-block-white.svg';
+import logoInline from './logo-inline-white.svg';
+import phone from '../icons/phone-white.svg';
+import hamburger from './hamburger.svg';
+// import socialVK from '../icons/social-vk.svg';
+import socialIG from '../icons/social-ig-white.svg';
+import socialWA from '../icons/social-wa-white.svg';
+
+const Wrapper = styled.div`
+  background-color: #ff3300;
+`;
 
 const TopSection = styled.div`
-  padding-top: 30px;
-  margin-bottom: 70px;
+  padding: 25px 0;
   @media screen and (max-width: 991px) {
-    margin-bottom: 20px;
     padding-top: 0px;
+    padding: 15px 0;
   } 
 `;
 
@@ -22,14 +27,49 @@ const LogoWrapper = styled.div`
   align-items: center; 
   width: 100%;
   height: 100%; 
-  justify-content: center;
+  justify-content: spcae-between;
+  @media screen and (max-width: 991px) {
+    align-items: start;
+    flex-direction: column;
+  }
 `;
 
-const Logo = styled.img`
-  height: 128px;
-  object-fit: cover;
+const LogoBlock = styled.img`
+  height: 70px;
   @media screen and (max-width: 991px) {
-    padding-bottom: 30px;
+    display: none;
+  } 
+`;
+
+const LogoInline = styled.img`
+  height: 20px;
+  object-fit: cover;
+  @media screen and (min-width: 992px) {
+    display: none;
+  } 
+`;
+
+const Descriptor = styled.p`
+  margin 0;
+  margin-left: 30px; 
+  font-family: 'MuseoSans-Regular', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  opacity: 0.7;
+  @media screen and (max-width: 991px) {
+    width: 180px;
+    margin-left: 0;
+    font-size: 14px;
+    padding-top: 5px;
+    align-items: start;
+    flex-direction: column;
+  }
+`;
+
+const DesktopBr = styled.br`
+  @media (max-width: 991px) {
+    display: none;
   } 
 `;
 
@@ -38,100 +78,53 @@ const ContactsWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100%;
-  & a:first-child img {
-    margin-right: 15px;
-    background: none;
-    border: none;
-  } 
-  @media screen and (max-width: 991px) {
-    justify-content: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: rgb(249, 248, 248);
-    margin-bottom: 20px;
-  } 
 `;
 
 const ContactLink = styled.a`
-  margin-right: 10px;
+  margin: 0 10px;
   text-decoration: none;
   font-family: 'MuseoSans-Regular', sans-serif;
   font-weight: 600;
-  color: #191619;
-  transition: 0.2s;
-  &:hover {
-    color: #ff3300;  
-  }
+  font-size: 14px;
+  color: #fff;
 `;
 
 const ContactPhone = styled(ContactLink)`
-  margin-right: 30px;
-  @media screen and (max-width: 600px) {
-    margin-right: 10px;
+  margin-left: 20px;
+  white-space: nowrap;
+  @media (max-width: 992px) {
+    display: none;
   } 
 `;
 
 const ContactIcon = styled.img`
-  height: 17px;
-  width: 17px;
+  height: 20px;
+  width: 20px;
   vertical-align: top;
-  background-color: rgb(245, 244, 243);
-  border: 8px solid rgb(245, 244, 243);
 `;
 
-const NavButtonWrapper = styled.div`
+const ContactPhoneIcon = styled(ContactIcon)`
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+  opacity: 0.5;
+`;
+
+const Menu = styled.ul`
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
   height: 100%;
-  @media screen and (max-width: 991px) {
-    justify-content: center;
-  }  
-  @media screen and (max-width: 600px) {
-    padding-left: 20px;
-    padding-right: 20px;
-    width: auto;
-  } 
-`;
-
-const NavButton = styled.button`
-  border: solid 1px #ff3300;
-  background: none;
-  text-transform: uppercase;
-  color: #ff3300;
-  font-family: 'MuseoSans-Regular', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  padding: 20px 30px;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    background-color: #ff3300;
-    color: white;  
-  }
-  @media screen and (max-width: 600px) {
-    width: 100%;
-  } 
-`;
-
-const BottomSection = styled.div`
-  padding-bottom: 50px;
-  @media screen and (max-width: 991px) {
-    display: none
-  } 
-`;
-
-const BottomMenu = styled.ul`
-  width: 340px;
   padding: 0;
   margin: 0 auto;
-  display: flex;
   justify-content: space-between;
+  align-items: center;
   list-style: none;
+  
+  @media screen and (max-width: 991px) {
+    display: none
+  }
 `;
 
-const BottomMenuItem = styled.li`
+const MenuItem = styled.li`
   font-size: 12px;
   text-transform: uppercase;
   a {
@@ -139,108 +132,102 @@ const BottomMenuItem = styled.li`
     letter-spacing: 0.3px;
     font-family: 'MuseoSans-Regular', sans-serif;
     font-weight: 600;
-    color: #191619;
+    color: #fff;
+    cursor: pointer;
     transition: 0.2s;
     &:hover {
-      color: #ff3300;  
+      opacity: 0.6;  
     }
   }
 `;
 
-const ColMobileHide = styled(Col)`
-  @media screen and (max-width: 991px) {
-    display: none
-  }   
-`;
-
-const MobileContacts = styled.div`
-  display: none;
-  @media screen and (max-width: 991px) {
-    display: block;
-  }   
+const MobileMenuWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
 `;
 
 const MobileMenuButton = styled.div`
   display: none;
   font-size: 14px;
-  font-family: 'MuseoSans-Regular', sans-serif;
-  text-transform: uppercase;
-  position: absolute;
-  right: 50px;
-  top: 100px;
-  color: #191616;
-  font-weight: 600;
   @media screen and (max-width: 991px) {
     display: block; 
-  }   
-  @media screen and (max-width: 600px) {
-    right: 20px;
   }  
 `;
 
 const MobileMenuIcon = styled.img`
-  height: 14px; 
+  height: 25px; 
   margin-left: 10px;
   vertical-align: top;
 `;
 
+const MenuLinkItem = ({ to, name }) => (
+  <MenuItem>
+    <Link
+      to={to}
+      spy={false}
+      smooth
+      hashSpy={false}
+      offset={-100}
+      duration={500}
+      delay={50}
+      isDynamic
+      ignoreCancelEvents={false}
+    >
+      {name}
+    </Link>
+  </MenuItem>
+);
+
 export default () => (
-  <nav>
-    <MobileMenuButton>
-      Меню
-      <MobileMenuIcon src={hamburger} />
-    </MobileMenuButton>
-    <MobileContacts>
-      <ContactsWrapper>
-        <ContactPhone href="tel:+8 8888 123-45-67">
-          <ContactIcon src={phone} />
-          +8 8888 123-45-67
-        </ContactPhone>
-        <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-        <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-        <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-      </ContactsWrapper>
-    </MobileContacts>
+  <Wrapper>
     <Grid>
       <TopSection>
         <Row>
-          <ColMobileHide lg={5} xs={12}>
-            <ContactsWrapper>
-              <ContactPhone href="tel:+8 8888 123-45-67">
-                <ContactIcon src={phone} />
-                +8 8888 123-45-67
-              </ContactPhone>
-              <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-              <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-              <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-            </ContactsWrapper>
-          </ColMobileHide>
-          <Col lg={2} xs={12}>
+          <Col lg={3} xs={6}>
             <LogoWrapper>
               <a href="/">
-                <Logo src={logo} />
+                <LogoBlock src={logoBlock} />
+                <LogoInline src={logoInline} />
               </a>
+              <Descriptor>
+                Дизайнерские
+                { ' ' }
+                <DesktopBr />
+                валеши ручной
+                { ' ' }
+                <DesktopBr />
+                работы
+              </Descriptor>
             </LogoWrapper>
           </Col>
-          <Col lg={5} xs={12}>
-            <NavButtonWrapper>
-              <NavButton>Подобрать дизайн</NavButton>
-            </NavButtonWrapper>
+          <Col lg={5} className="hidden-xs hidden-sm hidden-md">
+            <Menu>
+              <MenuLinkItem to="description" name="Преимущества" />
+              <MenuLinkItem to="catalog" name="Каталог" />
+              <MenuLinkItem to="feedback" name="Отзывы" />
+              <MenuLinkItem to="footer" name="Контакты" />
+            </Menu>
+          </Col>
+          <Col xs={6} md={6} lgOffset={1} lg={3}>
+            <MobileMenuWrapper>
+              <ContactsWrapper>
+                {/* <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink> */}
+                <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
+                <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
+                <ContactPhone href="tel:+7 495 123-45-67">
+                  <ContactPhoneIcon src={phone} />
+                  +7 495 123-45-67
+                </ContactPhone>
+              </ContactsWrapper>
+              <MobileMenuButton>
+                <MobileMenuIcon src={hamburger} />
+              </MobileMenuButton>
+            </MobileMenuWrapper>
           </Col>
         </Row>
       </TopSection>
-      <BottomSection>
-        <Row>
-          <Col sm={12}>
-            <BottomMenu>
-              <BottomMenuItem><a href="/">Преимущества</a></BottomMenuItem>
-              <BottomMenuItem><a href="/">Каталог</a></BottomMenuItem>
-              <BottomMenuItem><a href="/">Отзывы</a></BottomMenuItem>
-              <BottomMenuItem><a href="/">Контакты</a></BottomMenuItem>
-            </BottomMenu>
-          </Col>
-        </Row>
-      </BottomSection>
     </Grid>
-  </nav>
+  </Wrapper>
 );

@@ -1,13 +1,13 @@
-import black from './pompons/black.jpg';
-import blue from './pompons/blue.jpg';
-import darkGray from './pompons/dark-gray.jpg';
-import lightBlue from './pompons/light-blue.jpg';
-import lightBrown from './pompons/light-brown.jpg';
-import orange from './pompons/orange.jpg';
-import red from './pompons/red.jpg';
-import turquoise from './pompons/turquoise.jpg';
-import violet from './pompons/violet.jpg';
-import yellow from './pompons/yellow.jpg';
+import black from './icons/pompons/black.jpg';
+import blue from './icons/pompons/blue.jpg';
+import darkGray from './icons/pompons/dark-gray.jpg';
+import lightBlue from './icons/pompons/light-blue.jpg';
+import lightBrown from './icons/pompons/light-brown.jpg';
+import orange from './icons/pompons/orange.jpg';
+import red from './icons/pompons/red.jpg';
+import turquoise from './icons/pompons/turquoise.jpg';
+import violet from './icons/pompons/violet.jpg';
+import yellow from './icons/pompons/yellow.jpg';
 
 export default [
   ['black', black],
