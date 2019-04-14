@@ -12,6 +12,7 @@ import Feedback from './Feedback';
 import Roulette from './Roulette';
 import Footer from './Footer';
 import Modal from './Modal';
+import ModalVideo from './ModalVideo';
 import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
 import BookletContainer from './containers/BookletContainer';
@@ -26,7 +27,10 @@ export default class extends Component {
     return (
       <div>
         <Navbar />
-        <Header />
+        <Subscribe to={[ModalContainer]}>
+          {modalContainer => <Header modalContainer={modalContainer} />}
+        </Subscribe>
+
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
           {(constructorContainer, modalContainer) => (
             <Constructor
@@ -59,6 +63,9 @@ export default class extends Component {
               modalContainer={modalContainer}
             />
           )}
+        </Subscribe>
+        <Subscribe to={[ModalContainer]}>
+          {modalContainer => <ModalVideo modalContainer={modalContainer} />}
         </Subscribe>
         <BottomPhone />
       </div>

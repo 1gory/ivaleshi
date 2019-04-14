@@ -5,6 +5,7 @@ class ModalContainer extends Container {
     modalOpen: false,
     type: 'order',
     size: 8,
+    modalVideo: false,
   };
 
   openModal = (newTypeVal, newSizeVal) => {
@@ -12,12 +13,22 @@ class ModalContainer extends Container {
     this.setState({ type: newTypeVal });
     this.setState({ size: newSizeVal });
     this.setState({ modalOpen: true });
-  }
+  };
+
+  openModalVideo = () => {
+    document.body.classList.add('modal-open');
+    this.setState({ modalVideo: true });
+  };
+
+  closeModalVideo = () => {
+    document.body.classList.remove('modal-open');
+    this.setState({ modalVideo: false });
+  };
 
   closeModal = () => {
     document.body.classList.remove('modal-open');
     this.setState({ modalOpen: false });
-  }
+  };
 }
 
 export default ModalContainer;
