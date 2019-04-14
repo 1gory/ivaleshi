@@ -18,7 +18,7 @@ const GalleryWrapper = styled.div`
     height: auto;
     width: 100%;
     left: 0;
-    top: -80px;
+    top: 10px;
   }
 `;
 

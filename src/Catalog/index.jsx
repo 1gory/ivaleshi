@@ -15,12 +15,19 @@ const Wrapper = styled.section`
   margin-bottom: 230px;
   @media screen and (max-width: 991px) {
     margin-bottom: 80px;
+    margin-top: 60px;
   }
 `;
 
 const NoPaddingGrid = styled(Grid)`
   padding: 0!important;
   position: relative;
+`;
+
+const PaddingRow = styled(Row)`
+  @media screen and (max-width: 991px) {
+    padding-top: 100px;
+  } 
 `;
 
 const SliderButtonWrapper = styled.div`
@@ -137,7 +144,7 @@ export default class Catalog extends Component {
           >
             {ItemsList.map((item, index) => (
               <Grid key={ItemsList[index].name}>
-                <Row>
+                <PaddingRow>
                   <Col lgOffset={3} lg={9} xs={12}>
                     <Item
                       name={item.name}
@@ -150,7 +157,7 @@ export default class Catalog extends Component {
                       images={item.img}
                     />
                   </Col>
-                </Row>
+                </PaddingRow>
               </Grid>
             ))}
           </ReactSwipe>
