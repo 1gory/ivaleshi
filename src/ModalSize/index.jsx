@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import img from './img.png';
+import img from './measure.svg';
 import SizesList from './SizesList';
 
 const Header = styled.h2`
@@ -43,6 +43,7 @@ const ListItem = styled.li`
 
 const Image = styled.img`
   margin-left: 15px;
+  height: 310px;
 `;
 
 const Sizes = styled.div`
