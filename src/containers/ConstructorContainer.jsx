@@ -15,6 +15,7 @@ class ConstructorContainer extends Container {
     nameValid: true,
     phoneValid: true,
     formState: 'main',
+    giftChosen: false,
   };
 
   changeMainColor = (newVal) => {
@@ -34,6 +35,7 @@ class ConstructorContainer extends Container {
   }
 
   changeGift = (newVal) => {
+    this.setGiftChosen();
     this.setState({ gift: newVal });
   }
 
@@ -52,6 +54,10 @@ class ConstructorContainer extends Container {
 
   changeTitle = (newVal) => {
     this.setState({ title: newVal });
+  }
+
+  setGiftChosen = () => {
+    this.setState({ giftChosen: true });
   }
 
   getCatalogItemData = (mainColor, secondaryColor, jewel, price, title) => {

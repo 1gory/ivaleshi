@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Media, withBreakpoints } from 'react-breakpoints';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import cardsList from '../giftList';
 import Card from './Card';
@@ -15,7 +18,7 @@ const Wrapper = styled.div`
 `;
 
 const BorderWrapper = styled.div`   
-  border: solid 6px rgba(255, 51, 0, 0.25);
+  border: solid 6px #ff3300;
   padding-bottom: 40px;
   @media screen and (max-width: 992px) {
     width: 320px;
@@ -226,6 +229,7 @@ class Roulette extends Component {
 
     return (
       <Wrapper>
+        <Element name="roulette" />
         <Grid>
           <BorderWrapper>
             <Header>

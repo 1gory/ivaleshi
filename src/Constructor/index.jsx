@@ -5,17 +5,21 @@ import {
 } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Constructor from './Constructor';
+import Gift from '../Gift';
 import Form from '../Form';
+import giftList from '../giftList';
 import {
   mainImages,
   pompons,
   beads,
   rhinestones,
 } from './imageSets';
+import arrow from './arrow2.svg';
 
 const Wrapper = styled.section`
   padding-top: 110px;   
   padding-bottom: 90px;
+  position: relative;
   @media screen and (max-width: 991px) {
     padding-top: 30px;   
     padding-bottom: 30px;
@@ -42,6 +46,31 @@ const Header = styled.h2`
   @media screen and (max-width: 991px) {
     font-size: 36px;
   } 
+`;
+
+const Back = styled.div`
+  display: ${({ display }) => (!display ? 'block' : 'none')}; 
+  font-size: 14px;
+  color: #ff3300;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  top: 240px;
+  z-index: 20;
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 991px) {
+    top: 140px;
+  }
+`;
+
+const BackIcon = styled.img`
+  height: 20px;
+  transform: rotate(-90deg);
+  vertical-align: bottom;
+  margin-right: 10px;
 `;
 
 const MainImage = styled.img`
@@ -77,6 +106,13 @@ const Jewel = styled.img`
   }
 `;
 
+const GiftWrapper = styled.div`
+  margin-bottom: 50px;
+  display: ${({ display }) => (!display ? 'block' : 'none')}; 
+  @media screen and (max-width: 991px) {
+    margin-top: 20px;
+  }
+`;
 
 export default class CalcSectionComponent extends Component {
   constructor(props) {
@@ -114,8 +150,13 @@ export default class CalcSectionComponent extends Component {
           mainColor,
           secondaryColor,
           jewel,
+          gift,
+          giftChosen,
         },
       },
+      modalContainer: {
+        closeModal,
+      }
     } = this.props;
     const {
       stage1,
@@ -132,6 +173,10 @@ export default class CalcSectionComponent extends Component {
                 <br />
                 свой дизайн
               </Header>
+              <Back display={stage1} onClick={() => this.toggleStage()}>
+                <BackIcon src={arrow} />
+                Назад в конструктор
+              </Back>
               <ImageWrapper>
                 <MainImage src={mainImages[mainColor][1]} />
                 <Pompon src={pompons[secondaryColor][1]} />
@@ -143,6 +188,14 @@ export default class CalcSectionComponent extends Component {
             </Col>
             <Col lg={5} xs={12}>
               <Constructor {...this.props} display={stage1} toggleStage={this.toggleStage} />
+              <GiftWrapper display={stage1}>
+                <Gift
+                  name={giftList[gift].name}
+                  img={giftList[gift].img}
+                  giftChosen={giftChosen}
+                  closeModal={closeModal}
+                />
+              </GiftWrapper>
               <Form
                 nameHandler={changeName}
                 phoneHandler={changePhone}
