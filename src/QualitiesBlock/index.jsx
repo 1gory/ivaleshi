@@ -18,9 +18,9 @@ import arrowLeft from './arrow-left.svg';
 import arrowRight from './arrow-right.svg';
 
 const Wrapper = styled.div`
+  padding: 100px 0 100px 0;
   background: url(${bg}) center center no-repeat;
   background-size: 120% 100%;
-  padding: 100px 0 100px 0;
   @media screen and (max-width: 991px) {
     padding: 0;
     background-size: 150% 71%;
@@ -44,18 +44,16 @@ const QualityWrapper = styled.div`
 const MainImage = styled.img`
   width: 450px;
   @media screen and (max-width: 991px) {
-    flex-direction: column;
     width: 350px;
   }
 `;
 
 const QualityItem = styled.div`
   position: absolute;
+  display: inline-block;
   width: 360px;
   height: 268px;
   text-align: center;
-  display: inline-block;
-  width: 30%;
   @media screen and (max-width: 991px) {
     display: none;
   }
@@ -104,23 +102,23 @@ const QualityItem4 = styled(QualityItem)`
 `;
 
 const QualityItem5 = styled(QualityItem)`
-  height: 154px;
   bottom: 68px;
   left: 10.22%;
+  height: 154px;
+  padding-top: 100px;
   background: url(${line5}) no-repeat;
   background-position: 66% 4%;
   background-size: 125px 100px;
-  padding-top: 100px;
 `;
 
 const QualityItem6 = styled(QualityItem)`
-  height: 154px;
   bottom: 61px;
   right: 12.67%;
+  height: 154px;
+  padding-top: 100px;
   background: url(${line6}) no-repeat;
   background-position: 24% 8%;
   background-size: 125px 100px;
-  padding-top: 100px;
 `;
 
 const H3 = styled.h3`
@@ -138,7 +136,14 @@ const CarouselWrapper = styled.div`
   }
 `;
 
-const Item = styled.div`
+const Item = ({ header, text }) => (
+  <Items>
+    <H3>{header}</H3>
+    <ItemSpan>{text}</ItemSpan>
+  </Items>
+);
+
+const Items = styled.div`
   text-align: center;
 `;
 
@@ -155,18 +160,18 @@ const ItemSpan = styled.span`
 `;
 
 const ArrowRight = styled.div`
-  width: 8px;
-  height: 14px;
   position: absolute;
   bottom: 200px;
   right: 0;
+  width: 8px;
+  height: 14px;
   background: url(${arrowRight}) no-repeat;
   background-size: cover;
 `;
 
 const ArrowLeft = styled(ArrowRight)`
-  background: url(${arrowLeft}) no-repeat;
   left: 0;
+  background: url(${arrowLeft}) no-repeat;
 `;
 
 const Carousel = () => {
@@ -179,60 +184,48 @@ const Carousel = () => {
         swipeOptions={{ continuous: false }}
         ref={el => (reactSwipeEl = el)}
       >
-        <Item>
-          <H3>Улучшают здоровье</H3>
-          <ItemSpan>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        <Item
+          header="Улучшают здоровье"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </ItemSpan>
-        </Item>
-        <Item>
-          <H3>Цветовая палитра</H3>
-          <ItemSpan>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            consequat."
+        />
+        <Item
+          header="Цветовая палитра"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </ItemSpan>
-        </Item>
-        <Item>
-          <H3>Меховые помпоны</H3>
-          <ItemSpan>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            consequat."
+        />
+        <Item
+          header="Меховые помпоны"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </ItemSpan>
-        </Item>
-        <Item>
-          <H3>Долговечные</H3>
-          <ItemSpan>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            consequat."
+        />
+        <Item
+          header="Долговечные"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </ItemSpan>
-        </Item>
-        <Item>
-          <H3>Ноги дышат, а не потеют</H3>
-          <ItemSpan>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            consequat."
+        />
+        <Item
+          header="Ноги дышат, а не потеют"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </ItemSpan>
-        </Item>
-        <Item>
-          <H3>Подошва EVA</H3>
-          <ItemSpan>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            consequat."
+        />
+        <Item
+          header="Подошва EVA"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-          </ItemSpan>
-        </Item>
+            consequat."
+        />
       </ReactSwipe>
       <ArrowRight onClick={() => reactSwipeEl.next()} />
       <ArrowLeft onClick={() => reactSwipeEl.prev()} />
