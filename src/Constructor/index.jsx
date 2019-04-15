@@ -108,6 +108,7 @@ const Jewel = styled.img`
 
 const GiftWrapper = styled.div`
   margin-bottom: 50px;
+  display: ${({ display }) => (!display ? 'block' : 'none')}; 
   @media screen and (max-width: 991px) {
     margin-top: 20px;
   }
@@ -183,7 +184,7 @@ export default class CalcSectionComponent extends Component {
             </Col>
             <Col lg={5} xs={12}>
               <Constructor {...this.props} display={stage1} toggleStage={this.toggleStage} />
-              <GiftWrapper>
+              <GiftWrapper display={!stage1}>
                 <Gift
                   name={giftList[gift].name}
                   img={giftList[gift].img}
