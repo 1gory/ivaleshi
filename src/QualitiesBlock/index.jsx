@@ -18,12 +18,15 @@ import arrowLeft from './arrow-left.svg';
 import arrowRight from './arrow-right.svg';
 
 const Wrapper = styled.div`
+  background: url(${bg}) center center no-repeat;
+  background-size: 120% 100%;
+`;
+
+const QualityWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(${bg}) center center no-repeat;
-  background-size: 120% 100%;
   height: 1000px;
   font-family: 'MuseoSans-Regular', sans-serif;
   @media screen and (max-width: 991px) {
@@ -32,14 +35,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const MainImage = styled.div`
-  width: 434px;
-  height: 347px;
-  background: url(${mainImage}) no-repeat;
-  background-size: 100% 100%;
+const MainImage = styled.img`
+  width: 450px;
+  height: 400px;
+
   @media screen and (max-width: 991px) {
     flex-direction: column;
-    width: 300px;
+    width: 350px;
   }
 `;
 
@@ -74,7 +76,7 @@ const QualityItem1 = styled(QualityItem)`
 `;
 const QualityItem2 = styled(QualityItem)`
   top: 132px;
-  left: 54.73%;
+  left: 57.73%;
   background: url(${line2}) no-repeat;
   background-position: 38% 92%;
   background-size: 100px 100px;
@@ -230,60 +232,68 @@ const Carousel = () => {
 };
 
 export default () => (
-  <Grid>
-    <Wrapper>
-      <MainImage />
-      <QualityItem1>
-        <H2>Улучшают здоровье</H2>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </span>
-      </QualityItem1>
-      <QualityItem2>
-        <H2>Цветовая палитра</H2>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </span>
-      </QualityItem2>
-      <QualityItem3>
-        <H2>Меховые помпоны</H2>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </span>
-      </QualityItem3>
-      <QualityItem4>
-        <H2>Долговечные</H2>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </span>
-      </QualityItem4>
-      <QualityItem5>
-        <H2>Ноги дышат, а не потеют</H2>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </span>
-      </QualityItem5>
-      <QualityItem6>
-        <H2>Подошва EVA</H2>
-        <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </span>
-      </QualityItem6>
-      <CarouselWrapper>
-        <Carousel />
-      </CarouselWrapper>
-    </Wrapper>
-  </Grid>
+  <Wrapper>
+    <Grid>
+      <QualityWrapper>
+        <MainImage src={mainImage} />
+        <QualityItem1>
+          <H2>Улучшают здоровье</H2>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </span>
+        </QualityItem1>
+        <QualityItem2>
+          <H2>Цветовая палитра</H2>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </span>
+        </QualityItem2>
+        <QualityItem3>
+          <H2>Меховые помпоны</H2>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </span>
+        </QualityItem3>
+        <QualityItem4>
+          <H2>Долговечные</H2>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </span>
+        </QualityItem4>
+        <QualityItem5>
+          <H2>Ноги дышат, а не потеют</H2>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </span>
+        </QualityItem5>
+        <QualityItem6>
+          <H2>Подошва EVA</H2>
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+          </span>
+        </QualityItem6>
+        <CarouselWrapper>
+          <Carousel />
+        </CarouselWrapper>
+      </QualityWrapper>
+    </Grid>
+  </Wrapper>
 );
