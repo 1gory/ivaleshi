@@ -6,6 +6,9 @@ const Wrapper = styled.div`
   padding: 65px 130px 45px 400px;
   background-color: rgba(25, 22, 22, 0.05);
   position: relative;
+  @media screen and (max-width: 991px) {
+    padding: 130px 40px 45px 320px;
+  }
   @media screen and (max-width: 767px) {
     padding: 20px 30px;
   }
@@ -71,6 +74,12 @@ const Thumb = styled.img`
   width: 270px;
   height: 330px;
   object-fit: cover;
+  @media screen and (max-width: 1200px) {
+    left: 20px;
+  }
+  @media screen and (max-width: 992px) {
+    bottom: 20px;
+  }
   @media screen and (max-width: 767px) {
     position: static;
     width: 100%;
