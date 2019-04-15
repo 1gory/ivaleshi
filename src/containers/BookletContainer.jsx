@@ -36,8 +36,21 @@ class BookletContainer extends Container {
   }
 
   sendOrder = () => {
-    // this.setState({ formState: 'success' });
-    this.setState({ formState: 'fail' });
+    const {
+      email,
+    } = this.state;
+    fetch('/api/order', {
+      method: 'post',
+      body: JSON.stringify({
+        email,
+      }),
+    }).then((response) => {
+      if (!response.ok) {
+        this.setState({ formState: 'fail' });
+        throw Error(response.statusText);
+      }
+      this.setState({ formState: 'success' });
+    });
   }
 }
 

@@ -104,8 +104,42 @@ class ConstructorContainer extends Container {
   }
 
   sendOrder = () => {
-    // this.setState({ formState: 'success' });
-    this.setState({ formState: 'fail' });
+    fetch('/api/order', {
+      method: 'post',
+      body: this.composeData(),
+    }).then((response) => {
+      if (!response.ok) {
+        this.setState({ formState: 'fail' });
+        throw Error(response.statusText);
+      }
+      this.setState({ formState: 'success' });
+    });
+  }
+
+  composeData = () => {
+    const data = new FormData();
+
+    const {
+      mainColor,
+      secondaryColor,
+      jewel,
+      footSize,
+      gift,
+      name,
+      phone,
+      price,
+    } = this.state;
+
+    data.append('mainColor', mainColor);
+    data.append('secondaryColor', secondaryColor);
+    data.append('jewel', jewel);
+    data.append('footSize', footSize);
+    data.append('gift', gift);
+    data.append('name', name);
+    data.append('phone', phone);
+    if (price) data.append('price', price);
+
+    return data;
   }
 }
 
