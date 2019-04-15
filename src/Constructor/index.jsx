@@ -184,7 +184,7 @@ export default class CalcSectionComponent extends Component {
             </Col>
             <Col lg={5} xs={12}>
               <Constructor {...this.props} display={stage1} toggleStage={this.toggleStage} />
-              <GiftWrapper display={!stage1}>
+              <GiftWrapper display={stage1}>
                 <Gift
                   name={giftList[gift].name}
                   img={giftList[gift].img}
