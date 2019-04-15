@@ -5,7 +5,9 @@ import {
 } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Constructor from './Constructor';
+import Gift from '../Gift';
 import Form from '../Form';
+import giftList from '../giftList';
 import {
   mainImages,
   pompons,
@@ -104,6 +106,12 @@ const Jewel = styled.img`
   }
 `;
 
+const GiftWrapper = styled.div`
+  margin-bottom: 50px;
+  @media screen and (max-width: 991px) {
+    margin-top: 20px;
+  }
+`;
 
 export default class CalcSectionComponent extends Component {
   constructor(props) {
@@ -141,6 +149,7 @@ export default class CalcSectionComponent extends Component {
           mainColor,
           secondaryColor,
           jewel,
+          gift,
         },
       },
     } = this.props;
@@ -174,6 +183,12 @@ export default class CalcSectionComponent extends Component {
             </Col>
             <Col lg={5} xs={12}>
               <Constructor {...this.props} display={stage1} toggleStage={this.toggleStage} />
+              <GiftWrapper>
+                <Gift
+                  name={giftList[gift].name}
+                  img={giftList[gift].img}
+                />
+              </GiftWrapper>
               <Form
                 nameHandler={changeName}
                 phoneHandler={changePhone}

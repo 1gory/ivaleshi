@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const BorderWrapper = styled.div`   
-  border: solid 6px rgba(255, 51, 0, 0.25);
+  border: solid 6px #ff3300;
   padding-bottom: 40px;
   @media screen and (max-width: 992px) {
     width: 320px;

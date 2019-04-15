@@ -4,6 +4,7 @@ import Form from '../Form';
 import img from './img.png';
 import SizesList from './SizesList';
 import giftList from '../giftList';
+import Gift from '../Gift';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -125,38 +126,13 @@ const FormWrapper = styled.div`
   } 
 `;
 
-const Gift = styled.div`
+const GiftWrapper = styled.div`
   width: 40%;
-  border: solid 6px rgba(255,51,0,0.25);
-  text-align: center;
   @media screen and (max-width: 991px) {
     width: 100%;
-    border: none;
-    outline: solid 6px rgba(255,51,0,0.25);
   }
 `;
 
-const GiftHeader = styled.div`
-  color: rgb(30, 34, 41);
-  font-family: 'Museo-Regular', sans-serif;
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin: 40px 0px;
-`;
-
-const GiftText = styled.div`
-  color: rgb(30, 34, 41);
-  font-family: 'Museo-Regular', sans-serif;
-  font-size: 16px;
-  margin: 40px 0px;
-`;
-
-const GiftImg = styled.img`
-  max-width: 200px;
-  height: 200px;
-  object-fit: cover;
-`;
 export default ({
   visible,
   gift,
@@ -208,11 +184,17 @@ export default ({
           setDefaultFormState={setDefaultFormState}
         />
       </FormWrapper>
-      <Gift>
+      {/* <Gift>
         <GiftHeader>{giftList[gift].name}</GiftHeader>
         <GiftImg src={giftList[gift].img} />
         <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>
-      </Gift>
+      </Gift> */}
+      <GiftWrapper>
+        <Gift
+          name={giftList[gift].name}
+          img={giftList[gift].img}
+        />
+      </GiftWrapper>
     </BottomWrapper>
   </Wrapper>
 );
