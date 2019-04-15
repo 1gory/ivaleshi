@@ -147,10 +147,10 @@ export default ({ modalContainer: { openModalVideo } }) => (
                   <Preview src={videoPreview} />
                 </PreviewWrapper>
                 <Description>
-                  Посмотрите, как валенки заботяться
+                  Посмотрите, как валенки заботятся
                   <br />
-о вашем здоровье
-</Description>
+                  о вашем здоровье
+                </Description>
               </VideoWrapper>
             </PositionWrapper>
           </Col>
