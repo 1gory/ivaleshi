@@ -20,6 +20,7 @@ import arrowRight from './arrow-right.svg';
 const Wrapper = styled.div`
   background: url(${bg}) center center no-repeat;
   background-size: 120% 100%;
+  padding: 100px 0 100px 0;
 `;
 
 const QualityWrapper = styled.div`
@@ -37,7 +38,6 @@ const QualityWrapper = styled.div`
 
 const MainImage = styled.img`
   width: 450px;
-  height: 400px;
 
   @media screen and (max-width: 991px) {
     flex-direction: column;
