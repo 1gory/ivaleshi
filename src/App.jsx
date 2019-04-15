@@ -18,6 +18,7 @@ import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
 import BookletContainer from './containers/BookletContainer';
 import BottomPhone from './BottomPhone';
+import QualitiesBlock from './QualitiesBlock';
 
 const breakpoints = {
   mobile: 992,
@@ -46,7 +47,7 @@ export default class extends Component {
           )}
         </Subscribe>
         <Subscribe to={[ConstructorContainer]}>
-          {(constructorContainer) => (
+          {constructorContainer => (
             <ReactBreakpoints breakpoints={breakpoints}>
               <Roulette constructorContainer={constructorContainer} />
             </ReactBreakpoints>
@@ -54,6 +55,7 @@ export default class extends Component {
         </Subscribe>
         <Description />
         <Info />
+        <QualitiesBlock />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
           {(constructorContainer, modalContainer) => (
             <Catalog
