@@ -36,6 +36,6 @@ const Phone = styled.a`
 
 export default () => (
   <Wrapper>
-    <Phone href="tel:+8 8888 123-45-67">+8 8888 123-45-67</Phone>
+    <Phone href="tel:+7 (999) 999-56-55">+7 (999) 999-56-55</Phone>
   </Wrapper>
 );

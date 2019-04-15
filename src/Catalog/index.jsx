@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Element } from 'react-scroll';
 import ReactSwipe from 'react-swipe';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';
@@ -111,19 +109,19 @@ export default class Catalog extends Component {
       ItemsList[index].name,
     );
     openModal('order', 10);
-  }
+  };
 
   initReactSwipe = (el) => {
     this.reactSwipe = el;
-  }
+  };
 
   prevPage = () => {
     this.reactSwipe.prev();
-  }
+  };
 
   nextPage = () => {
     this.reactSwipe.next();
-  }
+  };
 
   render() {
     return (

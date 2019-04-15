@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Element } from 'react-scroll';
 import ReactSwipe from 'react-swipe';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Item from './Item';

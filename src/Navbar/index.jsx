@@ -214,11 +214,15 @@ export default () => (
             <MobileMenuWrapper>
               <ContactsWrapper>
                 {/* <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink> */}
-                <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-                <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-                <ContactPhone href="tel:+7 495 123-45-67">
+                <ContactLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
+                  <ContactIcon src={socialIG} />
+                </ContactLink>
+                <ContactLink href="https://api.whatsapp.com/send?phone=79999995655" target="_blank">
+                  <ContactIcon src={socialWA} />
+                </ContactLink>
+                <ContactPhone href="tel:+7 (999) 999-56-55">
                   <ContactPhoneIcon src={phone} />
-                  +7 495 123-45-67
+                  +7 (999) 999-56-55
                 </ContactPhone>
               </ContactsWrapper>
               <MobileMenuButton>

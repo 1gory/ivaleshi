@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Link, Element } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Map from './Map';
-import socialVK from '../icons/social-vk.svg';
+// import socialVK from '../icons/social-vk.svg';
 import socialIG from '../icons/social-ig.svg';
 import socialWA from '../icons/social-wa.svg';
 
@@ -235,11 +233,15 @@ export default () => (
         </Col>
         <Col lg={7} xs={12}>
           <ContactsWrapper>
-            <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink>
-            <ContactLink href="/"><ContactIcon src={socialIG} /></ContactLink>
-            <ContactLink href="/"><ContactIcon src={socialWA} /></ContactLink>
-            <ContactPhone href="tel:+8 8888 123-45-67">
-              +8 8888 123-45-67
+            {/* <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink> */}
+            <ContactLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
+              <ContactIcon src={socialIG} />
+            </ContactLink>
+            <ContactLink href="https://api.whatsapp.com/send?phone=79999995655" target="_blank">
+              <ContactIcon src={socialWA} />
+            </ContactLink>
+            <ContactPhone href="tel:+7 (999) 999-56-55">
+              +7 (999) 999-56-55
             </ContactPhone>
           </ContactsWrapper>
         </Col>
@@ -247,7 +249,7 @@ export default () => (
     </Grid>
     <MapOverlayWrapper>
       <MapOverlay>
-        Москва, ул. Строителей, Торговый дом, бутик 12
+        Москва, 3-й Михалковский пер. д.20 к.1
       </MapOverlay>
     </MapOverlayWrapper>
     <Map

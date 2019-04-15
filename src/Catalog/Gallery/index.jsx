@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const GalleryWrapper = styled.div`
@@ -61,7 +61,8 @@ const Thumbnail = styled.img`
   height: 75px;
   width: 130px;
   object-fit: cover;
-  opacity: ${({ active }) => (active ? '1' : '0.5')}; 
+  opacity: ${({ active }) => (active ? '1' : '0.5')};
+  cursor: pointer;
   @media screen and (max-width: 1200px) {
     width: 110px;
   }
@@ -77,15 +78,40 @@ const Thumbnail = styled.img`
   }
 `;
 
-export default ({ images }) => (
-  <GalleryWrapper>
-    <GalleryContent>
-      <ActiveImage src={images[1]} alt="" />
-      <Thumbnails>
-        {images.map((image, i) => (
-          <Thumbnail src={image} active={i === 1} key={i} />
-        ))}
-      </Thumbnails>
-    </GalleryContent>
-  </GalleryWrapper>
-);
+export default class extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeImageIndex: 0,
+    };
+  }
+
+  handleClick = (i) => {
+    this.setState({
+      activeImageIndex: i,
+    });
+  };
+
+  render() {
+    const { images } = this.props;
+    const { activeImageIndex } = this.state;
+    return (
+      <GalleryWrapper>
+        <GalleryContent>
+          <ActiveImage src={images[activeImageIndex]} alt="" />
+          <Thumbnails>
+            {images.map((image, i) => (
+              <Thumbnail
+                onClick={() => (this.handleClick(i))}
+                src={image}
+                active={i === activeImageIndex}
+                key={image}
+              />
+            ))}
+          </Thumbnails>
+        </GalleryContent>
+      </GalleryWrapper>
+    );
+  }
+}

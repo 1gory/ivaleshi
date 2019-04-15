@@ -6,12 +6,12 @@ export default ({ width, height }) => (
   <YMaps>
     <div>
       <Map
-        defaultState={{ center: [55.75, 37.57], zoom: 9 }}
+        defaultState={{ center: [55.836780, 37.525768], zoom: 14 }}
         width={width}
         height={height}
       >
         <Placemark
-          defaultGeometry={[55.75, 37.57]}
+          defaultGeometry={[55.836780, 37.525768]}
           options={{
             iconLayout: 'default#image',
             iconImageHref: marker,

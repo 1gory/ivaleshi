@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Link, Element } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './img.png';
 
@@ -153,7 +151,7 @@ export default () => (
               Валеши — это современный взгляд на традиционную обувь
             </Header>
             <Text>
-              Натуральный 100% войлок согреет даже при температуре -40 градусов.
+              Натуральный 100% войлок согреет даже при температуре -30 градусов.
               Нескользящая подошва EVA придаст спокойствия на замерзших тротуарах.
               Помпоны из натурального меха енота, песца, норки.
               Оригинальные аксессуары, которые отбирают наши дизайнеры.

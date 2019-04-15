@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Element } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import img from './booklet.png';
 import success from './success.svg';
@@ -180,8 +178,18 @@ export default class Booklet extends Component {
           <ImageWrapper>
             <Row>
               <Col lgOffset={5} lg={7} xs={12}>
-                <Header>Бесплатный буклет по уходу <DesktopBr />за валешами</Header>
-                <Text>Введи свой Email чтобы получить бесплатный <DesktopBr />буклет на почту. Никакого спама.</Text>
+                <Header>
+                  Бесплатный буклет по уходу
+                  {' '}
+                  <DesktopBr />
+                  за валешами
+                </Header>
+                <Text>
+                  Введи свой Email, чтобы получить бесплатный
+                  {' '}
+                  <DesktopBr />
+                  буклет на почту. Никакого спама.
+                </Text>
                 <EmailWrapper active={formState === 'main'}>
                   <EmailInput placeholder="Email" onChange={this.handleEmailChange} valid={emailValid} />
                   <EmailButton onClick={() => validateEmail()}>Отправить</EmailButton>

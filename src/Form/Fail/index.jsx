@@ -67,7 +67,7 @@ export default class Fail extends Component {
           <br />
           Оформите заказ по телефону
           <br />
-          +8 (8888) 123-45-67
+          +7 (999) 999-56-55
         </Text>
         <Button onClick={() => setDefaultFormState()}>Назад</Button>
       </Wrapper>
