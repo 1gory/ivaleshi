@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Subscribe } from 'unstated';
+import ReactBreakpoints from 'react-breakpoints';
 import Description from './Description';
 import Constructor from './Constructor';
 import Info from './Info';
@@ -17,6 +18,11 @@ import ConstructorContainer from './containers/ConstructorContainer';
 import ModalContainer from './containers/ModalContainer';
 import BookletContainer from './containers/BookletContainer';
 import BottomPhone from './BottomPhone';
+
+const breakpoints = {
+  mobile: 992,
+  desktop: 993,
+};
 
 export default class extends Component {
   constructor(props) {
@@ -39,7 +45,13 @@ export default class extends Component {
             />
           )}
         </Subscribe>
-        <Roulette />
+        <Subscribe to={[ConstructorContainer]}>
+          {(constructorContainer) => (
+            <ReactBreakpoints breakpoints={breakpoints}>
+              <Roulette constructorContainer={constructorContainer} />
+            </ReactBreakpoints>
+          )}
+        </Subscribe>
         <Description />
         <Info />
         <Subscribe to={[ConstructorContainer, ModalContainer]}>
