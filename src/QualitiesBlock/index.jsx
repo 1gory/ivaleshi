@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactSwipe from 'react-swipe';
+import MobileQualityItem from './MobileQualityItem';
 import mainImage from './mainImg.png';
 import bg from './bg.svg';
 import line1 from './line-1.svg';
@@ -9,11 +10,7 @@ import line3 from './line-3.svg';
 import line4 from './line-4.svg';
 import line5 from './line-5.svg';
 import line6 from './line-6.svg';
-import {
-  PaddingGrid as Grid,
-  PaddingRow as Row,
-  PaddingCol as Col,
-} from '../grid';
+import { PaddingGrid as Grid } from '../grid';
 import arrowLeft from './arrow-left.svg';
 import arrowRight from './arrow-right.svg';
 
@@ -59,7 +56,7 @@ const QualityItem = styled.div`
   }
 `;
 
-const QualitySpan = styled.span`
+const QualityDescription = styled.span`
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -121,7 +118,7 @@ const QualityItem6 = styled(QualityItem)`
   background-size: 125px 100px;
 `;
 
-const H3 = styled.h3`
+const QualityHeader = styled.h3`
   text-align: center;
   font-size: 18px;
   font-weight: bold;
@@ -134,29 +131,6 @@ const CarouselWrapper = styled.div`
   @media screen and (max-width: 991px) {
     display: block;
   }
-`;
-
-const Item = ({ header, text }) => (
-  <Items>
-    <H3>{header}</H3>
-    <ItemSpan>{text}</ItemSpan>
-  </Items>
-);
-
-const Items = styled.div`
-  text-align: center;
-`;
-
-const ItemSpan = styled.span`
-  display: inline-block;
-  width: 84%;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.57;
-  letter-spacing: normal;
-  color: rgba(25, 22, 25, 0.7);
 `;
 
 const ArrowRight = styled.div`
@@ -184,48 +158,60 @@ const Carousel = () => {
         swipeOptions={{ continuous: false }}
         ref={el => (reactSwipeEl = el)}
       >
-        <Item
-          header="Улучшают здоровье"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        <div>
+          <MobileQualityItem
+            header="Улучшают здоровье"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat."
-        />
-        <Item
-          header="Цветовая палитра"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          />
+        </div>
+        <div>
+          <MobileQualityItem
+            header="Цветовая палитра"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat."
-        />
-        <Item
-          header="Меховые помпоны"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          />
+        </div>
+        <div>
+          <MobileQualityItem
+            header="Меховые помпоны"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat."
-        />
-        <Item
-          header="Долговечные"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          />
+        </div>
+        <div>
+          <MobileQualityItem
+            header="Долговечные"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat."
-        />
-        <Item
-          header="Ноги дышат, а не потеют"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          />
+        </div>
+        <div>
+          <MobileQualityItem
+            header="Ноги дышат, а не потеют"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat."
-        />
-        <Item
-          header="Подошва EVA"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          />
+        </div>
+        <div>
+          <MobileQualityItem
+            header="Подошва EVA"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat."
-        />
+          />
+        </div>
       </ReactSwipe>
       <ArrowRight onClick={() => reactSwipeEl.next()} />
       <ArrowLeft onClick={() => reactSwipeEl.prev()} />
@@ -239,58 +225,58 @@ export default () => (
       <QualityWrapper>
         <MainImage src={mainImage} />
         <QualityItem1>
-          <H3>Улучшают здоровье</H3>
-          <QualitySpan>
+          <QualityHeader>Улучшают здоровье</QualityHeader>
+          <QualityDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.
-          </QualitySpan>
+          </QualityDescription>
         </QualityItem1>
         <QualityItem2>
-          <H3>Цветовая палитра</H3>
-          <QualitySpan>
+          <QualityHeader>Цветовая палитра</QualityHeader>
+          <QualityDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.
-          </QualitySpan>
+          </QualityDescription>
         </QualityItem2>
         <QualityItem3>
-          <H3>Меховые помпоны</H3>
-          <QualitySpan>
+          <QualityHeader>Меховые помпоны</QualityHeader>
+          <QualityDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.
-          </QualitySpan>
+          </QualityDescription>
         </QualityItem3>
         <QualityItem4>
-          <H3>Долговечные</H3>
-          <QualitySpan>
+          <QualityHeader>Долговечные</QualityHeader>
+          <QualityDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.
-          </QualitySpan>
+          </QualityDescription>
         </QualityItem4>
         <QualityItem5>
-          <H3>Ноги дышат, а не потеют</H3>
-          <QualitySpan>
+          <QualityHeader>Ноги дышат, а не потеют</QualityHeader>
+          <QualityDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.
-          </QualitySpan>
+          </QualityDescription>
         </QualityItem5>
         <QualityItem6>
-          <H3>Подошва EVA</H3>
-          <QualitySpan>
+          <QualityHeader>Подошва EVA</QualityHeader>
+          <QualityDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.
-          </QualitySpan>
+          </QualityDescription>
         </QualityItem6>
         <CarouselWrapper>
           <Carousel />
