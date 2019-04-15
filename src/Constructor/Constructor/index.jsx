@@ -13,7 +13,10 @@ const Wrapper = styled.section`
 `;
 
 const CalcSection = styled.div`
-  margin-bottom: 45px;    
+  margin-bottom: 45px;
+  @media screen and (max-width: 991px) {
+    margin-bottom: 0px;
+  }  
 `;
 
 const Dropdown = styled.div`
@@ -23,7 +26,8 @@ const Dropdown = styled.div`
 `;
 
 const Header = styled.div`
-  margin-bottom: 35px;   
+  padding: 10px 0px;
+  margin-bottom: 25px;   
   font-size: 14px;
   font-weight: 600; 
   color: rgb(25, 22, 25);
@@ -36,6 +40,8 @@ const Header = styled.div`
 
 const HeaderIcon = styled.img`
   display: none;
+  transition: 0.1s;
+  transform: ${({ isRotated }) => (isRotated ? 'rotate(180deg)' : 'none')}; 
   @media screen and (max-width: 991px) {
     display: block; 
   } 
@@ -120,8 +126,8 @@ export default class Constructor extends Component {
     this.state = {
       dropdownOpen: [
         true,
-        true,
-        true,
+        false,
+        false,
       ],
     };
   }
@@ -176,7 +182,7 @@ export default class Constructor extends Component {
         <CalcSection>
           <Header onClick={() => this.toggleDropdown(0)}>
             Цвет валешей
-            <HeaderIcon src={headerIcon} />
+            <HeaderIcon src={headerIcon} isRotated={dropdownOpen[0]} />
           </Header>
           <Dropdown isOpen={dropdownOpen[0]}>
             <Colors
@@ -190,7 +196,7 @@ export default class Constructor extends Component {
         <CalcSection>
           <Header onClick={() => this.toggleDropdown(1)}>
             Цвет помпона
-            <HeaderIcon src={headerIcon} />
+            <HeaderIcon src={headerIcon} isRotated={dropdownOpen[1]} />
           </Header>
           <Dropdown isOpen={dropdownOpen[1]}>
             <Colors
@@ -204,7 +210,7 @@ export default class Constructor extends Component {
         <CalcSection>
           <Header onClick={() => this.toggleDropdown(2)}>
             Дизайн украшения
-            <HeaderIcon src={headerIcon} />
+            <HeaderIcon src={headerIcon} isRotated={dropdownOpen[2]} />
           </Header>
           <Dropdown isOpen={dropdownOpen[2]}>
             <Cards
