@@ -147,6 +147,8 @@ export default ({
   formStateHandler,
   setDefaultFormState,
   phoneHandler,
+  giftChosen,
+  closeModal,
 }) => (
   <Wrapper display={visible}>
     <Header>Оформить заказ</Header>
@@ -184,15 +186,13 @@ export default ({
           setDefaultFormState={setDefaultFormState}
         />
       </FormWrapper>
-      {/* <Gift>
-        <GiftHeader>{giftList[gift].name}</GiftHeader>
-        <GiftImg src={giftList[gift].img} />
-        <GiftText>Подарок будет добавлен<br />к вашему заказу</GiftText>
-      </Gift> */}
       <GiftWrapper>
         <Gift
           name={giftList[gift].name}
           img={giftList[gift].img}
+          giftChosen={giftChosen}
+          closeModal={closeModal}
+          closeModalNeeded
         />
       </GiftWrapper>
     </BottomWrapper>

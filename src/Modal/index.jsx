@@ -71,8 +71,13 @@ export default class Modal extends Component {
     const {
       constructorContainer: {
         state: {
- gift, title, price, nameValid, phoneValid, formState 
-},
+          gift,
+          title,
+          price,
+          nameValid,
+          phoneValid,
+          formState,
+        },
         changeName,
         changePhone,
         validateConstructor,
@@ -92,7 +97,6 @@ export default class Modal extends Component {
             <Col mdOffset={(12 - size) / 2} md={size} xs={12}>
               <ContentWrapper>
                 <ModalSize visible={type === 'size'} />
-
                 <ModalOrder
                   visible={type === 'order'}
                   title={title}
@@ -107,6 +111,7 @@ export default class Modal extends Component {
                   validateHandler={validateConstructor}
                   formStateHandler={changeFormState}
                   setDefaultFormState={setDefaultFormState}
+                  closeModal={closeModal}
                 />
                 <CloseButton src={close} onClick={closeModal} />
               </ContentWrapper>

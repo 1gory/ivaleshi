@@ -151,8 +151,12 @@ export default class CalcSectionComponent extends Component {
           secondaryColor,
           jewel,
           gift,
+          giftChosen,
         },
       },
+      modalContainer: {
+        closeModal,
+      }
     } = this.props;
     const {
       stage1,
@@ -188,6 +192,8 @@ export default class CalcSectionComponent extends Component {
                 <Gift
                   name={giftList[gift].name}
                   img={giftList[gift].img}
+                  giftChosen={giftChosen}
+                  closeModal={closeModal}
                 />
               </GiftWrapper>
               <Form
