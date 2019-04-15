@@ -70,7 +70,7 @@ export default ({
       </Text>
       <Button>
         <Link
-          to={'constructor'}
+          to={'roulette'}
           spy={false}
           smooth
           hashSpy={false}

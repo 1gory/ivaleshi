@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Media, withBreakpoints } from 'react-breakpoints';
+import {
+  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
+} from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import cardsList from '../giftList';
 import Card from './Card';
@@ -226,6 +229,7 @@ class Roulette extends Component {
 
     return (
       <Wrapper>
+        <Element name="roulette" />
         <Grid>
           <BorderWrapper>
             <Header>
