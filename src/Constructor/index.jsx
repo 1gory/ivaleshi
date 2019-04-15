@@ -12,10 +12,12 @@ import {
   beads,
   rhinestones,
 } from './imageSets';
+import arrow from './arrow2.svg';
 
 const Wrapper = styled.section`
   padding-top: 110px;   
   padding-bottom: 90px;
+  position: relative;
   @media screen and (max-width: 991px) {
     padding-top: 30px;   
     padding-bottom: 30px;
@@ -42,6 +44,31 @@ const Header = styled.h2`
   @media screen and (max-width: 991px) {
     font-size: 36px;
   } 
+`;
+
+const Back = styled.div`
+  display: ${({ display }) => (!display ? 'block' : 'none')}; 
+  font-size: 14px;
+  color: #ff3300;
+  font-family: 'MuseoSans-Regular', sans-serif;
+  text-transform: uppercase;
+  position: absolute;
+  top: 240px;
+  z-index: 20;
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 991px) {
+    top: 140px;
+  }
+`;
+
+const BackIcon = styled.img`
+  height: 20px;
+  transform: rotate(-90deg);
+  vertical-align: bottom;
+  margin-right: 10px;
 `;
 
 const MainImage = styled.img`
@@ -132,6 +159,10 @@ export default class CalcSectionComponent extends Component {
                 <br />
                 свой дизайн
               </Header>
+              <Back display={stage1} onClick={() => this.toggleStage()}>
+                <BackIcon src={arrow} />
+                Назад в конструктор
+              </Back>
               <ImageWrapper>
                 <MainImage src={mainImages[mainColor][1]} />
                 <Pompon src={pompons[secondaryColor][1]} />
