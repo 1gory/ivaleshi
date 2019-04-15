@@ -21,6 +21,10 @@ const Wrapper = styled.div`
   background: url(${bg}) center center no-repeat;
   background-size: 120% 100%;
   padding: 100px 0 100px 0;
+  @media screen and (max-width: 991px) {
+    padding: 0;
+    background-size: 150% 71%;
+  }
 `;
 
 const QualityWrapper = styled.div`
@@ -32,7 +36,8 @@ const QualityWrapper = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   @media screen and (max-width: 991px) {
     flex-direction: column;
-    height: 500px;
+    height: 661px;
+    justify-content: flex-start;
   }
 `;
 
@@ -149,7 +154,7 @@ const ArrowRight = styled.div`
   width: 8px;
   height: 14px;
   position: absolute;
-  bottom: 50px;
+  bottom: 200px;
   right: 0;
   background: url(${arrowRight}) no-repeat;
   background-size: cover;
