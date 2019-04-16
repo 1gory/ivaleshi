@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-scroll';
 import { PaddingGrid as Grid } from '../grid';
 import Carousel from './QualitiesMobileBlock';
 import mainImage from './mainImg.png';
@@ -130,6 +131,12 @@ const CarouselWrapper = styled.div`
   }
 `;
 
+const LinkToBooklet = styled(Link)`
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+`;
+
 export default () => (
   <Wrapper>
     <Grid>
@@ -138,37 +145,28 @@ export default () => (
         <QualityItem1>
           <QualityHeader>Улучшают здоровье</QualityHeader>
           <QualityDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            {'Целебные свойства овечьей шерсти ускоряют заживление ран и препятствуют воспалительным процессам. Обутые на босую ногу валешки оказывают массажный эффект'}
           </QualityDescription>
         </QualityItem1>
         <QualityItem2>
           <QualityHeader>Цветовая палитра</QualityHeader>
           <QualityDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            {'В наличии 24 цвета! Вы всегда сможете подобрать валеши под свой вкус. Декоративный стразы и меховые помпоны придадут уникальность вашей зимней обуви'}
           </QualityDescription>
         </QualityItem2>
         <QualityItem3>
           <QualityHeader>Меховые помпоны</QualityHeader>
           <QualityDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            {'Меховые помпоны из натурального меха мы крепим на кнопки, чтобы Вам было удобно сушить и чистить Ваши тёплые валеши'}
           </QualityDescription>
         </QualityItem3>
         <QualityItem4>
           <QualityHeader>Долговечные</QualityHeader>
           <QualityDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            {'При правильном использовании и уходе валеши прослужат несколько сезонов, не теряя привлекательный вид. Для этого достаточно соблюдать '}
+            <LinkToBooklet smooth offset={-100} to="booklet">
+              несложные правила
+            </LinkToBooklet>
           </QualityDescription>
         </QualityItem4>
         <QualityItem5>
@@ -183,10 +181,7 @@ export default () => (
         <QualityItem6>
           <QualityHeader>Подошва EVA</QualityHeader>
           <QualityDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            {'Подошва наших валешей прошита и выполнена из материала EVA (этиленвинилацетат - ЭВА). Это высокоэффективный вспененный каучук - композиционный полимерный материал, отличающийся высоким уровнем экологической безопасности.'}
           </QualityDescription>
         </QualityItem6>
         <CarouselWrapper>

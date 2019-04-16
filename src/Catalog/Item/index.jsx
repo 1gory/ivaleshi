@@ -82,6 +82,7 @@ export default ({
       Купить
       <ButtonPrice>
         {price}
+        {' '}
         Р.
       </ButtonPrice>
     </BuyButton>

@@ -131,7 +131,7 @@ const SideImg = styled.img`
   }
   @media screen and (max-width: 991px) {
     position: static;
-    width: 100%;
+    width: auto;
     height: 320px;
     display: block;
     margin: auto;
