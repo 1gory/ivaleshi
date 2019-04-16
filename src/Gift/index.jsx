@@ -52,25 +52,32 @@ const Button = styled.div`
   }
 `;
 
-export default ({ 
-  name, img, giftChosen, closeModal, closeModalNeeded
+export default ({
+  name, img, giftChosen, closeModal, closeModalNeeded,
 }) => (
   <Wrapper>
     <Section display={giftChosen}>
       <Header>{name}</Header>
       <Img src={img} />
-      <Text>Подарок будет добавлен<br />к вашему заказу</Text>
+      <Text>
+        Подарок будет добавлен
+        <br />
+        к вашему заказу
+      </Text>
     </Section>
     <Section display={!giftChosen}>
       <Text>
-        Вы можете получить один из четырех<br />
-        гарантированных подарков к своему заказу.<br />
-        Крутаните рулетку и узнайте что вам<br />
+        Вы можете получить один из четырех
+        <br />
+        гарантированных подарков к своему заказу.
+        <br />
+        Крутаните рулетку и узнайте что вам
+        <br />
         выпадет!
       </Text>
       <Button>
         <Link
-          to={'roulette'}
+          to="roulette"
           spy={false}
           smooth
           hashSpy={false}

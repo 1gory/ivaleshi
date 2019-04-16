@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Element } from 'react-scroll';
+import { Element, Link } from 'react-scroll';
 import ReactSwipe from 'react-swipe';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import Button from '../generic/Button';
 import Item from './Item';
 import ItemsList from './ItemsList';
 import Arrow from './Arrow';
@@ -62,25 +63,30 @@ const Header = styled.h2`
   }
 `;
 
-export default class Feedback extends Component {
+const BuyButton = styled(Button)`
+  margin: 0 auto;
+  margin-top: 60px;
+`;
+
+export default class extends Component {
   changeActiveItem = (dif) => {
     const {
       index,
     } = this.state;
     if (index + dif >= 0 && index + dif < ItemsList.length) this.setState({ index: index + dif });
-  }
+  };
 
   initReactSwipe = (el) => {
     this.reactSwipe = el;
-  }
+  };
 
   prevPage = () => {
     this.reactSwipe.prev();
-  }
+  };
 
   nextPage = () => {
     this.reactSwipe.next();
-  }
+  };
 
   render() {
     return (
@@ -114,6 +120,21 @@ export default class Feedback extends Component {
             <Arrow handler={this.nextPage} />
           </SliderButtonWrapper>
         </NoPaddingGrid>
+        <BuyButton>
+          <Link
+            to="constructor"
+            spy={false}
+            smooth
+            hashSpy={false}
+            offset={-100}
+            duration={500}
+            delay={50}
+            isDynamic
+            ignoreCancelEvents={false}
+          >
+            Оформить заказ
+          </Link>
+        </BuyButton>
       </Wrapper>
     );
   }

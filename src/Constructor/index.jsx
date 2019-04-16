@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Element } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Constructor from './Constructor';
 import Gift from '../Gift';
@@ -134,7 +132,7 @@ export default class CalcSectionComponent extends Component {
       },
     } = this.props;
     setDefaultFormState();
-  }
+  };
 
   render() {
     const {
@@ -156,7 +154,7 @@ export default class CalcSectionComponent extends Component {
       },
       modalContainer: {
         closeModal,
-      }
+      },
     } = this.props;
     const {
       stage1,

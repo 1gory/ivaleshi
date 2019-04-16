@@ -99,17 +99,35 @@ const MobileBr = styled.br`
 
 export default ({ visible }) => (
   <Wrapper display={visible}>
-    <Header>Как узнать свой <MobileBr />размер</Header>
+    <Header>
+      Как узнать свой
+      {' '}
+      <MobileBr />
+      размер
+    </Header>
     <ListWrapper>
       <List>
-        <ListItem>Измерьте длину ступни<br />как показано на рисунке</ListItem>
-        <ListItem>Определите свой размер<br />по таблице</ListItem>
+        <ListItem>
+          Измерьте длину ступни
+          <br />
+          как показано на рисунке
+        </ListItem>
+        <ListItem>
+          Определите свой размер
+          <br />
+          по таблице
+        </ListItem>
       </List>
       <Image src={img} />
     </ListWrapper>
     <Sizes>
       <SizesHeaders>
-        <SizesHeaderLeft>Длина ступни, <MobileBr />см</SizesHeaderLeft>
+        <SizesHeaderLeft>
+          Длина ступни,
+          {' '}
+          <MobileBr />
+          см
+        </SizesHeaderLeft>
         Размер
       </SizesHeaders>
       {SizesList.map(size => (

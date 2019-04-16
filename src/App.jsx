@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Subscribe } from 'unstated';
 import ReactBreakpoints from 'react-breakpoints';
 import Description from './Description';
@@ -25,64 +25,56 @@ const breakpoints = {
   desktop: 993,
 };
 
-export default class extends Component {
-  constructor(props) {
-    super(props);
-  }
+export default () => (
+  <div>
+    <Navbar />
+    <Subscribe to={[ModalContainer]}>
+      {modalContainer => <Header modalContainer={modalContainer} />}
+    </Subscribe>
 
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <Subscribe to={[ModalContainer]}>
-          {modalContainer => <Header modalContainer={modalContainer} />}
-        </Subscribe>
-
-        <Subscribe to={[ConstructorContainer, ModalContainer]}>
-          {(constructorContainer, modalContainer) => (
-            <Constructor
-              constructorContainer={constructorContainer}
-              modalContainer={modalContainer}
-            />
-          )}
-        </Subscribe>
-        <Subscribe to={[ConstructorContainer]}>
-          {constructorContainer => (
-            <ReactBreakpoints breakpoints={breakpoints}>
-              <Roulette constructorContainer={constructorContainer} />
-            </ReactBreakpoints>
-          )}
-        </Subscribe>
-        <Description />
-        <Info />
-        <QualitiesBlock />
-        <Subscribe to={[ConstructorContainer, ModalContainer]}>
-          {(constructorContainer, modalContainer) => (
-            <Catalog
-              constructorContainer={constructorContainer}
-              modalContainer={modalContainer}
-            />
-          )}
-        </Subscribe>
-        <OrderSteps />
-        <Feedback />
-        <Subscribe to={[BookletContainer]}>
-          {bookletContainer => <Booklet container={bookletContainer} />}
-        </Subscribe>
-        <Footer />
-        <Subscribe to={[ConstructorContainer, ModalContainer]}>
-          {(constructorContainer, modalContainer) => (
-            <Modal
-              constructorContainer={constructorContainer}
-              modalContainer={modalContainer}
-            />
-          )}
-        </Subscribe>
-        <Subscribe to={[ModalContainer]}>
-          {modalContainer => <ModalVideo modalContainer={modalContainer} />}
-        </Subscribe>
-        <BottomPhone />
-      </div>
-    );
-  }
-}
+    <Subscribe to={[ConstructorContainer, ModalContainer]}>
+      {(constructorContainer, modalContainer) => (
+        <Constructor
+          constructorContainer={constructorContainer}
+          modalContainer={modalContainer}
+        />
+      )}
+    </Subscribe>
+    <Subscribe to={[ConstructorContainer]}>
+      {constructorContainer => (
+        <ReactBreakpoints breakpoints={breakpoints}>
+          <Roulette constructorContainer={constructorContainer} />
+        </ReactBreakpoints>
+      )}
+    </Subscribe>
+    <Description />
+    <Info />
+    <QualitiesBlock />
+    <Subscribe to={[ConstructorContainer, ModalContainer]}>
+      {(constructorContainer, modalContainer) => (
+        <Catalog
+          constructorContainer={constructorContainer}
+          modalContainer={modalContainer}
+        />
+      )}
+    </Subscribe>
+    <OrderSteps />
+    <Feedback />
+    <Subscribe to={[BookletContainer]}>
+      {bookletContainer => <Booklet container={bookletContainer} />}
+    </Subscribe>
+    <Footer />
+    <Subscribe to={[ConstructorContainer, ModalContainer]}>
+      {(constructorContainer, modalContainer) => (
+        <Modal
+          constructorContainer={constructorContainer}
+          modalContainer={modalContainer}
+        />
+      )}
+    </Subscribe>
+    <Subscribe to={[ModalContainer]}>
+      {modalContainer => <ModalVideo modalContainer={modalContainer} />}
+    </Subscribe>
+    <BottomPhone />
+  </div>
+);

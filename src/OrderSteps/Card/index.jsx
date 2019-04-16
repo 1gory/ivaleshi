@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const Wrapper = styled.div`
   padding: 140px 0px;

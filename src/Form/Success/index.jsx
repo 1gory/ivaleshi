@@ -63,7 +63,9 @@ export default class Success extends Component {
       <Wrapper display={active}>
         <Icon src={icon} />
         <Text>
-          Заказ отправлен! Мы свяжемся с вами<br />как можно скорее.
+          Заказ отправлен! Мы свяжемся с вами
+          <br />
+          как можно скорее.
         </Text>
         <Button onClick={() => setDefaultFormState()}>Назад</Button>
       </Wrapper>

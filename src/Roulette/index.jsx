@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Media, withBreakpoints } from 'react-breakpoints';
-import {
-  Link, Element, Events, animateScroll as scroll, scrollSpy, scroller,
-} from 'react-scroll';
+import { Element, Link } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import cardsList from '../giftList';
 import Card from './Card';
+import DefaultBuyButton from '../generic/Button';
 import icon from './roll-bottom.svg';
 
 const Wrapper = styled.div`   
@@ -111,6 +110,11 @@ ${
 }
 `;
 
+const BuyButton = styled(DefaultBuyButton)`
+  margin: 0 auto;
+  margin-top: 60px;
+`;
+
 class Roulette extends Component {
   constructor(props) {
     super(props);
@@ -163,7 +167,7 @@ class Roulette extends Component {
     const chosenPresent = this.getRandomInt(0, 2);
     let chosenPresentName = '';
     let leftShift = 0;
-    console.log(chosenPresent);
+
     switch (chosenPresent) {
       case 0:
         chosenPresentName = 'Средство по уходу';
@@ -283,6 +287,21 @@ class Roulette extends Component {
             </Button>
           </BorderWrapper>
         </Grid>
+        <BuyButton>
+          <Link
+            to="constructor"
+            spy={false}
+            smooth
+            hashSpy={false}
+            offset={-100}
+            duration={500}
+            delay={50}
+            isDynamic
+            ignoreCancelEvents={false}
+          >
+            Оформить заказ
+          </Link>
+        </BuyButton>
       </Wrapper>
     );
   }

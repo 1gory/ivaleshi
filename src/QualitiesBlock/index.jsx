@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ReactSwipe from 'react-swipe';
-import MobileQualityItem from './MobileQualityItem';
+import { PaddingGrid as Grid } from '../grid';
+import Carousel from './QualitiesMobileBlock';
 import mainImage from './mainImg.png';
 import bg from './bg.svg';
 import line1 from './line-1.svg';
@@ -10,9 +10,6 @@ import line3 from './line-3.svg';
 import line4 from './line-4.svg';
 import line5 from './line-5.svg';
 import line6 from './line-6.svg';
-import { PaddingGrid as Grid } from '../grid';
-import arrowLeft from './arrow-left.svg';
-import arrowRight from './arrow-right.svg';
 
 const Wrapper = styled.div`
   padding: 100px 0 100px 0;
@@ -132,92 +129,6 @@ const CarouselWrapper = styled.div`
     display: block;
   }
 `;
-
-const ArrowRight = styled.div`
-  position: absolute;
-  bottom: 200px;
-  right: 0;
-  width: 8px;
-  height: 14px;
-  background: url(${arrowRight}) no-repeat;
-  background-size: cover;
-`;
-
-const ArrowLeft = styled(ArrowRight)`
-  left: 0;
-  background: url(${arrowLeft}) no-repeat;
-`;
-
-const Carousel = () => {
-  let reactSwipeEl;
-
-  return (
-    <div>
-      <ReactSwipe
-        className="carousel"
-        swipeOptions={{ continuous: false }}
-        ref={el => (reactSwipeEl = el)}
-      >
-        <div>
-          <MobileQualityItem
-            header="Улучшают здоровье"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
-          />
-        </div>
-        <div>
-          <MobileQualityItem
-            header="Цветовая палитра"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
-          />
-        </div>
-        <div>
-          <MobileQualityItem
-            header="Меховые помпоны"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
-          />
-        </div>
-        <div>
-          <MobileQualityItem
-            header="Долговечные"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
-          />
-        </div>
-        <div>
-          <MobileQualityItem
-            header="Ноги дышат, а не потеют"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
-          />
-        </div>
-        <div>
-          <MobileQualityItem
-            header="Подошва EVA"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
-          />
-        </div>
-      </ReactSwipe>
-      <ArrowRight onClick={() => reactSwipeEl.next()} />
-      <ArrowLeft onClick={() => reactSwipeEl.prev()} />
-    </div>
-  );
-};
 
 export default () => (
   <Wrapper>

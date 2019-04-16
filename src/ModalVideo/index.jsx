@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import close from './close.svg';
 
@@ -42,27 +42,21 @@ const CloseButton = styled.img`
   cursor: pointer;
 `;
 
-export default class ModalVideo extends Component {
-  render() {
-    const {
-      modalContainer: {
-        state: { modalVideo },
-        closeModalVideo,
-      },
-    } = this.props;
-
-    return (
-      <Wrapper display={modalVideo}>
-        <IframeWrapper>
-          <iframe
-            src={modalVideo ? 'https://www.youtube.com/embed/E7wJTI-1dvQ' : ''}
-            frameBorder="0"
-            allowFullScreen
-            title="video"
-          />
-          <CloseButton src={close} onClick={closeModalVideo} />
-        </IframeWrapper>
-      </Wrapper>
-    );
-  }
-}
+export default ({
+  modalContainer: {
+    state: { modalVideo },
+    closeModalVideo,
+  },
+}) => (
+  <Wrapper display={modalVideo}>
+    <IframeWrapper>
+      <iframe
+        src={modalVideo ? 'https://www.youtube.com/embed/E7wJTI-1dvQ' : ''}
+        frameBorder="0"
+        allowFullScreen
+        title="video"
+      />
+      <CloseButton src={close} onClick={closeModalVideo} />
+    </IframeWrapper>
+  </Wrapper>
+);
