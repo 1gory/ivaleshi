@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Element } from 'react-scroll';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
-import img from './booklet.png';
+import img from './booklet.jpg';
 import success from './success.svg';
 import error from './error.svg';
 
