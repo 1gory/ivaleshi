@@ -10,13 +10,14 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.div`
-  font-size: 16px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   font-family: 'Museo-Regular', sans-serif;
+  font-size: 16px;
   font-weight: bold;
+  line-height: 1.5;
   color: #1e2229;
   text-align: center;
-  margin-bottom: 30px;
-  margin-top: 30px;
   @media screen and (max-width: 991px) {
     margin-top: 40px;
   }

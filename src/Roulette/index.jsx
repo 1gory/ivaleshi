@@ -230,7 +230,7 @@ class Roulette extends Component {
         <Grid>
           <BorderWrapper>
             <Header>
-              Узнай, какой подарок
+              {'Узнай, какой подарок '}
               <MobileBr />
               ты получишь к заказу
             </Header>

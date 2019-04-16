@@ -119,14 +119,14 @@ const BottomWrapper = styled.div`
 `;
 
 const FormWrapper = styled.div`
-  width: 50%;
+  width: 45%;
   @media screen and (max-width: 991px) {
     width: 100%;
   }
 `;
 
 const GiftWrapper = styled.div`
-  width: 40%;
+  width: 45%;
   @media screen and (max-width: 991px) {
     width: 100%;
   }

@@ -100,7 +100,7 @@ const MobileBr = styled.br`
 export default ({ visible }) => (
   <Wrapper display={visible}>
     <Header>
-      Как узнать свой
+      {'Как узнать свой '}
       <MobileBr />
       размер
     </Header>

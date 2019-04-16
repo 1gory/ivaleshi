@@ -47,6 +47,7 @@ const Input = styled.input`
   height: 70px;
   font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
+  padding-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
   resize: none;

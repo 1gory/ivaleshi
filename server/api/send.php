@@ -3,23 +3,58 @@
 require 'vendors/phpmailer/PHPMailerAutoload.php';
 
 const MATERIAL_COLORS = [
-    'silicone' => 'Силикон',
+    'black' => 'черный',
+    'blue' => 'синий',
+    'brown' => 'коричневый',
+    'darkred' => 'темно-красный',
+    'chocolate' => 'шоколад',
+    'darkblue' => 'темно-синий',
+    'darkgreen' => 'темно-зеленый',
+    'darkorange' => 'темно-оранжевый',
+    'darkviolet' => 'темно-фиолетовый',
+    'olive' => 'оливковый',
+    'fuchsia' => 'фуксия',
+    'gray' => 'серый',
+    'green' => 'зеленый',
+    'mediumorchid' => 'светло-сиреневый',
+    'darkkhaki' => 'горчичный',
+    'natblack' => 'натурально-черный',
+    'orange' => 'оранжевый',
+    'pink' => 'розовый',
+    'purple' => 'пурпурный',
+    'red' => 'красный',
+    'turquoise' => 'бирюзовый',
+    'violet' => 'фиолетовый',
+    'white' => 'белый',
+    'yellow' => 'желтый',
 ];
 
 const POMPOM_COLORS = [
-    'DDD' => '3D печать',
+    'black' => 'черный',
+    'yellow' => 'желтый',
+    'blue' => 'синий',
+    'turquoise' => 'бирюзовый',
+    'darkgray' => 'темно-серый',
+    'violet' => 'фиолетовы1',
+    'lightblue' => 'светло-голубой',
+    'brown' => 'коричневый',
+    'orange' => 'оранжевый',
 ];
 
 const DECORATION_TYPES = [
-    'free' => 'Бесплатная упаковка',
+    'beads' => 'бусы',
+    'rhinestones' => 'стразы',
 ];
 
-const DECORATION_COLORS = [
-    'free' => 'Бесплатная упаковка',
-];
+//const DECORATION_COLORS = [
+//    'free' => 'Бесплатная упаковка',
+//];
 
 const GIFTS = [
-    'free' => 'Бесплатная упаковка',
+    'spray' => 'средство по уходу',
+    'gloves' => 'перчатки',
+    'socks' => 'носки',
+    'hat' => 'шапка',
 ];
 
 $timeDate = date('d.m.Y H:i:s');
@@ -31,7 +66,7 @@ $_POST['email'] && $contact_information .= addString('Почта', $_POST['email
 $_POST['boots_color'] && $details = addString('Цвет валешей', MATERIAL_COLORS[$_POST['boots_color']]);
 $_POST['pompoms_color'] && $details .= addString('Цвет помпонов', POMPOM_COLORS[$_POST['pompoms_color']]);
 $_POST['decoration_type'] && $details .= addString('Тип украшений', DECORATION_TYPES[$_POST['decoration_type']]);
-$_POST['decoration_color'] && $details .= addString('Цвет украшений', DECORATION_COLORS[$_POST['decoration_color']]);
+//$_POST['decoration_color'] && $details .= addString('Цвет украшений', DECORATION_COLORS[$_POST['decoration_color']]);
 $_POST['foot_size'] && $details .= addString('Размер ноги', $_POST['foot_size']);
 $_POST['gift'] && $details .= addString('Подарок', GIFTS[$_POST['gift']]);
 
