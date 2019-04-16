@@ -100,10 +100,10 @@ export default ({
     <Text>{text}</Text>
     <Description>
       <Author>{`${name}, ${city}`}</Author>
-      <a href={link}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <LinkIcon src={icon} />
       </a>
-      <PostDate href={link}>
+      <PostDate href={link} target="_blank" rel="noopener noreferrer">
         {date}
       </PostDate>
     </Description>
