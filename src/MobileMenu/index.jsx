@@ -5,8 +5,8 @@ import NavButton from '../generic/NavButton';
 import close from './close.svg';
 import phone from '../icons/phone-grey.svg';
 import socialIg from '../icons/social-ig-black.svg';
-import socialVk from '../icons/social-vk-black.svg';
 import socialWa from '../icons/social-wa-black.svg';
+// import socialVk from '../icons/social-vk-black.svg';
 
 const Wrapper = styled.div`
   position: fixed;

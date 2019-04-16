@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Form from '../Form';
-import img from './img.png';
 import SizesList from '../data/FootSizeList';
 import giftList from '../giftList';
 import Gift from '../Gift';
@@ -138,6 +137,7 @@ export default ({
   gift,
   title,
   price,
+  image,
   footSizeHandler,
   nameHandler,
   validateHandler,
@@ -153,15 +153,15 @@ export default ({
   <Wrapper display={visible}>
     <Header>Оформить заказ</Header>
     <Product>
-      <ProductImage src={img} />
+      <ProductImage src={image} />
       <div>
         <DescriptionHeader>
           {title}
           <Price>
-{price}
-{' '}
-Р.
-</Price>
+            {price}
+            {' '}
+            Р.
+          </Price>
         </DescriptionHeader>
         <Size>
           <SizeSelectHeader>Размер:</SizeSelectHeader>
