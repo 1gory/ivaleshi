@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
+import NavButton from '../generic/NavButton';
 import close from './close.svg';
 import phone from '../icons/phone-grey.svg';
 import socialIg from '../icons/social-ig-black.svg';
@@ -90,21 +91,6 @@ const MenuItem = styled.li`
   }
 `;
 
-const Button = styled.a`
-  width: 320px;
-  height: 54px;
-  margin: 30px 0 30px 0;
-  border: solid 1px #ff3300;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 54px;
-  color: #ff3300;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.6;
-  }
-`;
-
 const MenuLinkItem = ({ to, name, closeMenu }) => (
   <MenuItem>
     <Link
@@ -124,6 +110,15 @@ const MenuLinkItem = ({ to, name, closeMenu }) => (
   </MenuItem>
 );
 
+const Button = styled(NavButton)`
+  @media screen and (max-width: 991px) {
+    display: block;
+    margin: auto;
+    width: 320px;
+    margin-bottom: 60px;
+  }
+`;
+
 export default ({
   modalContainer: {
     state: { mobileMenu },
@@ -132,14 +127,14 @@ export default ({
 }) => (
   <Wrapper display={mobileMenu}>
     <CloseButton src={close} onClick={closeMobileMenu} />
-    <ContactPhone href="tel:+8 8888 123-45-67">
+    <ContactPhone href="tel:+7 (999) 999-56-55">
       <ContactPhoneIcon src={phone} />
-      +8 8888 123-45-67
+      +7 (999) 999-56-55
     </ContactPhone>
     <SocialBlock>
-      <SocialLink href="https://www.vk.com/ivaleshi.ru/" target="_blank">
+      {/* <SocialLink href="https://www.vk.com/ivaleshi.ru/" target="_blank">
         <SocialIcon src={socialVk} />
-      </SocialLink>
+      </SocialLink> */}
       <SocialLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
         <SocialIcon src={socialIg} />
       </SocialLink>
