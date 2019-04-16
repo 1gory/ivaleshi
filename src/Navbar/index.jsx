@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import {
+  PaddingGrid as Grid,
+  PaddingRow as Row,
+  PaddingCol as Col,
+} from '../grid';
 import logoBlock from './logo-block-white.svg';
 import logoInline from './logo-inline-white.svg';
 import phone from '../icons/phone-white.svg';
@@ -19,14 +23,14 @@ const TopSection = styled.div`
   @media screen and (max-width: 991px) {
     padding-top: 0px;
     padding: 15px 0;
-  } 
+  }
 `;
 
 const LogoWrapper = styled.div`
   display: flex;
-  align-items: center; 
+  align-items: center;
   width: 100%;
-  height: 100%; 
+  height: 100%;
   justify-content: spcae-between;
   @media screen and (max-width: 991px) {
     align-items: start;
@@ -38,7 +42,7 @@ const LogoBlock = styled.img`
   height: 70px;
   @media screen and (max-width: 991px) {
     display: none;
-  } 
+  }
 `;
 
 const LogoInline = styled.img`
@@ -46,7 +50,7 @@ const LogoInline = styled.img`
   object-fit: cover;
   @media screen and (min-width: 992px) {
     display: none;
-  } 
+  }
 `;
 
 const Descriptor = styled.p`
@@ -70,7 +74,7 @@ const Descriptor = styled.p`
 const DesktopBr = styled.br`
   @media (max-width: 991px) {
     display: none;
-  } 
+  }
 `;
 
 const ContactsWrapper = styled.div`
@@ -94,7 +98,7 @@ const ContactPhone = styled(ContactLink)`
   white-space: nowrap;
   @media (max-width: 992px) {
     display: none;
-  } 
+  }
 `;
 
 const ContactIcon = styled.img`
@@ -118,9 +122,9 @@ const Menu = styled.ul`
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  
+
   @media screen and (max-width: 991px) {
-    display: none
+    display: none;
   }
 `;
 
@@ -136,7 +140,7 @@ const MenuItem = styled.li`
     cursor: pointer;
     transition: 0.2s;
     &:hover {
-      opacity: 0.6;  
+      opacity: 0.6;
     }
   }
 `;
@@ -151,13 +155,14 @@ const MobileMenuWrapper = styled.div`
 const MobileMenuButton = styled.div`
   display: none;
   font-size: 14px;
+  cursor: pointer;
   @media screen and (max-width: 991px) {
-    display: block; 
-  }  
+    display: block;
+  }
 `;
 
 const MobileMenuIcon = styled.img`
-  height: 25px; 
+  height: 25px;
   margin-left: 10px;
   vertical-align: top;
 `;
@@ -180,7 +185,7 @@ const MenuLinkItem = ({ to, name }) => (
   </MenuItem>
 );
 
-export default () => (
+export default ({ modalContainer: { openMobileMenu } }) => (
   <Wrapper>
     <Grid>
       <TopSection>
@@ -193,10 +198,8 @@ export default () => (
               </a>
               <Descriptor>
                 Дизайнерские
-                { ' ' }
                 <DesktopBr />
                 валеши ручной
-                { ' ' }
                 <DesktopBr />
                 работы
               </Descriptor>
@@ -214,10 +217,16 @@ export default () => (
             <MobileMenuWrapper>
               <ContactsWrapper>
                 {/* <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink> */}
-                <ContactLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
+                <ContactLink
+                  href="https://www.instagram.com/ivaleshi.ru/"
+                  target="_blank"
+                >
                   <ContactIcon src={socialIG} />
                 </ContactLink>
-                <ContactLink href="https://api.whatsapp.com/send?phone=79999995655" target="_blank">
+                <ContactLink
+                  href="https://api.whatsapp.com/send?phone=79999995655"
+                  target="_blank"
+                >
                   <ContactIcon src={socialWA} />
                 </ContactLink>
                 <ContactPhone href="tel:+7 (999) 999-56-55">
@@ -225,7 +234,7 @@ export default () => (
                   +7 (999) 999-56-55
                 </ContactPhone>
               </ContactsWrapper>
-              <MobileMenuButton>
+              <MobileMenuButton onClick={openMobileMenu}>
                 <MobileMenuIcon src={hamburger} />
               </MobileMenuButton>
             </MobileMenuWrapper>
