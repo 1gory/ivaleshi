@@ -80,6 +80,7 @@ export default ({
     <Text>{text}</Text>
     <BuyButton onClick={() => handler(index)}>
       Купить
+      {' '}
       <ButtonPrice>
         {price}
         {' '}

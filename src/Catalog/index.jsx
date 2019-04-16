@@ -130,7 +130,7 @@ export default class Catalog extends Component {
         <Element name="catalog" />
         <NoPaddingGrid>
           <ReactSwipe
-            swipeOptions={{ continuous: false }}
+            swipeOptions={{ continuous: true }}
             ref={el => this.initReactSwipe(el)}
           >
             {ItemsList.map((item, index) => (

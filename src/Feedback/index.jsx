@@ -95,7 +95,7 @@ export default class extends Component {
         <NoPaddingGrid>
           <Header>Отзывы</Header>
           <ReactSwipe
-            swipeOptions={{ continuous: false }}
+            swipeOptions={{ continuous: true }}
             ref={el => this.initReactSwipe(el)}
           >
             {ItemsList.map(item => (

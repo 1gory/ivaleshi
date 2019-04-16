@@ -51,19 +51,19 @@ export default class extends Component {
           <div>
             <MobileQualityItem
               header="Улучшают здоровье"
-              text="Целебные свойства овечьей шерсти ускоряют заживление ран и препятствуют воспалительным процессам. Обутые на босую ногу валешки оказывают массажный эффект"
+              text="Целебные свойства овечьей шерсти ускоряют заживление ран и препятствуют воспалительным процессам. Обутые на босую ногу валешки оказывают массажный эффект."
             />
           </div>
           <div>
             <MobileQualityItem
               header="Цветовая палитра"
-              text="В наличии 24 цвета! Вы всегда сможете подобрать валеши под свой вкус. Декоративный стразы и меховые помпоны придадут уникальность вашей зимней обуви"
+              text="В наличии 24 цвета! Вы всегда сможете подобрать валеши под свой вкус. Декоративный стразы и меховые помпоны придадут уникальность вашей зимней обуви."
             />
           </div>
           <div>
             <MobileQualityItem
               header="Меховые помпоны"
-              text="Меховые помпоны из натурального меха мы крепим на кнопки, чтобы Вам было удобно сушить и чистить Ваши тёплые валеши"
+              text="Меховые помпоны из натурального меха мы крепим на кнопки, чтобы Вам было удобно сушить и чистить Ваши тёплые валеши."
             />
           </div>
           <div>
@@ -73,6 +73,7 @@ export default class extends Component {
                 <span>
                   {'При правильном использовании и уходе валеши прослужат несколько сезонов, не теряя привлекательный вид. Для этого достаточно соблюдать '}
                   <LinkToBooklet smooth offset={-100} to="booklet">несложные правила</LinkToBooklet>
+                  .
                 </span>
               )}
             />
@@ -80,19 +81,13 @@ export default class extends Component {
           <div>
             <MobileQualityItem
               header="Ноги дышат, а не потеют"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
+              text="В отличие от синтеческих материалов войлок позволяет ногам дышать и не дает потеть, а переплетение шерстяных волокон хорошо сберегает тепло."
             />
           </div>
           <div>
             <MobileQualityItem
               header="Подошва EVA"
-              text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat."
+              text="Подошва наших валешей прошита и выполнена из материала EVA (этиленвинилацетат - ЭВА). Это высокоэффективный вспененный каучук - композиционный полимерный материал, отличающийся высоким уровнем экологической безопасности."
             />
           </div>
         </ReactSwipe>

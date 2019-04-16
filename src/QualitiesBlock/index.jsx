@@ -145,19 +145,19 @@ export default () => (
         <QualityItem1>
           <QualityHeader>Улучшают здоровье</QualityHeader>
           <QualityDescription>
-            {'Целебные свойства овечьей шерсти ускоряют заживление ран и препятствуют воспалительным процессам. Обутые на босую ногу валешки оказывают массажный эффект'}
+            {'Целебные свойства овечьей шерсти ускоряют заживление ран и препятствуют воспалительным процессам. Обутые на босую ногу валешки оказывают массажный эффект.'}
           </QualityDescription>
         </QualityItem1>
         <QualityItem2>
           <QualityHeader>Цветовая палитра</QualityHeader>
           <QualityDescription>
-            {'В наличии 24 цвета! Вы всегда сможете подобрать валеши под свой вкус. Декоративный стразы и меховые помпоны придадут уникальность вашей зимней обуви'}
+            {'В наличии 24 цвета! Вы всегда сможете подобрать валеши под свой вкус. Декоративный стразы и меховые помпоны придадут уникальность вашей зимней обуви.'}
           </QualityDescription>
         </QualityItem2>
         <QualityItem3>
           <QualityHeader>Меховые помпоны</QualityHeader>
           <QualityDescription>
-            {'Меховые помпоны из натурального меха мы крепим на кнопки, чтобы Вам было удобно сушить и чистить Ваши тёплые валеши'}
+            {'Меховые помпоны из натурального меха мы крепим на кнопки, чтобы Вам было удобно сушить и чистить Ваши тёплые валеши.'}
           </QualityDescription>
         </QualityItem3>
         <QualityItem4>
@@ -172,10 +172,7 @@ export default () => (
         <QualityItem5>
           <QualityHeader>Ноги дышат, а не потеют</QualityHeader>
           <QualityDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            {'В отличие от синтеческих материалов войлок позволяет ногам дышать и не дает потеть, а переплетение шерстяных волокон хорошо сберегает тепло.'}
           </QualityDescription>
         </QualityItem5>
         <QualityItem6>

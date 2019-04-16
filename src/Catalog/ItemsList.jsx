@@ -11,7 +11,7 @@ import img33 from './photo/3/3.jpg';
 export default [
   {
     name: 'Красные валеши с помпоном',
-    text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,',
+    text: 'Натуральный войлок в красном цвете, декорированный красно-белыми бусами и помпоном из натурального меха. Подошва из ортопедического матераили EVA.',
     price: 3900,
     img: [
       img11,
@@ -24,7 +24,7 @@ export default [
   },
   {
     name: 'Белые валеши с помпоном',
-    text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,',
+    text: 'Традиционный цвет валенок, в современном стиле. Украшены стразами и меховым помпоном серого цвета. Износостойкая подошва EVA.',
     price: 3900,
     img: [
       img21,
@@ -37,7 +37,7 @@ export default [
   },
   {
     name: 'Черные валеши с помпоном',
-    text: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,',
+    text: 'Универсальный черный цвет, декорированный белыми и черными бусами, помпоном из натурального меха. Стойкая к реагентам подошва EVA.',
     price: 3900,
     img: [
       img31,
@@ -48,5 +48,4 @@ export default [
     secondaryColor: 2,
     jewel: 1,
   },
-
 ];
