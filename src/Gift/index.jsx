@@ -43,13 +43,13 @@ const Img = styled.img`
 const Button = styled.div`
   padding-top: 80px;
   padding-bottom: 70px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
   color: #ff3300;
   transition: 0.3s;
-  &:hover{
+  &:hover {
     opacity: 0.5;
     cursor: pointer;
   }

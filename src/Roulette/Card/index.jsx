@@ -8,16 +8,22 @@ const Wrap = styled.div`
     width: 175px;
   }
   @keyframes blink {
-    0% {opacity: 0}
-    70% {opacity: 0}
-    71% {opacity: 1}
-    100% {opacity: 1}
+    0% {
+      opacity: 0;
+    }
+    70% {
+      opacity: 0;
+    }
+    71% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-${
-  (props) => {
+  ${(props) => {
     if (props.isAnimationActive) {
-      return (
-        `
+      return `
          &:after {
          position: absolute;
          content: '';
@@ -39,17 +45,14 @@ ${
          animation-iteration-count: infinite;
          animation-delay: ${props.shift}s;
          }
-       `);
+       `;
     }
 
     return false;
-  }
-}
-${
-  (props) => {
+  }}
+  ${(props) => {
     if (props.chosen) {
-      return (
-        `
+      return `
         &:after {
         position: absolute;
         content: '';
@@ -66,20 +69,18 @@ ${
         display: block;
         opacity: 1;
         }
-        `
-      );
+        `;
     }
 
     return false;
-  }
-}
+  }}
 `;
 
 const CardHeader = styled.div`
   margin-top: 40px;
   font-size: 16px;
   color: #191619;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   text-align: center;
   font-weight: bold;
 `;
@@ -107,7 +108,7 @@ export default class extends Component {
     const halfOfDuration = duration / 2;
     const periodsInHalfOfAnimation = Math.floor(halfOfDuration / period) * period;
     const fourthOfDuration = halfOfDuration + duration / 4;
-    const periodsInFourthOfAnimation = Math.floor(fourthOfDuration / period * 2) * (period * 2);
+    const periodsInFourthOfAnimation = Math.floor((fourthOfDuration / period) * 2) * (period * 2);
 
     if (animationActive && !isAnimationActive) {
       setTimeout(() => {
@@ -132,11 +133,7 @@ export default class extends Component {
 
   render() {
     const {
-      name,
-      img,
-      animationActive,
-      shift,
-      chosen,
+      name, img, animationActive, shift, chosen,
     } = this.props;
 
     const { period, stageOfAnimation } = this.state;

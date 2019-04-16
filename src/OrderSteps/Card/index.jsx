@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   padding: 140px 0px;
   @media screen and (max-width: 991px) {
     padding: 40px 0px;
-  } 
+  }
 `;
 
 const Header = styled.div`
@@ -19,24 +19,24 @@ const Header = styled.div`
   @media screen and (max-width: 991px) {
     margin-bottom: 20px;
     margin-top: 20px;
-  } 
+  }
 `;
 
 const Text = styled.div`
   padding: 0 35px;
   margin-bottom: 50px;
-  font-size: 14px; 
+  font-size: 14px;
   color: #191619;
   line-height: 1.86;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   text-align: center;
   @media screen and (max-width: 767px) {
     margin-bottom: 10px;
-  } 
+  }
 `;
 
 const IconWrapper = styled.div`
-  margin: auto; 
+  margin: auto;
   display: block;
   height: 60px;
   position: relative;
@@ -53,13 +53,13 @@ const Icon = styled.img`
 `;
 
 const Button = styled.button`
-  display: ${({ buttonVisible }) => (buttonVisible ? 'block' : 'none')}; 
+  display: ${({ buttonVisible }) => (buttonVisible ? 'block' : 'none')};
   margin: auto;
   background: none;
   border: none;
   color: #ff2300;
   text-transform: uppercase;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -70,15 +70,12 @@ const Button = styled.button`
   }
   &:hover {
     background-color: #ff3300;
-    color: white;  
+    color: white;
   }
 `;
 
 export default ({
-  icon,
-  name,
-  text,
-  buttonVisible,
+  icon, name, text, buttonVisible,
 }) => (
   <Wrapper>
     <IconWrapper>

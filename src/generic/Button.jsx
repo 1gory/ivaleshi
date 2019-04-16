@@ -7,7 +7,7 @@ export default styled.button`
   border: none;
   color: white;
   text-transform: uppercase;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;

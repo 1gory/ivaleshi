@@ -32,7 +32,7 @@ const Header = styled.div`
   font-weight: 600;
   color: rgb(25, 22, 25);
   text-transform: uppercase;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,7 +66,7 @@ const SizeSelectLeft = styled.div`
 `;
 
 const SizeSelectHeader = styled.div`
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 14px;
   color: rgb(25, 22, 25);
   text-transform: uppercase;
@@ -76,7 +76,7 @@ const SizeSelectHeader = styled.div`
 `;
 
 const SizeSelectButton = styled.button`
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 14px;
   color: white;
   text-transform: uppercase;
@@ -99,7 +99,7 @@ const Select = styled.select`
   background: none;
   border: none;
   border-bottom: 1px solid rgba(25, 22, 25, 0.1);
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: rgb(25, 22, 25);
@@ -111,7 +111,7 @@ const SizeLink = styled.div`
   font-size: 14px;
   font-weight: bold;
   color: rgb(255, 51, 0);
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   margin-top: 20px;
   cursor: pointer;
   @media screen and (max-width: 991px) {

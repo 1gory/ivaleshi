@@ -5,7 +5,7 @@ import Success from './Success';
 import Fail from './Fail';
 
 const Wrapper = styled.div`
-  display: ${({ display }) => (display ? 'block' : 'none')}; 
+  display: ${({ display }) => (display ? 'block' : 'none')};
 `;
 
 export default ({ display, formState, ...props }) => (

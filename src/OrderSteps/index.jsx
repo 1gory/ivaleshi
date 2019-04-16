@@ -24,7 +24,7 @@ const RedLine = styled.div`
   margin: auto;
   @media screen and (max-width: 767px) {
     display: none;
-  } 
+  }
 `;
 
 export default () => (

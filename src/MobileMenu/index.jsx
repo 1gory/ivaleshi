@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 640px;
   z-index: 100;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   background: #fff;
 `;
 
@@ -138,19 +138,12 @@ export default ({
       <SocialLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
         <SocialIcon src={socialIg} />
       </SocialLink>
-      <SocialLink
-        href="https://api.whatsapp.com/send?phone=79999995655"
-        target="_blank"
-      >
+      <SocialLink href="https://api.whatsapp.com/send?phone=79999995655" target="_blank">
         <SocialIcon src={socialWa} />
       </SocialLink>
     </SocialBlock>
     <Menu>
-      <MenuLinkItem
-        to="description"
-        name="Преимущества"
-        closeMenu={closeMobileMenu}
-      />
+      <MenuLinkItem to="description" name="Преимущества" closeMenu={closeMobileMenu} />
       <MenuLinkItem to="catalog" name="Каталог" closeMenu={closeMobileMenu} />
       <MenuLinkItem to="feedback" name="Отзывы" closeMenu={closeMobileMenu} />
       <MenuLinkItem to="footer" name="Контакты" closeMenu={closeMobileMenu} />
