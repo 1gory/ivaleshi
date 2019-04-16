@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Form from '../Form';
 import img from './img.png';
-import SizesList from './SizesList';
+import SizesList from '../data/FootSizeList';
 import giftList from '../giftList';
 import Gift from '../Gift';
 
 const Wrapper = styled.div`
   width: 100%;
-  display: ${({ display }) => (display ? 'flex' : 'none')}; 
+  display: ${({ display }) => (display ? 'flex' : 'none')};
   flex-wrap: wrap;
 `;
 
@@ -40,7 +40,7 @@ const Select = styled.select`
 const SizeSelectHeader = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 14px;
-  color: rgb(25, 22, 25);  
+  color: rgb(25, 22, 25);
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@ const SizeSelectHeader = styled.div`
 
 const Product = styled.div`
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
   @media screen and (max-width: 991px) {
     flex-wrap: nowrap;
   }
@@ -97,7 +97,7 @@ const Price = styled.div`
 
 const Size = styled.div`
   display: flex;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 `;
 
 const Line = styled.div`
@@ -123,7 +123,7 @@ const FormWrapper = styled.div`
   width: 50%;
   @media screen and (max-width: 991px) {
     width: 100%;
-  } 
+  }
 `;
 
 const GiftWrapper = styled.div`
@@ -158,16 +158,18 @@ export default ({
         <DescriptionHeader>
           {title}
           <Price>
-            {price}
-            {' '}
-            Р.
-          </Price>
+{price}
+{' '}
+Р.
+</Price>
         </DescriptionHeader>
         <Size>
           <SizeSelectHeader>Размер:</SizeSelectHeader>
           <Select onSelect={() => footSizeHandler}>
             {SizesList.map(item => (
-              <option key={item} value={item}>{item}</option>
+              <option key={item} value={item}>
+                {item}
+              </option>
             ))}
           </Select>
         </Size>

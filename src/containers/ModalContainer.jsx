@@ -6,6 +6,7 @@ class ModalContainer extends Container {
     type: 'order',
     size: 8,
     modalVideo: false,
+    mobileMenu: false,
   };
 
   openModal = (newTypeVal, newSizeVal) => {
@@ -29,6 +30,15 @@ class ModalContainer extends Container {
     document.body.classList.remove('modal-open');
     this.setState({ modalOpen: false });
   };
-}
 
+  openMobileMenu = () => {
+    document.body.classList.add('modal-open');
+    this.setState({ mobileMenu: true });
+  };
+
+  closeMobileMenu = () => {
+    document.body.classList.remove('modal-open');
+    this.setState({ mobileMenu: false });
+  };
+}
 export default ModalContainer;
