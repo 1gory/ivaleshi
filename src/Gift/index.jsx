@@ -29,7 +29,8 @@ const Text = styled.div`
   color: rgb(30, 34, 41);
   font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
-  padding: 40px 0px;
+  line-height: 1.75;
+  padding: 80px 0px;
 `;
 
 const Img = styled.img`
@@ -39,12 +40,12 @@ const Img = styled.img`
 `;
 
 const Button = styled.div`
-  font-size: 18px;
-  color: #ff3300;
+  padding-bottom: 80px;
   font-family: 'MuseoSans-Regular', sans-serif;
-  text-transform: uppercase;
+  font-size: 18px;
   font-weight: bold;
-  padding: 80px 0px;
+  text-transform: uppercase;
+  color: #ff3300;
   transition: 0.3s;
   &:hover{
     opacity: 0.5;

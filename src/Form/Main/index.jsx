@@ -55,9 +55,6 @@ const Input = styled.input`
   &::placeholder {
     color: rgba(30, 34, 41, 0.3);
   }
-  @media screen and (max-width: 991px) {
-    height: 50px;
-  }
 `;
 
 const Button = styled.button`
@@ -74,6 +71,12 @@ const Button = styled.button`
   &:hover {
     background-color: white;
     color: #ff3300;  
+  }
+`;
+
+const DesktopBr = styled.br`
+  @media screen and (max-width: 991px) {
+    display: none;
   }
 `;
 
@@ -103,7 +106,8 @@ export default class Main extends Component {
       <Wrapper display={active}>
         <FormHeader>
           Оставьте свой номер и мы свяжемся с вами для
-          <br />
+          {' '}
+          <DesktopBr />
           оформления заказа
         </FormHeader>
         <FormItem valid={nameValid}>
