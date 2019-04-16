@@ -287,21 +287,21 @@ class Roulette extends Component {
             </Button>
           </BorderWrapper>
         </Grid>
-        <BuyButton>
-          <Link
-            to="constructor"
-            spy={false}
-            smooth
-            hashSpy={false}
-            offset={-100}
-            duration={500}
-            delay={50}
-            isDynamic
-            ignoreCancelEvents={false}
-          >
-            Оформить заказ
-          </Link>
-        </BuyButton>
+        <Link
+          to="constructor"
+          spy={false}
+          smooth
+          hashSpy={false}
+          offset={-100}
+          duration={500}
+          delay={50}
+          isDynamic
+          ignoreCancelEvents={false}
+        >
+          <BuyButton>
+          Оформить заказ
+          </BuyButton>
+        </Link>
       </Wrapper>
     );
   }
