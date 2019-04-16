@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 640px;
   z-index: 100;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   background: #fff;
 `;
 

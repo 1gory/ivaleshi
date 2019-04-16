@@ -29,7 +29,7 @@ const Select = styled.select`
   background: none;
   border: none;
   border-bottom: 1px solid rgba(25, 22, 25, 0.1);
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: rgb(25, 22, 25);
@@ -38,7 +38,7 @@ const Select = styled.select`
 `;
 
 const SizeSelectHeader = styled.div`
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 14px;
   color: rgb(25, 22, 25);
   text-transform: uppercase;
@@ -71,7 +71,7 @@ const DescriptionHeader = styled.div`
   align-items: center;
   font-size: 22px;
   color: rgb(25, 22, 25);
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
   margin-bottom: 40px;
   width: 100%;
@@ -85,7 +85,7 @@ const DescriptionHeader = styled.div`
 const Price = styled.div`
   background: #ff3300;
   color: white;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
   padding: 10px 15px;
   margin-left: 30px;

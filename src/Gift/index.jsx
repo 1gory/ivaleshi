@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 const Section = styled.div`
-  display: ${({ display }) => (display ? 'block' : 'none')}; 
+  display: ${({ display }) => (display ? 'block' : 'none')};
 `;
 
 const Header = styled.div`
@@ -41,19 +41,19 @@ const Img = styled.img`
 const Button = styled.div`
   font-size: 18px;
   color: #ff3300;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   text-transform: uppercase;
   font-weight: bold;
   padding: 80px 0px;
   transition: 0.3s;
-  &:hover{
+  &:hover {
     opacity: 0.5;
     cursor: pointer;
   }
 `;
 
 export default ({
-  name, img, giftChosen, closeModal, closeModalNeeded,
+ name, img, giftChosen, closeModal, closeModalNeeded 
 }) => (
   <Wrapper>
     <Section display={giftChosen}>
@@ -62,8 +62,8 @@ export default ({
       <Text>
         Подарок будет добавлен
         <br />
-        к вашему заказу
-      </Text>
+к вашему заказу
+</Text>
     </Section>
     <Section display={!giftChosen}>
       <Text>

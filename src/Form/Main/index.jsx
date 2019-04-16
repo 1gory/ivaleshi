@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import MaskedInput from 'react-text-mask';
 
 const Wrapper = styled.div`
-  display: ${({ display }) => (display ? 'block' : 'none')}; 
+  display: ${({ display }) => (display ? 'block' : 'none')};
 `;
 
 const FormHeader = styled.div`
   font-size: 16px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
-  color: #1e2229;  
+  color: #1e2229;
   text-align: center;
   margin-bottom: 40px;
   @media screen and (max-width: 991px) {
@@ -19,7 +19,7 @@ const FormHeader = styled.div`
 `;
 
 const FormItem = styled.div`
-  border: ${({ valid }) => (valid ? '1px solid rgba(30, 35, 42, 0.15)' : '1px solid rgb(255,51,0)')}; 
+  border: ${({ valid }) => (valid ? '1px solid rgba(30, 35, 42, 0.15)' : '1px solid rgb(255,51,0)')};
   position: relative;
   margin-bottom: 20px;
   overflow: hidden;
@@ -28,7 +28,7 @@ const FormItem = styled.div`
 const Label = styled.label`
   display: block;
   font-size: 14px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
   color: #1e2229;
   position: absolute;
@@ -44,7 +44,7 @@ const Input = styled.input`
   width: 100%;
   height: 70px;
   padding-top: 15px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
   padding-left: 20px;
   padding-right: 20px;
@@ -59,9 +59,9 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 14px;
-  color: white; 
+  color: white;
   text-transform: uppercase;
   padding: 35px 0px;
   background-color: rgb(255, 51, 0);
@@ -71,15 +71,13 @@ const Button = styled.button`
   width: 100%;
   &:hover {
     background-color: white;
-    color: #ff3300;  
+    color: #ff3300;
   }
 `;
 
 export default class Main extends Component {
   handlePhoneChange = (e) => {
-    const {
-      phoneHandler,
-    } = this.props;
+    const { phoneHandler } = this.props;
     if (!e.target.value) {
       phoneHandler('');
       return;
@@ -109,14 +107,30 @@ export default class Main extends Component {
         <FormItem valid={phoneValid}>
           <Label>Телефон</Label>
           <MaskedInput
-            mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+            mask={[
+              '+',
+              '7',
+              ' ',
+              '(',
+              /[1-9]/,
+              /\d/,
+              /\d/,
+              ')',
+              ' ',
+              /\d/,
+              /\d/,
+              /\d/,
+              '-',
+              /\d/,
+              /\d/,
+              /\d/,
+              /\d/,
+            ]}
             guide
             onChange={this.handlePhoneChange}
             keepCharPositions
             value={this.inputPhone}
-            render={(ref, props) => (
-              <Input ref={ref} {...props} />
-            )}
+            render={(ref, props) => <Input ref={ref} {...props} />}
           />
         </FormItem>
         <Button onClick={() => validateHandler()}>Отправить заказ</Button>

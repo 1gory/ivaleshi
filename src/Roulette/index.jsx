@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Media, withBreakpoints } from 'react-breakpoints';
 import { Element, Link } from 'react-scroll';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import {
+  PaddingGrid as Grid,
+  PaddingRow as Row,
+  PaddingCol as Col,
+} from '../grid';
 import cardsList from '../giftList';
 import Card from './Card';
 import DefaultBuyButton from '../generic/Button';
 import icon from './roll-bottom.svg';
 
-const Wrapper = styled.div`   
+const Wrapper = styled.div`
   padding-bottom: 100px;
   @media screen and (max-width: 992px) {
     padding-bottom: 40px;
@@ -16,7 +20,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const BorderWrapper = styled.div`   
+const BorderWrapper = styled.div`
   border: solid 6px #ff3300;
   padding-bottom: 40px;
   @media screen and (max-width: 992px) {
@@ -26,7 +30,7 @@ const BorderWrapper = styled.div`
   }
 `;
 
-const Header = styled.h3`   
+const Header = styled.h3`
   font-size: 24px;
   font-family: 'Museo-Regular', sans-serif;
   text-align: center;
@@ -36,14 +40,14 @@ const Header = styled.h3`
   @media screen and (max-width: 991px) {
     margin-bottom: 50px;
     margin-top: 30px;
-  } 
+  }
 `;
 
-const Button = styled.button`   
+const Button = styled.button`
   border: none;
   background: none;
   font-size: 18px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   color: rgb(255, 51, 0);
@@ -56,7 +60,7 @@ const ButtonIcon = styled.img`
   display: block;
   width: 30px;
   margin: auto;
-  transform: ${({ rotate }) => (rotate ? 'rotate(180deg)' : 'none')}; 
+  transform: ${({ rotate }) => (rotate ? 'rotate(180deg)' : 'none')};
   opacity: 0.25;
 `;
 
@@ -69,15 +73,15 @@ const CardWrapper = styled.div`
   @media screen and (max-width: 991px) {
     overflow-x: visible;
     overflow-y: visible;
-    flex-wrap: nowrap
-  } 
+    flex-wrap: nowrap;
+  }
 `;
 
 const MobileBr = styled.br`
   display: none;
   @media screen and (max-width: 991px) {
     display: block;
-  } 
+  }
 `;
 
 const MobileCardsContainerWrap = styled.div`
@@ -94,20 +98,16 @@ const MobileCardsContainerInner = styled(Row)`
     width: 40000px;
     margin-left: 0px;
     margin-right: 0px;
-    left: ${props => (props.leftShift)}px;
-${
-  (props) => {
+    left: ${props => props.leftShift}px;
+${(props) => {
     if (props.isAnimationActive) {
-      return (
-        `
+      return `
         transition: transform ${props.duration}s ease-out;
         transform: translateX(-${props.shift}px);
-        `
-      );
+        `;
     }
     return true;
-  }
-}
+  }}
 `;
 
 const BuyButton = styled(DefaultBuyButton)`
@@ -154,14 +154,12 @@ class Roulette extends Component {
     }
   };
 
-  getRandomInt = (min, max) => (Math.floor(Math.random() * (max - min)) + min);
+  getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
   startRoulette = () => {
     const { isAnimationActive, duration } = this.state;
     const {
-      constructorContainer: {
-        changeGift,
-      },
+      constructorContainer: { changeGift },
     } = this.props;
 
     const chosenPresent = this.getRandomInt(0, 2);
@@ -216,10 +214,10 @@ class Roulette extends Component {
 
     switch (chosenPresentForMobileVersion) {
       case 'Средство по уходу':
-        shift = (shift * speedOfRoulette) - leftShift;
+        shift = shift * speedOfRoulette - leftShift;
         break;
       case 'Шерстяные носки':
-        shift = (shift * speedOfRoulette) + 350 - leftShift;
+        shift = shift * speedOfRoulette + 350 - leftShift;
         break;
       default:
         break;
@@ -227,7 +225,7 @@ class Roulette extends Component {
 
     for (let i = 0; i < 50; i += 1) {
       presentsTemplate.push(
-        cardsList.map(card => (<Card name={card.name} img={card.img} />)),
+        cardsList.map(card => <Card name={card.name} img={card.img} />),
       );
     }
 
@@ -238,7 +236,6 @@ class Roulette extends Component {
           <BorderWrapper>
             <Header>
               Узнай, какой подарок
-              {' '}
               <MobileBr />
               ты получишь к заказу
             </Header>
@@ -251,10 +248,8 @@ class Roulette extends Component {
                   leftShift={newLeftShift}
                 >
                   <Media>
-                    {
-                      ({ breakpoints, currentBreakpoint }) => (
-                        breakpoints[currentBreakpoint] > breakpoints.mobile ? (
-                          cardsList.map((card, index) => (
+                    {({ breakpoints, currentBreakpoint }) => (breakpoints[currentBreakpoint] > breakpoints.mobile
+                        ? cardsList.map((card, index) => (
                             <Col
                               xsOffset={index === 0 ? 3 : 0}
                               xs={6}
@@ -266,15 +261,14 @@ class Roulette extends Component {
                                 name={card.name}
                                 img={card.img}
                                 animationActive={isAnimationActive}
-                                shift={index === 0 ? 200 : ((index * 200) + 200)}
+                                shift={index === 0 ? 200 : index * 200 + 200}
                                 duration={duration}
                                 number={index + 1}
                                 chosen={chosenPresentName === card.name}
                               />
                             </Col>
                           ))
-                        ) : (presentsTemplate)
-                      )
+                        : presentsTemplate)
                     }
                   </Media>
                 </MobileCardsContainerInner>

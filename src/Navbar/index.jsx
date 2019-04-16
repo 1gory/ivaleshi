@@ -56,7 +56,7 @@ const LogoInline = styled.img`
 const Descriptor = styled.p`
   margin 0;
   margin-left: 30px; 
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
@@ -87,7 +87,7 @@ const ContactsWrapper = styled.div`
 const ContactLink = styled.a`
   margin: 0 10px;
   text-decoration: none;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: #fff;
@@ -134,7 +134,7 @@ const MenuItem = styled.li`
   a {
     text-decoration: none;
     letter-spacing: 0.3px;
-    font-family: 'MuseoSans-Regular', sans-serif;
+    font-family: 'Museo-Regular', sans-serif;
     font-weight: 600;
     color: #fff;
     cursor: pointer;

@@ -27,7 +27,7 @@ const QualityWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 1000px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   @media screen and (max-width: 991px) {
     flex-direction: column;
     height: 661px;

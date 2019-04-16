@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Element } from 'react-scroll';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import {
+  PaddingGrid as Grid,
+  PaddingRow as Row,
+  PaddingCol as Col,
+} from '../grid';
 import Constructor from './Constructor';
 import Gift from '../Gift';
 import Form from '../Form';
 import giftList from '../giftList';
 import {
-  mainImages,
-  pompons,
-  beads,
-  rhinestones,
+ mainImages, pompons, beads, rhinestones 
 } from './imageSets';
 import arrow from './arrow2.svg';
 
 const Wrapper = styled.section`
-  padding-top: 110px;   
+  padding-top: 110px;
   padding-bottom: 90px;
   position: relative;
   @media screen and (max-width: 991px) {
-    padding-top: 30px;   
+    padding-top: 30px;
     padding-bottom: 30px;
-  } 
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -32,7 +33,7 @@ const ImageWrapper = styled.div`
   }
   @media screen and (max-width: 600px) {
     width: 100%;
-  } 
+  }
 `;
 
 const Header = styled.h2`
@@ -43,14 +44,14 @@ const Header = styled.h2`
   margin: 0;
   @media screen and (max-width: 991px) {
     font-size: 36px;
-  } 
+  }
 `;
 
 const Back = styled.div`
-  display: ${({ display }) => (!display ? 'block' : 'none')}; 
+  display: ${({ display }) => (!display ? 'block' : 'none')};
   font-size: 14px;
   color: #ff3300;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   text-transform: uppercase;
   position: absolute;
   top: 240px;
@@ -96,17 +97,17 @@ const Jewel = styled.img`
   position: absolute;
   width: 520px;
   left: 0;
-  top: ${({ isBead }) => (isBead ? '120px' : '100px')}; 
+  top: ${({ isBead }) => (isBead ? '120px' : '100px')};
   z-index: 9;
   @media screen and (max-width: 600px) {
     width: 100%;
-    top: ${({ isBead }) => (isBead ? '60px' : '50px')}; 
+    top: ${({ isBead }) => (isBead ? '60px' : '50px')};
   }
 `;
 
 const GiftWrapper = styled.div`
   margin-bottom: 50px;
-  display: ${({ display }) => (!display ? 'block' : 'none')}; 
+  display: ${({ display }) => (!display ? 'block' : 'none')};
   @media screen and (max-width: 991px) {
     margin-top: 20px;
   }
@@ -122,14 +123,10 @@ export default class CalcSectionComponent extends Component {
   }
 
   toggleStage = () => {
-    const {
-      stage1,
-    } = this.state;
+    const { stage1 } = this.state;
     this.setState({ stage1: !stage1 });
     const {
-      constructorContainer: {
-        setDefaultFormState,
-      },
+      constructorContainer: { setDefaultFormState },
     } = this.props;
     setDefaultFormState();
   };
@@ -152,13 +149,9 @@ export default class CalcSectionComponent extends Component {
           giftChosen,
         },
       },
-      modalContainer: {
-        closeModal,
-      },
+      modalContainer: { closeModal },
     } = this.props;
-    const {
-      stage1,
-    } = this.state;
+    const { stage1 } = this.state;
 
     return (
       <Wrapper>
@@ -185,7 +178,11 @@ export default class CalcSectionComponent extends Component {
               </ImageWrapper>
             </Col>
             <Col lg={5} xs={12}>
-              <Constructor {...this.props} display={stage1} toggleStage={this.toggleStage} />
+              <Constructor
+                {...this.props}
+                display={stage1}
+                toggleStage={this.toggleStage}
+              />
               <GiftWrapper display={stage1}>
                 <Gift
                   name={giftList[gift].name}

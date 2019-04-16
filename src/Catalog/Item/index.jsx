@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Button from '../../generic/Button';
 
 const Wrapper = styled.div`
-  border: solid 5px #ff3300; 
+  border: solid 5px #ff3300;
   padding-top: 110px;
   padding-left: 280px;
   padding-right: 160px;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
     padding-left: 160px;
     padding-right: 160px;
     padding-top: 350px;
-  } 
+  }
   @media screen and (max-width: 600px) {
     padding: 0px 30px;
     padding-top: 230px;
@@ -30,10 +30,10 @@ const Header = styled.div`
   font-family: 'Museo-Regular', sans-serif;
   font-size: 36px;
   line-height: 0.83;
-  color: #191619;  
+  color: #191619;
   @media screen and (max-width: 991px) {
     margin-bottom: 20px;
-  } 
+  }
   @media screen and (max-width: 600px) {
     text-align: center;
     font-size: 24px;
@@ -42,11 +42,11 @@ const Header = styled.div`
 
 const Text = styled.div`
   margin-bottom: 45px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
   line-height: 1.88;
   font-weight: 600;
-  color: #191619;  
+  color: #191619;
   @media screen and (max-width: 600px) {
     font-size: 14px;
     margin-bottom: 20px;
@@ -73,21 +73,15 @@ const ButtonPrice = styled.span`
 `;
 
 export default ({
-  name,
-  price,
-  text,
-  handler,
-  index,
+ name, price, text, handler, index 
 }) => (
   <Wrapper>
     <Header>{name}</Header>
     <Text>{text}</Text>
     <BuyButton onClick={() => handler(index)}>
       Купить
-      {' '}
       <ButtonPrice>
         {price}
-        {' '}
         Р.
       </ButtonPrice>
     </BuyButton>

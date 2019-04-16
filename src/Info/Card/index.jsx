@@ -11,21 +11,21 @@ const CardHeader = styled.div`
   @media screen and (max-width: 991px) {
     margin-bottom: 20px;
     margin-top: 20px;
-  } 
+  }
 `;
 
 const CardText = styled.div`
   padding: 0 140px;
   margin-bottom: 160px;
-  font-size: 14px; 
+  font-size: 14px;
   color: #191619;
   line-height: 1.86;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   text-align: center;
   @media screen and (max-width: 991px) {
     padding: 0 30px;
     margin-bottom: 50px;
-  } 
+  }
 `;
 
 const CardIcon = styled.img`

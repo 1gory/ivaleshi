@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 const Phone = styled.a`
   text-decoration: none;
   color: #fff;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
 `;
 
 export default () => (

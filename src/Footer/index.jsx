@@ -39,7 +39,7 @@ const MenuItem = styled.li`
   a {
     text-decoration: none;
     letter-spacing: 0.3px;
-    font-family: 'MuseoSans-Regular', sans-serif;
+    font-family: 'Museo-Regular', sans-serif;
     font-weight: 600;
     color: #191619;
     transition: 0.2s;
@@ -67,7 +67,7 @@ const ContactsWrapper = styled.div`
 
 const ContactLink = styled.a`
   text-decoration: none;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   font-size: 24px;
   color: #191619;
@@ -112,7 +112,7 @@ const MapOverlay = styled.div`
   padding: 30px;
   background-color: white;
   color: #191619;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   font-size: 16px;
   display: inline-block;

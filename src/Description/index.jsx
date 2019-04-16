@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, Element } from 'react-scroll';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import {
+  PaddingGrid as Grid,
+  PaddingRow as Row,
+  PaddingCol as Col,
+} from '../grid';
 import img from './img.png';
 
 const Wrapper = styled.section`
@@ -12,10 +16,10 @@ const Wrapper = styled.section`
   @media screen and (max-width: 1200px) {
     padding-top: 100px;
     padding-bottom: 50px;
-  } 
+  }
   @media screen and (max-width: 991px) {
     padding-top: 0;
-  } 
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -42,7 +46,7 @@ const Header = styled.h3`
     padding: 35px 0;
     text-align: center;
     padding-right: 0px;
-  } 
+  }
 `;
 
 const Text = styled.p`
@@ -50,7 +54,7 @@ const Text = styled.p`
   margin: 0;
   color: white;
   line-height: 2;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: normal;
   padding-right: 160px;
   @media screen and (max-width: 991px) {
@@ -58,7 +62,7 @@ const Text = styled.p`
     line-height: 1.75;
     text-align: center;
     padding-right: 0;
-  } 
+  }
 `;
 
 const SideImg = styled.img`
@@ -70,18 +74,18 @@ const SideImg = styled.img`
   right: 0;
   @media screen and (max-width: 1300px) {
     width: 550px;
-  } 
+  }
   @media screen and (max-width: 1200px) {
     width: 470px;
-  } 
+  }
   @media screen and (max-width: 991px) {
     position: static;
     width: 100%;
     height: 730px;
-  } 
+  }
   @media screen and (max-width: 700px) {
     height: 500px;
-  } 
+  }
   @media screen and (max-width: 550px) {
     height: 360px;
   }
@@ -97,7 +101,7 @@ const ButtonWhite = styled.button`
   color: #ff3300;
   text-transform: uppercase;
   margin-right: 30px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
@@ -107,13 +111,13 @@ const ButtonWhite = styled.button`
   }
   &:hover {
     background-color: #ff3300;
-    color: white;  
+    color: white;
   }
   @media screen and (max-width: 1200px) {
     display: block;
     margin: auto;
     margin-bottom: 20px;
-  } 
+  }
 `;
 
 const Button = styled.button`
@@ -121,7 +125,7 @@ const Button = styled.button`
   border: none;
   color: white;
   text-transform: uppercase;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
@@ -131,12 +135,12 @@ const Button = styled.button`
   }
   &:hover {
     background-color: white;
-    color: #ff3300;  
+    color: #ff3300;
   }
   @media screen and (max-width: 1200px) {
     display: block;
     margin: auto;
-  } 
+  }
 `;
 
 export default () => (
@@ -152,11 +156,11 @@ export default () => (
             </Header>
             <Text>
               Натуральный 100% войлок согреет даже при температуре -30 градусов.
-              Нескользящая подошва EVA придаст спокойствия на замерзших тротуарах.
-              Помпоны из натурального меха енота, песца, норки.
-              Оригинальные аксессуары, которые отбирают наши дизайнеры.
-              Ручная работа дизайнеров не оставит равнодушным окружающих!
-              Посмотрите, как выглядят наши работы ниже.
+              Нескользящая подошва EVA придаст спокойствия на замерзших
+              тротуарах. Помпоны из натурального меха енота, песца, норки.
+              Оригинальные аксессуары, которые отбирают наши дизайнеры. Ручная
+              работа дизайнеров не оставит равнодушным окружающих! Посмотрите,
+              как выглядят наши работы ниже.
             </Text>
           </TextWrapper>
           <ButtonWrapper>

@@ -55,7 +55,7 @@ const Header = styled.h1`
 
 const Text = styled.h2`
   font-size: 16px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 500;
   color: #fff;
   line-height: 1.5;
@@ -112,7 +112,7 @@ const PlayIcon = styled.img`
 const Description = styled.div`
   margin-top: 20px;
   text-align: center;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   color: #fff;
   font-size: 14px;
   opacity: 0.6;
@@ -149,8 +149,8 @@ export default ({ modalContainer: { openModalVideo } }) => (
                 <Description>
                   Посмотрите, как валенки заботятся
                   <br />
-                  о вашем здоровье
-                </Description>
+о вашем здоровье
+</Description>
               </VideoWrapper>
             </PositionWrapper>
           </Col>

@@ -25,7 +25,7 @@ const Description = styled.div`
 const Author = styled.div`
   font-family: 'MuseoSans-Bold', sans-serif;
   font-size: 16px;
-  color: #191619;  
+  color: #191619;
   margin-right: 40px;
   @media screen and (max-width: 767px) {
     margin: 0;
@@ -36,16 +36,16 @@ const Author = styled.div`
 
 const Text = styled.div`
   margin-bottom: 60px;
-  font-family: 'Caveat-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 26px;
   line-height: 1.31;
-  color: #191619;  
+  color: #191619;
   position: relative;
 
   &::before {
-    content: "“";
+    content: '“';
     color: rgba(25, 22, 25, 0.25);
-    font-family: 'Caveat-Regular', sans-serif;
+    font-family: 'Museo-Regular', sans-serif;
     font-size: 48px;
     position: absolute;
     left: -20px;
@@ -54,9 +54,9 @@ const Text = styled.div`
 `;
 
 const PostDate = styled.div`
-  font-family: 'MuseoSans-Bold', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
-  color: #436eab;  
+  color: #436eab;
 `;
 
 const LinkIcon = styled.img`
@@ -88,12 +88,7 @@ const Thumb = styled.img`
 `;
 
 export default ({
-  name,
-  text,
-  date,
-  link,
-  city,
-  img,
+ name, text, date, link, city, img 
 }) => (
   <Wrapper>
     <Thumb src={img} />

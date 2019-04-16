@@ -18,7 +18,7 @@ const Header = styled.h2`
 
 const Wrapper = styled.div`
   width: 100%;
-  display: ${({ display }) => (display ? 'flex' : 'none')}; 
+  display: ${({ display }) => (display ? 'flex' : 'none')};
   flex-wrap: wrap;
 `;
 
@@ -38,7 +38,7 @@ const ListItem = styled.li`
   margin-bottom: 30px;
   font-size: 16px;
   color: rgb(25, 22, 25);
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
 `;
 
 const Image = styled.img`
@@ -60,7 +60,7 @@ const SizesHeaders = styled.div`
   margin-bottom: 70px;
   font-size: 16px;
   color: rgb(25, 22, 25);
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
   @media screen and (max-width: 991px) {
     justify-content: center;
@@ -77,7 +77,7 @@ const Size = styled.div`
   justify-content: flex-start;
   font-size: 16px;
   color: rgb(25, 22, 25);
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
   margin-bottom: 30px;
   @media screen and (max-width: 991px) {
@@ -94,14 +94,13 @@ const MobileBr = styled.br`
   display: none;
   @media screen and (max-width: 991px) {
     display: block;
-  } 
+  }
 `;
 
 export default ({ visible }) => (
   <Wrapper display={visible}>
     <Header>
       Как узнать свой
-      {' '}
       <MobileBr />
       размер
     </Header>
@@ -124,7 +123,6 @@ export default ({ visible }) => (
       <SizesHeaders>
         <SizesHeaderLeft>
           Длина ступни,
-          {' '}
           <MobileBr />
           см
         </SizesHeaderLeft>

@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Element } from 'react-scroll';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import {
+  PaddingGrid as Grid,
+  PaddingRow as Row,
+  PaddingCol as Col,
+} from '../grid';
 import img from './booklet.jpg';
 import success from './success.svg';
 import error from './error.svg';
@@ -12,7 +16,7 @@ const Wrapper = styled.section`
   overflow: hidden;
   @media screen and (max-width: 991px) {
     padding-top: 50px;
-  } 
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -21,45 +25,45 @@ const ImageWrapper = styled.div`
   @media screen and (max-width: 991px) {
     text-align: center;
     padding-bottom: 0px;
-  } 
+  }
 `;
 
 const Header = styled.div`
   margin-bottom: 40px;
   font-family: 'Museo-Regular', sans-serif;
   font-size: 36px;
-  color: white;   
+  color: white;
   @media screen and (max-width: 991px) {
     font-size: 30px;
-  } 
+  }
 `;
 
 const Text = styled.div`
   margin-bottom: 45px;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   opacity: 0.7;
-  color: white;  
+  color: white;
 `;
 
 const EmailWrapper = styled.div`
   justify-content: flex-start;
   display: ${({ active }) => (active ? 'flex' : 'none')};
   @media screen and (max-width: 991px) {
-    justify-content: center; 
-  } 
+    justify-content: center;
+  }
 `;
 
 const FormStateWrapper = styled.div`
   background: #ff481a;
   padding: 30px;
   color: white;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
   width: 380px;
   position: relative;
-  display: ${({ active }) => (active ? 'block' : 'none')}; 
+  display: ${({ active }) => (active ? 'block' : 'none')};
 `;
 
 const FormStateHeader = styled.div`
@@ -82,19 +86,19 @@ const FormStateIcon = styled.img`
 `;
 
 const EmailInput = styled.input`
-  font-family: 'MuseoSans-Regular', sans-serif;
-  color: ${({ valid }) => (valid ? 'rgba(25, 22, 25, 0.5)' : 'rgb(255,51,0)')};  
+  font-family: 'Museo-Regular', sans-serif;
+  color: ${({ valid }) => (valid ? 'rgba(25, 22, 25, 0.5)' : 'rgb(255,51,0)')};
   padding: 30px;
   width: 240px;
   font-weight: bold;
   border: none;
   @media screen and (max-width: 991px) {
     width: auto;
-  } 
+  }
   @media screen and (max-width: 600px) {
     padding: 20px;
     min-width: 0;
-  } 
+  }
 `;
 
 const EmailButton = styled.button`
@@ -102,17 +106,17 @@ const EmailButton = styled.button`
   border: none;
   padding: 30px;
   color: #ff6633;
-  font-family: 'MuseoSans-Regular', sans-serif;
+  font-family: 'Museo-Regular', sans-serif;
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
     background-color: rgb(255, 51, 0);
-    color: white;  
+    color: white;
   }
   @media screen and (max-width: 600px) {
     padding: 20px;
-  } 
+  }
 `;
 
 const SideImg = styled.img`
@@ -124,11 +128,11 @@ const SideImg = styled.img`
   left: -40px;
   box-shadow: 0px 30px 30px 0 rgba(0, 0, 0, 0.25);
   @media screen and (max-width: 1300px) {
-    left: 0px;  
-  } 
+    left: 0px;
+  }
   @media screen and (max-width: 1199px) {
-    width: 350px;  
-  } 
+    width: 350px;
+  }
   @media screen and (max-width: 991px) {
     position: static;
     width: 100%;
@@ -136,21 +140,19 @@ const SideImg = styled.img`
     display: block;
     margin: auto;
     margin-top: 50px;
-  } 
+  }
 `;
 
 const DesktopBr = styled.br`
   @media screen and (max-width: 991px) {
     display: none;
-  } 
+  }
 `;
 
 export default class Booklet extends Component {
   handleEmailChange = (e) => {
     const {
-      container: {
-        changeEmail,
-      },
+      container: { changeEmail },
     } = this.props;
 
     if (!e.target.value) {
@@ -163,10 +165,7 @@ export default class Booklet extends Component {
   render() {
     const {
       container: {
-        state: {
-          formState,
-          emailValid,
-        },
+        state: { formState, emailValid },
         validateEmail,
       },
     } = this.props;
@@ -180,19 +179,23 @@ export default class Booklet extends Component {
               <Col lgOffset={5} lg={7} xs={12}>
                 <Header>
                   Бесплатный буклет по уходу
-                  {' '}
                   <DesktopBr />
                   за валешами
                 </Header>
                 <Text>
                   Введи свой Email, чтобы получить бесплатный
-                  {' '}
                   <DesktopBr />
                   буклет на почту. Никакого спама.
                 </Text>
                 <EmailWrapper active={formState === 'main'}>
-                  <EmailInput placeholder="Email" onChange={this.handleEmailChange} valid={emailValid} />
-                  <EmailButton onClick={() => validateEmail()}>Отправить</EmailButton>
+                  <EmailInput
+                    placeholder="Email"
+                    onChange={this.handleEmailChange}
+                    valid={emailValid}
+                  />
+                  <EmailButton onClick={() => validateEmail()}>
+                    Отправить
+                  </EmailButton>
                 </EmailWrapper>
                 <FormStateWrapper active={formState === 'success'}>
                   <FormStateHeader>Готово!</FormStateHeader>
