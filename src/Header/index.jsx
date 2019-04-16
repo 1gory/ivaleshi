@@ -145,7 +145,7 @@ export default ({ modalContainer: { openModalVideo } }) => (
                 <Description>
                   Посмотрите, как валенки заботятся
                   <br />
-о вашем здоровье
+                  о вашем здоровье
                 </Description>
               </VideoWrapper>
             </PositionWrapper>

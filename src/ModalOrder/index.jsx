@@ -160,7 +160,7 @@ export default ({
           <Price>
             {price}
             {' '}
-Р.
+            Р.
           </Price>
         </DescriptionHeader>
         <Size>
