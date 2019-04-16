@@ -8,6 +8,8 @@ import Card from './Card';
 import DefaultBuyButton from '../generic/Button';
 import icon from './roll-bottom.svg';
 
+
+
 const Wrapper = styled.div`   
   padding-bottom: 100px;
   @media screen and (max-width: 992px) {
