@@ -19,6 +19,7 @@ import ModalContainer from './containers/ModalContainer';
 import BookletContainer from './containers/BookletContainer';
 import BottomPhone from './BottomPhone';
 import QualitiesBlock from './QualitiesBlock';
+import MobileMenu from './MobileMenu';
 
 const breakpoints = {
   mobile: 992,
@@ -27,11 +28,12 @@ const breakpoints = {
 
 export default () => (
   <div>
-    <Navbar />
+    <Subscribe to={[ModalContainer]}>
+      {modalContainer => <Navbar modalContainer={modalContainer} />}
+    </Subscribe>
     <Subscribe to={[ModalContainer]}>
       {modalContainer => <Header modalContainer={modalContainer} />}
     </Subscribe>
-
     <Subscribe to={[ConstructorContainer, ModalContainer]}>
       {(constructorContainer, modalContainer) => (
         <Constructor
@@ -74,6 +76,9 @@ export default () => (
     </Subscribe>
     <Subscribe to={[ModalContainer]}>
       {modalContainer => <ModalVideo modalContainer={modalContainer} />}
+    </Subscribe>
+    <Subscribe to={[ModalContainer]}>
+      {modalContainer => <MobileMenu modalContainer={modalContainer} />}
     </Subscribe>
     <BottomPhone />
   </div>

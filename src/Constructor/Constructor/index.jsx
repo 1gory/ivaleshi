@@ -3,33 +3,33 @@ import styled from 'styled-components';
 import colorSetMain from '../colorSetMain';
 import colorSetSecondary from '../colorSetSecondary';
 import cardsList from '../CardsList';
-import footSizeList from '../FootSizeList';
+import footSizeList from '../../data/FootSizeList';
 import Colors from '../Colors';
 import Cards from '../Cards';
 import headerIcon from '../arrow.svg';
 
 const Wrapper = styled.section`
-  display: ${({ display }) => (display ? 'block' : 'none')}; 
+  display: ${({ display }) => (display ? 'block' : 'none')};
 `;
 
 const CalcSection = styled.div`
   margin-bottom: 45px;
   @media screen and (max-width: 991px) {
     margin-bottom: 0px;
-  }  
+  }
 `;
 
 const Dropdown = styled.div`
   @media screen and (max-width: 991px) {
-    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')}; 
-  }    
+    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+  }
 `;
 
 const Header = styled.div`
   padding: 10px 0px;
-  margin-bottom: 25px;   
+  margin-bottom: 25px;
   font-size: 14px;
-  font-weight: 600; 
+  font-weight: 600;
   color: rgb(25, 22, 25);
   text-transform: uppercase;
   font-family: 'MuseoSans-Regular', sans-serif;
@@ -41,10 +41,10 @@ const Header = styled.div`
 const HeaderIcon = styled.img`
   display: none;
   transition: 0.1s;
-  transform: ${({ isRotated }) => (isRotated ? 'rotate(180deg)' : 'none')}; 
+  transform: ${({ isRotated }) => (isRotated ? 'rotate(180deg)' : 'none')};
   @media screen and (max-width: 991px) {
-    display: block; 
-  } 
+    display: block;
+  }
 `;
 
 const SizeSelectWrapper = styled.div`
@@ -62,13 +62,13 @@ const SizeSelectLeft = styled.div`
   @media screen and (max-width: 991px) {
     width: 100%;
     justify-content: center;
-  } 
+  }
 `;
 
 const SizeSelectHeader = styled.div`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 14px;
-  color: rgb(25, 22, 25);  
+  color: rgb(25, 22, 25);
   text-transform: uppercase;
   display: flex;
   align-items: center;
@@ -78,7 +78,7 @@ const SizeSelectHeader = styled.div`
 const SizeSelectButton = styled.button`
   font-family: 'MuseoSans-Regular', sans-serif;
   font-size: 14px;
-  color: white; 
+  color: white;
   text-transform: uppercase;
   padding: 35px 65px;
   background-color: rgb(255, 51, 0);
@@ -88,11 +88,11 @@ const SizeSelectButton = styled.button`
   border: none;
   &:hover {
     background-color: white;
-    color: #ff3300;  
+    color: #ff3300;
   }
   @media screen and (max-width: 991px) {
     width: 100%;
-  } 
+  }
 `;
 
 const Select = styled.select`
@@ -116,7 +116,7 @@ const SizeLink = styled.div`
   cursor: pointer;
   @media screen and (max-width: 991px) {
     text-align: center;
-  } 
+  }
 `;
 
 export default class Constructor extends Component {
@@ -124,59 +124,41 @@ export default class Constructor extends Component {
     super(props);
 
     this.state = {
-      dropdownOpen: [
-        true,
-        false,
-        false,
-      ],
+      dropdownOpen: [true, false, false],
     };
   }
 
   handleSelectFootSizeChange = (e) => {
     const {
-      target: {
-        value,
-      },
+      target: { value },
     } = e;
     const {
-      constructorContainer: {
-        changeFootSize,
-      },
+      constructorContainer: { changeFootSize },
     } = this.props;
     changeFootSize(value);
-  }
+  };
 
   toggleDropdown = (index) => {
-    const {
-      dropdownOpen,
-    } = this.state;
+    const { dropdownOpen } = this.state;
     const temp = dropdownOpen;
     temp[index] = !dropdownOpen[index];
     this.setState({ dropdownOpen: temp });
-  }
+  };
 
   render() {
     const {
       constructorContainer: {
-        state: {
-          mainColor,
-          secondaryColor,
-          jewel,
-        },
+        state: { mainColor, secondaryColor, jewel },
         changeMainColor,
         changeSecondaryColor,
         changeJewel,
       },
-      modalContainer: {
-        openModal,
-      },
+      modalContainer: { openModal },
       display,
       toggleStage,
     } = this.props;
 
-    const {
-      dropdownOpen,
-    } = this.state;
+    const { dropdownOpen } = this.state;
     return (
       <Wrapper display={display}>
         <CalcSection>
@@ -213,11 +195,7 @@ export default class Constructor extends Component {
             <HeaderIcon src={headerIcon} isRotated={dropdownOpen[2]} />
           </Header>
           <Dropdown isOpen={dropdownOpen[2]}>
-            <Cards
-              list={cardsList}
-              active={jewel}
-              handler={changeJewel}
-            />
+            <Cards list={cardsList} active={jewel} handler={changeJewel} />
           </Dropdown>
         </CalcSection>
         <CalcSection>
@@ -226,13 +204,19 @@ export default class Constructor extends Component {
               <SizeSelectHeader>Размер:</SizeSelectHeader>
               <Select onChange={this.handleSelectFootSizeChange}>
                 {footSizeList.map(item => (
-                  <option key={item} value={item}>{item}</option>
+                  <option key={item} value={item}>
+                    {item}
+                  </option>
                 ))}
               </Select>
             </SizeSelectLeft>
-            <SizeSelectButton onClick={() => toggleStage()}>Готово</SizeSelectButton>
+            <SizeSelectButton onClick={() => toggleStage()}>
+              Готово
+            </SizeSelectButton>
           </SizeSelectWrapper>
-          <SizeLink onClick={() => openModal('size', 8)}>Узнать свой размер</SizeLink>
+          <SizeLink onClick={() => openModal('size', 8)}>
+            Узнать свой размер
+          </SizeLink>
         </CalcSection>
       </Wrapper>
     );

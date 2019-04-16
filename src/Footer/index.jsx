@@ -1,43 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, Element } from 'react-scroll';
-import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
+import {
+  PaddingGrid as Grid,
+  PaddingRow as Row,
+  PaddingCol as Col,
+} from '../grid';
+import NavButton from '../generic/NavButton';
 import Map from './Map';
 // import socialVK from '../icons/social-vk.svg';
-import socialIG from '../icons/social-ig.svg';
-import socialWA from '../icons/social-wa.svg';
+import socialIG from '../icons/social-ig-black.svg';
+import socialWA from '../icons/social-wa-black.svg';
 
 const Wrapper = styled.footer`
   padding-top: 120px;
   position: relative;
   @media screen and (max-width: 991px) {
     padding-top: 60px;
-  }
-`;
-
-const NavButton = styled.button`
-  border: solid 1px #ff3300;
-  background: none;
-  text-transform: uppercase;
-  color: #ff3300;
-  font-family: 'MuseoSans-Regular', sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.2s;
-  a {
-    display: block;
-    padding: 20px 30px;
-  }
-  &:hover {
-    background-color: #ff3300;
-    color: white;  
-  }
-  @media screen and (max-width: 991px) {
-    display: block;
-    margin: auto;
-    width: 100%;
-    margin-bottom: 60px;
   }
 `;
 
@@ -66,7 +45,7 @@ const MenuItem = styled.li`
     transition: 0.2s;
     cursor: pointer;
     &:hover {
-      color: #ff3300;  
+      color: #ff3300;
     }
   }
   @media screen and (max-width: 991px) {
@@ -95,7 +74,7 @@ const ContactLink = styled.a`
   margin-left: 10px;
   transition: 0.2s;
   &:hover {
-    color: #ff3300;  
+    color: #ff3300;
   }
 `;
 
@@ -234,10 +213,16 @@ export default () => (
         <Col lg={7} xs={12}>
           <ContactsWrapper>
             {/* <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink> */}
-            <ContactLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
+            <ContactLink
+              href="https://www.instagram.com/ivaleshi.ru/"
+              target="_blank"
+            >
               <ContactIcon src={socialIG} />
             </ContactLink>
-            <ContactLink href="https://api.whatsapp.com/send?phone=79999995655" target="_blank">
+            <ContactLink
+              href="https://api.whatsapp.com/send?phone=79999995655"
+              target="_blank"
+            >
               <ContactIcon src={socialWA} />
             </ContactLink>
             <ContactPhone href="tel:+7 (999) 999-56-55">
@@ -248,13 +233,8 @@ export default () => (
       </Row>
     </Grid>
     <MapOverlayWrapper>
-      <MapOverlay>
-        Москва, 3-й Михалковский пер. д.20 к.1
-      </MapOverlay>
+      <MapOverlay>Москва, 3-й Михалковский пер. д.20 к.1</MapOverlay>
     </MapOverlayWrapper>
-    <Map
-      width="100%"
-      height="500px"
-    />
+    <Map width="100%" height="500px" />
   </Wrapper>
 );
