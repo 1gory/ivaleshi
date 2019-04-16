@@ -74,6 +74,7 @@ export default class Modal extends Component {
           gift,
           title,
           price,
+          image,
           nameValid,
           phoneValid,
           formState,
@@ -100,6 +101,7 @@ export default class Modal extends Component {
                 <ModalOrder
                   visible={type === 'order'}
                   title={title}
+                  image={image}
                   gift={gift}
                   price={price}
                   formState={formState}

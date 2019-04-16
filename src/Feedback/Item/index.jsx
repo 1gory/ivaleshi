@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import icon from './social-vk.svg';
+import icon from './social-ig.svg';
 
 const Wrapper = styled.div`
   padding: 65px 130px 45px 400px;
@@ -53,10 +53,10 @@ const Text = styled.div`
   }
 `;
 
-const PostDate = styled.div`
+const PostDate = styled.a`
   font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
-  color: #436eab;
+  color: #ff3300;
 `;
 
 const LinkIcon = styled.img`
@@ -95,10 +95,12 @@ export default ({
     <Text>{text}</Text>
     <Description>
       <Author>{`${name}, ${city}`}</Author>
-      <a href={link}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <LinkIcon src={icon} />
       </a>
-      <PostDate>{date}</PostDate>
+      <PostDate href={link} target="_blank" rel="noopener noreferrer">
+        {date}
+      </PostDate>
     </Description>
   </Wrapper>
 );

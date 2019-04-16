@@ -107,6 +107,7 @@ export default class Catalog extends Component {
       ItemsList[index].jewel,
       ItemsList[index].price,
       ItemsList[index].name,
+      ItemsList[index].img[1],
     );
     openModal('order', 10);
   };

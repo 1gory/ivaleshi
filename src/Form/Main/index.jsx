@@ -7,33 +7,34 @@ const Wrapper = styled.div`
 `;
 
 const FormHeader = styled.div`
+  margin-bottom: 40px;
   font-size: 16px;
   font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
-  color: #1e2229;
+  line-height: 1.75;
   text-align: center;
-  margin-bottom: 40px;
+  color: #1e2229;
   @media screen and (max-width: 991px) {
     margin-top: 40px;
   }
 `;
 
 const FormItem = styled.div`
+  margin-bottom: 20px;
   border: ${({ valid }) => (valid ? '1px solid rgba(30, 35, 42, 0.15)' : '1px solid rgb(255,51,0)')};
   position: relative;
-  margin-bottom: 20px;
   overflow: hidden;
 `;
 
 const Label = styled.label`
+  position: absolute;
+  top: 15px;
   display: block;
+  padding-left: 20px;
   font-size: 14px;
   font-family: 'Museo-Regular', sans-serif;
   font-weight: bold;
   color: #1e2229;
-  position: absolute;
-  padding-left: 20px;
-  top: 15px;
   z-index: 3;
 `;
 
@@ -42,8 +43,8 @@ const Input = styled.input`
   border: none;
   background: white;
   width: 100%;
+  box-sizing: border-box;
   height: 70px;
-  padding-top: 15px;
   font-family: 'Museo-Regular', sans-serif;
   font-size: 16px;
   padding-left: 20px;
@@ -53,9 +54,6 @@ const Input = styled.input`
   &::placeholder {
     color: rgba(30, 34, 41, 0.3);
   }
-  @media screen and (max-width: 991px) {
-    height: 50px;
-  }
 `;
 
 const Button = styled.button`
@@ -63,7 +61,7 @@ const Button = styled.button`
   font-size: 14px;
   color: white;
   text-transform: uppercase;
-  padding: 35px 0px;
+  padding: 27px 0px;
   background-color: rgb(255, 51, 0);
   cursor: pointer;
   transition: 0.2s;
@@ -72,6 +70,12 @@ const Button = styled.button`
   &:hover {
     background-color: white;
     color: #ff3300;
+  }
+`;
+
+const DesktopBr = styled.br`
+  @media screen and (max-width: 991px) {
+    display: none;
   }
 `;
 
@@ -98,7 +102,10 @@ export default class Main extends Component {
     return (
       <Wrapper display={active}>
         <FormHeader>
-          Оставьте свой номер и мы свяжемся с вами для оформления заказа
+          Оставьте свой номер и мы свяжемся с вами для
+          {' '}
+          <DesktopBr />
+          оформления заказа
         </FormHeader>
         <FormItem valid={nameValid}>
           <Label>Имя</Label>

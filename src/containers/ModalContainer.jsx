@@ -16,6 +16,11 @@ class ModalContainer extends Container {
     this.setState({ modalOpen: true });
   };
 
+  closeModal = () => {
+    document.body.classList.remove('modal-open');
+    this.setState({ modalOpen: false });
+  };
+
   openModalVideo = () => {
     document.body.classList.add('modal-open');
     this.setState({ modalVideo: true });
@@ -24,11 +29,6 @@ class ModalContainer extends Container {
   closeModalVideo = () => {
     document.body.classList.remove('modal-open');
     this.setState({ modalVideo: false });
-  };
-
-  closeModal = () => {
-    document.body.classList.remove('modal-open');
-    this.setState({ modalOpen: false });
   };
 
   openMobileMenu = () => {

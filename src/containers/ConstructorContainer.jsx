@@ -11,6 +11,7 @@ class ConstructorContainer extends Container {
     phone: '',
     price: '',
     title: '',
+    image: '',
     constructorState: 'constructor',
     nameValid: true,
     phoneValid: true,
@@ -20,47 +21,51 @@ class ConstructorContainer extends Container {
 
   changeMainColor = (newVal) => {
     this.setState({ mainColor: newVal });
-  }
+  };
 
   changeSecondaryColor = (newVal) => {
     this.setState({ secondaryColor: newVal });
-  }
+  };
 
   changeJewel = (newVal) => {
     this.setState({ jewel: newVal });
-  }
+  };
 
   changeFootSize = (newVal) => {
     this.setState({ footSize: newVal });
-  }
+  };
 
   changeGift = (newVal) => {
     this.setGiftChosen();
     this.setState({ gift: newVal });
-  }
+  };
 
   changeName = (e) => {
     const val = e.target.value;
     this.setState({ name: val });
-  }
+  };
 
   changePhone = (newVal) => {
     this.setState({ phone: newVal });
-  }
+  };
 
   changePrice = (newVal) => {
     this.setState({ price: newVal });
-  }
+  };
 
   changeTitle = (newVal) => {
     this.setState({ title: newVal });
-  }
+  };
+
+  changeImage = (newVal) => {
+    this.setState({ image: newVal });
+  };
 
   setGiftChosen = () => {
     this.setState({ giftChosen: true });
-  }
+  };
 
-  getCatalogItemData = (mainColor, secondaryColor, jewel, price, title) => {
+  getCatalogItemData = (mainColor, secondaryColor, jewel, price, title, image) => {
     this.setState(
       {
         mainColor,
@@ -68,21 +73,22 @@ class ConstructorContainer extends Container {
         jewel,
         price,
         title,
+        image,
       },
     );
-  }
+  };
 
   changeConstructorState = (newVal) => {
     this.setState({ constructorState: newVal });
-  }
+  };
 
   changeFormState = (newVal) => {
     this.setState({ formState: newVal });
-  }
+  };
 
   setDefaultFormState = () => {
     this.setState({ formState: 'main' });
-  }
+  };
 
   validateConstructor = () => {
     this.setState({ nameValid: true });
@@ -107,7 +113,7 @@ class ConstructorContainer extends Container {
     if (validationStatus) {
       this.sendOrder();
     }
-  }
+  };
 
   sendOrder = () => {
     fetch('/api/order', {
@@ -120,7 +126,7 @@ class ConstructorContainer extends Container {
       }
       this.setState({ formState: 'success' });
     });
-  }
+  };
 
   composeData = () => {
     const data = new FormData();
