@@ -1,12 +1,9 @@
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Media, withBreakpoints } from 'react-breakpoints';
 import { Element, Link } from 'react-scroll';
-import {
-  PaddingGrid as Grid,
-  PaddingRow as Row,
-  PaddingCol as Col,
-} from '../grid';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import cardsList from '../giftList';
 import Card from './Card';
 import DefaultBuyButton from '../generic/Button';
@@ -224,9 +221,7 @@ class Roulette extends Component {
     }
 
     for (let i = 0; i < 50; i += 1) {
-      presentsTemplate.push(
-        cardsList.map(card => <Card name={card.name} img={card.img} />),
-      );
+      presentsTemplate.push(cardsList.map(card => <Card name={card.name} img={card.img} />));
     }
 
     return (
@@ -249,26 +244,26 @@ class Roulette extends Component {
                 >
                   <Media>
                     {({ breakpoints, currentBreakpoint }) => (breakpoints[currentBreakpoint] > breakpoints.mobile
-                        ? cardsList.map((card, index) => (
-                            <Col
-                              xsOffset={index === 0 ? 3 : 0}
-                              xs={6}
-                              md={3}
-                              key={card.name}
-                              mdOffset={0}
-                            >
-                              <Card
-                                name={card.name}
-                                img={card.img}
-                                animationActive={isAnimationActive}
-                                shift={index === 0 ? 200 : index * 200 + 200}
-                                duration={duration}
-                                number={index + 1}
-                                chosen={chosenPresentName === card.name}
-                              />
-                            </Col>
-                          ))
-                        : presentsTemplate)
+                      ? cardsList.map((card, index) => (
+                        <Col
+                          xsOffset={index === 0 ? 3 : 0}
+                          xs={6}
+                          md={3}
+                          key={card.name}
+                          mdOffset={0}
+                        >
+                          <Card
+                            name={card.name}
+                            img={card.img}
+                            animationActive={isAnimationActive}
+                            shift={index === 0 ? 200 : index * 200 + 200}
+                            duration={duration}
+                            number={index + 1}
+                            chosen={chosenPresentName === card.name}
+                          />
+                        </Col>
+                      ))
+                      : presentsTemplate)
                     }
                   </Media>
                 </MobileCardsContainerInner>

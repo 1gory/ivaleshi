@@ -158,10 +158,10 @@ export default ({
         <DescriptionHeader>
           {title}
           <Price>
-{price}
-{' '}
+            {price}
+            {' '}
 Р.
-</Price>
+          </Price>
         </DescriptionHeader>
         <Size>
           <SizeSelectHeader>Размер:</SizeSelectHeader>

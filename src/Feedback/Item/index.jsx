@@ -88,7 +88,7 @@ const Thumb = styled.img`
 `;
 
 export default ({
- name, text, date, link, city, img 
+  name, text, date, link, city, img,
 }) => (
   <Wrapper>
     <Thumb src={img} />

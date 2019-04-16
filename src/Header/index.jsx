@@ -1,10 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {
-  PaddingGrid as Grid,
-  PaddingRow as Row,
-  PaddingCol as Col,
-} from '../grid';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import bg from './bg.jpg';
 import videoPreview from './videoPreview.png';
 import playIcon from './play-icon.svg';
@@ -150,7 +146,7 @@ export default ({ modalContainer: { openModalVideo } }) => (
                   Посмотрите, как валенки заботятся
                   <br />
 о вашем здоровье
-</Description>
+                </Description>
               </VideoWrapper>
             </PositionWrapper>
           </Col>

@@ -73,7 +73,7 @@ const ButtonPrice = styled.span`
 `;
 
 export default ({
- name, price, text, handler, index 
+  name, price, text, handler, index,
 }) => (
   <Wrapper>
     <Header>{name}</Header>

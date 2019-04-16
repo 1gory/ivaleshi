@@ -106,9 +106,9 @@ export default class extends Component {
     const { duration, animationActive } = this.props;
     const { isAnimationActive, period } = this.state;
     const halfOfDuration = duration / 2;
-    const periodsInHalfOfAnimation =      Math.floor(halfOfDuration / period) * period;
+    const periodsInHalfOfAnimation = Math.floor(halfOfDuration / period) * period;
     const fourthOfDuration = halfOfDuration + duration / 4;
-    const periodsInFourthOfAnimation =      Math.floor((fourthOfDuration / period) * 2) * (period * 2);
+    const periodsInFourthOfAnimation = Math.floor((fourthOfDuration / period) * 2) * (period * 2);
 
     if (animationActive && !isAnimationActive) {
       setTimeout(() => {
@@ -133,20 +133,15 @@ export default class extends Component {
 
   render() {
     const {
- name, img, animationActive, shift, chosen 
-} = this.props;
+      name, img, animationActive, shift, chosen,
+    } = this.props;
 
     const { period, stageOfAnimation } = this.state;
     const newPeriod = period * stageOfAnimation;
     const newShift = shift * stageOfAnimation * 0.001;
 
     return (
-      <Wrap
-        isAnimationActive={animationActive}
-        shift={newShift}
-        period={newPeriod}
-        chosen={chosen}
-      >
+      <Wrap isAnimationActive={animationActive} shift={newShift} period={newPeriod} chosen={chosen}>
         <CardImage src={img} />
         <CardHeader>{name}</CardHeader>
       </Wrap>

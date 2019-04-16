@@ -75,7 +75,7 @@ const Button = styled.button`
 `;
 
 export default ({
- icon, name, text, buttonVisible 
+  icon, name, text, buttonVisible,
 }) => (
   <Wrapper>
     <IconWrapper>

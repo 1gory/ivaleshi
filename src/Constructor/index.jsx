@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Element } from 'react-scroll';
-import {
-  PaddingGrid as Grid,
-  PaddingRow as Row,
-  PaddingCol as Col,
-} from '../grid';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import Constructor from './Constructor';
 import Gift from '../Gift';
 import Form from '../Form';
 import giftList from '../giftList';
 import {
- mainImages, pompons, beads, rhinestones 
+  mainImages, pompons, beads, rhinestones,
 } from './imageSets';
 import arrow from './arrow2.svg';
 
@@ -178,11 +174,7 @@ export default class CalcSectionComponent extends Component {
               </ImageWrapper>
             </Col>
             <Col lg={5} xs={12}>
-              <Constructor
-                {...this.props}
-                display={stage1}
-                toggleStage={this.toggleStage}
-              />
+              <Constructor {...this.props} display={stage1} toggleStage={this.toggleStage} />
               <GiftWrapper display={stage1}>
                 <Gift
                   name={giftList[gift].name}

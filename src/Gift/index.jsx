@@ -53,7 +53,7 @@ const Button = styled.div`
 `;
 
 export default ({
- name, img, giftChosen, closeModal, closeModalNeeded 
+  name, img, giftChosen, closeModal, closeModalNeeded,
 }) => (
   <Wrapper>
     <Section display={giftChosen}>
@@ -63,7 +63,7 @@ export default ({
         Подарок будет добавлен
         <br />
 к вашему заказу
-</Text>
+      </Text>
     </Section>
     <Section display={!giftChosen}>
       <Text>

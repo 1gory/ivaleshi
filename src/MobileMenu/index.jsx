@@ -5,7 +5,7 @@ import NavButton from '../generic/NavButton';
 import close from './close.svg';
 import phone from '../icons/phone-grey.svg';
 import socialIg from '../icons/social-ig-black.svg';
-import socialVk from '../icons/social-vk-black.svg';
+// import socialVk from '../icons/social-vk-black.svg';
 import socialWa from '../icons/social-wa-black.svg';
 
 const Wrapper = styled.div`
@@ -138,19 +138,12 @@ export default ({
       <SocialLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
         <SocialIcon src={socialIg} />
       </SocialLink>
-      <SocialLink
-        href="https://api.whatsapp.com/send?phone=79999995655"
-        target="_blank"
-      >
+      <SocialLink href="https://api.whatsapp.com/send?phone=79999995655" target="_blank">
         <SocialIcon src={socialWa} />
       </SocialLink>
     </SocialBlock>
     <Menu>
-      <MenuLinkItem
-        to="description"
-        name="Преимущества"
-        closeMenu={closeMobileMenu}
-      />
+      <MenuLinkItem to="description" name="Преимущества" closeMenu={closeMobileMenu} />
       <MenuLinkItem to="catalog" name="Каталог" closeMenu={closeMobileMenu} />
       <MenuLinkItem to="feedback" name="Отзывы" closeMenu={closeMobileMenu} />
       <MenuLinkItem to="footer" name="Контакты" closeMenu={closeMobileMenu} />
