@@ -61,7 +61,7 @@ const SocialIcon = styled.img`
   display: block;
   height: 17px;
   width: 17px;
-  margin: 6px auto;
+  margin: 8px auto;
 `;
 
 const Menu = styled.ul`
