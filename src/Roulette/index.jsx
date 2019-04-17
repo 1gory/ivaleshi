@@ -24,7 +24,6 @@ const BorderWrapper = styled.div`
     width: 320px;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
   }
 `;
 
@@ -37,6 +36,10 @@ const GiftBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 131px 0;
+  @media screen and (max-width: 991px) {
+    margin: 86px auto;
+  }
 `;
 
 const GiftHeader = styled.div`
@@ -150,7 +153,7 @@ ${(props) => {
 const Text = styled.span`
   display: inline-block;
   width: 100%;
-  margin: 100px 0 40px 0;
+  margin: 100px 0 39px 0;
   text-transform: uppercase;
   text-align: center;
   font-size: 18px;
