@@ -2,11 +2,15 @@ import { Container } from 'unstated';
 
 class ConstructorContainer extends Container {
   state = {
-    mainColor: 0,
-    secondaryColor: 0,
+    mainColorIndex: 15,
+    mainColor: 'darkgreen',
+    secondaryColor: 'black',
+    secondaryColorIndex: 0,
     jewel: 0,
-    footSize: 0,
+    jewelType: 'Бусины',
+    footSize: 35,
     gift: 0,
+    giftName: '',
     name: '',
     phone: '',
     price: '',
@@ -19,25 +23,25 @@ class ConstructorContainer extends Container {
     giftChosen: false,
   };
 
-  changeMainColor = (newVal) => {
-    this.setState({ mainColor: newVal });
+  changeMainColor = (newVal, color) => {
+    this.setState({ mainColorIndex: newVal, mainColor: color });
   };
 
-  changeSecondaryColor = (newVal) => {
-    this.setState({ secondaryColor: newVal });
+  changeSecondaryColor = (newVal, color) => {
+    this.setState({ secondaryColorIndex: newVal, secondaryColor: color });
   };
 
-  changeJewel = (newVal) => {
-    this.setState({ jewel: newVal });
+  changeJewel = (newVal, type) => {
+    this.setState({ jewel: newVal, jewelType: type });
   };
 
   changeFootSize = (newVal) => {
     this.setState({ footSize: newVal });
   };
 
-  changeGift = (newVal) => {
+  changeGift = (newVal, giftName) => {
     this.setGiftChosen();
-    this.setState({ gift: newVal });
+    this.setState({ gift: newVal, giftName });
   };
 
   changeName = (e) => {
@@ -66,16 +70,14 @@ class ConstructorContainer extends Container {
   };
 
   getCatalogItemData = (mainColor, secondaryColor, jewel, price, title, image) => {
-    this.setState(
-      {
-        mainColor,
-        secondaryColor,
-        jewel,
-        price,
-        title,
-        image,
-      },
-    );
+    this.setState({
+      mainColor,
+      secondaryColor,
+      jewel,
+      price,
+      title,
+      image,
+    });
   };
 
   changeConstructorState = (newVal) => {
@@ -134,9 +136,9 @@ class ConstructorContainer extends Container {
     const {
       mainColor,
       secondaryColor,
-      jewel,
+      jewelType,
       footSize,
-      gift,
+      giftName,
       name,
       phone,
       price,
@@ -144,15 +146,13 @@ class ConstructorContainer extends Container {
 
     data.append('mainColor', mainColor);
     data.append('secondaryColor', secondaryColor);
-    data.append('jewel', jewel);
+    data.append('jewel', jewelType);
     data.append('footSize', footSize);
-    data.append('gift', gift);
+    data.append('gift', giftName);
     data.append('name', name);
     data.append('phone', phone);
     if (price) data.append('price', price);
-
-    return data;
-  }
+  };
 }
 
 export default ConstructorContainer;

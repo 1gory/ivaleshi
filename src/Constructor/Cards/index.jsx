@@ -38,7 +38,7 @@ export default ({ list, active, handler }) => (
         active={index === active}
         key={card.name}
         onClick={() => {
-          if (index !== active) handler(index);
+          if (index !== active) handler(index, card.name);
         }}
       >
         <Image src={card.img} />

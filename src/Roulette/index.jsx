@@ -24,7 +24,47 @@ const BorderWrapper = styled.div`
     width: 320px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
   }
+`;
+
+const BlockWrapper = styled.div`
+  display: ${({ display }) => (display ? 'block' : 'none')};
+`;
+
+const GiftBlock = styled.div`
+  display: ${({ display }) => (display ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const GiftHeader = styled.div`
+  color: rgb(30, 34, 41);
+  font-family: 'Museo-Regular', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+`;
+
+const GiftText = styled.div`
+  padding-top: 20px;
+  font-family: 'Museo-Regular', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  text-align: center;
+  color: rgb(30, 34, 41);
+
+  @media screen and (max-width: 991px) {
+    margin: 0 50px 0 50px;
+  }
+`;
+
+const GiftImg = styled.img`
+  max-width: 200px;
+  height: 180px;
+  padding-top: 20px;
+  object-fit: cover;
 `;
 
 const Header = styled.h3`
@@ -107,6 +147,18 @@ ${(props) => {
   }}
 `;
 
+const Text = styled.span`
+  display: inline-block;
+  width: 100%;
+  margin: 100px 0 40px 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Museo-Regular', sans-serif;
+  font-weight: bold;
+  color: #cecdcc;
+`;
+
 const BuyButton = styled(DefaultBuyButton)`
   margin: 0 auto;
   margin-top: 60px;
@@ -182,7 +234,7 @@ class Roulette extends Component {
       });
 
       setTimeout(() => {
-        changeGift(chosenPresent);
+        changeGift(chosenPresent, chosenPresentName);
 
         this.setState({
           isAnimationActive: false,
@@ -204,6 +256,11 @@ class Roulette extends Component {
       left,
       leftShift,
     } = this.state;
+    const {
+      constructorContainer: {
+        state: { gift, giftChosen },
+      },
+    } = this.props;
     const presentsTemplate = [];
     const mobileWheelDuration = duration * 0.001;
     const newLeftShift = left - leftShift;
@@ -229,51 +286,62 @@ class Roulette extends Component {
         <Element name="roulette" />
         <Grid>
           <BorderWrapper>
-            <Header>
-              {'Узнай, какой подарок '}
-              <MobileBr />
-              ты получишь к заказу
-            </Header>
-            <CardWrapper>
-              <MobileCardsContainerWrap>
-                <MobileCardsContainerInner
-                  isAnimationActive={isAnimationActive}
-                  duration={mobileWheelDuration}
-                  shift={shift}
-                  leftShift={newLeftShift}
-                >
-                  <Media>
-                    {({ breakpoints, currentBreakpoint }) => (breakpoints[currentBreakpoint] > breakpoints.mobile
-                      ? cardsList.map((card, index) => (
-                        <Col
-                          xsOffset={index === 0 ? 3 : 0}
-                          xs={6}
-                          md={3}
-                          key={card.name}
-                          mdOffset={0}
-                        >
-                          <Card
-                            name={card.name}
-                            img={card.img}
-                            animationActive={isAnimationActive}
-                            shift={index === 0 ? 200 : index * 200 + 200}
-                            duration={duration}
-                            number={index + 1}
-                            chosen={chosenPresentName === card.name}
-                          />
-                        </Col>
-                      ))
-                      : presentsTemplate)
-                    }
-                  </Media>
-                </MobileCardsContainerInner>
-              </MobileCardsContainerWrap>
-            </CardWrapper>
-            <Button onClick={this.startRoulette}>
-              <ButtonIcon src={icon} rotate />
-              <ButtonText>Крутануть</ButtonText>
-              <ButtonIcon src={icon} />
-            </Button>
+            <BlockWrapper display={!giftChosen}>
+              <Header>
+                {'Узнай, какой подарок '}
+                <MobileBr />
+                ты получишь к заказу
+              </Header>
+              <CardWrapper>
+                <MobileCardsContainerWrap>
+                  <MobileCardsContainerInner
+                    isAnimationActive={isAnimationActive}
+                    duration={mobileWheelDuration}
+                    shift={shift}
+                    leftShift={newLeftShift}
+                  >
+                    <Media>
+                      {({ breakpoints, currentBreakpoint }) => (breakpoints[currentBreakpoint] > breakpoints.mobile
+                        ? cardsList.map((card, index) => (
+                          <Col
+                            xsOffset={index === 0 ? 3 : 0}
+                            xs={6}
+                            md={3}
+                            key={card.name}
+                            mdOffset={0}
+                          >
+                            <Card
+                              name={card.name}
+                              img={card.img}
+                              animationActive={isAnimationActive}
+                              shift={index === 0 ? 200 : index * 200 + 200}
+                              duration={duration}
+                              number={index + 1}
+                              chosen={chosenPresentName === card.name}
+                            />
+                          </Col>
+                        ))
+                        : presentsTemplate)
+                      }
+                    </Media>
+                  </MobileCardsContainerInner>
+                </MobileCardsContainerWrap>
+              </CardWrapper>
+              {isAnimationActive ? (
+                <Text>Секунду</Text>
+              ) : (
+                <Button onClick={this.startRoulette}>
+                  <ButtonIcon src={icon} rotate />
+                  <ButtonText>Крутануть</ButtonText>
+                  <ButtonIcon src={icon} />
+                </Button>
+              )}
+            </BlockWrapper>
+            <GiftBlock display={giftChosen}>
+              <GiftImg src={cardsList[gift].img} />
+              <GiftHeader>{cardsList[gift].name}</GiftHeader>
+              <GiftText>Подарок будет добавлен к вашему заказу</GiftText>
+            </GiftBlock>
           </BorderWrapper>
         </Grid>
         <Link
@@ -287,9 +355,7 @@ class Roulette extends Component {
           isDynamic
           ignoreCancelEvents={false}
         >
-          <BuyButton>
-          Оформить заказ
-          </BuyButton>
+          <BuyButton>Оформить заказ</BuyButton>
         </Link>
       </Wrapper>
     );

@@ -57,30 +57,30 @@ import stone7 from './images/rhinestones/red.png';
 import stone8 from './images/rhinestones/silver.png';
 
 const mainImages = [
-  ['black', black],
-  ['blue', blue],
-  ['brown', brown],
   ['darkred', burgundy],
-  ['chocolate', chocolate],
-  ['darkblue', darkBlue],
-  ['darkgreen', darkGreen],
-  ['darkorange', darkOrange],
-  ['darkviolet', darkViolet],
-  ['olive', darkYellow],
-  ['fuchsia', fuchsia],
-  ['gray', gray],
-  ['green', green],
-  ['mediumorchid', lightLilac],
-  ['darkkhaki', mustard],
-  ['natblack', naturalBlack],
-  ['orange', orange],
   ['pink', pink],
-  ['purple', purple],
   ['red', red],
-  ['turquoise', turquoise],
-  ['violet', violet],
-  ['white', white],
+  ['darkkhaki', mustard],
+  ['darkorange', darkOrange],
+  ['orange', orange],
+  ['gray', gray],
+  ['fuchsia', fuchsia],
+  ['olive', darkYellow],
   ['yellow', yellow],
+  ['white', white],
+  ['natblack', naturalBlack],
+  ['black', black],
+  ['brown', brown],
+  ['chocolate', chocolate],
+  ['darkgreen', darkGreen],
+  ['turquoise', turquoise],
+  ['green', green],
+  ['purple', purple],
+  ['darkviolet', darkViolet],
+  ['violet', violet],
+  ['darkblue', darkBlue],
+  ['blue', blue],
+  ['mediumorchid', lightLilac],
 ];
 
 const pompons = [
@@ -151,8 +151,5 @@ const rhinestones = [
 ];
 
 export {
-  mainImages,
-  pompons,
-  beads,
-  rhinestones,
+  mainImages, pompons, beads, rhinestones,
 };

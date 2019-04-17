@@ -138,8 +138,8 @@ export default class CalcSectionComponent extends Component {
           nameValid,
           phoneValid,
           formState,
-          mainColor,
-          secondaryColor,
+          mainColorIndex,
+          secondaryColorIndex,
           jewel,
           gift,
           giftChosen,
@@ -165,10 +165,10 @@ export default class CalcSectionComponent extends Component {
                 Назад в конструктор
               </Back>
               <ImageWrapper>
-                <MainImage src={mainImages[mainColor][1]} />
-                <Pompon src={pompons[secondaryColor][1]} />
+                <MainImage src={mainImages[mainColorIndex][1]} />
+                <Pompon src={pompons[secondaryColorIndex][1]} />
                 <Jewel
-                  src={jewel === 0 ? beads[mainColor] : rhinestones[mainColor]}
+                  src={jewel === 0 ? beads[mainColorIndex] : rhinestones[mainColorIndex]}
                   isBead={jewel === 0}
                 />
               </ImageWrapper>
