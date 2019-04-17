@@ -118,7 +118,7 @@ class ConstructorContainer extends Container {
   };
 
   sendOrder = () => {
-    fetch('/api/order', {
+    fetch('/api/send.php', {
       method: 'post',
       body: this.composeData(),
     }).then((response) => {
@@ -152,6 +152,8 @@ class ConstructorContainer extends Container {
     data.append('name', name);
     data.append('phone', phone);
     if (price) data.append('price', price);
+
+    return data;
   };
 }
 
