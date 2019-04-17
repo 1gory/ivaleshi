@@ -34,6 +34,7 @@ const IframeWrapper = styled.div`
     height: 250px;
   }
 `;
+
 const CloseButton = styled.img`
   top: -25px;
   right: 0px;
@@ -51,7 +52,7 @@ export default ({
   <Wrapper display={modalVideo}>
     <IframeWrapper>
       <iframe
-        src={modalVideo ? 'https://www.youtube.com/embed/E7wJTI-1dvQ' : ''}
+        src={modalVideo ? 'https://www.youtube.com/embed/DvB7pbtSvAw' : ''}
         frameBorder="0"
         allowFullScreen
         title="video"

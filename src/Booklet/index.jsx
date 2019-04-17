@@ -180,7 +180,7 @@ export default class Booklet extends Component {
                   за валешами
                 </Header>
                 <Text>
-                  Введи свой Email, чтобы получить бесплатный
+                  {'Введи свой Email, чтобы получить бесплатный '}
                   <DesktopBr />
                   буклет на почту. Никакого спама.
                 </Text>
