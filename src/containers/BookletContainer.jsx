@@ -1,6 +1,6 @@
 import { Container } from 'unstated';
 
-class BookletContainer extends Container {
+export default class BookletContainer extends Container {
   state = {
     formState: 'main',
     email: '',
@@ -9,16 +9,16 @@ class BookletContainer extends Container {
 
   changeFormState = (newVal) => {
     this.setState({ formState: newVal });
-  }
+  };
 
   setDefaultFormState = () => {
     this.setState({ formState: 'main' });
-  }
+  };
 
   changeEmail = (newVal) => {
     this.setState({ email: newVal });
     this.setState({ emailValid: true });
-  }
+  };
 
   validateEmail = () => {
     this.setState({ emailValid: true });
@@ -33,17 +33,12 @@ class BookletContainer extends Container {
     if (validationStatus) {
       this.sendOrder();
     }
-  }
+  };
 
   sendOrder = () => {
-    const {
-      email,
-    } = this.state;
-    fetch('/api/order', {
+    fetch('/api/send.php', {
       method: 'post',
-      body: JSON.stringify({
-        email,
-      }),
+      body: this.composeData(),
     }).then((response) => {
       if (!response.ok) {
         this.setState({ formState: 'fail' });
@@ -51,7 +46,13 @@ class BookletContainer extends Container {
       }
       this.setState({ formState: 'success' });
     });
-  }
-}
+  };
 
-export default BookletContainer;
+  composeData = () => {
+    const data = new FormData();
+    const { email } = this.state;
+    data.append('email', email);
+
+    return data;
+  };
+}

@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 640px;
+  height: 100%;
   z-index: 100;
   font-family: 'Museo-Regular', sans-serif;
   background: #fff;

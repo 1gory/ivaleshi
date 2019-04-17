@@ -148,7 +148,7 @@ export default class Constructor extends Component {
   render() {
     const {
       constructorContainer: {
-        state: { mainColor, secondaryColor, jewel },
+        state: { mainColorIndex, secondaryColor, jewel },
         changeMainColor,
         changeSecondaryColor,
         changeJewel,
@@ -169,7 +169,7 @@ export default class Constructor extends Component {
           <Dropdown isOpen={dropdownOpen[0]}>
             <Colors
               set={colorSetMain}
-              activeColor={mainColor}
+              activeColor={mainColorIndex}
               main
               handler={changeMainColor}
             />
@@ -210,13 +210,9 @@ export default class Constructor extends Component {
                 ))}
               </Select>
             </SizeSelectLeft>
-            <SizeSelectButton onClick={() => toggleStage()}>
-              Готово
-            </SizeSelectButton>
+            <SizeSelectButton onClick={() => toggleStage()}>Готово</SizeSelectButton>
           </SizeSelectWrapper>
-          <SizeLink onClick={() => openModal('size', 8)}>
-            Узнать свой размер
-          </SizeLink>
+          <SizeLink onClick={() => openModal('size', 8)}>Узнать свой размер</SizeLink>
         </CalcSection>
       </Wrapper>
     );

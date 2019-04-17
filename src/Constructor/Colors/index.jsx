@@ -45,7 +45,7 @@ export default ({ activeColor, set, handler }) => (
           color={color[0]}
           isActive={index === activeColor}
           onClick={() => {
-            if (index !== activeColor) handler(index);
+            if (index !== activeColor) handler(index, color[0]);
           }}
         >
           <Color src={color[1]} color={color[0]} />
