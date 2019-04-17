@@ -88,6 +88,7 @@ const EmailInput = styled.input`
   width: 240px;
   font-weight: bold;
   border: none;
+  border-radius: 0;
   @media screen and (max-width: 991px) {
     width: auto;
   }
