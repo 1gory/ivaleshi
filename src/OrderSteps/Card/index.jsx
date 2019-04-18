@@ -23,8 +23,8 @@ const Header = styled.div`
 `;
 
 const Text = styled.div`
-  padding: 0 35px;
-  margin-bottom: 50px;
+  padding: 0 20px;
+  margin-bottom: 35px;
   font-size: 14px;
   color: #191619;
   line-height: 1.86;
@@ -32,6 +32,7 @@ const Text = styled.div`
   text-align: center;
   @media screen and (max-width: 767px) {
     margin-bottom: 10px;
+    padding: 0 30px;
   }
 `;
 
@@ -41,6 +42,9 @@ const IconWrapper = styled.div`
   height: 60px;
   position: relative;
   z-index: 30;
+  @media screen and (max-width: 767px) {
+     padding: 20px;
+  }
 `;
 
 const Icon = styled.img`
