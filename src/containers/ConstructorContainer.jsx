@@ -144,10 +144,10 @@ class ConstructorContainer extends Container {
       price,
     } = this.state;
 
-    data.append('mainColor', mainColor);
-    data.append('secondaryColor', secondaryColor);
-    data.append('jewel', jewelType);
-    data.append('footSize', footSize);
+    data.append('boots_color', mainColor);
+    data.append('pompoms_color', secondaryColor);
+    data.append('decoration_type', jewelType);
+    data.append('foot_size', footSize);
     data.append('gift', giftName);
     data.append('name', name);
     data.append('phone', phone);

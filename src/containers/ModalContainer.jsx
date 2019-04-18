@@ -1,6 +1,6 @@
 import { Container } from 'unstated';
 
-class ModalContainer extends Container {
+export default class extends Container {
   state = {
     modalOpen: false,
     type: 'order',
@@ -41,4 +41,3 @@ class ModalContainer extends Container {
     this.setState({ mobileMenu: false });
   };
 }
-export default ModalContainer;

@@ -74,7 +74,7 @@ export default ({
         <br />
         гарантированных подарков к своему заказу.
         <br />
-        Крутаните рулетку и узнайте что вам
+        Запустите рулетку и узнайте что вам
         <br />
         выпадет!
       </Text>
@@ -91,7 +91,7 @@ export default ({
           ignoreCancelEvents={false}
           onClick={() => (closeModalNeeded ? closeModal() : 0)}
         >
-          Крутануть
+          Запустить рулетку со 100% подарком
         </Link>
       </Button>
     </Section>

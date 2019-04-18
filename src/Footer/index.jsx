@@ -97,33 +97,6 @@ const ContactIcon = styled.img`
   border: 8px solid rgb(245, 244, 243);
 `;
 
-const MapOverlayWrapper = styled.div`
-  display: inline-block;
-  position: absolute;
-  bottom: 400px;
-  left: 0;
-  z-index: 20;
-  width: 100%;
-  @media screen and (max-width: 991px) {
-    bottom: 440px;
-  }
-`;
-const MapOverlay = styled.div`
-  padding: 30px;
-  background-color: white;
-  color: #191619;
-  font-family: 'Museo-Regular', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  display: inline-block;
-  margin-left: 40px;
-  @media screen and (max-width: 991px) {
-    display: block;
-    margin: 0px 20px;
-    text-align: center;
-  }
-`;
-
 export default () => (
   <Wrapper>
     <Element name="footer" />
@@ -232,9 +205,6 @@ export default () => (
         </Col>
       </Row>
     </Grid>
-    <MapOverlayWrapper>
-      <MapOverlay>Москва, 3-й Михалковский пер. д.20 к.1</MapOverlay>
-    </MapOverlayWrapper>
-    <Map width="100%" height="500px" />
+    <Map />
   </Wrapper>
 );

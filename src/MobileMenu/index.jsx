@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
-import NavButton from '../generic/NavButton';
+// import { enableBodyScroll } from 'body-scroll-lock';
+// import NavButton from '../generic/NavButton';
 import close from './close.svg';
-import phone from '../icons/phone-grey.svg';
-import socialIg from '../icons/social-ig-black.svg';
-import socialWa from '../icons/social-wa-black.svg';
+import phone from '../icons/phone-white.svg';
+import socialIg from '../icons/social-ig-white.svg';
+import socialWa from '../icons/social-wa-white.svg';
 // import socialVk from '../icons/social-vk-black.svg';
 
 const Wrapper = styled.div`
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
   height: 100%;
   z-index: 100;
   font-family: 'Museo-Regular', sans-serif;
-  background: #fff;
+  background: #ff3300;
 `;
 
 const CloseButton = styled.img`
@@ -33,7 +34,7 @@ const ContactPhone = styled.a`
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
-  color: #191619;
+  color: #fff;
 `;
 
 const ContactPhoneIcon = styled.img`
@@ -54,7 +55,6 @@ const SocialLink = styled.a`
   height: 33px;
   margin: 5px;
   text-decoration: none;
-  background-color: #f5f4f3;
 `;
 
 const SocialIcon = styled.img`
@@ -82,7 +82,7 @@ const MenuItem = styled.li`
     text-decoration: none;
     letter-spacing: 0.3px;
     font-weight: 600;
-    color: #191619;
+    color: #fff;
     cursor: pointer;
     transition: 0.2s;
     &:hover {
@@ -109,15 +109,6 @@ const MenuLinkItem = ({ to, name, closeMenu }) => (
     </Link>
   </MenuItem>
 );
-
-const Button = styled(NavButton)`
-  @media screen and (max-width: 991px) {
-    display: block;
-    margin: auto;
-    width: 320px;
-    margin-bottom: 60px;
-  }
-`;
 
 export default ({
   modalContainer: {
@@ -148,21 +139,5 @@ export default ({
       <MenuLinkItem to="feedback" name="Отзывы" closeMenu={closeMobileMenu} />
       <MenuLinkItem to="footer" name="Контакты" closeMenu={closeMobileMenu} />
     </Menu>
-    <Button>
-      <Link
-        to="constructor"
-        spy={false}
-        smooth
-        hashSpy={false}
-        offset={-100}
-        duration={500}
-        delay={50}
-        isDynamic
-        ignoreCancelEvents={false}
-        onClick={closeMobileMenu}
-      >
-        Подобрать дизайн
-      </Link>
-    </Button>
   </Wrapper>
 );

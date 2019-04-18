@@ -11,13 +11,13 @@ const Wrapper = styled.section`
   }
 `;
 
-export default () => (
+export default ({ modalContainer: { openModal } }) => (
   <Wrapper>
     <Grid>
       <Row>
         {CardList.map(card => (
           <Col md={6} sm={12} key={card.name}>
-            <Card name={card.name} icon={card.icon} text={card.text} />
+            <Card name={card.name} icon={card.icon} text={card.text} openModal={openModal} />
           </Col>
         ))}
       </Row>

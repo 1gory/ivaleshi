@@ -50,7 +50,11 @@ export default () => (
       )}
     </Subscribe>
     <Description />
-    <Info />
+    <Subscribe to={[ModalContainer]}>
+      {modalContainer => (
+        <Info modalContainer={modalContainer} />
+      )}
+    </Subscribe>
     <QualitiesBlock />
     <Subscribe to={[ConstructorContainer, ModalContainer]}>
       {(constructorContainer, modalContainer) => (

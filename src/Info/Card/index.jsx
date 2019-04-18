@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardHeader = styled.div`
+const Header = styled.div`
   margin-top: 60px;
   margin-bottom: 40px;
   font-size: 20px;
@@ -14,7 +14,7 @@ const CardHeader = styled.div`
   }
 `;
 
-const CardText = styled.div`
+const Text = styled.div`
   padding: 0 140px;
   margin-bottom: 160px;
   font-size: 14px;
@@ -28,16 +28,21 @@ const CardText = styled.div`
   }
 `;
 
-const CardIcon = styled.img`
+const Icon = styled.img`
   margin: auto;
   display: block;
   height: 80px;
 `;
 
-export default ({ icon, name, text }) => (
+export default ({
+  openModal,
+  icon,
+  name,
+  text,
+}) => (
   <div>
-    <CardIcon src={icon} />
-    <CardHeader>{name}</CardHeader>
-    <CardText>{text}</CardText>
+    <Icon src={icon} />
+    <Header>{name}</Header>
+    <Text>{React.cloneElement(text, { openModal })}</Text>
   </div>
 );

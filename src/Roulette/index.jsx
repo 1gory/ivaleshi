@@ -335,7 +335,7 @@ class Roulette extends Component {
               ) : (
                 <Button onClick={this.startRoulette}>
                   <ButtonIcon src={icon} rotate />
-                  <ButtonText>Крутануть</ButtonText>
+                  <ButtonText>Запустить рулетку со 100% подарком</ButtonText>
                   <ButtonIcon src={icon} />
                 </Button>
               )}
