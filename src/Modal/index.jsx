@@ -72,6 +72,7 @@ export default class Modal extends Component {
       constructorContainer: {
         state: {
           gift,
+          isGiftChosen,
           title,
           price,
           image,
@@ -103,6 +104,7 @@ export default class Modal extends Component {
                   title={title}
                   image={image}
                   gift={gift}
+                  isGiftChosen={isGiftChosen}
                   price={price}
                   formState={formState}
                   footSizeHandler={this.handleSelectFootSizeChange}
