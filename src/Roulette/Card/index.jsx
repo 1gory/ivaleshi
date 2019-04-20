@@ -24,27 +24,27 @@ const Wrap = styled.div`
   ${(props) => {
     if (props.isAnimationActive) {
       return `
-         &:after {
-         position: absolute;
-         content: '';
-         left: 0px;
-         right: 0px;
-         bottom: 0px;
-         margin: auto;
-         margin-bottom: -120px;
-         width: 50px;
-         height: 100px;
-         display: block;
-         opacity: 0;
-         background-image: url(${selected});
-         background-repeat: no-repeat;
-         background-size: contain;
-         animation-name: blink;
-         animation-duration: ${props.period}s;
-         animation-timing-function: linear;
-         animation-iteration-count: infinite;
-         animation-delay: ${props.shift}s;
-         }
+        &:after {
+          position: absolute;
+          content: '';
+          left: 0px;
+          right: 0px;
+          bottom: 50px;
+          margin: auto;
+          width: 165px;
+          height: 165px;
+          opacity: 0;
+          z-index: -1;
+          background-image: url(${selected});
+          background-repeat: no-repeat;
+          background-size: 165px;
+          background-position-x: center;
+          animation-name: blink;
+          animation-duration: ${props.period}s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-delay: ${props.shift}s;
+        }
        `;
     }
 
@@ -96,52 +96,66 @@ export default class extends Component {
     super(props);
 
     this.state = {
-      isAnimationActive: false,
-      period: 0.8,
-      stageOfAnimation: 1,
+      // isAnimationActive: true,
+      // animationActive: true,
+      period: 0.8, // ?
+      // stageOfAnimation: 1,
     };
   }
 
-  componentDidUpdate = () => {
-    const { duration, animationActive } = this.props;
-    const { isAnimationActive, period } = this.state;
-    const halfOfDuration = duration / 2;
-    const periodsInHalfOfAnimation = Math.floor(halfOfDuration / period) * period;
-    const fourthOfDuration = halfOfDuration + duration / 4;
-    const periodsInFourthOfAnimation = Math.floor((fourthOfDuration / period) * 2) * (period * 2);
+  // componentDidUpdate = () => {
+  // const { duration, animationActive } = this.props;
+  // const { isAnimationActive, period } = this.state;
+  // const halfOfDuration = duration / 2; // 1500
+  // const periodsInHalfOfAnimation = Math.floor(halfOfDuration / period) * period; // 1500
+  // const fourthOfDuration = halfOfDuration + duration / 4; // 1875
+  // const periodsInFourthOfAnimation =
+  // Math.floor((fourthOfDuration / period) * 2) * (period * 2); //6000
 
-    if (animationActive && !isAnimationActive) {
-      setTimeout(() => {
-        this.setState({
-          stageOfAnimation: 2,
-          isAnimationActive: true,
-        });
-      }, periodsInHalfOfAnimation);
-      setTimeout(() => {
-        this.setState({
-          stageOfAnimation: 3,
-        });
-      }, periodsInFourthOfAnimation);
-      setTimeout(() => {
-        this.setState({
-          stageOfAnimation: 1,
-          isAnimationActive: false,
-        });
-      }, duration);
-    }
-  };
+  // this.setState({
+  //   // stageOfAnimation: 2,
+  //   isAnimationActive: true,
+  // });
+
+  // if (animationActive && !isAnimationActive) {
+  //   setTimeout(() => {
+  //     this.setState({
+  //       stageOfAnimation: 2,
+  //       isAnimationActive: true,
+  //     });
+  //   }, periodsInHalfOfAnimation); // 1500
+  //   setTimeout(() => {
+  //     this.setState({
+  //       stageOfAnimation: 3,
+  //     });
+  //   }, periodsInFourthOfAnimation); // 6000
+  //   setTimeout(() => {
+  //     this.setState({
+  //       stageOfAnimation: 1,
+  //       isAnimationActive: false,
+  //     });
+  //   }, duration); // 3000
+  // }
+  // };
 
   render() {
     const {
       name, img, animationActive, shift, chosen,
     } = this.props;
 
-    const { period, stageOfAnimation } = this.state;
-    const newPeriod = period * stageOfAnimation;
-    const newShift = shift * stageOfAnimation * 0.001;
+    const { period } = this.state;
+    // const newPeriod = period * stageOfAnimation; // 0.8 * 1 // 2 // 3
+    // const newPeriod = period; // 0.8 * 1 // 2 // 3
+    // const newShift = shift * stageOfAnimation * 0.001; // 200 * 0.001
+    // const newShift = shift; // 200 * 0.001
 
     return (
-      <Wrap isAnimationActive={animationActive} shift={newShift} period={newPeriod} chosen={chosen}>
+      <Wrap
+        isAnimationActive={animationActive}
+        shift={shift * 0.001}
+        period={period}
+        chosen={chosen}
+      >
         <CardImage src={img} />
         <CardHeader>{name}</CardHeader>
       </Wrap>

@@ -147,7 +147,7 @@ export default ({
   formStateHandler,
   setDefaultFormState,
   phoneHandler,
-  giftChosen,
+  isGiftChosen,
   closeModal,
 }) => (
   <Wrapper display={visible}>
@@ -194,7 +194,7 @@ export default ({
         <Gift
           name={giftList[gift].name}
           img={giftList[gift].img}
-          giftChosen={giftChosen}
+          isGiftChosen={isGiftChosen}
           closeModal={closeModal}
           closeModalNeeded
         />

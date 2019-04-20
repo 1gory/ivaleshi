@@ -1,7 +1,7 @@
-import gloves from './images/gloves.jpg';
-import hat from './images/hat.jpg';
-import socks from './images/socks.jpg';
-import spray from './images/spray.jpg';
+import gloves from './images/gloves.png';
+import hat from './images/hat.png';
+import socks from './images/socks.png';
+import spray from './images/spray.png';
 
 export default [
   {

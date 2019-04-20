@@ -142,7 +142,7 @@ export default class CalcSectionComponent extends Component {
           secondaryColorIndex,
           jewel,
           gift,
-          giftChosen,
+          isGiftChosen,
         },
       },
       modalContainer: { closeModal },
@@ -179,7 +179,7 @@ export default class CalcSectionComponent extends Component {
                 <Gift
                   name={giftList[gift].name}
                   img={giftList[gift].img}
-                  giftChosen={giftChosen}
+                  isGiftChosen={isGiftChosen}
                   closeModal={closeModal}
                 />
               </GiftWrapper>

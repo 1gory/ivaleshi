@@ -56,10 +56,10 @@ const Button = styled.div`
 `;
 
 export default ({
-  name, img, giftChosen, closeModal, closeModalNeeded,
+  name, img, isGiftChosen, closeModal, closeModalNeeded,
 }) => (
   <Wrapper>
-    <Section display={giftChosen}>
+    <Section display={isGiftChosen}>
       <Header>{name}</Header>
       <Img src={img} />
       <Text>
@@ -68,7 +68,7 @@ export default ({
         к вашему заказу
       </Text>
     </Section>
-    <Section display={!giftChosen}>
+    <Section display={!isGiftChosen}>
       <Text>
         Вы можете получить один из четырех
         <br />

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Media, withBreakpoints } from 'react-breakpoints';
 import { Element, Link } from 'react-scroll';
+import cookie from 'react-cookies';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import cardsList from '../giftList';
 import Card from './Card';
@@ -36,9 +37,9 @@ const GiftBlock = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 131px 0;
+  margin: 111px 0;
   @media screen and (max-width: 991px) {
-    margin: 86px auto;
+    margin: 66px auto;
   }
 `;
 
@@ -67,6 +68,7 @@ const GiftImg = styled.img`
   max-width: 200px;
   height: 180px;
   padding-top: 20px;
+  padding-bottom: 40px;
   object-fit: cover;
 `;
 
@@ -182,56 +184,46 @@ class Roulette extends Component {
     };
   }
 
-  componentDidMount = () => {
-    this.setAnimationDuration();
-    window.addEventListener('resize', this.setAnimationDuration);
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener('resize', this.setAnimationDuration);
-  };
-
-  setAnimationDuration = () => {
-    const { currentBreakpoint } = this.props;
-
-    switch (currentBreakpoint) {
-      case 'mobile':
-        this.setState({ duration: 3000 });
-        break;
-      case 'desktop':
-        this.setState({ duration: 10000 });
-        break;
-      default:
-        break;
+  componentWillMount = () => {
+    const {
+      constructorContainer: { changeGift },
+    } = this.props;
+    const chosenPresent = cookie.load('chosenPresent');
+    const chosenPresentName = cookie.load('chosenPresentName');
+    if (chosenPresent && chosenPresentName) {
+      changeGift(chosenPresent, chosenPresentName);
     }
   };
 
-  getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
   startRoulette = () => {
-    const { isAnimationActive, duration } = this.state;
+    const { isAnimationActive } = this.state;
     const {
       constructorContainer: { changeGift },
     } = this.props;
 
-    const chosenPresent = this.getRandomInt(0, 2);
+    const chosenPresent = Math.floor(Math.random() * 10) > 5 ? 0 : 2;
     let chosenPresentName = '';
     let leftShift = 0;
-
+    let duration = 3200;
     switch (chosenPresent) {
       case 0:
         chosenPresentName = 'Средство по уходу';
         break;
-      case 1:
+      case 2:
         chosenPresentName = 'Шерстяные носки';
+        duration = 3600;
         leftShift = 350;
         break;
       default:
         break;
     }
 
+    cookie.save('chosenPresent', chosenPresent, { path: '/' });
+    cookie.save('chosenPresentName', chosenPresentName, { path: '/' });
+
     if (!isAnimationActive) {
       this.setState({
+        duration,
         isAnimationActive: true,
         chosenPresentForMobileVersion: chosenPresentName,
       });
@@ -261,9 +253,10 @@ class Roulette extends Component {
     } = this.state;
     const {
       constructorContainer: {
-        state: { gift, giftChosen },
+        state: { gift, isGiftChosen },
       },
     } = this.props;
+
     const presentsTemplate = [];
     const mobileWheelDuration = duration * 0.001;
     const newLeftShift = left - leftShift;
@@ -289,7 +282,7 @@ class Roulette extends Component {
         <Element name="roulette" />
         <Grid>
           <BorderWrapper>
-            <BlockWrapper display={!giftChosen}>
+            <BlockWrapper display={!isGiftChosen}>
               <Header>
                 {'Узнай, какой подарок '}
                 <MobileBr />
@@ -340,7 +333,7 @@ class Roulette extends Component {
                 </Button>
               )}
             </BlockWrapper>
-            <GiftBlock display={giftChosen}>
+            <GiftBlock display={isGiftChosen}>
               <GiftImg src={cardsList[gift].img} />
               <GiftHeader>{cardsList[gift].name}</GiftHeader>
               <GiftText>Подарок будет добавлен к вашему заказу</GiftText>
