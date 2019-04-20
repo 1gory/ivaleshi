@@ -197,11 +197,11 @@ export default ({ modalContainer: { openMobileMenu } }) => (
                 <LogoInline src={logoInline} />
               </a>
               <Descriptor>
-                Дизайнерские
+                {'Дизайнерские '}
                 <DesktopBr />
-                валеши ручной
+                {'валеши ручной '}
                 <DesktopBr />
-                работы
+                {'работы'}
               </Descriptor>
             </LogoWrapper>
           </Col>
