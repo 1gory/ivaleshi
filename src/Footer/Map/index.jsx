@@ -44,6 +44,7 @@ export default () => (
     <YMaps>
       <div>
         <Map
+          instanceRef={(ref) => { if (ref) ref.behaviors.disable('scrollZoom'); }}
           defaultState={{ center: [55.836780, 37.525768], zoom: 14 }}
           width="100%"
           height="500px"
