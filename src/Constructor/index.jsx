@@ -32,6 +32,18 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const Price = styled.div`
+  margin-top: -50px;
+  font-size: 48px;
+  text-align: center;
+  font-family: 'Museo-Regular', sans-serif;
+  @media screen and (max-width: 991px) {
+    font-size: 36px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+  }
+`;
+
 const Header = styled.h2`
   font-size: 48px;
   color: rgb(25, 22, 25);
@@ -171,6 +183,7 @@ export default class CalcSectionComponent extends Component {
                   src={jewel === 0 ? beads[mainColorIndex] : rhinestones[mainColorIndex]}
                   isBead={jewel === 0}
                 />
+                <Price>3600 Руб.</Price>
               </ImageWrapper>
             </Col>
             <Col lg={5} xs={12}>
