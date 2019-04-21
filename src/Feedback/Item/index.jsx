@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import icon from './social-ig.svg';
 
 const Wrapper = styled.div`
+  box-sizing: border-box;
+  min-height: 360px;
   padding: 65px 130px 45px 400px;
   background-color: rgba(25, 22, 22, 0.05);
   position: relative;
@@ -95,9 +97,11 @@ export default ({
     <Text>{text}</Text>
     <Description>
       <Author>{`${name}, ${city}`}</Author>
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        <LinkIcon src={icon} />
-      </a>
+      {link && (
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          <LinkIcon src={icon} />
+        </a>
+      )}
       <PostDate href={link} target="_blank" rel="noopener noreferrer">
         {date}
       </PostDate>

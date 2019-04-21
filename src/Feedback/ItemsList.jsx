@@ -1,5 +1,6 @@
-import feedbackScreenshot1 from './Item/feedbackScreenshot1.png';
-import feedbackScreenshot2 from './Item/feedbackScreenshot2.png';
+import feedbackScreenshot1 from './Item/feedbackScreenshot1.jpg';
+import feedbackScreenshot2 from './Item/feedbackScreenshot2.jpg';
+import feedbackScreenshot3 from './Item/feedbackScreenshot3.jpg';
 
 export default [
   {
@@ -17,5 +18,12 @@ export default [
     link: 'https://www.instagram.com/p/BuRZRqqnpaO/',
     img: feedbackScreenshot2,
     date: '24 Февраля 2019',
+  },
+  {
+    name: 'Маша',
+    city: 'Пермь',
+    text: 'Отличные теплые валеши, всё понравилось, спасибо 😊',
+    img: feedbackScreenshot3,
+    date: '20 апреля 2019',
   },
 ];
