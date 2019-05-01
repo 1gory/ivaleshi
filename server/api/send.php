@@ -1,5 +1,6 @@
 <?php
 
+require  './config.php';
 require 'vendors/phpmailer/PHPMailerAutoload.php';
 
 const MATERIAL_COLORS = [
@@ -46,10 +47,6 @@ const DECORATION_TYPES = [
     'rhinestones' => 'стразы',
 ];
 
-//const DECORATION_COLORS = [
-//    'free' => 'Бесплатная упаковка',
-//];
-
 const GIFTS = [
     'spray' => 'средство по уходу',
     'gloves' => 'перчатки',
@@ -94,7 +91,7 @@ function sendEmail(string $email, string $template, string $subject)
     $mail->Host = 'smtp.yandex.ru';
     $mail->SMTPAuth = true;
     $mail->Username = 'info@ivaleshi.ru';
-    $mail->Password = 'QYwhhm9P5G';
+    $mail->Password = PASSWORD;
     $mail->SMTPSecure = 'ssl';
     $mail->Port = '465';
     $mail->CharSet = 'UTF-8';
