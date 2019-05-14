@@ -6,7 +6,7 @@ import {
   PaddingRow as Row,
   PaddingCol as Col,
 } from '../grid';
-import img from './img.png';
+import img from './img.jpg';
 
 const Wrapper = styled.section`
   background: #ff3300;
