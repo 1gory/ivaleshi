@@ -41,6 +41,9 @@ const MainImage = styled.img`
   @media screen and (max-width: 991px) {
     width: 350px;
   }
+  @media screen and (max-width: 360px) {
+    width: 310px;
+  }
 `;
 
 const QualityItem = styled.div`

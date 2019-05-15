@@ -175,9 +175,9 @@ export default class Booklet extends Component {
             <Row>
               <Col lgOffset={5} lg={7} xs={12}>
                 <Header>
-                  Бесплатный буклет по уходу
+                  {'Бесплатный буклет по уходу '}
                   <DesktopBr />
-                  за валешами
+                  {'за валешами'}
                 </Header>
                 <Text>
                   {'Введи свой Email, чтобы получить бесплатный '}

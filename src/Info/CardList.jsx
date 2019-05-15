@@ -15,6 +15,14 @@ const Point = ({ text }) => (
   </span>
 );
 
+const PointWrapper = styled.div`
+  @media screen and (max-width: 768px) {
+    margin: 0 auto;
+    width: fit-content;
+    text-align: left;
+  }
+`;
+
 const Link = styled.a`
   color: #ff3300;
 `;
@@ -54,13 +62,13 @@ export default [
     icon: iconInfo,
     name: 'Наши достижения в цифрах',
     text: (
-      <span>
+      <PointWrapper>
         <Point text="12 месяцев опыт успешной работы" />
         <Point text="Более 100 положительных отзывов" />
         <Point text="839 довольных клиентов за 2018 год" />
         <Point text="50000 запросов Валешей в Яндексе" />
         <Point text="Всегда в наличии 24 цвета" />
-      </span>
+      </PointWrapper>
     ),
   },
   {

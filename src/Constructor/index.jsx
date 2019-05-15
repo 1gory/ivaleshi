@@ -10,6 +10,7 @@ import {
   mainImages, pompons, beads, rhinestones,
 } from './imageSets';
 import arrow from './arrow2.svg';
+import empty from './images/empty.png';
 
 const Wrapper = styled.section`
   padding-top: 110px;
@@ -105,7 +106,7 @@ const Jewel = styled.img`
   position: absolute;
   width: 520px;
   left: 0;
-  top: ${({ isBead }) => (isBead ? '120px' : '100px')};
+  top: ${({ isBead }) => (isBead ? '100px' : '100px')};
   z-index: 9;
   @media screen and (max-width: 600px) {
     width: 100%;
@@ -120,6 +121,14 @@ const GiftWrapper = styled.div`
     margin-top: 20px;
   }
 `;
+
+const getJewelImage = (jewelIndex, mainColorIndex) => {
+  if (jewelIndex === 2) {
+    return empty;
+  }
+
+  return jewelIndex === 0 ? beads[mainColorIndex] : rhinestones[mainColorIndex];
+};
 
 export default class CalcSectionComponent extends Component {
   constructor(props) {
@@ -155,6 +164,7 @@ export default class CalcSectionComponent extends Component {
           jewel,
           gift,
           isGiftChosen,
+          constructorPrice,
         },
       },
       modalContainer: { closeModal },
@@ -180,10 +190,13 @@ export default class CalcSectionComponent extends Component {
                 <MainImage src={mainImages[mainColorIndex][1]} />
                 <Pompon src={pompons[secondaryColorIndex][1]} />
                 <Jewel
-                  src={jewel === 0 ? beads[mainColorIndex] : rhinestones[mainColorIndex]}
+                  src={getJewelImage(jewel, mainColorIndex)}
                   isBead={jewel === 0}
                 />
-                <Price>3600 Руб.</Price>
+                <Price>
+                  {constructorPrice}
+                  {'  Руб.'}
+                </Price>
               </ImageWrapper>
             </Col>
             <Col lg={5} xs={12}>

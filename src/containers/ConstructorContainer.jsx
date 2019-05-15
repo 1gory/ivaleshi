@@ -1,5 +1,9 @@
 import { Container } from 'unstated';
 
+const basePrice = 3600;
+const halfPrice = 3000;
+const emptyPrice = 2600;
+
 class ConstructorContainer extends Container {
   state = {
     mainColorIndex: 15,
@@ -14,6 +18,7 @@ class ConstructorContainer extends Container {
     name: '',
     phone: '',
     price: '',
+    constructorPrice: 3600,
     title: '',
     image: '',
     constructorState: 'constructor',
@@ -23,16 +28,32 @@ class ConstructorContainer extends Container {
     isGiftChosen: false,
   };
 
+  correctPrice = () => {
+    let price = basePrice;
+
+    if (this.state.jewel === 2 && this.state.secondaryColor !== 'empty') { // index of empty jewel
+      price = halfPrice;
+    } else if (this.state.secondaryColor === 'empty' && this.state.jewel !== 2) {
+      price = halfPrice;
+    } else if (this.state.secondaryColor === 'empty' || this.state.jewel === 2) {
+      price = emptyPrice;
+    }
+
+    this.setState({ constructorPrice: price });
+  };
+
   changeMainColor = (newVal, color) => {
     this.setState({ mainColorIndex: newVal, mainColor: color });
   };
 
   changeSecondaryColor = (newVal, color) => {
-    this.setState({ secondaryColorIndex: newVal, secondaryColor: color });
+    this.setState(
+      { secondaryColorIndex: newVal, secondaryColor: color }, () => this.correctPrice(),
+    );
   };
 
   changeJewel = (newVal, type) => {
-    this.setState({ jewel: newVal, jewelType: type });
+    this.setState({ jewel: newVal, jewelType: type }, () => this.correctPrice());
   };
 
   changeFootSize = (newVal) => {

@@ -8,6 +8,7 @@ import red from './icons/pompons/red.jpg';
 import turquoise from './icons/pompons/turquoise.jpg';
 import violet from './icons/pompons/violet.jpg';
 import yellow from './icons/pompons/yellow.jpg';
+import empty from './icons/pompons/empty.svg';
 
 export default [
   ['black', black],
@@ -20,4 +21,5 @@ export default [
   ['brown', lightBrown],
   ['orange', orange],
   ['red', red],
+  ['empty', empty],
 ];

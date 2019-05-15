@@ -40,11 +40,13 @@ const POMPOM_COLORS = [
     'lightblue' => 'светло-голубой',
     'brown' => 'коричневый',
     'orange' => 'оранжевый',
+    'empty' => 'без помпона',
 ];
 
 const DECORATION_TYPES = [
     'beads' => 'бусы',
     'rhinestones' => 'стразы',
+    'empry' => 'без украшений',
 ];
 
 const GIFTS = [

@@ -26,6 +26,9 @@ const Text = styled.div`
     padding: 0 30px;
     margin-bottom: 50px;
   }
+  @media screen and (max-width: 360px) {
+    padding: 0 5px;
+  }
 `;
 
 const Icon = styled.img`

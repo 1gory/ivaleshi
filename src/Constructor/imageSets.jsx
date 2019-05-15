@@ -47,14 +47,16 @@ import bead10 from './images/beads/10.png';
 import bead11 from './images/beads/11.png';
 import bead12 from './images/beads/12.png';
 
-import stone1 from './images/rhinestones/black.png';
-import stone2 from './images/rhinestones/blue.png';
-import stone3 from './images/rhinestones/gold.png';
-import stone4 from './images/rhinestones/green.png';
-import stone5 from './images/rhinestones/pink.png';
-import stone6 from './images/rhinestones/purple.png';
-import stone7 from './images/rhinestones/red.png';
-import stone8 from './images/rhinestones/silver.png';
+import empty from './images/empty.png';
+
+import blackStone from './images/rhinestones/black.png';
+// import blueStone from './images/rhinestones/blue.png';
+import goldStone from './images/rhinestones/gold.png';
+import greenStone from './images/rhinestones/green.png';
+// import pinkStone from './images/rhinestones/pink.png';
+import purpleStone from './images/rhinestones/purple.png';
+import redStone from './images/rhinestones/red.png';
+import silverStone from './images/rhinestones/silver.png';
 
 const mainImages = [
   ['darkred', burgundy],
@@ -94,6 +96,7 @@ const pompons = [
   ['brown', lightBrown],
   ['orange', orangeP],
   ['red', redP],
+  ['empty', empty],
 ];
 
 const beads = [
@@ -124,30 +127,30 @@ const beads = [
 ];
 
 const rhinestones = [
-  stone1,
-  stone2,
-  stone3,
-  stone4,
-  stone5,
-  stone6,
-  stone7,
-  stone8,
-  stone1,
-  stone2,
-  stone3,
-  stone4,
-  stone5,
-  stone6,
-  stone7,
-  stone8,
-  stone1,
-  stone2,
-  stone3,
-  stone4,
-  stone5,
-  stone6,
-  stone7,
-  stone8,
+  blackStone,
+  redStone,
+  silverStone,
+  goldStone,
+  blackStone,
+  silverStone,
+  redStone,
+  silverStone,
+  blackStone,
+  silverStone,
+  blackStone,
+  silverStone,
+  redStone,
+  blackStone,
+  silverStone,
+  greenStone,
+  silverStone,
+  blackStone,
+  goldStone,
+  purpleStone,
+  silverStone,
+  blackStone,
+  silverStone,
+  silverStone,
 ];
 
 export {
