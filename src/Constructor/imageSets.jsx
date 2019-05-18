@@ -46,6 +46,18 @@ import bead9 from './images/beads/9.png';
 import bead10 from './images/beads/10.png';
 import bead11 from './images/beads/11.png';
 import bead12 from './images/beads/12.png';
+import bead13 from './images/beads/13.png';
+import bead14 from './images/beads/14.png';
+import bead15 from './images/beads/15.png';
+import bead16 from './images/beads/16.png';
+import bead17 from './images/beads/17.png';
+import bead18 from './images/beads/18.png';
+import bead19 from './images/beads/19.png';
+import bead20 from './images/beads/20.png';
+import bead21 from './images/beads/21.png';
+import bead22 from './images/beads/22.png';
+import bead23 from './images/beads/23.png';
+import bead24 from './images/beads/24.png';
 
 import empty from './images/empty.png';
 
@@ -112,18 +124,18 @@ const beads = [
   bead10,
   bead11,
   bead12,
-  bead1,
-  bead2,
-  bead3,
-  bead4,
-  bead5,
-  bead6,
-  bead7,
-  bead8,
-  bead9,
-  bead10,
-  bead11,
-  bead12,
+  bead13,
+  bead14,
+  bead15,
+  bead16,
+  bead17,
+  bead18,
+  bead19,
+  bead20,
+  bead21,
+  bead22,
+  bead23,
+  bead24,
 ];
 
 const rhinestones = [
