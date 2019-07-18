@@ -186,11 +186,11 @@ const Segment = styled.svg`
   position: absolute;
   top: -10px;
   left: -10px;
-  transform-origin: 270px 50%;
+  transform-origin: 280px 50%;
   animation: ${scaleAnimation};
   animation-delay: ${props => props.delay}s;
   @media screen and (max-width: 992px) {
-    transform-origin: 180px 50%;
+    transform-origin: 190px 50%;
   }
 `;
 
@@ -200,7 +200,7 @@ const calcDegree = (index, isMobile) => {
   if (isMobile) {
     segmentSize = 15;
   } else {
-    segmentSize = 30;
+    segmentSize = 28;
   }
   if (isMobile) {
     size = 180;
@@ -209,7 +209,7 @@ const calcDegree = (index, isMobile) => {
   }
   const radius = size / 2;
   const circumference = radius * 3.1415926 * 2;
-  const segments = circumference / segmentSize;
+  const segments = Math.round(circumference / segmentSize);
   const angleStep = 360 / segments;
   return index * angleStep;
 };
@@ -220,7 +220,7 @@ const calcDelay = (index, isMobile) => {
   if (isMobile) {
     segmentSize = 15;
   } else {
-    segmentSize = 30;
+    segmentSize = 28;
   }
   if (isMobile) {
     size = 180;
@@ -229,8 +229,8 @@ const calcDelay = (index, isMobile) => {
   }
   const radius = size / 2;
   const circumference = radius * 3.1415926 * 2;
-  const segments = circumference / segmentSize;
-  return (0.4 / segments) * index;
+  const segments = Math.round(circumference / segmentSize);
+  return (0.6 / segments) * index;
 };
 
 const DesktopAnimation = styled.div`
@@ -272,7 +272,7 @@ export default ({ modalContainer: { openModalVideo } }) => (
                       {colors.map((color, index) => (
                         <SegmentContainer degree={() => calcDegree(index)}>
                           <DesktopAnimation>
-                            <Segment delay={() => calcDelay(index, false)} width="350" height="350">
+                            <Segment delay={() => calcDelay(index, false)} width="300" height="300">
                               <circle
                                 cx="135"
                                 cy="145"
@@ -287,14 +287,14 @@ export default ({ modalContainer: { openModalVideo } }) => (
                             </Segment>
                           </DesktopAnimation>
                           <MobileAnimation>
-                            <Segment delay={() => calcDelay(index, true)} width="300" height="300">
+                            <Segment delay={() => calcDelay(index, true)} width="200" height="200">
                               <circle
                                 cx="95"
                                 cy="100"
                                 r="95"
                                 fill="transparent"
                                 stroke={color}
-                                strokeDasharray="18, 5000"
+                                strokeDasharray="16, 5000"
                                 strokeWidth="6"
                                 strokeLinecap="round"
                                 transform="rotate(-5,95,95)"
