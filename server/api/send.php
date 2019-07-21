@@ -69,7 +69,6 @@ $_POST['decoration_type'] && $details .= addString('Тип украшений', 
 $_POST['foot_size'] && $details .= addString('Размер ноги', $_POST['foot_size']);
 $_POST['gift'] && $details .= addString('Подарок', $_POST['gift']);
 
-$template = file_get_contents("order.html");
 $subject = 'Заказ';
 
 //письмо заказчику
@@ -79,6 +78,7 @@ if ($_POST['email']) {
     $subject = 'Запрос буклета';
 }
 
+$template = file_get_contents("order.html");
 //письмо в базу
 sendEmail(
     'info@ivaleshi.ru',
