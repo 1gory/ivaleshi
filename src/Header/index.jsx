@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import bg from './bg.jpg';
 import videoPreview from './videoPreview.jpg';
 import playIcon from './play-icon.svg';
+import colors from './animationColors';
 
 const Background = styled.header`
   padding-bottom: 560px;
@@ -83,7 +84,6 @@ const VideoWrapper = styled.div`
 const Preview = styled.img`
   width: 260px;
   border-radius: 50%;
-  border: 2px solid #fff;
   cursor: pointer;
   @media screen and (max-width: 992px) {
     width: 180px;
@@ -117,6 +117,134 @@ const Description = styled.div`
   }
 `;
 
+const scale = keyframes`
+   0% {
+    transform: scale(1, 1);
+  }
+  18% {
+    transform: scale(0.01, 0.01);
+  }
+  33% {
+    transform: scale(0.01, 0.01);
+  }
+  51% {
+    transform: scale(1, 1);
+  }
+`;
+
+const rotate = keyframes`
+   0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+const rotateAnimation = () => css`
+  ${rotate} 5.5s infinite linear;
+`;
+
+const scaleAnimation = () => css`
+  ${scale} 2.5s infinite linear;
+`;
+
+const Animation = styled.div`
+  position: relative;
+  display: inline-block;
+  width: 270px;
+  height: 265px;
+  text-align: center;
+  @media screen and (max-width: 992px) {
+    width: 180px;
+    height: 180px;
+  }
+`;
+
+const AnimationBorder = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  padding: 0px;
+  animation: ${rotateAnimation};
+`;
+
+const SegmentContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform-origin: 50% 50%;
+  transform: rotate(${props => props.degree}deg);
+`;
+
+const Segment = styled.svg`
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  transform-origin: 280px 50%;
+  animation: ${scaleAnimation};
+  animation-delay: ${props => props.delay}s;
+  @media screen and (max-width: 992px) {
+    transform-origin: 190px 50%;
+  }
+`;
+
+const calcDegree = (index, isMobile) => {
+  let segmentSize;
+  let size;
+  if (isMobile) {
+    segmentSize = 15;
+  } else {
+    segmentSize = 28;
+  }
+  if (isMobile) {
+    size = 180;
+  } else {
+    size = 270;
+  }
+  const radius = size / 2;
+  const circumference = radius * 3.1415926 * 2;
+  const segments = Math.round(circumference / segmentSize);
+  const angleStep = 360 / segments;
+  return index * angleStep;
+};
+
+const calcDelay = (index, isMobile) => {
+  let segmentSize;
+  let size;
+  if (isMobile) {
+    segmentSize = 15;
+  } else {
+    segmentSize = 28;
+  }
+  if (isMobile) {
+    size = 180;
+  } else {
+    size = 270;
+  }
+  const radius = size / 2;
+  const circumference = radius * 3.1415926 * 2;
+  const segments = Math.round(circumference / segmentSize);
+  return (0.6 / segments) * index;
+};
+
+const DesktopAnimation = styled.div`
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+`;
+
+const MobileAnimation = styled.div`
+  display: none;
+  @media screen and (max-width: 992px) {
+    display: inline-block;
+  }
+`;
 export default ({ modalContainer: { openModalVideo } }) => (
   <>
     <Background />
@@ -139,13 +267,51 @@ export default ({ modalContainer: { openModalVideo } }) => (
             <PositionWrapper>
               <VideoWrapper>
                 <PreviewWrapper onClick={() => openModalVideo()}>
-                  <PlayIcon src={playIcon} />
-                  <Preview src={videoPreview} />
+                  <Animation>
+                    <AnimationBorder>
+                      {colors.map((color, index) => (
+                        <SegmentContainer degree={() => calcDegree(index)}>
+                          <DesktopAnimation>
+                            <Segment delay={() => calcDelay(index, false)} width="300" height="300">
+                              <circle
+                                cx="135"
+                                cy="145"
+                                r="135"
+                                fill="transparent"
+                                stroke={color}
+                                strokeDasharray="25, 5000"
+                                strokeWidth="8"
+                                strokeLinecap="round"
+                                transform="rotate(-5,95,95)"
+                              />
+                            </Segment>
+                          </DesktopAnimation>
+                          <MobileAnimation>
+                            <Segment delay={() => calcDelay(index, true)} width="200" height="200">
+                              <circle
+                                cx="95"
+                                cy="100"
+                                r="95"
+                                fill="transparent"
+                                stroke={color}
+                                strokeDasharray="16, 5000"
+                                strokeWidth="6"
+                                strokeLinecap="round"
+                                transform="rotate(-5,95,95)"
+                              />
+                            </Segment>
+                          </MobileAnimation>
+                        </SegmentContainer>
+                      ))}
+                    </AnimationBorder>
+                    <PlayIcon src={playIcon} />
+                    <Preview src={videoPreview} />
+                  </Animation>
                 </PreviewWrapper>
                 <Description>
                   Посмотрите, как валенки заботятся
                   <br />
-                  о вашем здоровье
+о вашем здоровье
                 </Description>
               </VideoWrapper>
             </PositionWrapper>
