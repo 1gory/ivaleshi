@@ -1,4 +1,5 @@
 import { Container } from 'unstated';
+import ym from 'react-yandex-metrika';
 
 export default class BookletContainer extends Container {
   state = {
@@ -44,6 +45,7 @@ export default class BookletContainer extends Container {
         this.setState({ formState: 'fail' });
         throw Error(response.statusText);
       }
+      ym('reachGoal', 'booklet');
       this.setState({ formState: 'success' });
     });
   };

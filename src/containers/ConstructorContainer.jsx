@@ -1,4 +1,5 @@
 import { Container } from 'unstated';
+import ym from 'react-yandex-metrika';
 
 const basePrice = 3600;
 const halfPrice = 3000;
@@ -147,6 +148,7 @@ class ConstructorContainer extends Container {
         this.setState({ formState: 'fail' });
         throw Error(response.statusText);
       }
+      ym('reachGoal', 'lead');
       this.setState({ formState: 'success' });
     });
   };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Subscribe } from 'unstated';
+import { YMInitializer } from 'react-yandex-metrika';
 import ReactBreakpoints from 'react-breakpoints';
 import Description from './Description';
 import Constructor from './Constructor';
@@ -28,6 +29,7 @@ const breakpoints = {
 
 export default () => (
   <div>
+    <YMInitializer accounts={[53009329]} options={{ webvisor: true }} />
     <Subscribe to={[ModalContainer]}>
       {modalContainer => <Navbar modalContainer={modalContainer} />}
     </Subscribe>
