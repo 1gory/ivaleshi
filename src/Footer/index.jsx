@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, Element } from 'react-scroll';
-import {
-  PaddingGrid as Grid,
-  PaddingRow as Row,
-  PaddingCol as Col,
-} from '../grid';
+import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import NavButton from '../generic/NavButton';
+import Requisites from './Requisites';
 import Map from './Map';
 // import socialVK from '../icons/social-vk.svg';
 import socialIG from '../icons/social-ig-black.svg';
@@ -186,25 +183,18 @@ export default () => (
         <Col lg={7} xs={12}>
           <ContactsWrapper>
             {/* <ContactLink href="/"><ContactIcon src={socialVK} /></ContactLink> */}
-            <ContactLink
-              href="https://www.instagram.com/ivaleshi.ru/"
-              target="_blank"
-            >
+            <ContactLink href="https://www.instagram.com/ivaleshi.ru/" target="_blank">
               <ContactIcon src={socialIG} />
             </ContactLink>
-            <ContactLink
-              href="https://api.whatsapp.com/send?phone=79999995655"
-              target="_blank"
-            >
+            <ContactLink href="https://api.whatsapp.com/send?phone=79999995655" target="_blank">
               <ContactIcon src={socialWA} />
             </ContactLink>
-            <ContactPhone href="tel:+7 (999) 999-56-55">
-              +7 (999) 999-56-55
-            </ContactPhone>
+            <ContactPhone href="tel:+7 (999) 999-56-55">+7 (999) 999-56-55</ContactPhone>
           </ContactsWrapper>
         </Col>
       </Row>
     </Grid>
     <Map />
+    <Requisites />
   </Wrapper>
 );
