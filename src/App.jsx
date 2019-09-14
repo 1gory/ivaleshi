@@ -21,6 +21,7 @@ import BookletContainer from './containers/BookletContainer';
 import BottomPhone from './BottomPhone';
 import QualitiesBlock from './QualitiesBlock';
 import MobileMenu from './MobileMenu';
+import OurWorks from './OurWorks';
 
 const breakpoints = {
   mobile: 992,
@@ -38,10 +39,7 @@ export default () => (
     </Subscribe>
     <Subscribe to={[ConstructorContainer, ModalContainer]}>
       {(constructorContainer, modalContainer) => (
-        <Constructor
-          constructorContainer={constructorContainer}
-          modalContainer={modalContainer}
-        />
+        <Constructor constructorContainer={constructorContainer} modalContainer={modalContainer} />
       )}
     </Subscribe>
     <Subscribe to={[ConstructorContainer]}>
@@ -53,17 +51,13 @@ export default () => (
     </Subscribe>
     <Description />
     <Subscribe to={[ModalContainer]}>
-      {modalContainer => (
-        <Info modalContainer={modalContainer} />
-      )}
+      {modalContainer => <Info modalContainer={modalContainer} />}
     </Subscribe>
+    <OurWorks />
     <QualitiesBlock />
     <Subscribe to={[ConstructorContainer, ModalContainer]}>
       {(constructorContainer, modalContainer) => (
-        <Catalog
-          constructorContainer={constructorContainer}
-          modalContainer={modalContainer}
-        />
+        <Catalog constructorContainer={constructorContainer} modalContainer={modalContainer} />
       )}
     </Subscribe>
     <OrderSteps />
@@ -74,10 +68,7 @@ export default () => (
     <Footer />
     <Subscribe to={[ConstructorContainer, ModalContainer]}>
       {(constructorContainer, modalContainer) => (
-        <Modal
-          constructorContainer={constructorContainer}
-          modalContainer={modalContainer}
-        />
+        <Modal constructorContainer={constructorContainer} modalContainer={modalContainer} />
       )}
     </Subscribe>
     <Subscribe to={[ModalContainer]}>
