@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 import styled, { css, keyframes } from 'styled-components';
 import { PaddingGrid as Grid, PaddingRow as Row, PaddingCol as Col } from '../grid';
 import bg from './bg.jpg';
 import videoPreview from './videoPreview.jpg';
 import playIcon from './play-icon.svg';
 import colors from './animationColors';
+import arrowDown from './arrowDown.svg';
 
 const Background = styled.header`
-  padding-bottom: 560px;
+  padding-top: 180px;
+  padding-bottom: 80px;
   background-color: #ff3300;
   background-image: url(${bg});
   background-position: center top;
@@ -19,7 +22,46 @@ const Background = styled.header`
     background-position-y: 0;
   }
   @media screen and (max-width: 767px) {
-    padding-bottom: 350px;
+    padding-top: 106px;
+    padding-bottom: 50px;
+  }
+`;
+
+const AppealText = styled.h3`
+  margin: 0;
+  font-size: 87px;
+  line-height: 93px;
+  font-family: 'Museo-Regular', sans-serif;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+  @media screen and (max-width: 767px) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+`;
+
+const animeArrow = keyframes`
+  0% {
+    opacity:1;
+  }
+  50% {
+    opacity:0.5;
+  }
+  100% {
+    opacity:1;
+  }
+`;
+
+const DownArrow = styled.img`
+  width: 100px;
+  margin: 20px auto;
+  display: block;
+  cursor: pointer;
+  animation: 2s ${animeArrow} ease-out infinite;
+  @media screen and (max-width: 767px) {
+    width: 50px;
+    margin: 0 auto;
   }
 `;
 
@@ -245,9 +287,33 @@ const MobileAnimation = styled.div`
     display: inline-block;
   }
 `;
+
 export default ({ modalContainer: { openModalVideo } }) => (
   <>
-    <Background />
+    <Background>
+      <Grid>
+        <AppealText>
+          Решите проблему
+          <br />
+          замёрзших ног
+          <br />
+          модно и просто!
+        </AppealText>
+        <Link
+          to="constructor"
+          spy={false}
+          smooth
+          hashSpy={false}
+          offset={-100}
+          duration={500}
+          delay={50}
+          isDynamic
+          ignoreCancelEvents={false}
+        >
+          <DownArrow src={arrowDown} />
+        </Link>
+      </Grid>
+    </Background>
     <Offer>
       <Grid>
         <Row>
